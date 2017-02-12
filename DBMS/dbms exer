@@ -1,0 +1,56 @@
+create table customer( 
+id bigint(20) NOT NULL auto_increment,
+name varchar(255) NOT NULL,
+email_id varchar(255),
+phone int(12) not null,  
+primary key (id),
+);
+
+insert into customer(id, order_id, name, email_id, phone) values (10001, 20001, 'Jay', 'jay@ttn.com', 9711268368);
+
+Create table sales_person (
+id bigint(20) NOT NULL AUTO_INCREMENT,
+name varchar(255) NOT NULL,
+email varchar(255) NOT NULL,
+phone int(10) NOT NULL,
+primary key (id),
+);
+
+insert into sales_person(id, order_id, name, email, phone) values (30001, 20001, 'Rahul', 'rahul@ttn.com', 87778978);
+
+Create table orders(
+id bigint(20) NOT NULL AUTO_INCREMENT,
+customer_id bigint(20) NOT NULL,
+sales_person_id bigint(20) NOT NULL,
+order_amount int(20) NOT NULL,
+datetime default now(),
+primary key (id),
+);
+
+insert into orders(id, customer_id, sales_person_id, order_amount) values (20001, 10001, 30001, 10500);
+
+alter table orders add constraint fk_customer_id foreign key(customer_id) references customer(id);
+
+alter table orders add constraint fk_sales_person_id foreign key(sales_person_id) references sales_person(id);
+
+SELECT sales_person.*, orders.* FROM sales_person JOIN orders ON sales_person.id = orders.sales_person_id where COUNT (DISTINCT orders.sales_person_id) <0;    
+
+Q5 -> SELECT sales_person.*, orders.sales_person_id, count(*) count FROM sales_person JOIN orders ON sales_person.id = orders.sales_person_id GROUP BY sales_person.id having count>1;
+
+
+Q6 -> SELECT sales_person.*, orders.* FROM sales_person JOIN orders ON sales_person.id = orders.sales_person_id;
+
+Q7  ->  alter table customer add index email(email_id);
+
+show index from customer;
+
+
+
+Q8-> SELECT O.order_id As OrderNumber, TableA.MaxAmount, TableA.id as SalesPerson_id, TableA.Name as SalesPerson, C.id as Customer_id, C.Name as Customer FROM orders O, customer C,
+((SELECT S.name, S.id, MAX(O.order_amount) as MaxAmount
+FROM sales_person S, orders O
+WHERE O.sales_person_id = S.id
+GROUP BY S.id) AS TableA)
+WHERE O.sales_person_id = TableA.id
+AND O.customer_id= C.id
+AND O.order_amount = TableA.MaxAmount;
