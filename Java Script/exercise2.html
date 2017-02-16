@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+         <script type="text/javascript">
+             function pal()
+			 {
+               var rev = "";
+               var str = document.getElementById("str").value;
+               var l = str.length;
+               for(var i=l; i>=0; i--)
+			   {
+               rev= rev+str.charAt(i);
+               }
+               if(str == rev)
+			   {
+               alert(str+" is Palindrome");
+               }
+			   else
+			  {
+               alert(str+" is not Palindrome");
+              }
+            }
+        </script>
+
+        Enter a String: <input type="text" id="str"  /><br />
+        <input type="submit" value="Check" onclick="pal();"/>
+
+</body>
+</html>
