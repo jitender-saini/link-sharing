@@ -18,7 +18,7 @@
 	<div align="center">	</div>
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script>
-		$(document).ready(function(){
+		jQuery(document).ready(function(){
 		$('select').on('change',function () {
 			$('div').text($('div').text()+$( 'select option:selected' ).text());
 			});

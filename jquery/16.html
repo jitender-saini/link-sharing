@@ -38,8 +38,7 @@
 <button>Get External Content</button>
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-        console.log("hello");
+    jQuery(document).ready(function(){
         $("button").click(function() {
             $.ajax({url: "students_json.js",type:'GET',success:function(result) {
                 var data = $.parseJSON(result);
