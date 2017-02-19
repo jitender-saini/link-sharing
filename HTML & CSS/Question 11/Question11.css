@@ -46,7 +46,7 @@ margin:0px 30px;
     text-align:left;
     margin:0 auto;
      padding: 8px
-     }
+}
 
 .cont{
 text-align:left;
@@ -76,11 +76,7 @@ img{
   margin-left: 10px;
   margin-right: 10px;
 }
-.gallery{
- width:90%;
- background:	#D3D3D3;
- margin:auto;
-}
+
 
 p{
 font-style: italic;

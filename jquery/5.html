@@ -1,0 +1,22 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>change the font size of ".target" which has parent element with id name "#main </h1>
+	<div><p>p tag and parent tag with no id or class</p></div>
+	<div id="main"><p class="target" >p tag class "target" and parent having id "main"  </p></div>
+	<div><p class="target">p tag class "target" and parent having no id </p></div>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		$('#main > .target').css( "font-size", "30px" );
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+  <style type="text/css">
+    .style1 {
+      border-style: solid;
+      border-width: 1px;
+      }
+  </style>
+</head>
+<body>
+	<h1>We have bind a click funtion to parent div but we want stop it from performing when user clicks on its child li.</h1>
+<br/>
+ <div id="div1" style="text-align:center" class="style1" >
+   div tag content
+   <ul style="text-align: center; list-style-position:inside;" >
+     <li >
+       li content 1
+     </li>
+     <li >
+      li content 2
+     </li>
+   </ul>
+ </div>
+ <script src="http://code.jquery.com/jquery.min.js"></script>
+ <script>
+  $(document).ready(function(){
+    $("#div1").on("click", function(e) {
+      alert("div clicked");
+     });
+     $("li").on("click", function(e) {
+      alert("li clicked")
+      e.stopPropagation();
+      });
+    });
+  </script>
+</body>
+</html>

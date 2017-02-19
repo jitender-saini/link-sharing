@@ -1,0 +1,20 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>After page load change the HTML of div element with "p" element</h1>
+  <div>Random Text</div>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+   $( document ).ready(function() {
+   $( 'div' ).replaceWith( "<p>" + $( 'div' ).text() + "</p>" );
+   });
+ </script>
+</body>
+</html>

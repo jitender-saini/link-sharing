@@ -1,0 +1,31 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>Click event not working on element which added dynamicly or via script, make it work using .on method</h1>
+  <div align="center">
+  <form name="f1" method="get" action="jquery3.htm">
+  <input type="text" placeholder="username" />
+  <br/>
+  <input type="password" placeholder="password"/>
+  <br/>
+  </form>
+  </div>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+    $('form').append(
+    "<input value='Sign-in' id='b1' type='button' id='sub' />");
+    $('#b1').on("click",function(){
+      alert("Button clicked");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>Chagne color of every cell which has number larger than 10</h1><br/>
+  <table style="width: 482px; height: 237px border-width=7px;">
+    <tr>
+      <td>2</td>
+      <td>112</td>
+      <td>85</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>59</td>
+      <td>95</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>22</td>
+      <td>7</td>
+      <td>95</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>5</td>
+      <td>7</td>
+      <td>21</td>
+    </tr>
+  </table>
+  <button id="b1">Click Me</button>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#b1').click(function() {
+        $('td').each(function() {
+          if ($(this).text() > 10) {
+            $(this).css("background-color", "cyan");
+            }
+          });
+        });
+    });
+  </script>
+</body>
+</html>

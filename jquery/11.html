@@ -1,0 +1,21 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>on clicking on "anchor" tag. It is taking us to google home page. Stop it from happening.</h1>
+  <br/>
+  <a href="https://www.google.com">google</a>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $( "a" ).click(function( e ) {
+      e.preventDefault();
+      });
+</script>
+</body>
+</html>

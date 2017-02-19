@@ -1,0 +1,28 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>Get dropdown selected value on onchanage event and append in div container</h1>
+	<br/>
+	<select id="myselect">
+    <option value="ford">Ford</option>
+    <option value="Chevorlet">Chevorlet</option>
+    <option value="volkswagon">Volkswagon</option>
+    <option value="renault">Renault</option>
+    </select>
+	<div align="center">	</div>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		$('select').on('change',function () {
+			$('div').text($('div').text()+$( 'select option:selected' ).text());
+			});
+		});
+	</script>
+</body>
+</html>

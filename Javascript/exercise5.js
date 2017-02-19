@@ -7,7 +7,7 @@
                         console.log(employees[k]);
                 }
             //group employee on the basis of their age
-             console.log("Grouping Employees");
+            console.log("Grouping Employees");
             employees.sort(function (a,b) {
                 return a.Age-b.Age;
             });

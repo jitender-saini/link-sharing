@@ -1,0 +1,59 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+  <style>
+    table{
+      width: 60%;
+      margin-bottom: 5px;
+  		border-collapse: collapse;
+      }
+    table, th, td{
+      border: 1px solid #cdcdcd;
+      }
+    table th, table td{
+      padding: 10px;
+      text-align: center;
+      }
+  </style>
+</head>
+<body>
+	<h1>Add cross button on row and bind click function which make a delete request to server, after success event remove the row from dom</h1>
+<div id="div1"><h2>jQuery AJAX Change </h2></div>
+<table>
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Delete Row</th>
+        </tr>
+    </thead>
+    <tbody id="bod">
+    </tbody>
+</table>
+<button>Get External Content</button>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        console.log("hello");
+        $("button").click(function() {
+            $.ajax({url: "students_json.js",type:'GET',success:function(result) {
+                var data = $.parseJSON(result);
+                var new_row="";
+                $.each(data, function( index, value ){
+                    new_row+="<tr><td>" + value.name +"</td><td>" + value.age +"</td><td><button class='btn-delete'>Delete</button></td></tr>";
+                });
+                $("#bod").append(new_row);
+                jQuery(document).on('click', '.btn-delete', function () {
+                     $(this).parents('tr').remove();
+                });
+            }});
+        });
+    });
+</script>
+</body>
+</html>

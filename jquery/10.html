@@ -1,0 +1,36 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>Create a dropdown menu using hover method in jquery</h1>
+  <br/>
+  <ul class="hover">
+    <li class="hoverli">
+    List
+    <ul class="menu">
+      <li><a href="#">option1</a></li>
+      <li><a href="#">option2</a></li>
+      <li><a href="#">option3</a></li>
+      <li><a href="#">option4</a></li>
+      </ul>
+    </li>
+  </ul>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".hoverli").hover(
+        function () {
+         $('ul.menu').slideDown('medium');
+        },
+      function () {
+         $('ul.menu').slideUp('medium');
+      });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Bootcamp form">
+	<meta name="author" content="Jitender Saini">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To The New</title>
+</head>
+<body>
+	<h1>Retrive the data from server using ajax get call</h1>
+  <div id="div1">Hello and Welcome to jQuery</div>
+  <button type="button">Click Me!</button>
+	<div class="text"> </div>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+      jQuery(document).ready(function(){
+          $("button").click(function() {
+              $.ajax({
+                url: "data.txt",
+                type:'GET',
+                success:function(result) {
+                  setTimeout(function(){
+                       $(".text").html(result);
+                  });
+                },error:function(){
+              }});
+          });
+      });
+  </script>
+</body>
+</html>
