@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script>
+    function capitalize(string) {
+      string = string.toLowerCase().split(' ');
+      for(var i = 0; i < string.length; i++){
+        string[i] = string[i].split('');
+        string[i][0] = string[i][0].toUpperCase();
+        string[i] = string[i].join('');
+      }
+      console.log(string);
+    }
+    capitalize('here are a bunch of words')
+    </script>
+  </body>
+</html>

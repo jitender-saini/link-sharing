@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>To The New</title>
+<style>
+    li {
+        list-style-type: none;
+        font-size: 16pt;
+    }
+    .mail {
+        margin: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 400px;
+        background: #D8F1F8;
+        border: 1px soild silver;
+    }
+    .mail h2 {
+        margin-left: 38px;
+    }
+    input {
+        font-size: 20pt;
+    }
+    input submit {
+        font-size: 12pt;
+    }
+    .rq {
+        color: #FF0000;
+        font-size: 10pt;
+    }
+</style>
+</head>
+<body>
+<div class="mail">
+<h2>Enter your Name and Submit</h2>
+<form name="form1" action="#">
+<ul>
+<li><input type='text' id="fname" placeholder="First Name"/></li>
+<li class="rq">*Enter alphabets only.</li>
+<li><input type='text' id="lname" placeholder="Last Name"/></li>
+<li class="rq">*Enter alphabets only.</li>
+<li><input type='text' id="cnum" placeholder="Contact Number"/></li>
+<li class="rq">*Only digits [0-9], length should be 10.</li>
+<li><input type='date' id="dob" placeholder="Date of Birth"/></li>
+<li>&nbsp;</li>
+<li><input type="submit" name="submit" value="Submit" onclick="myFunction()" /></li>
+<li>&nbsp;</li>
+</ul>
+</form>
+</div>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script >
+  var fname=document.getElementById("fname");
+  var lname=document.getElementById("lname");
+  var cnum=document.getElementById("cnum");
+  var dob=document.getElementById("dob");
+  var letters = /^[A-Za-z]+$/;
+  var phoneno = /^\d{10}$/;
+  function myFunction(){
+      //Validation for not null
+      if (fname.value == ""||lname.value == ""||cnum.value == ""||dob.value == ""){
+        alert("Please input all Values");
+        }
+
+      try{
+        //First Name Validatios
+        if(fname.value.match(letters)){
+          console.log("Valid First Name");
+        }
+        else{
+          throw "Input alphabet characters only in first name";
+        }
+
+        //Last Name Validations
+        if(lname.value.match(letters)){
+          console.log("Valid Last Name");
+        }
+        else{
+          throw "Input alphabet characters only in last name";
+        }
+
+        //Mobile Num Validations
+        if(cnum.value.match(phoneno)){
+            console.log("Valid Contact Number");
+          }
+          else{
+            throw "Enter valid mobile number";
+          }
+    }
+      catch (e3) {
+        alert(e3);
+      }
+    }
+</script>
+</body>
+</html>

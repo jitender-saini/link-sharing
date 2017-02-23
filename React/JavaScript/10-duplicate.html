@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function removeDuplicate(string) {
+      var mapping = {};
+      var newString = '';
+      for (var i = 0; i < string.length; i++) {
+        if (!(string[i] in mapping)) {
+          newString += string[i];
+          mapping[string[i]] = true;
+        }
+      }
+      return newString;
+    }
+    console.log(removeDuplicate('banana'));
+    </script>
+  </body>
+</html>

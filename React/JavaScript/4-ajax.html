@@ -1,0 +1,75 @@
+
+<html>
+<head>
+<script src="jquery-3.1.1.min.js"></script>
+<style>
+  table{
+        width: 80%;
+        margin-bottom: 20px;
+		border-collapse: collapse;
+    }
+    table, th, td{
+        border: 1px solid #cdcdcd;
+    }
+    table th, table td{
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<div id="div1"><h2>jQuery AJAX Change </h2></div>
+<table>
+  <thead>
+    <tr>Results:</tr>
+    <tr>
+    <th>address_components</th>
+                <th>formatted_address</th>
+                <th>geometry</th>
+                <th>place_id</th>
+                <th>types</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+    </tbody>
+    </table>
+<button>Get External Content</button>
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("button").click(function() {
+        $.ajax({
+          url: "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452",
+          type:'GET',
+          dataType: "json",success:function(data) {
+            var tableRow, col1, col2;
+            var resultSet= data.results;
+            console.log(resultSet);
+            $.each(resultSet, function(i) {
+              var address=resultSet[i].address_components;
+              col1 = "longName : <ul>";
+              $.each(address,function(j){
+                col1 += "<li>" +address[j].long_name+"</li>";
+                //"<li>shortName : " +address[j].short_name+"</li>" +
+                //"<li>Type : " +address[j].types[0] + "</li>";
+              });
+              col1 += "</ul>";
+              col2 = "<ul><li>Location Type: " +resultSet[i].geometry.location_type
+                +"</li><li>Lat :"+ resultSet[i].geometry.location.lat
+                +"</li><li>Lon : "+ resultSet[i].geometry.location.lng + "</li></ul>";
+
+              tableRow+="<tr><td id='list'>"+col1+"</td><td>"
+                    +resultSet[i].formatted_address+"</td><td>"
+                    +col2+"</td><td>"+resultSet[i].place_id
+                    +"</td><td>"+resultSet[i].types+"</td></tr>";
+                //console.log("done");
+              $("#table").append(tableRow);
+                //$("#list").append(col1);
+            });
+          }});
+          });
+        });
+  </script>
+
+</body>
+</html>

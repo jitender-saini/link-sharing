@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<body>
+  <script type="text/javascript">
+    function findMaxDuplicate(string){
+      var chars = {};
+      for (var i = 0; i < string.length; i++) {
+       if(chars[string[i]]){
+         chars[string[i]]++;
+       }
+       else{
+         chars[string[i]] = 1;
+       }
+       //console.log(chars);
+     }
+      //console.log(chars);
+      result = string[0];
+     resultCount = chars[result];
+     for(var char in chars){
+     if(chars[char] > resultCount){
+       result = char;
+       resultCount = chars[char];
+       }
+     }
+     return "Highest occurred character is: " + result + " with count = " + resultCount
+    }
+    console.log( findMaxDuplicate("sssdfkjhefhfwuifhuihaaaaaaaasjkusssaaayenjkksdhui") );
+  </script>
+</body>
+</html>

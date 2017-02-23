@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>To The New</title>
+<style>
+#clock{
+	color:blue;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+Digitalc1ock
+<div id="clock"> </div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+		var counter=0;
+		var t,d,temp;
+		var d2;
+		//jQuery(document).ready(function() {
+			d = new Date();
+			d2 = new Date(d);
+			d2.setMinutes (d.getMinutes() + 1 );
+		//});
+    function digclock(timeInString){
+	    document.getElementById("clock").innerHTML = timeInString;
+		}
+    var myVar = setInterval(function() {
+			d = new Date();
+			var timeInString = d.toLocaleTimeString()
+			digclock(timeInString);
+			counter++;
+			if(timeInString === d2.toLocaleTimeString()) {
+				alert("Time UP");
+				clearInterval(myVar);
+			}
+		},1000)
+  </script>
+</body>
+</html>

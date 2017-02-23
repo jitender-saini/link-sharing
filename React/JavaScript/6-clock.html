@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>To The New</title>
+<style>
+#clock{
+	color:blue;
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+Digital Clock
+<div id="clock"> </div>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+  <script>
+		var counter=0;
+    function digclock(){
+	    var d = new Date();
+	    var t = d.toLocaleTimeString();
+	    document.getElementById("clock").innerHTML = t;
+			}
+      var myVar = setInterval(function(){
+				digclock();
+				counter++;
+				if(counter>7){
+					alert("Time UP");
+					clearInterval(myVar);
+				}
+				console.log(counter);
+			},1000)
+  </script>
+</body>
+</html>

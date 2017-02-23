@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    function mySandwich(param1, param2, callback) {
+      alert('Started making my sandwich.\n\nIt has: ' + param1 + ', ' + param2);
+      callback(callback2);
+    }
+    function callback2(finalCallback) {
+      alert('Started Eating my sandwich.');
+      finalCallback();
+    }
+    mySandwich('ham', 'cheese', function() {
+      callback2(function() {
+        alert('Finished eating my sandwich.');
+      });
+
+    });
+    </script>
+  </body>
+</html>

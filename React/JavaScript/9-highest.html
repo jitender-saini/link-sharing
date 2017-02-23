@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var findMax = function (str) {
+    var max = 0,
+    var maxChar = '';
+      str.split('').forEach(function(char){
+      if(str.split(char).length > max) {
+        max = str.split(char).length;
+        maxChar = char;
+      }
+      });
+      return maxChar;
+      };
+      findMax('sssdfkjhefhfwuifhuihaaaaaaaasjkusssaaayen');
+    </script>
+  </body>
+</html>
