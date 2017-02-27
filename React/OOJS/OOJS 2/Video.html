@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+<body>
+  <video width="840" height="480" controls  id="vid" autoplay="autoplay">
+    <source src="mov_bbb.mp4" type="video/mp4">
+  </video>
+  <table border="2">
+    <tr><td> Total-Time </td><td>Current-Time</td> <td>Remaining-Time</td> </tr>
+    <tr><td id="totalTime"></td><td id="curentTime"></td> <td id="remainingTime"></td> </tr>
+  </table>
+  <script>
+    var video = document.getElementById("vid");
+    video.ontimeupdate=function(){
+      $('#totalTime').html(parseInt(video.duration));
+      $('#curentTime').html(parseInt(video.currentTime));
+      $('#remainingTime').html(parseInt(video.duration)-parseInt(video.currentTime));
+      }
+  </script>
+</body>
+</html>

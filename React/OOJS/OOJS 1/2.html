@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var arry = [1,2,3,4,5,6,7,8,9];
+    var i=0;
+    function myFunction() {
+      var myVar = setInterval(function(){
+        console.log(arry[i]);
+        i++;
+        if(i>=arry.length){
+					clearInterval(myVar);
+				}
+      }, 1000);
+    }
+    myFunction();
+
+    </script>
+  </body>
+</html>

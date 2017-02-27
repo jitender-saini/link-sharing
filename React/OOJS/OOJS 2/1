@@ -1,0 +1,26 @@
+<html>
+   <head>
+   <title>To The New</title>
+   </head>
+   <body>
+     <h1>Create a function which returns number of invocations and number of instances of a function.</h1>
+ <script>
+    var countG=0;
+    var countN=0
+     function count(){
+       if(this instanceof count){
+           countN++;
+           console.log("counted with new :->");
+           console.log(countN);
+         }
+       else{
+           countG++;
+           console.log("counted without new :->");
+           console.log(countG);
+         }
+     }
+    count();
+    new count();
+ </script>
+</body>
+</html>

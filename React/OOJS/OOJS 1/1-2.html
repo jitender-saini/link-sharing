@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<body>
+  <script type="text/javascript">
+    var createHierarchy=function(){
+      person={name:"jay",age:22,phone:8787878787}
+      employee=Object.create(person);
+      employee.salary=23332;
+      employee.id=101;
+      employee.isAdmin=true;
+      developer=Object.create(employee);
+      developer.compantancy="jvm";
+      console.log(developer);
+      console.log(
+        "Name-:",developer.name,
+        "|| Age-:",developer.age,
+        "|| Salary-:",developer.salary,
+        "|| isAdmin-:",developer.isAdmin,
+        "|| Compantancy-:",developer.compantancy
+      );
+    }
+    createHierarchy();
+  </script>
+</body>
+</html>
