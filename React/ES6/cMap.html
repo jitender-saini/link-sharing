@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+class CustomMap {
+ constructor() {
+     this.map=new Array();
+ }
+ set(key,value) {
+     let index=0;
+     if(this.map.find((intArray)=>{
+         index++;
+         return intArray[0]===key
+       }))
+        this.map[index-1][1]=value;
+          else
+     this.map.push([key,value]);
+     return this.map;
+ }
+ delete(key) {
+     let index=0;
+     if(this.map.find((intArray)=>{
+         index++;
+         return intArray[0]===key
+       }))
+        this.map.splice(index-1,1);
+     return this.map;
+ }
+ get(key) {
+     let index=0;
+     if(this.map.find((intArray)=>{
+       index++;
+       return intArray[0]===key
+     }))
+        return this.map[index-1][1];
+ }
+ clear() {
+
+        this.map.splice(0,this.map.length);
+       return this.map;5
+   }
+ get size() {
+     return this.map.length;
+ }
+
+}
+    </script>
+  </body>
+</html>
