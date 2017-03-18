@@ -1,5 +1,0 @@
-task Demo {
-    doLast {
-        println "Hello I am new gradle file"
-    }
-}

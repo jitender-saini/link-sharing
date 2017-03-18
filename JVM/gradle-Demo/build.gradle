@@ -1,0 +1,110 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+group 'com.ttn'
+version '1.0'
+
+apply from: 'myTask.gradle'
+
+task hello(dependsOn: qestion6){
+    doLast {
+        println "hello world"
+    }
+}
+task helloWorld2(dependsOn: 'hello') {
+    doLast {
+        println "hello friends"
+    }
+}
+
+// Question 3
+sourceSets {
+    main {
+        resources {
+            exclude 'file1.txt'
+        }
+    }
+}
+/*
+jar {
+    exclude('file.txt')
+}*/
+
+//Question 5
+repositories{
+    //mavenLocal()
+    //mavenCentral()
+    maven {
+        url 'http://jcenter.bintray.com'
+    }
+}
+dependencies{
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+}
+
+println sourceSets.main.output.classesDir
+println sourceSets['main'].output.classesDir
+sourceSets {
+    println main.output.classesDir
+}
+sourceSets {
+    main {
+        println output.classesDir
+    }
+}
+
+// Iterate over the source sets
+sourceSets.all {
+    println name
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java','src/main/java2']
+
+        }
+
+        resources {
+            srcDirs = ['src/resources']
+        }
+    }
+}
+
+
+sourceSets {
+    // Note that just declaring this sourceSet creates two configurations.
+    main {
+        java {
+            srcDirs = ['src/main/java']
+            srcDirs = ['src/main/java2']
+
+        }
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'java-library-distribution'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+}
+
+// Task "distZip" added by plugin "java-library-distribution":
+distZip.shouldRunAfter(build)
+
+jar {
+    // Keep jar clean:
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+
+    manifest {
+        attributes 'Main-Class': 'com.somepackage.MainClass',
+                'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
+    }
+    // How-to add class path:
+    //     http://stackoverflow.com/questions/22659463/add-classpath-in-manifest-using-gradle
+    //     https://gist.github.com/simon04/6865179
+}

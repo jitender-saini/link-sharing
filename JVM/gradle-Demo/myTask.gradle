@@ -1,0 +1,5 @@
+task qestion6{
+    doLast {
+        println "Write a task in file mytasks gradle and use it in your build.gradle"
+    }
+}
