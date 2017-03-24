@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PercentageOfCharTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2017-03-24T14:39:21" hostname="jitender-saini" time="0.01">
+  <properties/>
+  <testcase name="Test the percentage of every type of input in the string[0]" classname="PercentageOfCharTest" time="0.002"/>
+  <testcase name="Test the percentage of every type of input in the string[1]" classname="PercentageOfCharTest" time="0.001"/>
+  <testcase name="Test the percentage of every type of input in the string[2]" classname="PercentageOfCharTest" time="0.0"/>
+  <testcase name="Test the percentage of every type of input in the string[3]" classname="PercentageOfCharTest" time="0.0"/>
+  <testcase name="Test the percentage of every type of input in the string[4]" classname="PercentageOfCharTest" time="0.001"/>
+  <testcase name="Test the percentage of every type of input in the string[5]" classname="PercentageOfCharTest" time="0.0"/>
+  <testcase name="Test the percentage of every type of input in the string[6]" classname="PercentageOfCharTest" time="0.001"/>
+  <testcase name="Test the percentage of every type of input in the string using ASCII codes[0]" classname="PercentageOfCharTest" time="0.001"/>
+  <testcase name="Test the percentage of every type of input in the string using ASCII codes[1]" classname="PercentageOfCharTest" time="0.0"/>
+  <testcase name="Test the percentage of every type of input in the string using ASCII codes[2]" classname="PercentageOfCharTest" time="0.0"/>
+  <testcase name="Test the percentage of every type of input in the string using ASCII codes[3]" classname="PercentageOfCharTest" time="0.0"/>
+  <testcase name="Test the percentage of every type of input in the string using ASCII codes[4]" classname="PercentageOfCharTest" time="0.0"/>
+  <testcase name="Test the percentage of every type of input in the string using ASCII codes[5]" classname="PercentageOfCharTest" time="0.001"/>
+  <testcase name="Test the percentage of every type of input in the string using ASCII codes[6]" classname="PercentageOfCharTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

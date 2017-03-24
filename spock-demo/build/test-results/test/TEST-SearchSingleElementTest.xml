@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SearchSingleElementTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2017-03-24T14:39:21" hostname="jitender-saini" time="0.004">
+  <properties/>
+  <testcase name="Finding one single element[0]" classname="SearchSingleElementTest" time="0.002"/>
+  <testcase name="Finding one single element[1]" classname="SearchSingleElementTest" time="0.0"/>
+  <testcase name="Finding all single elements in the list[0]" classname="SearchSingleElementTest" time="0.001"/>
+  <testcase name="Finding all single elements in the list[1]" classname="SearchSingleElementTest" time="0.0"/>
+  <testcase name="Finding one single element using XOR Operator[0]" classname="SearchSingleElementTest" time="0.0"/>
+  <testcase name="Finding one single element using XOR Operator[1]" classname="SearchSingleElementTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

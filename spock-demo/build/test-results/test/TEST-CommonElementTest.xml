@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CommonElementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-03-24T14:39:21" hostname="jitender-saini" time="0.003">
+  <properties/>
+  <testcase name="countCommon" classname="CommonElementTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

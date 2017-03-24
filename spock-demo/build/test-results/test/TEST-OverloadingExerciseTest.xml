@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="OverloadingExerciseTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-03-24T14:39:21" hostname="jitender-saini" time="0.005">
+  <properties/>
+  <testcase name="Overloading test[0]" classname="OverloadingExerciseTest" time="0.002"/>
+  <testcase name="Overloading test[1]" classname="OverloadingExerciseTest" time="0.002"/>
+  <testcase name="Overloading test[2]" classname="OverloadingExerciseTest" time="0.0"/>
+  <testcase name="Overloading test[3]" classname="OverloadingExerciseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

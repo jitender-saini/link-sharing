@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ReverseRemoveStringTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-03-24T14:39:21" hostname="jitender-saini" time="0.004">
+  <properties/>
+  <testcase name="reverseRemove() test 1" classname="ReverseRemoveStringTest" time="0.002"/>
+  <testcase name="reverseRemove() test 2" classname="ReverseRemoveStringTest" time="0.0"/>
+  <testcase name="reverseRemove() test 3" classname="ReverseRemoveStringTest" time="0.0"/>
+  <system-out><![CDATA[String length is less than 10
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SampleSpec" tests="7" skipped="1" failures="0" errors="0" timestamp="2017-03-24T14:39:21" hostname="jitender-saini" time="0.067">
+  <properties/>
+  <testcase name="welcomePerson" classname="SampleSpec" time="0.053"/>
+  <testcase name="welcomePersonFailure" classname="SampleSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="welcomePersonTestUsingWhere" classname="SampleSpec" time="0.008"/>
+  <testcase name="divisionHappyCase" classname="SampleSpec" time="0.001"/>
+  <testcase name="divisionSadCase" classname="SampleSpec" time="0.002"/>
+  <testcase name="welcomePersonTestUsingWHereAndUnroll[0]" classname="SampleSpec" time="0.001"/>
+  <testcase name="welcomePersonTestUsingWHereAndUnroll[1]" classname="SampleSpec" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
