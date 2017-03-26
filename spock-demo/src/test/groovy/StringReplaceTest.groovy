@@ -10,5 +10,6 @@ class StringReplaceTest extends Specification {
         getStr                      | expectedOutput
         ["jitender", "j", "J"]      | "Jitender"
         ["hello",'e',"o"]           | "hollo"
+        [" "," ", " " ]             | " "
     }
 }

@@ -16,6 +16,7 @@ class PercentageOfCharTest extends Specification {
         "akjdjksdfksdfjkwefukjsdnfksnfkjsldd"           | ["Uppercase":0.0,"Lowercase":100,"Digits":0.0, "Other":0.0]
         "&*^&(&*(&^&(&^%((^&(&*-+-*//*--+"              | ["Uppercase":0.0,"Lowercase":0.0,"Digits":0.0, "Other":100.0]
         "aADdGghHjJkKlLuUiIoO"                          | ["Uppercase":50.0,"Lowercase":50.0,"Digits":0.0, "Other":0.0]
+        " "                                              | ["Uppercase":0.0,"Lowercase":0.0,"Digits":0.0, "Other":100.0]
     }
 
     @Unroll

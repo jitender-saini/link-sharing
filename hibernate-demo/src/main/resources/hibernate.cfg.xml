@@ -23,8 +23,9 @@
 
         <!--Annotated entity class-->
         <!--<mapping class="com.hibernate.demo.Person"/>-->
-        <!--<mapping class="com.hibernate.demo.Employee"/>-->
+        <mapping class="com.hibernate.demo.Employee"/>
         <mapping class="com.hibernate.demo.Author"/>
+        <mapping class="com.hibernate.demo.Demo"/>
 
     </session-factory>
 </hibernate-configuration>

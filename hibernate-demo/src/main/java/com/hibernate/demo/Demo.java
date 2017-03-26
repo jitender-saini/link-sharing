@@ -1,21 +1,17 @@
 package com.hibernate.demo;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-
-@NamedQuery(name = "user.byId", query = "from Author where id = :id")
 @Entity
-public class Author {
+public class Demo {
     @Id()
     private int id;
     private String firstName;
-//    private String lastName;
     private int age;
-    //private Date dateOfBirth;
     private String gender;
 
-     public int getId() {
+    public int getId() {
         return id;
     }
 
@@ -31,14 +27,6 @@ public class Author {
         this.firstName = firstName;
     }
 
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-
     public int getAge() {
         return age;
     }
@@ -46,16 +34,6 @@ public class Author {
     public void setAge(int age) {
         this.age = age;
     }
-//
-//    public Date getDateOfBirth() {
-//        return dateOfBirth;
-//    }
-//
-//    public void setDateOfBirth(Date dateOfBirth) {
-//        this.dateOfBirth = dateOfBirth;
-//    }
-
-
 
     public String getGender() {
         return gender;
@@ -65,16 +43,9 @@ public class Author {
         this.gender = gender;
     }
 
-//    public Author(int id, String firstName, int age, String gender) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.age = age;
-//        this.gender = gender;
-//    }
-
     @Override
     public String toString() {
-        return "Author{" +
+        return "Demo{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", age=" + age +

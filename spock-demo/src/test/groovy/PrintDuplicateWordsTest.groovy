@@ -19,7 +19,9 @@ class PrintDuplicateWordsTest extends Specification {
         output == expectedOutput
 
         where:
-        sno | input       | expectedOutput
-        1   | "akdaskjks" | [("a".charAt(0)): 2, ("k".charAt(0)): 3] //as Map
+        sno | input         | expectedOutput
+        1   | "akdaskjks"   | [("a".charAt(0)): 2, ("k".charAt(0)): 3] //as Map
+        2   | " "           | [:]
+        3   | "123jk3"      | [("3".charAt(0)):2]
     }
 }
