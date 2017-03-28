@@ -7,4 +7,10 @@
         <property name="name" value="jdbc:mysql"/>
         <property name="port" value="3306"/>
     </bean>
+
+    <bean id="teaBean" class="com.spring.demo.Tea"/>
+    <bean id="expressTeaBean" class="com.spring.demo.ExpressTea"/>
+    <bean id="restaurantBean" name="teaRestaurant" class="com.spring.demo.Restaurant">
+        <property name="hotDrink" ref="teaBean"/>
+    </bean>
 </beans>
