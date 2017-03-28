@@ -8,6 +8,6 @@ public class Application {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config.xml");
         Database obj = applicationContext.getBean("database",Database.class);
-        System.out.println("Hello World");
+        System.out.println(obj);
     }
 }

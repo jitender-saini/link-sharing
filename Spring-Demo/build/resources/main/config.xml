@@ -3,5 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="database" class="com.spring.demo.Database"/>
+    <bean id="database" class="com.spring.demo.Database">
+        <property name="name" value="jdbc:mysql"/>
+        <property name="port" value="3306"/>
+    </bean>
 </beans>
