@@ -17,4 +17,5 @@ public class Restaurant {
                 "hotDrink=" + hotDrink +
                 '}';
     }
+
 }

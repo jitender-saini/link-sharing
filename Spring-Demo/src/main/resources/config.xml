@@ -13,4 +13,31 @@
     <bean id="restaurantBean" name="teaRestaurant" class="com.spring.demo.Restaurant">
         <property name="hotDrink" ref="teaBean"/>
     </bean>
+
+    <bean id="expressTeaRestaurant" class="com.spring.demo.Restaurant">
+        <property name="hotDrink">
+            <bean class="com.spring.demo.ExpressTea"/>
+        </property>
+    </bean>
+
+    <bean id="complexBean" class="com.spring.demo.Complex">
+        <property name="list">
+            <list>
+                <value>value1</value>
+                <value>value2</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key-1" value="value-1"/>
+                <entry key="key-2" value="value-2"/>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>value1</value>
+                <value>value2</value>
+            </set>
+        </property>
+    </bean>
 </beans>
