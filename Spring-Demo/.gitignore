@@ -1,0 +1,17 @@
+*.idea
+.classpath
+.project
+*.class
+*.ipr
+*.iws
+target/
+*.iml
+*.out
+*.log
+out/**/*
+grailsw
+grailsw.bat
+wrapper/
+dump.rdb
+.slcache/
+core
