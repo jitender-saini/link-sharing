@@ -37,6 +37,9 @@ public class Application {
         Restaurant restaurant5 = applicationContext.getBean("restaurant5", Restaurant.class);
         restaurant5.getHotDrink().prepareHotDrink();
 
+//        Exercise 7
+        Restaurant restaurant6 = applicationContext.getBean("restaurant6",Restaurant.class);
+        System.out.println(applicationContext.isPrototype("restaurant6"));
 
 
     }

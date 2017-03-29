@@ -52,5 +52,8 @@
     <!--Exercise 6 autowire by type-->
     <!--<bean id="restaurant4" class="com.spring.demo.Restaurant" autowire="byType"/>-->
 
-    <bean id="restaurant5" class="com.spring.demo.Restaurant" autowire="constructor"/>
+    <!--<bean id="restaurant5" class="com.spring.demo.Restaurant" autowire="constructor"/>-->
+
+    <!--Exercise 7-->
+    <!--<bean id="restaurant6" class="com.spring.demo.Restaurant" scope="prototype" autowire="constructor"/>-->
 </beans>
