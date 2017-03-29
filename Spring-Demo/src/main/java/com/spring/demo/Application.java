@@ -2,7 +2,9 @@ package com.spring.demo;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class Application {
     public static void main(String[] args) {
 
@@ -44,7 +46,7 @@ public class Application {
 //        Exercise 8
         Restaurant restaurant7 = applicationContext.getBean("restaurant7",Restaurant.class);
         restaurant7.getHotDrink().prepareHotDrink();
-        
+
 
     }
 }
