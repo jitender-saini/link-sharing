@@ -3,23 +3,27 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--Exercise  1 & 2-->
     <bean id="database" class="com.spring.demo.Database">
         <property name="name" value="jdbc:mysql"/>
         <property name="port" value="3306"/>
     </bean>
 
-    <bean id="teaBean" class="com.spring.demo.Tea"/>
-    <bean id="expressTeaBean" class="com.spring.demo.ExpressTea"/>
-    <bean id="restaurantBean" name="teaRestaurant" class="com.spring.demo.Restaurant">
-        <property name="hotDrink" ref="teaBean"/>
-    </bean>
+    <!--Exercise 3-->
+    <!--<bean id="teaBean" class="com.spring.demo.Tea"/>-->
+    <!--<bean id="expressTeaBean" class="com.spring.demo.ExpressTea"/>-->
+    <!--<bean id="restaurantBean" name="teaRestaurant" class="com.spring.demo.Restaurant">-->
+        <!--<property name="hotDrink" ref="teaBean"/>-->
+    <!--</bean>-->
 
-    <bean id="expressTeaRestaurant" class="com.spring.demo.Restaurant">
-        <property name="hotDrink">
-            <bean class="com.spring.demo.ExpressTea"/>
-        </property>
-    </bean>
+    <!--Exercise 4-->
+    <!--<bean id="expressTeaRestaurant" class="com.spring.demo.Restaurant">-->
+        <!--<property name="hotDrink">-->
+            <!--<bean class="com.spring.demo.ExpressTea"/>-->
+        <!--</property>-->
+    <!--</bean>-->
 
+    <!--Exercise 5-->
     <bean id="complexBean" class="com.spring.demo.Complex">
         <property name="list">
             <list>
@@ -40,4 +44,13 @@
             </set>
         </property>
     </bean>
+
+    <!--Exercise 6 autowire by name-->
+    <bean id="hotDrink" class="com.spring.demo.Tea"/>
+    <!--<bean id="restaurant" class="com.spring.demo.Restaurant" autowire="byName"/>-->
+
+    <!--Exercise 6 autowire by type-->
+    <!--<bean id="restaurant4" class="com.spring.demo.Restaurant" autowire="byType"/>-->
+
+    <bean id="restaurant5" class="com.spring.demo.Restaurant" autowire="constructor"/>
 </beans>

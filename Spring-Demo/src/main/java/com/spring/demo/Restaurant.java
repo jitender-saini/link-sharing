@@ -1,8 +1,15 @@
 package com.spring.demo;
 
-public class Restaurant {
-    private HotDrink hotDrink;
+import org.springframework.beans.factory.annotation.Autowired;
 
+public class Restaurant {
+
+    public Restaurant(HotDrink hotDrink) {
+        this.hotDrink = hotDrink;
+    }
+
+    private HotDrink hotDrink;
+    @Autowired
     public HotDrink getHotDrink() {
         return hotDrink;
     }

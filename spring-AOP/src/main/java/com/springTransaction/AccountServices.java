@@ -54,16 +54,16 @@ public class AccountServices {
 //        }
     }
 
-    public void getAccountStateOfUser(String username){
-
-        jdbcTemplate.queryForObject("select * from userAccount where username = ?",
-                new Object[]{username}. new RowMapper<UserAccount>() {
-            @Override
-                    public UserAccount mapRow(ResultSet resultSet, int i) throws SQLException{
-
-            }
-
-                })
-    }
+//    public void getAccountStateOfUser(String username){
+//
+//        jdbcTemplate.queryForObject("select * from userAccount where username = ?",
+////                new Object[]{username}. new RowMapper<UserAccount>() {
+////            @Override
+////                    public UserAccount mapRow(ResultSet resultSet, int i) throws SQLException{
+////
+////            }
+////
+////                })
+//    }
 
 }
