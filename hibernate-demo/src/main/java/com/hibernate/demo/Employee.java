@@ -21,15 +21,14 @@ public class Employee {
     private String deptId;
     private String name;
     private char gender;
+    private int salary;
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "empId=" + empId +
-                ", deptId='" + deptId + '\'' +
-                ", name='" + name + '\'' +
-                ", gender=" + gender +
-                '}';
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public long getEmpId() {
@@ -62,5 +61,23 @@ public class Employee {
 
     public void setGender(char gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId=" + empId +
+                ", deptId='" + deptId + '\'' +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", salary=" + salary +
+                '}';
+    }
+
+    public Employee(String deptId, String name, char gender, int salary) {
+        this.deptId = deptId;
+        this.name = name;
+        this.gender = gender;
+        this.salary = salary;
     }
 }

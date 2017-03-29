@@ -23,6 +23,5 @@ public class Application {
         Complex complex = applicationContext.getBean("complexBean",Complex.class);
         System.out.println(complex);
 
-
     }
 }

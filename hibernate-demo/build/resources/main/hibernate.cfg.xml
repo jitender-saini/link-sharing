@@ -19,7 +19,7 @@
         <property name="show_sql">true</property>
 
         <!--drop or re-create database schema at startup-->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!--Annotated entity class-->
         <!--<mapping class="com.hibernate.demo.Person"/>-->

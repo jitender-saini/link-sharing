@@ -22,9 +22,28 @@ public class Application {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
+        Employee employee = new Employee("101","jay", 'm',9899092);
+        session.save(employee);
 
-        List<AuthorDto> authorDtoList = session.createQuery("select new com.hibernate.demo.AuthorDto(firstName,age) from Author").list();
-        authorDtoList.forEach(System.out::println);
+        Employee employee2 = new Employee("101","sam", 'm',3000);
+        session.save(employee2);
+        Employee employee3 = new Employee("101","shef", 'f',868988);
+        session.save(employee3);
+        Employee employee4 = new Employee("101","tom", 'm',21223);
+        session.save(employee4);
+        Employee employee5 = new Employee("101","lin", 'f',121211);
+        session.save(employee5);
+        Employee employee6 = new Employee("101","ram", 'm',1213);
+        session.save(employee6);
+        Employee employee7 = new Employee("101","kim", 'f',12312);
+        session.save(employee7);
+
+
+
+//        List<AuthorDto> authorDtoList = session.createQuery("select new com.hibernate.demo.AuthorDto(firstName,age) from Author").list();
+//        authorDtoList.forEach(System.out::println);
+
+
 
 //        Map map = new HashMap<Integer,String>;
 //        map.put(24,"male");
@@ -145,35 +164,35 @@ public class Application {
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();
-        readDB();
+        //readDB();
     }
 
-    private static void readDB(){
-        String queryString = "select e " +
-                "from Employee e " +
-                "where e.deptId = :deptId";
-        Thread t = new Thread();
-        t.start();
-
-        SessionFactory sessionFactory= new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-
-        Query query = session.createQuery(
-                queryString, Employee.class)
-                .setParameter("deptId", "JVM")
-                .setLockMode(LockModeType.PESSIMISTIC_READ);
-
-        session.beginTransaction();
-
-        Employee employee = (Employee) query.getSingleResult();
-        System.out.println(employee.toString());
-
-        //sleep(2000);
-
-        session.getTransaction().commit();
-        session.close();
-        sessionFactory.close();
-    }
+//    private static void readDB(){
+//        String queryString = "select e " +
+//                "from Employee e " +
+//                "where e.deptId = :deptId";
+//        Thread t = new Thread();
+//        t.start();
+//
+//        SessionFactory sessionFactory= new Configuration().configure().buildSessionFactory();
+//        Session session = sessionFactory.openSession();
+//
+//        Query query = session.createQuery(
+//                queryString, Employee.class)
+//                .setParameter("deptId", "JVM")
+//                .setLockMode(LockModeType.PESSIMISTIC_READ);
+//
+//        session.beginTransaction();
+//
+//        Employee employee = (Employee) query.getSingleResult();
+//        System.out.println(employee.toString());
+//
+//        //sleep(2000);
+//
+//        session.getTransaction().commit();
+//        session.close();
+//        sessionFactory.close();
+//    }
 
     /*void writeDB(){
         String queryString = "select e " +
