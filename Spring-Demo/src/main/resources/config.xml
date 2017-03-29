@@ -56,4 +56,8 @@
 
     <!--Exercise 7-->
     <!--<bean id="restaurant6" class="com.spring.demo.Restaurant" scope="prototype" autowire="constructor"/>-->
+
+    <bean id="restaurant7" class="com.spring.demo.Restaurant" autowire="constructor">
+        <property name="hotDrink" ref="hotDrink"/>
+    </bean>
 </beans>

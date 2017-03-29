@@ -34,13 +34,17 @@ public class Application {
 //        restaurant4.getHotDrink().prepareHotDrink();
 
 //        Autowire by Constructor
-        Restaurant restaurant5 = applicationContext.getBean("restaurant5", Restaurant.class);
-        restaurant5.getHotDrink().prepareHotDrink();
+//        Restaurant restaurant5 = applicationContext.getBean("restaurant5", Restaurant.class);
+//        restaurant5.getHotDrink().prepareHotDrink();
 
 //        Exercise 7
-        Restaurant restaurant6 = applicationContext.getBean("restaurant6",Restaurant.class);
-        System.out.println(applicationContext.isPrototype("restaurant6"));
+//        Restaurant restaurant6 = applicationContext.getBean("restaurant6",Restaurant.class);
+//        System.out.println(applicationContext.isPrototype("restaurant6"));
 
+//        Exercise 8
+        Restaurant restaurant7 = applicationContext.getBean("restaurant7",Restaurant.class);
+        restaurant7.getHotDrink().prepareHotDrink();
+        
 
     }
 }
