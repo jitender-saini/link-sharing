@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserAccount {
     private String username;
-    private long salary;
+    private long balance;
 
     public String getUsername() {
         return username;
@@ -15,19 +15,19 @@ public class UserAccount {
         this.username = username;
     }
 
-    public long getSalary() {
-        return salary;
+    public long getBalance() {
+        return balance;
     }
 
-    public void setSalary(long salary) {
-        this.salary = salary;
+    public void setBalance(long balance) {
+        this.balance = balance;
     }
 
     @Override
     public String toString() {
         return "UserAccount{" +
                 "username='" + username + '\'' +
-                ", salary=" + salary +
+                ", balance=" + balance +
                 '}';
     }
 }

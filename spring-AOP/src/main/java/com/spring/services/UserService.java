@@ -20,8 +20,8 @@ public class UserService {
         return "hello friends";
     }
 
-    public void throwException() throws IOException{
-        throw  new IOException();
+    public void throwException(){
+        throw new ArithmeticException();
     }
 
 
