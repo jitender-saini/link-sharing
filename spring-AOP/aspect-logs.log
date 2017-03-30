@@ -1,9 +1,7 @@
-logging before in filelogging before in filelogging before in file
-logging before in file/n/nlogging before in file2017-03-29T22:27:45.333
-logging before :Date Time :2017-03-29T22:31:03.341
-logging beforevoid com.spring.services.UserService.addUser() :Date Time :2017-03-29T22:37:38.637
-logging before all add* methods and join pointvoid com.spring.services.UserService.addUser() :Date Time :2017-03-29T22:46:50.419
-logging before all add* methods and join pointvoid com.spring.services.UserService.addUser() :Date Time :2017-03-30T10:25:50.288
-logging before all add* methods and join pointvoid com.spring.services.UserService.addUser() :Date Time :2017-03-30T10:26:52.470
-logging before all add* methods and join pointvoid com.spring.services.UserService.addUser() :Date Time :2017-03-30T10:27:13.097
-logging before all add* methods and join pointvoid com.spring.services.UserService.addUser() :Date Time :2017-03-30T10:27:36.598
+logging before all add* methods and join pointvoid com.spring.services.UserService.addUser() :Date Time :2017-03-30T22:20:56.485
+Around used to catch exceptions :Date Time :2017-03-30T22:20:56.558
+logging before all add* methods and join point :void com.spring.services.UserService.addUser() :Date Time :2017-03-30T22:32:56.461
+logging After methods in userServices using this :Date Time :2017-03-30T22:32:56.490
+logging After methods in userServices using this :Date Time :2017-03-30T22:32:56.495
+Around used to catch exceptions :Date Time :2017-03-30T22:32:56.496
+logging After methods in userServices using this :Date Time :2017-03-30T22:32:56.496

@@ -19,3 +19,11 @@ Transaction Exercises
 6) Create account_transaction table with sender,receiver, balance_transferred fields.
 7) Save values in this table on transfer amount. Even If any error occurs while saving values in transaction table,
 account table should get updated.
+
+
+
+Tables
+
+create table userAccount(ID int(20) AUTO_INCREMENT PRIMARY KEY, username varchar(20), balance int);
+
+create table account_transaction (transactionID int(20) AUTO_INCREMENT PRIMARY KEY ,receiver varchar(20), sender varchar(20), balance_transferred int(10),transaction_time datetime DEFAULT now());

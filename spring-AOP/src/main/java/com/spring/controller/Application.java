@@ -10,8 +10,9 @@ public class Application {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config.xml");
         UserService userService = applicationContext.getBean(UserService.class);
-//        userService.addUser();
-//        userService.deleteUser();
+        userService.addUser();
+        userService.deleteUser();
         userService.throwException();
+//        userService.dep
     }
 }

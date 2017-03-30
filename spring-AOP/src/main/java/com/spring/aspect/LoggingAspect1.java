@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.annotation.Target;
 import java.time.LocalDateTime;
 
 @Aspect
@@ -19,29 +20,35 @@ public class LoggingAspect1 {
     private File file = new File(fileName);
 
 
-    private void writeLogs(String log) throws IOException{
-        FileWriter fw = new FileWriter(file, true);
-        BufferedWriter bw = new BufferedWriter(fw);
+    private void writeLogs(String log){
+        FileWriter fw = null;
+        BufferedWriter bw = null;
         LocalDateTime date = LocalDateTime.now();
         try{
-            bw.write(log+" :Date Time :"+date);
+            fw = new FileWriter(file, true);
+            bw = new BufferedWriter(fw);
+            bw.write(log+" :Date Time :"+date+"\n");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            bw.close();
-            fw.close();
+            try {
+                bw.close();
+                fw.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
         }
     }
 
     @Before("execution(* add*(..))")
-    public void logBefore(JoinPoint joinPoint) throws IOException{
-        writeLogs("\nlogging before all add* methods and join point"+ joinPoint.getSignature());
+    public void logBefore(JoinPoint joinPoint){
+        writeLogs("logging before all add* methods and join point :"+ joinPoint.getSignature());
     }
 
-//    @After("this(com.spring.services.UserService)")
-//    public void logAfter(){
-//        System.out.println("logging After");
-//    }
+    @After("this(com.spring.services.UserService)")
+    public void logAfter(){
+        writeLogs("logging After methods in userServices using this");
+    }
 
     @After("@annotation(Deprecated)")
     public void logDeprecated(){
@@ -50,8 +57,7 @@ public class LoggingAspect1 {
 
     @AfterReturning(value="execution(* getValue*(..))",returning = "returnedValue")
     public void logAfterReturning(String returnedValue){
-       // System.out.println(joinPoint.getSignature());
-        System.out.println("value returned is "+ returnedValue);
+        writeLogs("value returned is "+ returnedValue);
     }
 
     @AfterThrowing(value = "execution(* throwException(..))", throwing = "e")
@@ -60,16 +66,40 @@ public class LoggingAspect1 {
     }
 
     @Around("execution(* throw*(..))")
-    public void aroundTry(ProceedingJoinPoint pjp) throws Throwable {
+    public void aroundTry(ProceedingJoinPoint pjp) {
         try {
             pjp.proceed();
-        }catch (Exception e){
-            System.out.println("Around used to catch exceptions");
+        }catch (Throwable e){
+            writeLogs("Around used to catch exceptions");
         }
     }
 
-    @Pointcut("@annotation(Deprecated)")
-    public void depr(){
-        System.out.println("this is deprecated pointcut");
+    @Pointcut("execution(* get*(..))")
+    public void gettterPointcut(){
+        writeLogs("this is deprecated pointcut");
+    }
+
+    @Before("args(String)")
+    public void argsTryOnAllStringParameters(){
+        System.out.println("args");
+    }
+
+    @AfterReturning(pointcut="execution(* get())", returning="returnString")
+    public void getNameReturningAdvice(String returnString){
+        System.out.println("getNameReturningAdvice executed. Returned String="+returnString);
+    }
+
+    @AfterThrowing("within(com.spring.services.UserService)")
+    public void logExceptions(JoinPoint joinPoint){
+        System.out.println("Exception thrown in UserService Method="+joinPoint.toString());
+    }
+
+    @Before("args(name)")
+    public void logStringArguments(String name){
+        System.out.println("String argument passed="+name);
+    }
+
+    public void targetTry(){
+
     }
 }
