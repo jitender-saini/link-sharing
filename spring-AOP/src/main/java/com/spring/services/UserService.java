@@ -1,5 +1,7 @@
 package com.spring.services;
 
+import com.spring.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -7,7 +9,12 @@ import java.io.IOException;
 @Service
 public class UserService {
 
-    public void addUser(){
+    @Autowired
+    User user;
+
+    public void addUser(String fName,String lName){
+        user.setFirstName(fName);
+        user.setLastName(lName);
         System.out.println("Adding user");
     }
 
@@ -16,12 +23,19 @@ public class UserService {
         System.out.println("deleting user");
     }
 
-    public String getValue(){
-        return "hello friends";
+    public String getUserFirstName(){
+        return user.getFirstName();
     }
 
+
     public void throwException(){
+        int i=1/0;
         throw new ArithmeticException();
+    }
+
+
+    public void throwIOException() throws IOException{
+        throw new IOException();
     }
 
 

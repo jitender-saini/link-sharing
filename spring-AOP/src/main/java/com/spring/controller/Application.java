@@ -10,9 +10,9 @@ public class Application {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("config.xml");
         UserService userService = applicationContext.getBean(UserService.class);
-        userService.addUser();
+        userService.addUser("Jay","Saini");
+        userService.getUserFirstName();
         userService.deleteUser();
         userService.throwException();
-//        userService.dep
     }
 }

@@ -34,9 +34,7 @@ public class AccountServices {
         jdbcTemplate.update(sql, new Object[]{amount, receiver});
         String querySender = "update userAccount set balance = balance - ? where username = ?";
         jdbcTemplate.update(querySender, new Object[]{amount, sender});
-
         transactionService.recordTransaction(receiver,sender,amount);
-
         System.out.println("Amount Rs. "+amount+" transferred from "+sender+" successfully to "+receiver);
     }
 

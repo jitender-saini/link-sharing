@@ -1,7 +1,24 @@
-logging before all add* methods and join pointvoid com.spring.services.UserService.addUser() :Date Time :2017-03-30T22:20:56.485
-Around used to catch exceptions :Date Time :2017-03-30T22:20:56.558
-logging before all add* methods and join point :void com.spring.services.UserService.addUser() :Date Time :2017-03-30T22:32:56.461
-logging After methods in userServices using this :Date Time :2017-03-30T22:32:56.490
-logging After methods in userServices using this :Date Time :2017-03-30T22:32:56.495
-Around used to catch exceptions :Date Time :2017-03-30T22:32:56.496
-logging After methods in userServices using this :Date Time :2017-03-30T22:32:56.496
+Date Time :: 2017-03-31T14:54:47.168 :: logging before all add* methods and join point :void com.spring.services.UserService.addUser(String,String)
+Date Time :: 2017-03-31T14:54:47.200 :: Before using any String arguments
+Date Time :: 2017-03-31T14:54:47.201 :: String argument passed=Jay
+Date Time :: 2017-03-31T14:54:47.212 :: Before using any String arguments
+Date Time :: 2017-03-31T14:54:47.212 :: String argument passed=Saini
+Date Time :: 2017-03-31T14:54:47.212 :: logging After methods in userServices using this
+Date Time :: 2017-03-31T14:54:47.212 :: value returned is Jay
+Date Time :: 2017-03-31T14:54:47.213 :: logging After methods in userServices using this
+Date Time :: 2017-03-31T14:54:47.213 :: value returned is Jay
+Date Time :: 2017-03-31T14:54:47.213 :: logging After methods in userServices using this
+Date Time :: 2017-03-31T14:54:47.213 :: Around used to catch exceptions
+Date Time :: 2017-03-31T14:54:47.213 :: logging After methods in userServices using this
+Date Time :: 2017-03-31T14:54:51.833 :: logging before all add* methods and join point :void com.spring.services.UserService.addUser(String,String)
+Date Time :: 2017-03-31T14:54:51.848 :: Before using any String arguments
+Date Time :: 2017-03-31T14:54:51.848 :: String argument passed=Jay
+Date Time :: 2017-03-31T14:54:51.857 :: Before using any String arguments
+Date Time :: 2017-03-31T14:54:51.857 :: String argument passed=Saini
+Date Time :: 2017-03-31T14:54:51.857 :: logging After methods in userServices using this
+Date Time :: 2017-03-31T14:54:51.858 :: value returned is Jay
+Date Time :: 2017-03-31T14:54:51.858 :: logging After methods in userServices using this
+Date Time :: 2017-03-31T14:54:51.858 :: value returned is Jay
+Date Time :: 2017-03-31T14:54:51.858 :: logging After methods in userServices using this
+Date Time :: 2017-03-31T14:54:51.859 :: Around used to catch exceptions
+Date Time :: 2017-03-31T14:54:51.859 :: logging After methods in userServices using this
