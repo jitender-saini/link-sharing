@@ -13,17 +13,17 @@ public class Book {
     int bookID;
     String bookName;
 
-//    @ManyToOne
-//    Author author;
+    @ManyToOne
+    Author author;
 
-//    public Author getAuthor() {
-//        return author;
-//    }
-//
-//    public Book setAuthor(Author author) {
-//        this.author = author;
-//        return this;
-//    }
+    public Author getAuthor() {
+        return author;
+    }
+
+    public Book setAuthor(Author author) {
+        this.author = author;
+        return this;
+    }
 
     public int getBookID() {
         return bookID;

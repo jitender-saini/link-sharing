@@ -45,6 +45,7 @@ public class Application {
 
 
 
+        Author author2 = new Author ();
 
         Address address = new Address ();
         address.setState ( "New Delhi" );
@@ -53,26 +54,25 @@ public class Application {
 
         Book book = new Book();
         book.setBookName("Java");
-//        book.setAuthor(author2);
+        book.setAuthor(author2);
         session.save(book);
 
-        Book book2 = new Book();
-        book2.setBookName("JS");
-        session.save(book2);
-
-
-        Book book3 = new Book();
-        book3.setBookName("jQuery");
-        session.save(book3);
+//        Book book2 = new Book();
+//        book2.setBookName("JS");
+//        session.save(book2);
+//
+//
+//        Book book3 = new Book();
+//        book3.setBookName("jQuery");
+//        session.save(book3);
 
 
         List <Book> bookList = new ArrayList<>();
         bookList.add(book);
-        bookList.add(book2);
-        bookList.add(book3);
+//        bookList.add(book2);
+//        bookList.add(book3);
 
 
-        Author author2 = new Author ();
         author2.setFirstName ("Jay");
         author2.setLastName ( "Saini" );
         author2.setAge ( 25 );

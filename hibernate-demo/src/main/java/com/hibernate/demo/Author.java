@@ -42,7 +42,7 @@ public class Author {
 //        return this;
 //    }
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     private List<Book> book;
 
     public List<Book> getBook() {
