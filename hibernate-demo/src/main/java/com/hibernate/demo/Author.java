@@ -30,6 +30,7 @@ public class Author {
     List<String> Subject;                                 //QUES12
 
 
+    //Question 15
     //    @OneToOne
 //    Book book;
 //    public Book getBook() {
