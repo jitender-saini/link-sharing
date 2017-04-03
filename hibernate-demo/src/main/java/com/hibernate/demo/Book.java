@@ -10,20 +10,18 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    int bookID;
-    String bookName;
+    private int bookID;
+    private String bookName;
 
-    @ManyToOne
-    Author author;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Author> author;
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public Book setAuthor(Author author) {
+    public Book setAuthor(List<Author> author) {
         this.author = author;
         return this;
     }
+
+
 
     public int getBookID() {
         return bookID;

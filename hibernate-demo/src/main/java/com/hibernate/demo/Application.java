@@ -54,17 +54,17 @@ public class Application {
 
         Book book = new Book();
         book.setBookName("Java");
-        book.setAuthor(author2);
+        //book.setAuthor(author2);
         session.save(book);
 
-//        Book book2 = new Book();
-//        book2.setBookName("JS");
-//        session.save(book2);
-//
-//
-//        Book book3 = new Book();
-//        book3.setBookName("jQuery");
-//        session.save(book3);
+        Book book2 = new Book();
+        book2.setBookName("JS");
+        session.save(book2);
+
+
+        Book book3 = new Book();
+        book3.setBookName("jQuery");
+        session.save(book3);
 
 
         List <Book> bookList = new ArrayList<>();
@@ -82,29 +82,29 @@ public class Application {
         author2.setBook(bookList);
         session.save(author2);
 
-//        Author author4 = new Author ();
-//        author4.setFirstName ("Shefali");
-//        author4.setLastName ( "Sharma" );
-//        author4.setAge ( 23 );
-//        author4.setDate_of_birth ( new GregorianCalendar(1993,07,02));
-//        author4.setSubject ( Arrays.asList ( "java","AEM","Jquery") );               //QUES13
-//        author4.setAddress ( address );
-////        author4.setBook(book);
-//        author4.setBook(bookList);
-//        session.save(author4);
-//
-//
-//
-//        Author author5 = new Author ();
-//        author5.setFirstName ("Ajay");
-//        author5.setLastName ( "Goel" );
-//        author5.setAge ( 24 );
-//        author5.setDate_of_birth ( new GregorianCalendar(1993,07,02));
-//        author5.setSubject ( Arrays.asList ( "JS","Spring","Hibernate") );               //QUES13
-//        author5.setAddress ( address );
-////        author5.setBook(book);
-//        author5.setBook(bookList);
-//        session.save(author5);
+        Author author4 = new Author ();
+        author4.setFirstName ("Shefali");
+        author4.setLastName ( "Sharma" );
+        author4.setAge ( 23 );
+        author4.setDate_of_birth ( new GregorianCalendar(1993,07,02));
+        author4.setSubject ( Arrays.asList ( "java","AEM","Jquery") );               //QUES13
+        author4.setAddress ( address );
+//        author4.setBook(book);
+        author4.setBook(bookList);
+        session.save(author4);
+
+
+
+        Author author5 = new Author ();
+        author5.setFirstName ("Ajay");
+        author5.setLastName ( "Goel" );
+        author5.setAge ( 24 );
+        author5.setDate_of_birth ( new GregorianCalendar(1993,07,02));
+        author5.setSubject ( Arrays.asList ( "JS","Spring","Hibernate") );               //QUES13
+        author5.setAddress ( address );
+//        author5.setBook(book);
+        author5.setBook(bookList);
+        session.save(author5);
 
 
         session.getTransaction().commit();
