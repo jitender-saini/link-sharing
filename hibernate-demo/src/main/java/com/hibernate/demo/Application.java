@@ -1,18 +1,13 @@
 package com.hibernate.demo;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
-import javax.persistence.LockModeType;
-import java.util.HashMap;
-import java.util.IdentityHashMap;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.Map;
-
-import static java.lang.Thread.sleep;
 
 public class Application {
 
@@ -22,198 +17,103 @@ public class Application {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
 
-        Employee employee = new Employee("101","jay", 'm',9899092);
-        session.save(employee);
-
-        Employee employee2 = new Employee("101","sam", 'm',3000);
-        session.save(employee2);
-        Employee employee3 = new Employee("101","shef", 'f',868988);
-        session.save(employee3);
-        Employee employee4 = new Employee("101","tom", 'm',21223);
-        session.save(employee4);
-        Employee employee5 = new Employee("101","lin", 'f',121211);
-        session.save(employee5);
-        Employee employee6 = new Employee("101","ram", 'm',1213);
-        session.save(employee6);
-        Employee employee7 = new Employee("101","kim", 'f',12312);
-        session.save(employee7);
-
-
-
-//        List<AuthorDto> authorDtoList = session.createQuery("select new com.hibernate.demo.AuthorDto(firstName,age) from Author").list();
-//        authorDtoList.forEach(System.out::println);
-
-
-
-//        Map map = new HashMap<Integer,String>;
-//        map.put(24,"male");
-
-        //2. Using HQL print all the records of Author
-        /*Query query =session.createQuery("from Author");
-        List<Author> authorList = (List<Author>)query.getResultList();
-        authorList.forEach(System.out::println);*/
-
-        /*Query query =session.createQuery("select firstName from Author where age > ? " +"where gender = male ").setParameter(0,24);
-        List<Author> authorList = (List<Author>)query.getResultList();
-        //authorList.forEach(System.out::println);
-        System.out.println(authorList);*/
-
-        //Update a Author name with id 3 using HQL
-//        Query query =session.createQuery("update Author set age = 22 where id = ? ").setParameter(0,103);
-//        query.executeUpdate();
-
-        //Delete Author with id 4 using HQL.
-//        Query query =session.createQuery("delete Author where id = ? ").setParameter(0,104);
-//        query.executeUpdate();
-
-//        Demo demo = new Demo();
-//        demo.setId(201);
-//        demo.setFirstName("DemoName");
-//        demo.setAge(55);
-//        demo.setGender("Female");
-//        session.save(demo);
-
-        //Save one record for demo entity now insert using HQL from Demo to Author Entity.
-//        Query query = session.createQuery("INSERT INTO Author(id, firstName, age, gender) SELECT id, firstName, age, gender FROM Demo"
-//                +" where id = ?").setParameter(0,201);
-//        query.executeUpdate();
-
-        //Print few records of Author using pagination.
-//        Query query = session.createQuery("from Author");
-//        query.setFirstResult(1);
-//        query.setMaxResults(5);
-//        List<Author> authorList = query.list();
-//        authorList.forEach(System.out::println);
-
-        //Perform one query in HQL using Named Query
-//        Query query = session.createNamedQuery("user.byId").setParameter("id",103);
-//        System.out.println(query.uniqueResult());
-
-//        Query query = session.createNativeQuery("select * from Author");
-//        List<Object []> authorList = query.list();
-//        authorList.forEach(System.out::println);
-
-//        Query query = session.createNativeQuery("delete from Author where id = 106").addEntity(Author.class);
-//        System.out.println(query.executeUpdate());
-
-//        Query query = session.createNativeQuery("UPDATE Author set age = 101 where id =201").addEntity(Author.class);
-//        System.out.println(query.executeUpdate());
-
-
-//        Author author1 = new Author();
-//        authorList.forEach(author -> {
-//            System.out.println(author1.getId());
-//            System.out.println(author1.getFirstName());
-//            System.out.println(author1.getAge());
-//            System.out.println(author1.getGender());
-//        });
-
-//        Author author = session.get(Author.class,101);
-//        author.setFirstName("Updated");
-//        author.setLastName("Name");
-//        session.update(author);
-
-        //Author author = new Author(1,"Jay",24,"male");
+////        Q2 crud-create
 //        Author author = new Author();
-//        author.setId(101);
 //        author.setFirstName("Jay");
-//        author.setGender("male");
+//        author.setLastName("Saini");
 //        author.setAge(24);
+//        author.setGender("Male");
 //        session.save(author);
+//
+////        Q2 curd read
+//        Author author1 = session.get(Author.class,1);
+//        System.out.println(author1);
+//
+////        Q2 curd update
+//        Author author2 = session.get(Author.class,1);
+//        author2.setAge(25);
 
-//  {      Author author2 = new Author();
-//        author2.setId(102);
-//        author2.setFirstName("Ajay");
-//        author2.setGender("Male");
-//        author2.setAge(23);
-//        // author.setDateOfBirth("1991/11/14");
-//        session.save(author2);
-//
-//        Author author3 = new Author();
-//        author3.setId(103);
-//        author3.setFirstName("Divyansh");
-//        author3.setGender("Male");
-//        author3.setAge(24);
-//        // author.setDateOfBirth("1991/11/14");
+
+        //Q3
+//        Author author3 = new Author ();
+//        author3.setId(1);
+//        author3.setFirstName ("Jay ");
+//        author3.setLastName ( "Saini" );
+//        author3.setAge (25);
+//        author3.setDate_of_birth ( new GregorianCalendar(1991,11,14));
 //        session.save(author3);
+
+
+        Author author2 = new Author ();
+
+        Address address = new Address ();
+        address.setState ( "New Delhi" );
+        address.setLocation ( "Mundka" );
+        address.setStreetNo (5);
+
+        Book book = new Book();
+        book.setBookName("Java");
+        book.setAuthor(author2);
+        session.save(book);
 //
-//        Author author4 = new Author();
-//        author4.setId(104);
-//        author4.setFirstName("Ishwar");
-//        author4.setGender("Male");
-//        author4.setAge(16);
-//        // author.setDateOfBirth("1991/11/14");
+//        Book book2 = new Book();
+//        book.setAuthor(author2);
+//        book2.setBookName("JS");
+//        session.save(book2);
+//
+//
+//        Book book3 = new Book();
+//        book.setAuthor(author2);
+//        book.setBookID(103);
+//        book3.setBookName("jQuery");
+//        session.save(book3);
+
+
+        List <Book> bookList = new ArrayList<>();
+        bookList.add(book);
+//        bookList.add(book2);
+//        bookList.add(book3);
+
+
+
+        author2.setFirstName ("Jay");
+        author2.setLastName ( "Saini" );
+        author2.setAge ( 25 );
+        author2.setDate_of_birth ( new GregorianCalendar (1991,11,14));
+        author2.setSubject ( Arrays.asList ( "Java","cSharp","Data Structure") );               //QUES13
+        author2.setAddress ( address );
+        author2.setBook(bookList);
+        session.save(author2);
+
+//        Author author4 = new Author ();
+//        author4.setFirstName ("Shefali");
+//        author4.setLastName ( "Sharma" );
+//        author4.setAge ( 23 );
+//        author4.setDate_of_birth ( new GregorianCalendar(1993,07,02));
+//        author4.setSubject ( Arrays.asList ( "java","AEM","Jquery") );               //QUES13
+//        author4.setAddress ( address );
+////        author4.setBook(book);
+//        author4.setBook(bookList);
 //        session.save(author4);
 //
-//        Author author5 = new Author();
-//        author5.setId(105);
-//        author5.setFirstName("akhil");
-//        author5.setGender("Male");
-//        author5.setAge(45);
-//        // author.setDateOfBirth("1991/11/14");
-//        session.save(author5);
 //
-//        Author author6 = new Author();
-//        author6.setId(106);
-//        author6.setFirstName("Shefali");
-//        author6.setGender("female");
-//        author6.setAge(24);
-//        // author.setDateOfBirth("1991/11/14");
-//        session.save(author6);}
+//
+//        Author author5 = new Author ();
+//        author5.setFirstName ("Ajay");
+//        author5.setLastName ( "Goel" );
+//        author5.setAge ( 24 );
+//        author5.setDate_of_birth ( new GregorianCalendar(1993,07,02));
+//        author5.setSubject ( Arrays.asList ( "JS","Spring","Hibernate") );               //QUES13
+//        author5.setAddress ( address );
+////        author5.setBook(book);
+//        author5.setBook(bookList);
+//        session.save(author5);
+
 
         session.getTransaction().commit();
         session.close();
         sessionFactory.close();
-        //readDB();
     }
 
-//    private static void readDB(){
-//        String queryString = "select e " +
-//                "from Employee e " +
-//                "where e.deptId = :deptId";
-//        Thread t = new Thread();
-//        t.start();
-//
-//        SessionFactory sessionFactory= new Configuration().configure().buildSessionFactory();
-//        Session session = sessionFactory.openSession();
-//
-//        Query query = session.createQuery(
-//                queryString, Employee.class)
-//                .setParameter("deptId", "JVM")
-//                .setLockMode(LockModeType.PESSIMISTIC_READ);
-//
-//        session.beginTransaction();
-//
-//        Employee employee = (Employee) query.getSingleResult();
-//        System.out.println(employee.toString());
-//
-//        //sleep(2000);
-//
-//        session.getTransaction().commit();
-//        session.close();
-//        sessionFactory.close();
-//    }
 
-    /*void writeDB(){
-        String queryString = "select e " +
-                "from Employee e " +
-                "where e.deptId = :deptId";
-        Thread t = new Thread();
-        t.start();
-
-        SessionFactory sessionFactory= new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        Query query = session.createQuery(
-                queryString, Employee.class)
-                .setParameter("deptId", "JVM")
-                .setLockMode(LockModeType.PESSIMISTIC_WRITE);
-        session.beginTransaction();
-
-        Employee employee = query.getSingleResult();
-
-        employee.setName("changed");
-        session.save(employee);
-
-        session.getTransaction().commit();
-    }*/
 }

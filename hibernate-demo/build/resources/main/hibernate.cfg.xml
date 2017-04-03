@@ -5,7 +5,7 @@
     <session-factory>
         <!--Database connection settings -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bootcamp</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernateDemo</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">delete</property>
 
@@ -23,9 +23,10 @@
 
         <!--Annotated entity class-->
         <!--<mapping class="com.hibernate.demo.Person"/>-->
-        <mapping class="com.hibernate.demo.Employee"/>
+        <!--<mapping class="com.hibernate.demo.Employee"/>-->
         <mapping class="com.hibernate.demo.Author"/>
         <mapping class="com.hibernate.demo.Demo"/>
+        <mapping class="com.hibernate.demo.Book"/>
 
     </session-factory>
 </hibernate-configuration>

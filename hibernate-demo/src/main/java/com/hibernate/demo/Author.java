@@ -1,84 +1,137 @@
 package com.hibernate.demo;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.List;
 
 
 @NamedQuery(name = "user.byId", query = "from Author where id = :id")
 @Entity
 public class Author {
-    @Id()
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)        //QUES9
     private int id;
+    @Column(name = "fName")                               //QUES 6
     private String firstName;
-//    private String lastName;
+    @Column(name = "lName")                               //QUES 6
+    @Transient
+    private String lastName;
+    @Column(name = "currentAge")                          //QUES 6
     private int age;
-    //private Date dateOfBirth;
-    private String gender;
+    @Column(name = "DOB")                                 //QUES 6
+    @Temporal ( TemporalType.DATE )                       //QUES8
+    private Calendar Date_of_birth;
 
-     public int getId() {
+
+    @Embedded                                             ////QUES11
+    private Address address;
+
+    @ElementCollection
+    List<String> Subject;                                 //QUES12
+
+
+    //    @OneToOne
+//    Book book;
+//    public Book getBook() {
+//        return book;
+//    }
+//
+//    public Author setBook(Book book) {
+//        this.book = book;
+//        return this;
+//    }
+
+    @OneToMany
+    private List<Book> book;
+
+    public List<Book> getBook() {
+        return book;
+    }
+
+    public Author setBook(List<Book> book) {
+        this.book = book;
+        return this;
+    }
+
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public Author setId(int id) {
         this.id = id;
+        return this;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public Author setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
-//    public String getLastName() {
-//        return lastName;
-//    }
-//
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Author setLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
 
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public Author setAge(int age) {
         this.age = age;
-    }
-//
-//    public Date getDateOfBirth() {
-//        return dateOfBirth;
-//    }
-//
-//    public void setDateOfBirth(Date dateOfBirth) {
-//        this.dateOfBirth = dateOfBirth;
-//    }
-
-
-
-    public String getGender() {
-        return gender;
+        return this;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public Calendar getDate_of_birth() {
+        return Date_of_birth;
     }
 
-//    public Author(int id, String firstName, int age, String gender) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.age = age;
-//        this.gender = gender;
-//    }
+    public Author setDate_of_birth(Calendar date_of_birth) {
+        Date_of_birth = date_of_birth;
+        return this;
+    }
+
+
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public Author setAddress(Address address) {
+        this.address = address;
+        return this;
+    }
+
+    public Author setSubject(List<String> subject) {
+        Subject = subject;
+        return this;
+    }
+
+    public List<String> getSubject() {
+        return Subject;
+    }
+
+
 
     @Override
     public String toString() {
         return "Author{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", age=" + age +
-                ", gender='" + gender + '\'' +
+                ", Date_of_birth=" + Date_of_birth +
+                ", address=" + address +
+                ", Subject=" + Subject +
                 '}';
     }
 }
