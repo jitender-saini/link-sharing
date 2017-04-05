@@ -24,9 +24,15 @@ public class StudentController extends MultiActionController {
     }
 
     @RequestMapping("/index")
-    protected void customeMethod(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    protected void customMethod(HttpServletRequest request, HttpServletResponse response) throws Exception{
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter writer =  response.getWriter();
-        writer.println("hello");
+        writer.println("hello Exercise 2");
+    }
+
+    @ResponseBody
+    @RequestMapping("/action")
+    String action() {
+        return "Exercise 3";
     }
 }
