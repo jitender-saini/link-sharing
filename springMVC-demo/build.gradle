@@ -1,19 +1,37 @@
-version '1.0-SNAPSHOT'
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
 
-apply plugin: 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
 
-sourceCompatibility = 1.8
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.2'
+    }
+}
 
 repositories {
     mavenCentral()
-    mavenLocal()
+    jcenter()
 }
 
 dependencies {
-    compile "org.springframework:spring-context:4.2.5.RELEASE"
-    compile group: 'org.springframework', name: 'spring-core', version: '4.3.5.RELEASE'
-    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
-    compile group: 'org.springframework', name: 'spring-jdbc', version: '4.3.5.RELEASE'
-    compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.9'
-    compile 'org.springframework:spring-beans:3.2.5.RELEASE'
+    providedCompile 'javax.servlet:servlet-api:2.5', 'javax.servlet:jsp-api:2.0'
+//    compile "org.springframework:spring-context:4.2.5.RELEASE"
+    compile 'org.springframework:spring-aspects:4.2.5.RELEASE'
+    compile 'org.springframework:spring-webmvc:4.2.5.RELEASE'
+    compile 'org.hibernate:hibernate-validator:4.2.0.Final'
+    def tomcatVersion = '7.0.57'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 }
+
+tomcatRun {
+    contextPath = ""
+    httpPort = 8080
+    File file = new File("src/main/webapp/WEB-INF/web.xml");
+    configFile = file
+}
+
