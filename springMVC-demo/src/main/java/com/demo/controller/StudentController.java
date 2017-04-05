@@ -42,7 +42,13 @@ public class StudentController extends MultiActionController {
         return "Hello World";
     }
 
-   
+    @ResponseBody
+    @RequestMapping("/student/{firstName}/{lastName}")
+    String studentDetails(@PathVariable("firstName")String firstName, @PathVariable("lastName")String lastName){
+        return "First Name : "+firstName+" Last Name : "+lastName;
+    }
+
+    
 
 
 }
