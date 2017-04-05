@@ -48,7 +48,11 @@ public class StudentController extends MultiActionController {
         return "First Name : "+firstName+" Last Name : "+lastName;
     }
 
-    
+    @ResponseBody
+    @RequestMapping("/studentmap/{firstName}/{lastName}")
+    String studentMap(@PathVariable Map<String,String> studentMap){
+        return "First Name : "+studentMap.get("firstName")+" Last Name : "+ studentMap.get("lastName");
+    }
 
 
 }
