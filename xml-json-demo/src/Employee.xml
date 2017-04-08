@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Company>
+    <Employee id ="1001">
+        <Department>JVM</Department>
+        <PersonalDetails>
+            <Name>Jay</Name>
+            <Age>25</Age>
+            <ContactNumber>9999999999</ContactNumber>
+            <Address>
+                <City>Mundka</City>
+                <State>Delhi</State>
+                <Zip>110001</Zip>
+            </Address>
+        </PersonalDetails>
+    </Employee>
+    <Employee id = "1002">
+        <Department>FEEN</Department>
+        <PersonalDetails>
+            <Name>Sam</Name>
+            <Age>24</Age>
+            <ContactNumber>9999999987</ContactNumber>
+            <Address>
+                <City>Noida</City>
+                <State>UP</State>
+                <Zip>232121</Zip>
+            </Address>
+        </PersonalDetails>
+    </Employee>
+
+</Company>

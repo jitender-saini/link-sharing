@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ttn>
+    <department name="Technology">
+        <competency name="jvm">
+            <employees>512</employees>
+            <head>Jay</head>
+        </competency>
+        <competency name="Drupal">
+            <employees>64</employees>
+            <head>Sam</head>
+        </competency>
+        <competency name="Mobility">
+            <employees>16</employees>
+            <head>bhupi</head>
+        </competency>
+    </department>
+
+    <department name="Management">
+        <competency name="Sales">
+            <employees>10</employees>
+            <head>Ajay</head>
+        </competency>
+        <competency name="HR">
+            <employees>7</employees>
+            <head>ishwar</head>
+        </competency>
+    </department>
+</ttn>

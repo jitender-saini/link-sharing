@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-event.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-event.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-event_main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-event_main.iml" group="spring-event" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-event_test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-event_test.iml" group="spring-event" />
+    </modules>
+  </component>
+</project>
