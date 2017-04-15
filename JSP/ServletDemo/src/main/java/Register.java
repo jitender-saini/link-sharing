@@ -1,4 +1,3 @@
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,14 +7,13 @@ import java.io.PrintWriter;
 import java.sql.*;
 
 public class Register extends HttpServlet {
-    
-    public void init()
-    {
-        
+
+    public void init() {
     }
+
     public void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException, ServletException {
-    
-        String html="<!DOCTYPE html>\n" +
+
+        String html = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
@@ -52,39 +50,32 @@ public class Register extends HttpServlet {
                 "\n" +
                 "</body>\n" +
                 "</html>";
-        
-        
+
         String name = httpServletRequest.getParameter("name");
         String username = httpServletRequest.getParameter("username");
         String password = httpServletRequest.getParameter("password");
-        PrintWriter out=httpServletResponse.getWriter();
-        try{
+        PrintWriter out = httpServletResponse.getWriter();
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/jsp","root","delete");
-            PreparedStatement preparedStatement=con.prepareStatement("insert into user VALUES (?,?,?)");
-         preparedStatement.setString(1,name);
-            preparedStatement.setString(2,username);
-            preparedStatement.setString(3,password);
-    
-            System.out.println( preparedStatement.executeUpdate());
-    
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/jsp", "root", "delete");
+            PreparedStatement preparedStatement = con.prepareStatement("insert into user VALUES (?,?,?)");
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(3, password);
+
+            System.out.println(preparedStatement.executeUpdate());
+
             out.println("<h1 style=\"color:green\"> Registration Successful </h1>   ");
-          httpServletRequest.getRequestDispatcher("register.jsp").include(httpServletRequest,httpServletResponse);
+            httpServletRequest.getRequestDispatcher("register.jsp").include(httpServletRequest, httpServletResponse);
             con.close();
-        }catch(Exception e){
-          out.println("<h1 style=\"color:red\"> Registration Failed </h1>   ");
+        } catch (Exception e) {
+            out.println("<h1 style=\"color:red\"> Registration Failed </h1>   ");
             out.println(html);
             e.printStackTrace();
         }
-    
     }
-    
-    
-    
-    public void destroy()
-    {
-        
+
+    public void destroy() {
     }
-    
 }
