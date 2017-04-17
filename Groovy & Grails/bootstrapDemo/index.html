@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="navbar-container">
+    <nav class="navbar navbar-default my-navbar">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed nav-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="#">jay</a>-->
+                <img src="images/logo.png" class="logo-img img-responsive">
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</div>
+
+<div class="content-review">
+    <div class="heading">Reviews</div>
+    <div><span class="span-line"></span></div>
+    <div class="description">Read What's The People Saying Abount Us</div>
+</div>
+
+<div class="carousel-container">
+    <div id="myCarousel" class="carousel slide myCarousel" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators my-indicator">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item slides active">
+                <img src="images/user1.jpg" alt="user1"  class="img-circle user-img"/>
+                <div class="review">
+                    <div class="row lead">
+                        <p>"I love Oleose, I highly recommend it, Everyone try it now."</p>
+                        <div class="star-rating">
+                            <p>
+                            <span class="user-name"> Krin Fox </span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star-empty "></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item slides">
+                <img src="images/user2.jpg" alt="user2"  class="img-circle user-img"/>
+                <div class="review">
+                    <div class="row lead">
+                        <p>"I love Oleose, I highly recommend it, Everyone try it now."</p>
+                        <div class="star-rating">
+                            <p>
+                                <span class="user-name"> Krin Fox </span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star-empty "></span><span class="glyphicon glyphicon-star-empty "></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item slides">
+                <img src="images/user3.jpg" alt="user3" class="img-circle user-img"/>
+                <div class="review">
+                    <div class="row lead">
+                        <p>"I like Oleose, I recommend it, Everyone try it now."</p>
+                        <div class="star-rating">
+                            <p>
+                                <span class="user-name"> Krin Fox </span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star "></span><span class="glyphicon glyphicon-star-empty "></span><span class="glyphicon glyphicon-star-empty "></span><span class="glyphicon glyphicon-star-empty "></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">-->
+            <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+            <!--<span class="sr-only">Previous</span>-->
+        <!--</a>-->
+        <!--<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">-->
+            <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+            <!--<span class="sr-only">Next</span>-->
+        <!--</a>-->
+    </div>
+</div>
+</div>
+
+</body>
+</html>

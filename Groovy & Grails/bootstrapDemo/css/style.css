@@ -1,0 +1,93 @@
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    /*width: 70%;*/
+    margin: auto;
+}
+.star-rating{
+    color: hotpink;
+}
+.myCarousel{
+    height: 300px;
+    width: 300px;
+    margin: auto;
+}
+body{
+    background-image: url("bk-berry.jpg");
+}
+.review {
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px;
+    background-color: antiquewhite;
+    /*padding-top: 10px;*/
+    padding: 10px 20px 5px 20px;
+    width: 300px;
+    height: 100px;
+}
+.review p{
+    font-size: small;
+    color: hotpink;
+
+}
+.user-name{
+    color: gray;
+    font-family: cursive;
+}
+.my-indicator li {
+    background-color: white;
+}
+.my-indicator .active {
+    background-color: hotpink;
+}
+.my-navbar{
+    background-color: #6B396C;
+    border: none;
+}
+/*.navbar-container{*/
+/*color: white;*/
+/*}*/
+
+.my-navbar .navbar-nav > li > a {
+    color: white;
+}
+.content-review{
+    margin: auto;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.heading{
+    color: white;
+    font-family: "DejaVu Sans Mono";
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+.span-line{
+    width: 40px;
+    height: 5px;
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.description{
+    color: white;
+    font-size: 16px;
+}
+.nav-button{
+    border-radius: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.logo-img{
+    padding-top: 5px;
+    width: 50px;
+    height: 40px;
+    margin-left: 10px;
+}
+.user-img{
+    border: 2px solid white;
+    width: 100px;
+    height: 100px;
+}
+
