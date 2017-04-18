@@ -1,7 +1,7 @@
-package com.desginPattern.StreetFighter.Context;
+package com.desginPattern.streetFighter.context;
 
-import com.desginPattern.StreetFighter.Strategy.Jump;
-import com.desginPattern.StreetFighter.Strategy.Roll;
+import com.desginPattern.streetFighter.strategy.Jump;
+import com.desginPattern.streetFighter.strategy.Roll;
 
 public class Fighter {
     private Jump jump;

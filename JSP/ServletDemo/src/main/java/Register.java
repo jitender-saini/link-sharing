@@ -75,7 +75,6 @@ public class Register extends HttpServlet {
             e.printStackTrace();
         }
     }
-
     public void destroy() {
     }
 }

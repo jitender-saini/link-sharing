@@ -1,6 +1,6 @@
-package com.desginPattern.StreetFighter.ConreteStrategy;
+package com.desginPattern.streetFighter.conreteStrategy;
 
-import com.desginPattern.StreetFighter.Strategy.Roll;
+import com.desginPattern.streetFighter.strategy.Roll;
 
 public class SingleRoll implements Roll {
     @Override

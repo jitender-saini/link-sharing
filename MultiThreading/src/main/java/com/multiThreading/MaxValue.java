@@ -28,22 +28,22 @@ public class MaxValue {
                 synchronized (max) {
                     new Thread(() -> findMax(max, itr.next())).start();
 
-                    Thread.sleep(10);
+//                    Thread.sleep(10);
 
                     if (itr.hasNext())
                         new Thread(() -> findMax(max, itr.next())).start();
 
-                    Thread.sleep(10);
+//                    Thread.sleep(10);
 
                     if (itr.hasNext())
                         new Thread(() -> findMax(max, itr.next())).start();
 
-                    Thread.sleep(10);
+//                    Thread.sleep(10);
 
                     if (itr.hasNext())
                         new Thread(() -> findMax(max, itr.next())).start();
 
-                    Thread.sleep(10);
+//                    Thread.sleep(10);
                 }
             }
             System.out.println("Max : " + max);

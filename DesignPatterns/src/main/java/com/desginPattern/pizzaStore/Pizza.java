@@ -1,7 +1,8 @@
 package com.desginPattern.pizzaStore;
 
 abstract class Pizza {
-    String name = "";
+    String name;
+    int cost;
 
     public String getName() {
         return name;

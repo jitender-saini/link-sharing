@@ -1,26 +1,20 @@
-package com.desginPattern.StreetFighter;
+package com.desginPattern.streetFighter;
 
-import com.desginPattern.StreetFighter.ConcreteContext.Ben;
-import com.desginPattern.StreetFighter.ConcreteContext.Robin;
-import com.desginPattern.StreetFighter.ConreteStrategy.DoubleRoll;
-import com.desginPattern.StreetFighter.ConreteStrategy.LongJump;
-import com.desginPattern.StreetFighter.ConreteStrategy.ShortJump;
-import com.desginPattern.StreetFighter.ConreteStrategy.SingleRoll;
-import com.desginPattern.StreetFighter.Context.Fighter;
-import com.desginPattern.StreetFighter.Strategy.Jump;
-import com.desginPattern.StreetFighter.Strategy.Roll;
+import com.desginPattern.streetFighter.concreteContext.Ben;
+import com.desginPattern.streetFighter.concreteContext.Robin;
+import com.desginPattern.streetFighter.conreteStrategy.DoubleRoll;
+import com.desginPattern.streetFighter.conreteStrategy.LongJump;
+import com.desginPattern.streetFighter.conreteStrategy.ShortJump;
+import com.desginPattern.streetFighter.conreteStrategy.SingleRoll;
+import com.desginPattern.streetFighter.context.Fighter;
+import com.desginPattern.streetFighter.strategy.Jump;
+import com.desginPattern.streetFighter.strategy.Roll;
 
 import java.util.Scanner;
 
 public class StreetFighterDemo {
     public static void main(String[] args) {
-        /*Fighter fighter = new Ben(new ShortJump(), new SingleRoll());
-        fighter.execute();
-
-        fighter = new Robin(new LongJump(), new DoubleRoll());
-        fighter.execute();*/
-
-        Fighter fighter = null;
+           Fighter fighter = null;
         Fighter fighter1 = null;
         Fighter fighter2 = null;
         Jump jump = null;

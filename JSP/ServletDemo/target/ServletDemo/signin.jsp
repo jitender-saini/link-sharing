@@ -11,23 +11,24 @@
 <div align="center">
     <table>
 
-    <form name="login" action="login.jsp" method="post">
-<tr>
-    <td>User-Name</td>
-     <td>   <input type="text" name="username" maxlength="10" required placeholder="Username"/></td>
-</tr>
+        <form name="login" action="login.jsp" method="post">
+            <tr>
+                <td>User-Name</td>
+                <td><input type="text" name="username" maxlength="10" required placeholder="Username"/></td>
+            </tr>
 
 
-        <tr>
-            <td> Password</td>
-            <td><input type="password" name="password" maxlength="10" placeholder="Password" required/></td>
-        </tr>
-<tr><td >
-        <input type="submit" value="login">
-</td>
-<td><a href="register.jsp">Signup?</a></td>
-</tr>
-    </form>
+            <tr>
+                <td> Password</td>
+                <td><input type="password" name="password" maxlength="10" placeholder="Password" required/></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="login">
+                </td>
+                <td><a href="register.jsp">Signup?</a></td>
+            </tr>
+        </form>
     </table>
 
 </div>

@@ -1,8 +1,8 @@
-package com.desginPattern.StreetFighter.ConcreteContext;
+package com.desginPattern.streetFighter.concreteContext;
 
-import com.desginPattern.StreetFighter.Context.Fighter;
-import com.desginPattern.StreetFighter.Strategy.Jump;
-import com.desginPattern.StreetFighter.Strategy.Roll;
+import com.desginPattern.streetFighter.context.Fighter;
+import com.desginPattern.streetFighter.strategy.Jump;
+import com.desginPattern.streetFighter.strategy.Roll;
 
 public class Robin extends Fighter {
     public Robin(Jump jump, Roll roll) {

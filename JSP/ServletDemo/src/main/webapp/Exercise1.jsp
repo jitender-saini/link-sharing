@@ -5,7 +5,6 @@
 </head>
 <body><%
     java.util.Date currentDate = new java.util.Date();
-
 %>
 <b>Hello! The time is now … <%=currentDate%>
 </b>
