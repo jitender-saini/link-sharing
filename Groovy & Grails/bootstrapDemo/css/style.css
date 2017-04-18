@@ -3,17 +3,21 @@
     /*width: 70%;*/
     margin: auto;
 }
-.star-rating{
+
+.star-rating {
     color: hotpink;
 }
-.myCarousel{
+
+.myCarousel {
     height: 300px;
     width: auto;
     margin: auto;
 }
-body{
+
+body {
     background-image: url("bk-berry.jpg");
 }
+
 .review {
     margin: 0 auto;
     margin-top: 20px;
@@ -26,17 +30,20 @@ body{
     color: hotpink;
 }
 
-.user-name{
+.user-name {
     color: gray;
     font-family: cursive;
 }
+
 .my-indicator li {
     background-color: white;
 }
+
 .my-indicator .active {
     background-color: hotpink;
 }
-.my-navbar{
+
+.my-navbar {
     background-color: #6B396C;
     border: none;
 }
@@ -44,60 +51,66 @@ body{
 .my-navbar .navbar-nav > li > a {
     color: white;
 }
-.content-review{
+
+.content-review {
     margin: auto;
     text-align: center;
     margin-bottom: 100px;
 }
 
-.heading{
+.heading {
     color: white;
     font-family: "DejaVu Sans Mono";
     font-size: 35px;
     margin-bottom: 5px;
 }
-.span-line{
+
+.span-line {
     width: 40px;
     height: 5px;
     display: inline-block;
     background-color: white;
     margin-bottom: 10px;
 }
-.description{
+
+.description {
     color: white;
     font-size: 16px;
 }
-.nav-button{
+
+.nav-button {
     border-radius: 50px;
     padding-left: 5px;
     padding-right: 5px;
 }
-.logo-img{
+
+.logo-img {
     padding-top: 5px;
     width: 50px;
     height: 40px;
     margin-left: 10px;
 }
-.user-img{
+
+.user-img {
     border: 2px solid white;
     width: 100px;
     height: 100px;
 }
 
 @media all and (min-width: 960px) {
-    .review p{
+    .review p {
         font-size: 18px;
     }
 }
 
 @media all and (max-width: 959px) and (min-width: 600px) {
-    .review p{
+    .review p {
         font-size: large;
     }
 }
 
 @media all and (max-width: 599px) and (min-width: 320px) {
-    .review p{
+    .review p {
         font-size: medium;
     }
 
