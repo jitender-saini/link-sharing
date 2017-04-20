@@ -27,9 +27,31 @@ package com.ttn.collection
 //}
 //println list
 
-def list = ['Simple', 'list', 'with', 5, 'items']
-list.pop()
-list.pop()
+//List employeeList
+//
+//employeeList.each {
+//    if (it.getSalary() < 5000) {
+//        list1.add(it)
+//    }
+//}
+//println("List of Employees having Salary less than 5000 : "+list1)
+//
+//employeeList.sort({ a, b -> a.getAge() - b.getAge() })
+//println("Youngest Employee Details : " + employeeList.first())
+//println("Oldest Employee Details : " + employeeList.last())
+//
+//}
+//}
+//
 
 
+def list = [0,1,2,3,4,5,6,7,8,9,10]
+def list2 = []
+for (int j = 0; j <list.size() ; j+=2) {
+    list2.add(list[j])
+}
+
+list = list2
 println list
+
+

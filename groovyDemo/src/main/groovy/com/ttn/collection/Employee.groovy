@@ -7,4 +7,6 @@ class Employee {
     String name
     int age
     double salary
+    String departmentName
+    int employeeNumber
 }
