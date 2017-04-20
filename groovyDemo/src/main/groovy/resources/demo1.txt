@@ -1,0 +1,26 @@
+1 : Create a class in Java along with follwing fields. classname: Person fields: name, age, gender, address Access the fields in all known ways: like through getter , by dot operator   
+3 : Print this pattern using groovy:   
+5 : *   
+7 : ****   
+9 : GString... override the toString() of the Person class to return something like... "Sachin is a man aged 24 who lives at Delhi. He works for Intelligrape with employee id 12 and draws $$$$$$$ lots of money !!!!."   
+11 : "Test"   
+13 :  null   
+15 :  0   
+17 : list with all vaues as null List list = new ArrayList()   
+19 : Print multiple of 3 upto 10 terms in at least three different ways using groovy special methods   
+21 : Combine content of all the files in a specific directory to another new file   
+23 : Write a method which removes all the white spaces in a file and writes the output to another file. Suppose white space characters are Space, Tab and Enter   
+25 : The Vision   
+27 : What is Groovy, it’s history & Why ?   
+29 : Setting up Groovy   
+31 : Tools - Groovy Shell & Console   
+33 : What do we mean by Dynamic typing in Groovy?   
+35 : Closure in Groovy.   
+37 : Groovy Vs Java   
+39 : What is GDK?   
+41 : Strings in Groovy   
+43 : The Groovy Truth   
+45 : Groovy Classes   
+47 : Working with files   
+49 : Coding Conventions   
+51 :    

@@ -1,0 +1,25 @@
+The Vision
+
+What is Groovy, it’s history & Why ?
+
+Setting up Groovy
+
+Tools - Groovy Shell & Console
+
+What do we mean by Dynamic typing in Groovy?
+
+Closure in Groovy.
+
+Groovy Vs Java
+
+What is GDK?
+
+Strings in Groovy
+
+The Groovy Truth
+
+Groovy Classes
+
+Working with files
+
+Coding Conventions
