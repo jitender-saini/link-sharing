@@ -22,7 +22,7 @@ class Exer22 {
 
         // 2. Get a count of the number of employees in each department
         def depMap=empList.groupBy {
-            return it.departmentName
+            it.departmentName
         }
         depMap.each {key,value ->
             println "count of the number of employees in each department ${key}:${value.size()}"
@@ -44,7 +44,7 @@ class Exer22 {
 
         // 5. Group the employees according to their department.
         def employeeByDepartment=empList.groupBy {
-            return it.departmentName
+            it.departmentName
         }
         employeeByDepartment.each {
             println "Employee by Department : $it"

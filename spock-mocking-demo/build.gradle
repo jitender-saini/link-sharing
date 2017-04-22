@@ -1,0 +1,37 @@
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+group = "com.im"
+version = "0.1"
+description = "An awesome groovy library"
+
+repositories {
+    jcenter()
+}
+
+sourceSets {
+    main.groovy.srcDir 'src'
+    test.groovy.srcDir 'test'
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.1'
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+    compile 'cglib:cglib-nodep:2.2'
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+
+String getPropertyOrUseDefault(String propertyName, String defaultValue) {
+    hasProperty(propertyName) ? getProperty(propertyName) : defaultValue
+}

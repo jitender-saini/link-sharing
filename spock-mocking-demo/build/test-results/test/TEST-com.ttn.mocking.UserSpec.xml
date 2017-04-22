@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ttn.mocking.UserSpec" tests="5" skipped="4" failures="0" errors="0" timestamp="2017-04-22T10:26:14" hostname="jitender-saini" time="0.035">
+  <properties/>
+  <testcase name="First test" classname="com.ttn.mocking.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="We are able to get the maximum of the two numbers" classname="com.ttn.mocking.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="After updating the password of a user we send a reset password email containing the new password" classname="com.ttn.mocking.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Encrypt passsord should return encrypted password after validating the passsword" classname="com.ttn.mocking.UserSpec" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Sorted interested in categoris are returned" classname="com.ttn.mocking.UserSpec" time="0.034"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
