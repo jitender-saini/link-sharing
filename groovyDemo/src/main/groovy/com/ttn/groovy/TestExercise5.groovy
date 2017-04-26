@@ -3,9 +3,9 @@ package com.ttn.groovy
 class TestExercise5 {
 
     static void main(String[] args) {
-//        if(null){
-//            println "testing null"
-//        }
+        if(null){
+            println "testing null"
+        }
          if('null'){
             println "testing 'null' "
         }

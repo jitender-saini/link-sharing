@@ -1,5 +1,7 @@
 package com.ttn.collection
 
+import com.ttn.collection.model.Employee
+
 class Exer8 {
     static void main(String[] args) {
 

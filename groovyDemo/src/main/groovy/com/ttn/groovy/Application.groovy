@@ -1,5 +1,8 @@
 package com.ttn.groovy
 
+import com.ttn.groovy.model.Employee
+import com.ttn.groovy.model.Person
+
 class Application {
 
     static void main(String[] args) {
