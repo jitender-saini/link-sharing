@@ -1,6 +1,6 @@
 package com.ttn.groovy
 
-class TestExercise5 {
+class Exercise5 {
 
     static void main(String[] args) {
         if(null){
@@ -34,7 +34,7 @@ class TestExercise5 {
         list.add(12)
         list.add("dfs")
         if(list){
-            println "testing list with all values as null"
+            println "testing list after adding 12 in list"
         }
 
         if(-1){

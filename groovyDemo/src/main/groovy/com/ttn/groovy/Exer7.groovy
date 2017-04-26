@@ -1,4 +1,6 @@
 package com.ttn.groovy
+
+
 def valueInList= {list,element->
     list.contains(element)
 }

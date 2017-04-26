@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/groovy-collections.iml" filepath="$PROJECT_DIR$/.idea/modules/groovy-collections.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/groovy-collections_main.iml" filepath="$PROJECT_DIR$/.idea/modules/groovy-collections_main.iml" group="groovy-collections" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/groovy-collections_test.iml" filepath="$PROJECT_DIR$/.idea/modules/groovy-collections_test.iml" group="groovy-collections" />
+    </modules>
+  </component>
+</project>

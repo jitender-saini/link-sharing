@@ -2,65 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1cd94fc-e05b-46dc-9a02-9638931db2b1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../groovyDemo/.idea/dictionaries/jitender.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../groovyDemo/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../linkSharing/README.md" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/.idea/LinkSharing.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bg2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap-theme.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap-theme.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/bootstrap.min.css.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/customize.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/css/login.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/js/jquery-3.1.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/js/npm.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../LinkSharing/register.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Employee.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/demo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/groovy/Employee.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/groovy/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/collection/demo.groovy" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/collection/Employee.groovy" afterPath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/collection/model/Employee.groovy" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/Employee.groovy" afterPath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/model/Employee.groovy" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/Person.groovy" afterPath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/model/Person.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure1.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure10.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure2.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure3.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure4.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure5.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure6.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure7.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure8.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure8_closure11.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure8_closure11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure9.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22$_main_closure9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer22.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer8$_main_closure1.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer8$_main_closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer8$_main_closure2.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer8$_main_closure2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer8.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/collection/Exer8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/groovy/Application.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/groovy/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/groovy/TestExercise5.class" afterPath="$PROJECT_DIR$/../groovyDemo/build/classes/main/com/ttn/groovy/TestExercise5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../groovyDemo/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/collection/Exer22.groovy" afterPath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/collection/Exer22.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/collection/Exer8.groovy" afterPath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/collection/Exer8.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/Application.groovy" afterPath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/Application.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/TestExercise5.groovy" afterPath="$PROJECT_DIR$/../groovyDemo/src/main/groovy/com/ttn/groovy/TestExercise5.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -103,114 +45,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SaleException.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/SaleException.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Transaction.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Transaction.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/User.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="91" column="6" lean-forward="false" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionStatus.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/TransactionStatus.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmailServiceSpec.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/EmailServiceSpec.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PasswordEncrypterServiceSpec.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/PasswordEncrypterServiceSpec.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-              <folding>
-                <element signature="e#25#71#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PersonSpec.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/PersonSpec.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransactionSpec.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/TransactionSpec.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-              <folding>
-                <element signature="e#25#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserSpec.groovy" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/UserSpec.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-              <folding>
-                <element signature="e#25#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PasswordEncrypterService.groovy" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/PasswordEncrypterService.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -587,12 +422,13 @@
         <option value="$PROJECT_DIR$/src/main/groovy/PasswordEncrypterService.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/SaleException.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/User.groovy" />
-        <option value="$PROJECT_DIR$/test/com/ttn/mocking/PasswordEncrypterServiceSpec.groovy" />
         <option value="$PROJECT_DIR$/test/com/ttn/mocking/UserSpec.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Transaction.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/DiscountType.groovy" />
         <option value="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Product.groovy" />
         <option value="$PROJECT_DIR$/test/com/ttn/mocking/TransactionSpec.groovy" />
+        <option value="$PROJECT_DIR$/test/com/ttn/mocking/PasswordEncrypterServiceSpec.groovy" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -624,6 +460,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -656,9 +494,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1099,11 +935,12 @@
       <updated>1492854346487</updated>
       <workItem from="1492854354331" duration="2441000" />
       <workItem from="1493199399763" duration="505000" />
+      <workItem from="1493227306433" duration="452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2946000" />
+    <option name="totallyTimeSpent" value="3398000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1116,7 +953,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="24" width="1305" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1132,9 +969,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2533757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2573471" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1160,6 +997,92 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/SaleException.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Transaction.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/User.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="91" column="6" lean-forward="false" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/TransactionStatus.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="5" lean-forward="false" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/EmailServiceSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/PasswordEncrypterServiceSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding>
+            <element signature="e#25#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/PersonSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/TransactionSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="e#25#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/UserSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/PasswordEncrypterService.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/SaleException.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1260,7 +1183,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1275,7 +1197,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="6" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1290,7 +1211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="29" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,16 +1235,6 @@
         <state relative-caret-position="72">
           <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/PasswordEncrypterServiceSpec.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="9" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding>
-            <element signature="e#25#71#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1354,28 +1264,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/User.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="1638">
           <caret line="91" column="6" lean-forward="false" selection-start-line="91" selection-start-column="6" selection-end-line="91" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/TransactionSpec.groovy">
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/UserSpec.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="5" lean-forward="true" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="18">
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding>
-            <element signature="e#25#62#0" expanded="true" />
+            <element signature="e#25#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/UserSpec.groovy">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="198">
+            <caret line="11" column="3" lean-forward="false" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/PasswordEncrypterServiceSpec.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        <state relative-caret-position="126">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
           <folding>
-            <element signature="e#25#51#0" expanded="true" />
+            <element signature="e#25#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/ttn/mocking/TransactionSpec.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#62#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -11,7 +11,7 @@ class Application {
 
         person.setName("Jay")
         person.setAge(24)
-        person.setGender("male")
+        person.gender="male"
         person.setAddress("Noida")
 
         println("Name :"+person.getName())
@@ -27,8 +27,8 @@ class Application {
         println(person)
 
         Employee employee = new Employee()
-        employee.setEmpId(101)
-        employee.setName("Sam")
+        employee.empId=101
+        employee.name="Sam"
         employee.setAge(24)
         employee.setGender("male")
         employee.setAddress("Delhi")
