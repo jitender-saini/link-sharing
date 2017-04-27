@@ -33,25 +33,25 @@ class UserSpec extends Specification {
         result == valid
 
         where:
-        sno | testName           | fname | lname   | email         | password   | userName    | valid
-        1   | "Blank first name" | ""    | "Saini" | "abc@ttn.com" | "password" | "username1" | false
-        2   | "Null first name"  | null  | "Saini" | "ab1@ttn.com" | "password" | "username2" | false
-        3   | "Blank last name"  | "Jay" | ""      | "ab2@ttn.com" | "password" | "username3" | false
-        4   | "Null last name"   | "Jay" | null    | "ab3@ttn.com" | "password" | "username4" | false
-        5   | "Correct input"    | "Jay" | "Saini" | "jay@ttn.com" | "password" | "jaysaini"  | true
-        6   | "Null email"       | "Jay" | "Saini" | null          | "password" | "username5" | false
-        7   | "Blank email"      | "Jay" | "Saini" | ""            | "password" | "username6" | false
-        8   | "Null password"    | "Jay" | "Saini" | "jay@ttn.com" | null       | "jaysaini2" | false
-        9   | "Blank password"   | "Jay" | "Saini" | "jay@ttn.com" | ""         | "jaysaini2" | false
-        10  | "Null username"    | "Jay" | "Saini" | "xyz@ttn.com" | "password" | null        | false
-        11  | "Blank username"   | "Jay" | "Saini" | "xy2@ttn.com" | "password" | ""          | false
-        13  | "Email validation" | "jay" | "Saini" | ".com"        | "password" | " username" | false
-        14  | "Email validation" | "jay" | "Saini" | "email"       | "password" | " username" | false
-        15  | "Email validation" | "jay" | "Saini" | "@ttn"        | "password" | " username" | false
-        16  | "Email validation" | "jay" | "Saini" | "@.com"       | "password" | " username" | false
-        17  | "Email validation" | "jay" | "Saini" | "fdd@.com"       | "password" | " username" | false
-        18  | "Email validation" | "jay" | "Saini" | "fd d@ttn.com"       | "password" | " username" | false
-        19  | "Email validation" | "jay" | "Saini" | "fdd@ttn.43"       | "password" | " username" | false
+        sno | testName           | fname | lname   | email          | password   | userName    | valid
+        1   | "Blank first name" | ""    | "Saini" | "abc@ttn.com"  | "password" | "username1" | false
+        2   | "Null first name"  | null  | "Saini" | "ab1@ttn.com"  | "password" | "username2" | false
+        3   | "Blank last name"  | "Jay" | ""      | "ab2@ttn.com"  | "password" | "username3" | false
+        4   | "Null last name"   | "Jay" | null    | "ab3@ttn.com"  | "password" | "username4" | false
+        5   | "Correct input"    | "Jay" | "Saini" | "jay@ttn.com"  | "password" | "jaysaini"  | true
+        6   | "Null email"       | "Jay" | "Saini" | null           | "password" | "username5" | false
+        7   | "Blank email"      | "Jay" | "Saini" | ""             | "password" | "username6" | false
+        8   | "Null password"    | "Jay" | "Saini" | "jay@ttn.com"  | null       | "jaysaini2" | false
+        9   | "Blank password"   | "Jay" | "Saini" | "jay@ttn.com"  | ""         | "jaysaini2" | false
+        10  | "Null username"    | "Jay" | "Saini" | "xyz@ttn.com"  | "password" | null        | false
+        11  | "Blank username"   | "Jay" | "Saini" | "xy2@ttn.com"  | "password" | ""          | false
+        13  | "Email validation" | "jay" | "Saini" | ".com"         | "password" | " username" | false
+        14  | "Email validation" | "jay" | "Saini" | "email"        | "password" | " username" | false
+        15  | "Email validation" | "jay" | "Saini" | "@ttn"         | "password" | " username" | false
+        16  | "Email validation" | "jay" | "Saini" | "@.com"        | "password" | " username" | false
+        17  | "Email validation" | "jay" | "Saini" | "fdd@.com"     | "password" | " username" | false
+        18  | "Email validation" | "jay" | "Saini" | "fd d@ttn.com" | "password" | " username" | false
+        19  | "Email validation" | "jay" | "Saini" | "fdd@ttn.43"   | "password" | " username" | false
     }
 
     def "Email address of user should be unique"() {
@@ -100,7 +100,7 @@ class UserSpec extends Specification {
         when:
         user.save()
         then:
-        user.count() == 1
+        User.count() == 1
 
         when:
         User newUser = new User(

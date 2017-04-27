@@ -13,10 +13,7 @@ class ResourceRating {
     static belongsTo = [user: User, resource: Resource]
 
     static constraints = {
-        score nullable: false, blank: false, validator: {value, object->
-            if(value<1 && value >6)
-                return false
-        }
+        score nullable: false, blank: false, min: 1, max: 5
         createdBy nullable: false, blank: false
         resource nullable: false, blank: false, unique: "createdBy"
     }

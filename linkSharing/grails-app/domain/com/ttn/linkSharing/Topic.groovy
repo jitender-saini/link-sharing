@@ -17,7 +17,7 @@ class Topic {
     static constraints = {
         topicTitle unique: 'createdBy', nullable: false, blank: false
         description nullable: false, blank: false
-//        visibility nullable: false, blank: false
+        visibility nullable: false, blank: false
         createdBy nullable: false, blank: false
     }
 }

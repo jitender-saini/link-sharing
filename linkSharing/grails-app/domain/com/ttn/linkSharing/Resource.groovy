@@ -12,7 +12,7 @@ abstract class Resource {
     static hasMany = [readingItem: ReadingItem, resourceRating: ResourceRating]
 
     static constraints = {
-        description nullable: true, blank: true, maxSize: 2048
+        description nullable: false, blank: false, maxSize: 2048
     }
 
     static mapping = {

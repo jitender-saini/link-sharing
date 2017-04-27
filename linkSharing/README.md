@@ -40,10 +40,21 @@
         password: delete
 
 9. Add index action in util controller and use different logging levels
+    index action is added in util controller
+    
 10. Updated logging and pattern in logback.groovy
-11. Added log statements of params in utilcontroller index action
-12. Add app context to / to remove app name in url
+    added the below line in logback.groovy
+        logger('grails.app', INFO, ['STDOUT'],false)
 
+    
+11. Added log statements of params in utilController index action
+    
+
+12. Add app context to / to remove app name in url
+    added the below code in app-config.yml
+        grails:
+            app:
+            context: /
 
 13. Read config properties from external config and use BootStrap.groovy for verifying properties are actually read from external config
     created new file app-config.yml in root directory of the project 

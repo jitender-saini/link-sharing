@@ -1,5 +1,6 @@
 package com.ttn.linksharing
 
+import com.ttn.linkSharing.User
 import demo.Employee
 
 
@@ -7,6 +8,7 @@ class BootStrap {
 
     def init = { servletContext ->
         createEmployee()
+        createUser()
         getById(1)
         getById(2)
         findById(1)
@@ -14,6 +16,16 @@ class BootStrap {
         findbyProperty()
         findAndCreate()
         findAndSave()
+    }
+
+    void createUser(){
+        User adminJay = new User(userName: "jaysaini",firstName: "Jay", lastName: "Saini",password: "delete", email: "jitender.saini@ttn.com",
+                isActive: true,isAdmin: true, dateCreated: new Date(), lastUpdated: new Date())
+        adminJay.save(flush:true,failOnError : true)
+
+        User user = new User(userName: "jaysaini",firstName: "Jay", lastName: "Saini",password: "delete", email: "jitender.saini@ttn.com",
+                isActive: true,isAdmin: false, dateCreated: new Date(), lastUpdated: new Date())
+        user.save(flush:true,failOnError : true)
     }
 
     def createEmployee(){

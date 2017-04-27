@@ -2,54 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b2ff501-9167-4b94-98b9-f7fba16fcbb1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../spock-mocking-demo/README.md" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/PatternExercise3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/TestExercise5.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer1.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer10.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer11.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer12.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer13.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer14.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer16.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer17.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer18.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer19.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer2.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer20.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer21.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer22.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer23.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer3.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer4.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer5.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer6.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer7.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer8.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer9.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Stack.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/collection/model/Employee.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/demo.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/demo3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/resources/demo1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/resources/file1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/resources/file2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/resources/file3.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/resources/images/copyImage.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/groovy/resources/images/image.JPG" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/PatternExercise3.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Exercise3.groovy" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/TestExercise5.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Exercise5.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/collection/Exer1.class" afterPath="$PROJECT_DIR$/build/classes/main/com/ttn/collection/Exer1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/collection/Exer2.class" afterPath="$PROJECT_DIR$/build/classes/main/com/ttn/collection/Exer2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/collection/Exer9.class" afterPath="$PROJECT_DIR$/build/classes/main/com/ttn/collection/Exer9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/Application.class" afterPath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/Exer7$_run_closure1.class" afterPath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/Exer7$_run_closure1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/Exer7.class" afterPath="$PROJECT_DIR$/build/classes/main/com/ttn/groovy/Exer7.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Application.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Application.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Exer7.groovy" afterPath="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Exer7.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../spock-mocking-demo/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../spock-mocking-demo/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -490,6 +443,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -527,35 +481,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovyDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovyDemo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="groovy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -577,6 +504,18 @@
       <recent name="$PROJECT_DIR$/src/main/groovy" />
       <recent name="$PROJECT_DIR$/src/main/groovy/com/ttn/groovy" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Groovy.Exer9">
     <configuration default="false" name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -971,9 +910,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -1032,19 +968,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
     <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
       <method />
     </configuration>
@@ -1096,11 +1019,14 @@
       <workItem from="1493227759841" duration="2677000" />
       <workItem from="1493231293809" duration="2646000" />
       <workItem from="1493233981706" duration="57000" />
+      <workItem from="1493234858703" duration="89000" />
+      <workItem from="1493234986989" duration="14000" />
+      <workItem from="1493268331822" duration="33000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72201000" />
+    <option name="totallyTimeSpent" value="72337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="61" y="24" width="1305" height="744" extended-state="6" />
@@ -1114,21 +1040,21 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39628482" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39628482" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1731533" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18189038" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1226,20 +1152,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer12.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="59" lean-forward="false" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer11.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="36" lean-forward="false" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer12.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer11.groovy" />
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/MultipleOfThree.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -1247,13 +1161,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer13.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer13.groovy" />
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/AbstractList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-10714">
@@ -1261,62 +1169,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer14.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Stack.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer18.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer19.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer17.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer16.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer20.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer21.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer14.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Stack.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer18.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer19.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer17.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer16.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer20.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer21.groovy" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.3.11/fdf089bfd5d0b7e86100ac599741f65732fc21d5/groovy-all-2.3.11-sources.jar!/org/codehaus/groovy/runtime/DefaultGroovyMethods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-144">
@@ -1324,56 +1184,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer23.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer7.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer10.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/file1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer23.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer7.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer10.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/file1.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/demo.txt" />
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/demo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/file2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/file3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/demo.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/file2.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/file3.html" />
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Exer11.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1388,13 +1206,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/demo3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/demo3.txt" />
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Exer10.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1402,19 +1214,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/images/copyImage.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/resources/images/copyImage.JPG" />
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/demo.groovy" />
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer22.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer22.groovy" />
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/model/Employee.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1422,18 +1224,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/model/Employee.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/model/Employee.groovy" />
     <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/groovy/Application.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1462,83 +1257,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="36" column="57" lean-forward="false" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer5.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer6.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer1.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer2.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer3.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer4.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer8.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="10" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="33" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer5.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer6.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer1.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer2.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer3.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer4.groovy" />
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer8.groovy" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="244">
             <caret line="60" column="144" lean-forward="true" selection-start-line="60" selection-start-column="144" selection-end-line="60" selection-end-column="144" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer9.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/groovy/com/ttn/collection/Exer9.groovy" />
   </component>
 </project>

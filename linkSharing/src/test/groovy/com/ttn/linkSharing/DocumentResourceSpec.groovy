@@ -2,6 +2,7 @@ package com.ttn.linkSharing
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -9,14 +10,24 @@ import spock.lang.Specification
 @TestFor(DocumentResource)
 class DocumentResourceSpec extends Specification {
 
-    def setup() {
-    }
+    @Unroll("#sno")
+    void "validateDocumentResource"() {
 
-    def cleanup() {
-    }
+        setup:
+        DocumentResource documentResource = new DocumentResource(filePath: filePath, description: description)
 
-    void "test something"() {
-        expect:"fix me"
-            true == false
+        when:
+        Boolean result = documentResource.validate(['description', 'filePath'])
+
+        then:
+        result == valid
+
+        where:
+        sno | description   | filePath      | valid
+        1   | "description" | '/ home/test' | true
+        2   | " "           | '/home/test'  | false
+        3   | null          | '/home/test'  | false
+        4   | "description" | ' '           | false
+        5   | "description" | null          | false
     }
 }
