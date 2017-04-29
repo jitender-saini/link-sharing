@@ -13,6 +13,8 @@ abstract class Resource {
 
     static constraints = {
         description nullable: false, blank: false, maxSize: 2048
+        createdBy nullable: false, blank: false
+        topic nullable:false, blank: false
     }
 
     static mapping = {
@@ -21,6 +23,6 @@ abstract class Resource {
 
 
     String toString() {
-        return "Topic : ${topic} Description : ${description}"
+        return "Resource for Topic : ${topic.topicTitle} created by ${createdBy.userName}"
     }
 }

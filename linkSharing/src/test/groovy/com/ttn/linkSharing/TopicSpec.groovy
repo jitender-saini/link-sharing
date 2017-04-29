@@ -1,10 +1,10 @@
 package com.ttn.linkSharing
 
+import com.ttn.linkSharing.enums.Visibility
 import grails.test.mixin.Mock
 import grails.test.mixin.TestMixin
 import grails.test.mixin.domain.DomainClassUnitTestMixin
 import spock.lang.Specification
-import java.util.Date
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -50,6 +50,7 @@ class TopicSpec extends Specification {
                 lastUpdated: new Date(),
                 visibility: Visibility.PRIVATE)
         duplicateTopic.save()
+
 
         then:
         Topic.countByTopicTitleAndCreatedBy(topicTitle, user) == 1

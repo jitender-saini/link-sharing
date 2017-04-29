@@ -33,12 +33,10 @@ class User {
     }
 
     String getName() {
-        return firstName + lastName
+        return "${firstName}  ${lastName}"
     }
 
-
-    @Override
-    public String toString() {
+    String toString() {
         return "User{" +
                 "userName='" + userName + '\'' +
                 ", firstName='" + firstName + '\'' +

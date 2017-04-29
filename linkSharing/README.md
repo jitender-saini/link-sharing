@@ -63,3 +63,37 @@
     bootRun{ 
     jvmArgs = ['-Dlocal.config.location=app-config.yml']
     }
+    
+[************************************************************************************************************************************]
+Exercise GORM1
+
+1. Add createUsers method to Bootstrap to create 1 admin and 1 normal user.
+2. Use failOnError and flush true for persisting users
+3. Use log info statements for data creation and log error if there are any errors
+4. Users will be created only when there are no records in user table
+5. Add constants file for default password
+6. Add createTopics method in bootstrap
+7. 5 topics per user needs to be created if Topic count is 0
+8. Creator of topic should automatically be subscribed to topic (Use after insert event of topic)
+9. Errors should be logged if topic or subscriptions is not saved
+10. WithNewSession in after insert because it will not work without it
+11. Seriousness should be very serious for auto subscribed topic in after insert
+12. Add createResources method which create 2 link resource and 2 document resource in each topic
+13. It should create resource only if there is not data in resource table
+14. Description of the resource should include topic name
+15. Error should be logged
+16. Creator of the resource should be same as creator of the topic
+17. Add subscribeTopics for user to subscribe all the topics which are not created by user
+18. Subscription should be created only if the subscription do not exit for user and topic 
+19. Errors should be logged
+20. log statement when subscription is created with user and topic object
+21. toString should be implemented for Topic with topic name and for User with username
+22. Add createReadingItems in bootstrap to create dummy reading items
+23. Resources which are not created by the user in the topics subscribed by him/her should have in his/her reading item.
+24. Reading item of resource should be created only if it does not already exit in users reading item
+25. Add createResourceRatings to add dummy ratings
+26. Add rating for all the unread reading items of the user
+27. createdBy of resourcerating should be createdby of reading item and resource of resourcerating should be resource of readingitem
+28. Add test cases for tostring of Topic and User
+29. Add toString for linkresource with url
+30. Add test case for document resource and linkresource tostring

@@ -35,3 +35,5 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     logger('grails.app', INFO, ['STDOUT'],false)
 }
 root(ERROR, ['STDOUT'])
+
+logger("grails.app.demo.testController",WARN,['STDOUT'],false)

@@ -1,4 +1,4 @@
-package com.ttn.linkSharing
+package com.ttn.linkSharing.enums
 
 enum Seriousness {
 
