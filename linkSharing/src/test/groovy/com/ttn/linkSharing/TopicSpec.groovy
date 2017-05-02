@@ -5,6 +5,7 @@ import grails.test.mixin.Mock
 import grails.test.mixin.TestMixin
 import grails.test.mixin.domain.DomainClassUnitTestMixin
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -14,6 +15,31 @@ import spock.lang.Specification
 @Mock([Topic, User])
 class TopicSpec extends Specification {
 
+    @Unroll("#sno")
+    void "Topic validation test"() {
+        setup:
+        Topic topic = new Topic(topicTitle: topicTitle, description: desc, createdBy: user, visibility: visibility)
+
+        when:
+        Boolean result = topic.validate(['topicTitle', 'description', 'createdBy', 'visibility'])
+
+        then:
+        result == valid
+
+        where:
+        sno | topicTitle | desc   | user       | visibility         | valid
+        1   | "java"     | "sdsd" | Mock(User) | Visibility.PRIVATE | true
+        2   | "java"     | "sdsd" | Mock(User) | Visibility.PUBLIC  | true
+        3   | null       | "sdsd" | Mock(User) | Visibility.PRIVATE | false
+        4   | ""         | "sdsd" | Mock(User) | Visibility.PRIVATE | false
+        5   | "java"     | null   | Mock(User) | Visibility.PRIVATE | false
+        6   | "java"     | ""     | Mock(User) | Visibility.PRIVATE | false
+        7   | "java"     | "desc" | null       | Visibility.PRIVATE | false
+        8   | "java"     | "desc" | null       | Visibility.PRIVATE | false
+        9   | "java"     | "desc" | Mock(User) | null               | false
+    }
+
+//    To run this method commit afterInsert in Topic Domain
     def "Topic should be unique per user"() {
         setup:
         String topicTitle = "Groovy"
