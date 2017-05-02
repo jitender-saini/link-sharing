@@ -31,8 +31,9 @@ class User {
     static mapping = {
         profilePic sqlType: 'longblob'
     }
+    static transients = ['fullName']
 
-    String getName() {
+    String getFullName() {
         return "${firstName}  ${lastName}"
     }
 

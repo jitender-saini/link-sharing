@@ -79,7 +79,7 @@ Exercise GORM1
 9. Errors should be logged if topic or subscriptions is not saved
 10. WithNewSession in after insert because it will not work without it
 11. Seriousness should be very serious for auto subscribed topic in after insert
-12. Add createResources method which create 2 link resource and 2 document resource in each topic       
+12. Add createResources method which create 2 link resource and 2 document resource in each topic       x
 13. It should create resource only if there is not data in resource table
 14. Description of the resource should include topic name
 15. Error should be logged

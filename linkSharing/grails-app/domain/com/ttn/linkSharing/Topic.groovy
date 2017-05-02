@@ -31,7 +31,7 @@ class Topic {
 
             if (subscription.hasErrors())
                 log.error "Subscription failed ${subscription.errors.allErrors}"
-            else log.info "${createdBy.name} has subscribed ${topicTitle}"
+            else log.info "${createdBy.userName} has subscribed ${topicTitle}"
         }
     }
 
