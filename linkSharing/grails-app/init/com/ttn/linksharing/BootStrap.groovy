@@ -101,7 +101,7 @@ class BootStrap {
     }
 
     void subscribeTopics() {
-        for (int i = 1; i < 3; i++) {
+        for (int i = 1; i < 3 ; i++) {
             (1..Topic.count()).each {
                 if (Subscription.countByTopicAndUser(Topic.get(it), User.get(i)) == 0) {
                     Subscription subscribe = new Subscription(user: User.get(i), topic: Topic.get(it), seriousness: Seriousness.CASUAL)
@@ -147,7 +147,6 @@ class BootStrap {
 
     void addRating() {
         def readingItem = ReadingItem.findAllByIsRead(true)
-
         readingItem.each {
             createRatings(it.user,it.resource,3)
         }
