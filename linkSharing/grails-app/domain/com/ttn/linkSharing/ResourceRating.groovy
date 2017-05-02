@@ -10,7 +10,7 @@ class ResourceRating {
     Date dateCreated
     Date lastUpdated
 
-    static belongsTo = [user: User, resource: Resource]
+    static belongsTo = [createdBy: User, resource: Resource]
 
     static constraints = {
         score nullable: false, blank: false, min: 1, max: 5
@@ -19,6 +19,6 @@ class ResourceRating {
     }
 
     String toString() {
-        return "${resource} ${user} ${score}"
+        return "${resource} ${createdBy} ${score}"
     }
 }

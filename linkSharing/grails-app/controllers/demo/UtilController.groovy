@@ -10,6 +10,10 @@ class UtilController {
         log.warn "Warning level"
 //        log.fatal "Fatal error log"
 //        log.trace "Trace log"
-        render "hello world"
+        render "I got the following name: ${params.name}"
+    }
+
+    def paramsUsage() {
+        render "I got the following name: ${params.name}"
     }
 }

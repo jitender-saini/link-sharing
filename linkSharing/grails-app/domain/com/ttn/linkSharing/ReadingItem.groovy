@@ -6,7 +6,7 @@ class ReadingItem {
 
     User user
     Resource resource
-    Boolean isRead = false
+    Boolean isRead
     Date dateCreated
     Date lastUpdated
 

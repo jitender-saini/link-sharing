@@ -1,6 +1,7 @@
 package com.ttn.linkSharing
 
 import grails.test.mixin.TestFor
+import spock.lang.IgnoreRest
 import spock.lang.Specification
 import spock.lang.Unroll
 import java.util.Date

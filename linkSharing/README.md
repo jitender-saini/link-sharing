@@ -93,7 +93,8 @@ Exercise GORM1
 24. Reading item of resource should be created only if it does not already exit in users reading item
 25. Add createResourceRatings to add dummy ratings
 26. Add rating for all the unread reading items of the user
-27. createdBy of resourcerating should be createdby of reading item and resource of resourcerating should be resource of readingitem
-28. Add test cases for tostring of Topic and User
-29. Add toString for linkresource with url
-30. Add test case for document resource and linkresource tostring
+27. createdBy of resourceRating should be createdBy of reading item and resource of resourceRating 
+        should be resource of readingItem
+28. Add test cases for toString of Topic and User
+29. Add toString for linkResource with url
+30. Add test case for document resource and linkResource toString

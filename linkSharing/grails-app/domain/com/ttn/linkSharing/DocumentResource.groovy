@@ -7,4 +7,12 @@ class DocumentResource extends Resource{
     static constraints = {
         filePath blank: false, nullable: false
     }
+
+
+    @Override
+    String toString() {
+        return "DocumentResource{" +
+                "filePath='" + filePath + '\'' +
+                '}';
+    }
 }

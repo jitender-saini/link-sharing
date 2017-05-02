@@ -10,8 +10,8 @@ class Topic {
     String description
     Visibility visibility
     User createdBy
-    Date dateCreated = new Date()
-    Date lastUpdated = new Date()
+    Date dateCreated
+    Date lastUpdated
 
     static belongsTo = [createdBy: User]
 
