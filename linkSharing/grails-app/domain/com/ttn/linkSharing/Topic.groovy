@@ -5,7 +5,6 @@ import com.ttn.linkSharing.enums.Visibility
 
 class Topic {
 
-
     String topicTitle
     String description
     Visibility visibility
