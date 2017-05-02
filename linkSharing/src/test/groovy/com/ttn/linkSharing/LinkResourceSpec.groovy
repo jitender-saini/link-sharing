@@ -11,13 +11,13 @@ import spock.lang.Unroll
 class LinkResourceSpec extends Specification {
 
     @Unroll("#sno")
-    void "validateDocumentResource"() {
+    void "validate Link Resource"() {
 
         setup:
-        LinkResource documentResource = new LinkResource(url: url, description: description)
+        LinkResource linkResource = new LinkResource(url: url, description: description)
 
         when:
-        Boolean result = documentResource.validate(['description', 'url'])
+        Boolean result = linkResource.validate(['description', 'url'])
 
         then:
         result == valid

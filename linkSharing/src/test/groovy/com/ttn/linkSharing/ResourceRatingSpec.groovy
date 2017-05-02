@@ -47,21 +47,19 @@ class ResourceRatingSpec extends Specification {
         setup:
         LinkResource resource = Mock(LinkResource)
         User user = Mock(User)
-        ResourceRating resourceRating = new ResourceRating(resource: resource, user: user, score: 3,dateCreated: new Date(),lastUpdated: new Date())
+        ResourceRating resourceRating = new ResourceRating(resource: resource, createdBy: user, score: 3)
 
         when:
-        resourceRating.save(failOnError:true)
+        resourceRating.save()
 
         then:
-//        !resourceRating.errors.allErrors.size()
         ResourceRating.count()==1
         when:
-        ResourceRating newResourceRating = new ResourceRating(resource: resource, user: user, score: 4)
-        newResourceRating.save(failOnError:true)
+        ResourceRating newResourceRating = new ResourceRating(resource: resource, createdBy: user, score: 4)
+        newResourceRating.save()
 
         then:
         ResourceRating.count()==1
         newResourceRating.errors.allErrors.size()==1
-//        newResourceRating.errors.getFieldErrorCount('resource')==1
     }
 }

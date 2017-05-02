@@ -19,13 +19,7 @@ class UserSpec extends Specification {
     @Unroll("Testing User Validation #sno #testName")
     void "test user validation"() {
         setup:
-        User user = new User(firstName: fname,
-                lastName: lname,
-                email: email,
-                password: password,
-                userName: userName,
-                dateCreated: new Date(),
-                lastUpdated: new Date())
+        User user = new User(firstName: fname, lastName: lname, email: email, password: password, userName: userName)
 
         when:
         Boolean result = user.validate(['firstName', 'lastName', 'email', 'password', 'userName'])

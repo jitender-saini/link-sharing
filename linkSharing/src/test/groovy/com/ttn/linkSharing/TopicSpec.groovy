@@ -17,40 +17,18 @@ class TopicSpec extends Specification {
     def "Topic should be unique per user"() {
         setup:
         String topicTitle = "Groovy"
-        User user = new User(
-                firstName: "fname",
-                lastName: "lname",
-                email: "email@ttn.com",
-                password: "password",
-                userName: "userName",
-                dateCreated: new Date(),
-                lastUpdated: new Date())
+        User user = new User(firstName: "fname", lastName: "lname", email: "email@ttn.com", password: "password", userName: "userName")
 
-        Topic topic = new Topic(
-                topicTitle: topicTitle,
-                description: "groovy lang",
-                createdBy: user,
-                dateCreated: new Date(),
-                lastUpdated: new Date(),
-                visibility: Visibility.PRIVATE)
-
+        Topic topic = new Topic(topicTitle: topicTitle, description: "groovy lang", createdBy: user, visibility: Visibility.PRIVATE)
         when:
-        user.save()
         topic.save()
 
         then:
         Topic.countByTopicTitleAndCreatedBy(topicTitle, user) == 1
 
         when:
-        Topic duplicateTopic = new Topic(
-                topicTitle: topicTitle,
-                description: "groovy lang",
-                createdBy: user,
-                dateCreated: new Date(),
-                lastUpdated: new Date(),
-                visibility: Visibility.PRIVATE)
+        Topic duplicateTopic = new Topic(topicTitle: topicTitle, description: "groovy lang", createdBy: user, visibility: Visibility.PRIVATE)
         duplicateTopic.save()
-
 
         then:
         Topic.countByTopicTitleAndCreatedBy(topicTitle, user) == 1

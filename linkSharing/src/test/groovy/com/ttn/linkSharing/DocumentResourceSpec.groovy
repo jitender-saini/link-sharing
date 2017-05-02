@@ -11,7 +11,7 @@ import spock.lang.Unroll
 class DocumentResourceSpec extends Specification {
 
     @Unroll("#sno")
-    void "validateDocumentResource"() {
+    void "validate Document Resource"() {
 
         setup:
         DocumentResource documentResource = new DocumentResource(filePath: filePath, description: description)

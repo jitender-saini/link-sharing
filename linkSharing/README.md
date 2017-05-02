@@ -56,7 +56,8 @@
             app:
             context: /
 
-13. Read config properties from external config and use BootStrap.groovy for verifying properties are actually read from external config
+13. Read config properties from external config and use BootStrap.groovy for verifying properties are actually 
+    read from external config
     created new file app-config.yml in root directory of the project 
     and added database property in this file
     in build.gradle file add 
@@ -98,3 +99,37 @@ Exercise GORM1
 28. Add test cases for toString of Topic and User
 29. Add toString for linkResource with url
 30. Add test case for document resource and linkResource toString
+
+[************************************************************************************************************************************]
+Exercise Controller1
+
+1. Add logincontroller with index,loginHandler and logout action
+2. LoginController index action will check if there is session.user exists or not if exist forward to user controller 
+   index action else render failure
+3. Add User controller with index action that will render text 'user dahsboard'
+4. Login Controller logout action will do session.invalidate and forward the request to login controller index action
+5. LoginController loginHandler action will take 2 argument username and password
+6. If Loginhandler action finds user with given username and password then it will check user active or not if active 
+   set session.user to user and redirect request to login index action
+7. If user is not active then set flash.error 'Your accoutn is not active'
+8. If user is not found then flash.error is set to 'User not found' and flash.error is rendered - Urlmapping is updated 
+   for / action to controller login action index
+9. Delete existing index.gsp file Added test cases for login controller
+10. That should include testing of all conditions specified in above exercise 
+11. Add Application Interceptor with logging params for all controller and actions
+12. Add session check filter in application interceptor
+13. Create loginCheck interceptor which will work all the controller except login
+14. If session.user is not set then redirect user to login index, this should be done in interceptor - user index action 
+    should render session user username
+15. Update test case for usercontroller index action Add show action for topic which will take id as a parameter
+16. If topic do not exist in database then user should redirected to login index action and flash error should be set
+17. If topic found and its a public topic then it should render sucess
+18. If topic found is private then check the subscription of logged in user exist for the topic or not
+19. If subscription exist then render success otherwise redirect user to login index and set flash error
+20. Write test case for the same Adde validator and transient field for confirmpassword -Confirm password will be nullable 
+    true and blank true when user is updating but when its getting created it should match password and it cannot be null
+21. Update bootstrap for user creation Create register action in login controller to register user
+22. Errors with proper message properties should be rendered if user is not set and flash message should be set.
+23. If user is set the success should be rendered - Validation message should be on email(null,blank,email,unique), 
+    username(null,blank,unique), firstName(null,blank), lastName (null,blank), password(null,blank,minsize), confirmPassword (null,blank,customvalidator)
+24. Render validation errors using message tag No need to create UI for this just send the parameter through url.
