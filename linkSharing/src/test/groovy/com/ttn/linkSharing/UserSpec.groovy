@@ -84,13 +84,7 @@ class UserSpec extends Specification {
     def "UserName of user should be unique"() {
         setup:
         String userName = "username"
-        User user = new User(firstName: "fname",
-                lastName: "lname",
-                email: "email@ttn.com",
-                password: "password",
-                userName: userName,
-                dateCreated: new Date(),
-                lastUpdated: new Date())
+        User user = new User(firstName: "fname", lastName: "lname", email: "email@ttn.com", password: "password", userName: userName)
 
         when:
         user.save()
@@ -98,19 +92,27 @@ class UserSpec extends Specification {
         User.count() == 1
 
         when:
-        User newUser = new User(
-                firstName: "fname",
-                lastName: "lname",
-                email: "email11@ttn.com",
-                password: "password",
-                userName: userName,
-                dateCreated: new Date(),
-                lastUpdated: new Date())
+        User newUser = new User(firstName: "fname", lastName: "lname", email: "email11@ttn.com", password: "password", userName: userName)
         newUser.save()
 
         then:
         User.count() == 1
         newUser.errors.allErrors.size() == 1
         newUser.errors.getFieldErrorCount('userName') == 1
+    }
+
+    def "toString test"() {
+
+        given:
+        User user = new User(userName: userName, email: email, isAdmin: isAdmin)
+
+        when:
+        String userString= user.toString()
+        then:
+        userString == result
+
+        where:
+        userName   | email              | isAdmin | result
+        "jaysaini" | "jay@tothenew.com" | true    | "User -> userName: jaysaini isAdmin: true  email: jay@tothenew.com"
     }
 }

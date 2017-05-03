@@ -10,8 +10,6 @@ class LinkResource extends Resource {
 
     @Override
     String toString() {
-        return "LinkResource{" +
-                "url='" + url + '\'' +
-                '}';
+        return "Link Resource-> ${url}"
     }
 }

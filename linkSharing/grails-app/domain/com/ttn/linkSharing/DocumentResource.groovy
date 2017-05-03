@@ -11,8 +11,6 @@ class DocumentResource extends Resource{
 
     @Override
     String toString() {
-        return "DocumentResource{" +
-                "filePath='" + filePath + '\'' +
-                '}';
+        return "Document Resource -> ${filePath}"
     }
 }

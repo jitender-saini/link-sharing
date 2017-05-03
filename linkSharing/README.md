@@ -1,4 +1,4 @@
-1. Create basic grails app (linksharing) and add .gitignore files for excluding files from git
+d1. Create basic grails app (linksharing) and add .gitignore files for excluding files from git
 2. Change default package of grails app in application.yml
     default package can be change in application.yml file 
         grails:

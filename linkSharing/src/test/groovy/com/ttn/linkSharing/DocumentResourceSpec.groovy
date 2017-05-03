@@ -30,4 +30,21 @@ class DocumentResourceSpec extends Specification {
         4   | "description" | ' '           | false
         5   | "description" | null          | false
     }
+
+    @Unroll("#sno")
+    void "toString test"() {
+
+        setup:
+        Resource documentResource = new DocumentResource(filePath: filePath)
+
+        when:
+        String link = documentResource.toString()
+
+        then:
+        link == result
+
+        where:
+        sno | filePath                        | result
+        1   | "http://www.ttn.com/groovy.pdf" | "Document Resource -> http://www.ttn.com/groovy.pdf"
+    }
 }

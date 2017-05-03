@@ -38,12 +38,6 @@ class User {
     }
 
     String toString() {
-        return "User{" +
-                "userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", isAdmin=" + isAdmin +
-                '}'
+        return "User -> userName: ${userName} isAdmin: ${isAdmin}  email: ${email}"
     }
 }

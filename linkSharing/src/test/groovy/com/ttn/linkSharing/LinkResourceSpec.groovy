@@ -30,4 +30,21 @@ class LinkResourceSpec extends Specification {
         4   | "description" | ' '                        | false
         5   | "description" | null                       | false
     }
+
+    @Unroll("#sno")
+    void "toString test"() {
+
+        setup:
+        Resource linkResource = new LinkResource(url: url)
+
+        when:
+        String link = linkResource.toString()
+
+        then:
+        result == link
+
+        where:
+        sno | url                               | result
+        1   | "http://www.testLinkResource.com" | "Link Resource-> http://www.testLinkResource.com"
+    }
 }

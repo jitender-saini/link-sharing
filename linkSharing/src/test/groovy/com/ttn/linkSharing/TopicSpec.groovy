@@ -61,4 +61,21 @@ class TopicSpec extends Specification {
         duplicateTopic.errors.allErrors.size() == 1
         duplicateTopic.errors.getFieldErrorCount('topicTitle') == 1
     }
+
+    def "toString test"() {
+
+        given:
+        User user = new User(userName: 'jaysaini')
+        Topic topic = new Topic(topicTitle: topicTitle, createdBy: user)
+
+        when:
+        String topicName = topic.toString()
+
+        then:
+        topicName == result
+
+        where:
+        topicTitle      | result
+        "testTopicName" | "Topic: testTopicName is createdBy jaysaini"
+    }
 }
