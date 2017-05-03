@@ -24,10 +24,10 @@ class Topic {
     }
 
     def afterInsert(){
-        Topic.withNewSession {
+        withNewSession {
             Subscription subscription = new Subscription(topic: this, user: createdBy, seriousness: Seriousness.VERY_SERIOUS)
             this.addToSubscription(subscription)
-
+//                subscription.save()
             if (subscription.hasErrors())
                 log.error "Subscription failed ${subscription.errors.allErrors}"
             else log.info "${createdBy.userName} has subscribed ${topicTitle}"

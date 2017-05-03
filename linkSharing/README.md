@@ -66,6 +66,49 @@
     }
     
 [************************************************************************************************************************************]
+Exercise Domain1
+
+1. Add User domain class with fields as mentioned by requirement doc
+2. Add following constraints
+    Email should be unique, email type, not null, not blank
+    Password should be not null, not blank and minimum 5 characters
+    FirstName,LastName should not be null and not blank
+    Photo, Admin and Active field can be null
+    Write test cases for validating user (including username and email uniqueness)
+3. Add topic domain and its fields with following constraints:
+    Topic name should be not null, not blank, unique per user
+    Visibility should be enum and should not be null
+    Created by should not be null 
+    Write test cases for validating topic
+4. Add subscription domain and seriousness enum.Add following constraints:
+    User,topic, seriousness should not be null
+    User should not be able to subscribe to topic multiple times 
+    Write test cases for validating subscription domain
+5. Add Resource abstract domain as parent class and 2 child classes Document Resource domain and Link Resource domain
+6. Resource should have createdBy, description and topic
+7. Document resource should have filepath
+8. Description of resource should be of text type
+9. Link Resource should have valid url
+10. Add test cases for link resource and document resource domains
+11. Add resource rating domain with following constraints:
+    Resource rating should not have null createdBy, score, resource
+    Resource score should not be more than 5 and less than 1
+    ResourceRating can be given by a user only one time for a resource
+    Write test cases for validating resource rating domain
+12. Add ReadingItem domain for user reading items with constraints: -
+    User,isRead and resource cannot be null for readingItem
+    ReadingItem resource should be unique per user
+    Write test cases for validating readingItem domain
+13. Add transient of getName in user domain and update test cases accordingly
+14. Change data type of photo in user as longblob
+15. Add dateCreated and lastUpdated in all domains
+16. Define relationships between domain classes: -
+    User hasMany topics,subscriptions,readingItems and resources -
+    Topic hasMay subscriptions and resources
+    Resource hasMany ratings and readingItems
+
+
+[************************************************************************************************************************************]
 Exercise GORM1
 
 1. Add createUsers method to Bootstrap to create 1 admin and 1 normal user.
@@ -103,15 +146,15 @@ Exercise GORM1
 [************************************************************************************************************************************]
 Exercise Controller1
 
-1. Add logincontroller with index,loginHandler and logout action
+1. Add loginController with index,loginHandler and logout action
 2. LoginController index action will check if there is session.user exists or not if exist forward to user controller 
    index action else render failure
-3. Add User controller with index action that will render text 'user dahsboard'
+3. Add User controller with index action that will render text 'user dashboard'
 4. Login Controller logout action will do session.invalidate and forward the request to login controller index action
 5. LoginController loginHandler action will take 2 argument username and password
-6. If Loginhandler action finds user with given username and password then it will check user active or not if active 
+6. If LoginHandler action finds user with given username and password then it will check user active or not if active 
    set session.user to user and redirect request to login index action
-7. If user is not active then set flash.error 'Your accoutn is not active'
+7. If user is not active then set flash.error 'Your account is not active'
 8. If user is not found then flash.error is set to 'User not found' and flash.error is rendered - Urlmapping is updated 
    for / action to controller login action index
 9. Delete existing index.gsp file Added test cases for login controller
@@ -121,12 +164,12 @@ Exercise Controller1
 13. Create loginCheck interceptor which will work all the controller except login
 14. If session.user is not set then redirect user to login index, this should be done in interceptor - user index action 
     should render session user username
-15. Update test case for usercontroller index action Add show action for topic which will take id as a parameter
+15. Update test case for userController index action Add show action for topic which will take id as a parameter
 16. If topic do not exist in database then user should redirected to login index action and flash error should be set
-17. If topic found and its a public topic then it should render sucess
+17. If topic found and its a public topic then it should render success
 18. If topic found is private then check the subscription of logged in user exist for the topic or not
 19. If subscription exist then render success otherwise redirect user to login index and set flash error
-20. Write test case for the same Adde validator and transient field for confirmpassword -Confirm password will be nullable 
+20. Write test case for the same Adde validator and transient field for confirmPassword -Confirm password will be nullable 
     true and blank true when user is updating but when its getting created it should match password and it cannot be null
 21. Update bootstrap for user creation Create register action in login controller to register user
 22. Errors with proper message properties should be rendered if user is not set and flash message should be set.

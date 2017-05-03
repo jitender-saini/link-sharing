@@ -10,16 +10,19 @@ import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
 import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
+import demo.Author
+import demo.Book
 
 class BootStrap {
 
     def init = { servletContext ->
         createUser()
         createTopics()
-        resources()
+        addResources()
         subscribeTopics()
         addReadItems()
         addRating()
+        addAuthor()
     }
 
     void createUser() {
@@ -88,9 +91,9 @@ class BootStrap {
         }
     }
 
-    void resources() {
+    void addResources() {
         if (Resource.count() == 0) {
-            for (int i = 1; i < 3; i++) {
+            for (int i = 1; i <= User.count(); i++) {
                 User user = User.get(i)
                 def topic = Topic.findAllByCreatedBy(user)
                 topic.each {
@@ -101,7 +104,8 @@ class BootStrap {
     }
 
     void subscribeTopics() {
-        for (int i = 1; i < 3 ; i++) {
+
+        for (int i = 1; i <= User.count(); i++) {
             (1..Topic.count()).each {
                 if (Subscription.countByTopicAndUser(Topic.get(it), User.get(i)) == 0) {
                     Subscription subscribe = new Subscription(user: User.get(i), topic: Topic.get(it), seriousness: Seriousness.CASUAL)
@@ -125,10 +129,10 @@ class BootStrap {
     }
 
     void addReadItems() {
-        1..(Subscription.count()).each {
+        (1..Subscription.count()).each {
             Subscription subscription = Subscription.get(it)
             if (subscription.user != subscription.topic.createdBy) {
-                List<Resource> recourseList = Resource.findAllByTopic(subscription.topic)
+                def recourseList = Resource.findAllByTopic(subscription.topic)
                 recourseList.each {
                     createReadingItems(subscription.user, it)
                 }
@@ -139,7 +143,7 @@ class BootStrap {
     void createRatings(User user, Resource resource, int score) {
         ResourceRating rating = new ResourceRating(createdBy: user, resource: resource, score: score)
         rating.save(flush: true)
-        if(rating.hasErrors())
+        if (rating.hasErrors())
             log.error(rating.errors.allErrors)
         else
             log.info "User ${user.userName} Added $score Rating to resource "
@@ -148,7 +152,18 @@ class BootStrap {
     void addRating() {
         def readingItem = ReadingItem.findAllByIsRead(true)
         readingItem.each {
-            createRatings(it.user,it.resource,3)
+            createRatings(it.user, it.resource, 3)
+        }
+    }
+
+    void addAuthor() {
+        20.times {
+            Author author = new Author(firstName: "Jay" + it, lastName: "Saini" + it, age: (10 * it) / 2)
+            author.save(failOnError: true)
+            Book book = new Book(title: "bookTitle" + it, author: author)
+            book.save(failOnError: true)
+            Book book1 = new Book(title: "bookTitle", author: author)
+            book1.save(failOnError: true)
         }
     }
 
