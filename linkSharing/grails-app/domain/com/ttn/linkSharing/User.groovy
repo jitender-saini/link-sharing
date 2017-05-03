@@ -8,6 +8,7 @@ class User {
     String firstName
     String lastName
     String password
+    String confirmPassword
     String email
     File profilePic
     Boolean isAdmin = false
@@ -26,12 +27,13 @@ class User {
         profilePic nullable: true, blank: true
         isAdmin nullable: true, blank: true
         isActive nullable: true, blank: true
+        confirmPassword nullable: true, blank:true
     }
 
     static mapping = {
         profilePic sqlType: 'longblob'
     }
-    static transients = ['fullName']
+    static transients = ['fullName','confirmPassword']
 
     String getFullName() {
         return "${firstName}  ${lastName}"

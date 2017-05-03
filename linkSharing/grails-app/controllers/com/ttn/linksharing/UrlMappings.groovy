@@ -13,6 +13,7 @@ class UrlMappings {
         "500"(view:'/error')
         "404"(view:'/notFound')
         "/test"(controller: "test",action: "noAction")
+        "/"(controller: "login",action: "index")
 
         "/redirectTest"(redirect: '/mytest')
     }

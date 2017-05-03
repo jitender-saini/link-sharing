@@ -176,23 +176,64 @@ Exercise GORM1
 Exercise Controller1
 
 1. Add loginController with index,loginHandler and logout action
+    [loginController added ]
 2. LoginController index action will check if there is session.user exists or not if exist forward to user controller 
    index action else render failure
+   [ LoginController in index action this code is added ]
+        if (session.user)
+                    forward(controller: "user", action: "index")
+                else
+                    render "Failure"
+        
 3. Add User controller with index action that will render text 'user dashboard'
+    [UserController Added]
+    
 4. Login Controller logout action will do session.invalidate and forward the request to login controller index action
+    [In logout action this code is added]
+        def logout() {
+                session.invalidate()
+                forward(controller: "login", action: "index")
+            }
+            
 5. LoginController loginHandler action will take 2 argument username and password
+    [ added 2 argument in loginHandler]
+    
 6. If LoginHandler action finds user with given username and password then it will check user active or not if active 
    set session.user to user and redirect request to login index action
+   [ ]
 7. If user is not active then set flash.error 'Your account is not active'
-8. If user is not found then flash.error is set to 'User not found' and flash.error is rendered - Urlmapping is updated 
+    [ in loginHandler ]
+        render flash.error = "Your account is not active"
+8. If user is not found then flash.error is set to 'User not found' and flash.error is rendered - UrlMapping is updated 
    for / action to controller login action index
+   
+    [ in UrlMapping this line is added in static mapping->     "/"(controller: "login",action: "index")  ]
 9. Delete existing index.gsp file Added test cases for login controller
-10. That should include testing of all conditions specified in above exercise 
+10. That should include testing of all conditions specified in above exercise
+    
 11. Add Application Interceptor with logging params for all controller and actions
+    [ created ApplicationInterceptor and in after block log added ->    log.info "action:$actionName -> $params"]
 12. Add session check filter in application interceptor
-13. Create loginCheck interceptor which will work all the controller except login
+    [in ApplicationInterceptor filter added]
+        boolean before() {
+                if(!(session['user'])){
+                    redirect(controller:"login",action:"index")
+                    false
+                }
+                else true
+            }
+            
+13. [Create loginCheck interceptor which will work all the controller except login]
 14. If session.user is not set then redirect user to login index, this should be done in interceptor - user index action 
     should render session user username
+      [ in LoginController added interceptor before ]
+        boolean before() {
+                if(!(session['user'])){
+                    redirect(controller:"login",action:"index")
+                    false
+                }
+                else true
+            }
 15. Update test case for userController index action Add show action for topic which will take id as a parameter
 16. If topic do not exist in database then user should redirected to login index action and flash error should be set
 17. If topic found and its a public topic then it should render success
@@ -205,3 +246,5 @@ Exercise Controller1
 23. If user is set the success should be rendered - Validation message should be on email(null,blank,email,unique), 
     username(null,blank,unique), firstName(null,blank), lastName (null,blank), password(null,blank,minsize), confirmPassword (null,blank,customvalidator)
 24. Render validation errors using message tag No need to create UI for this just send the parameter through url.
+
+[************************************************************************************************************************************]
