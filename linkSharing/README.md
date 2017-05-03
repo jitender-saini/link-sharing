@@ -54,9 +54,8 @@ Intro to grails app
    
 12. Add app context to / to remove app name in url
     added the below code in app-config.yml
-        grails:
-            app:
-            context: /
+        server:
+            contextPath: /linksharing
 
 13. Read config properties from external config and use BootStrap.groovy for verifying properties are actually 
     read from external config
