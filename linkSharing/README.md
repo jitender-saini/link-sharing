@@ -99,7 +99,7 @@ Exercise Domain1
     User,isRead and resource cannot be null for readingItem
     ReadingItem resource should be unique per user
     Write test cases for validating readingItem domain
-13. Add transient of getName in user domain and update test cases accordingly
+13. Add transient of getFullName in user domain and update test cases accordingly
 14. Change data type of photo in user as longblob
 15. Add dateCreated and lastUpdated in all domains
 16. Define relationships between domain classes: -
