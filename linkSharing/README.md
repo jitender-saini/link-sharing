@@ -1,4 +1,5 @@
-d1. Create basic grails app (linksharing) and add .gitignore files for excluding files from git
+Intro to grails app
+1. Create basic grails app (linksharing) and add .gitignore files for excluding files from git
 2. Change default package of grails app in application.yml
     default package can be change in application.yml file 
         grails:
@@ -48,8 +49,9 @@ d1. Create basic grails app (linksharing) and add .gitignore files for excluding
 
     
 11. Added log statements of params in utilController index action
-    
-
+     in util controller 
+     log.info "action:$actionName -> $params" 
+   
 12. Add app context to / to remove app name in url
     added the below code in app-config.yml
         grails:
