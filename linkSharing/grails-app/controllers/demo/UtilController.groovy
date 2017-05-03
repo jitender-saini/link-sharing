@@ -1,8 +1,5 @@
 package demo
 
-import com.ttn.linkSharing.User
-import org.grails.datastore.mapping.query.Query
-
 class UtilController {
     static defaultAction = "list"
 
