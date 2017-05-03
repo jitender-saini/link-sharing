@@ -6,13 +6,16 @@ class Subscription {
 
     User user
     Topic topic
-    Seriousness seriousness
+    Seriousness seriousness = Seriousness.SERIOUS
     Date dateCreated = new Date()
     Date lastUpdated = new Date()
 
     static constraints = {
         user unique: "topic", nullable: false, blank: false
-
+    }
+    static mapping = {
+        user lazy: false
+        topic lazy: false
     }
 
     static belongsTo = [topic:Topic]

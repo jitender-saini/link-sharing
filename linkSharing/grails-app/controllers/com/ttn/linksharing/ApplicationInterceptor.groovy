@@ -12,7 +12,7 @@ class ApplicationInterceptor {
     }
 
     boolean after() {
-        log.info "action:$actionName -> $params"
+        log.info "action: ${actionName} param: ${params}"
         true }
 
     void afterView() {
