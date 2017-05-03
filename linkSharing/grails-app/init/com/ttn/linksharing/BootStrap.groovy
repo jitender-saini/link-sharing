@@ -8,6 +8,7 @@ import com.ttn.linkSharing.ResourceRating
 import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
+import com.ttn.linkSharing.constant.Constant
 import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
 import demo.Author
@@ -27,10 +28,10 @@ class BootStrap {
 
     void createUser() {
         if (User.count() == 0) {
-            User adminUser = new User(userName: "jaysaini", firstName: "Jay", lastName: "Saini", password: "delete", email: "jitender.saini@ttn.com",
+            User adminUser = new User(userName: "jaysaini", firstName: "Jay", lastName: "Saini", password: Constant.password, email: "jitender.saini@ttn.com",
                     isActive: true, isAdmin: true, dateCreated: new Date(), lastUpdated: new Date())
 
-            User user = new User(userName: "sam123", firstName: "Sam", lastName: "Saini", password: "delete", email: "sam@ttn.com",
+            User user = new User(userName: "sam123", firstName: "Sam", lastName: "Saini", password: Constant.password, email: "sam@ttn.com",
                     isActive: true, isAdmin: false, dateCreated: new Date(), lastUpdated: new Date())
 
 //        adminUser.save(flush:true,failOnError : true)
@@ -104,7 +105,6 @@ class BootStrap {
     }
 
     void subscribeTopics() {
-
         for (int i = 1; i <= User.count(); i++) {
             (1..Topic.count()).each {
                 if (Subscription.countByTopicAndUser(Topic.get(it), User.get(i)) == 0) {

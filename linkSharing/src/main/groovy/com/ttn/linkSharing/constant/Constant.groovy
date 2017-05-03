@@ -1,5 +1,5 @@
 package com.ttn.linkSharing.constant
 
 class Constant {
-    static final String userName = "jaysaini"
+    static final String password = "defaultPassword"
 }

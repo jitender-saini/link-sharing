@@ -112,36 +112,63 @@ Exercise Domain1
 Exercise GORM1
 
 1. Add createUsers method to Bootstrap to create 1 admin and 1 normal user.
+    [ In bootstrap.groovy file createUser() is created ]
 2. Use failOnError and flush true for persisting users
+    [line no 36/37 in bootstrap.groovy]
 3. Use log info statements for data creation and log error if there are any errors
+    [line 42-48 logs added]
 4. Users will be created only when there are no records in user table
+    [line no 29]
 5. Add constants file for default password
+    [ constant.groovy file is added in src/main/groovy]
 6. Add createTopics method in bootstrap
+    [line no 53]
 7. 5 topics per user needs to be created if Topic count is 0
+        [line no 56]
 8. Creator of topic should automatically be subscribed to topic (Use after insert event of topic)
+    [In Topic domain afterInsert is added ]
 9. Errors should be logged if topic or subscriptions is not saved
+    [ line 60]
 10. WithNewSession in after insert because it will not work without it
+    [ withNewSession is added in Topic domain line no 27]
 11. Seriousness should be very serious for auto subscribed topic in after insert
+    [ in Topic domain line no 28]
 12. Add createResources method which create 2 link resource and 2 document resource in each topic       x
+    [ in bootstrap line - 74 method createResource()]
 13. It should create resource only if there is not data in resource table
+    [ in bootstrap line - 96 ]
 14. Description of the resource should include topic name
+    [ in bootstrap line - 75 ]
 15. Error should be logged
 16. Creator of the resource should be same as creator of the topic
+    [line -95 addResource()]
 17. Add subscribeTopics for user to subscribe all the topics which are not created by user
-18. Subscription should be created only if the subscription do not exit for user and topic 
+    [line-107 subscribeTopics]
+18. Subscription should be created only if the subscription do not exit for user and topic
+    [line 110]
 19. Errors should be logged
 20. log statement when subscription is created with user and topic object
+    [line 115]
 21. toString should be implemented for Topic with topic name and for User with username
+    [toString() added in Topic domain]
 22. Add createReadingItems in bootstrap to create dummy reading items
+    [line 122 createReadingItems()]
 23. Resources which are not created by the user in the topics subscribed by him/her should have in his/her reading item.
+    [line 131 addReadItems()]
 24. Reading item of resource should be created only if it does not already exit in users reading item
+    [line 134]
 25. Add createResourceRatings to add dummy ratings
+    [line 143 createRatings()]
 26. Add rating for all the unread reading items of the user
-27. createdBy of resourceRating should be createdBy of reading item and resource of resourceRating 
-        should be resource of readingItem
+    [line 152 addRating()]
+27. createdBy of resourceRating should be createdBy of reading item and resource of resourceRating should be resource of readingItem
+    [line 152 addRating()]
 28. Add test cases for toString of Topic and User
+    [ test cases added in TopicSpec and UserSpec]
 29. Add toString for linkResource with url
+    [ added toString in linkResources]
 30. Add test case for document resource and linkResource toString
+    [added test cases in DocumentResourceSpec & LinkResourceSpec]
 
 [************************************************************************************************************************************]
 Exercise Controller1
