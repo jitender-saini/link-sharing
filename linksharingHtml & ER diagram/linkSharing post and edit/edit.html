@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/editstyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-default mynavbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand mybrand" href="#"><u>LinkSharing</u></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form">
+                        <div class="form-group">
+                            <div class="inner-addon left-addon">
+                                <i class="glyphicon glyphicon-search"></i>
+                                <input type="text" class="form-control search-box" placeholder="search"/>
+                            </div>
+                        </div>
+                        <!--            <button type="submit" class="btn btn-default">Submit</button>-->
+                    </form>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">User <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Logout </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<!--user-Details-->
+
+
+<div class="container-fluid col-md-5 col-sm-12 col-xs-12 pull-left my-panel">
+    <!--   <div class="panel panel-default">
+           <div class="panel-heading">
+               <span class="panel-title">Post</span>
+           </div>-->
+    <div class="panel-body">
+        <!--FOr User Image,topic ,rating-->
+        <div class="row">
+            <div class="col-sm-5">
+                <img class="user_img" src="img/user_img_default.png"/>
+            </div>
+            <div class="col-sm-3">
+                <h3>UserName</h3>
+                <h6>@User</h6>
+                <h4>Subscription</h4>
+                <h5>50</h5>
+            </div>
+            <div class="col-sm-4" style="margin-top: 60px">
+                <h1></h1>
+                <h4>Topics</h4>
+                <h5>30</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid col-md-6 col-sm-12  col-xs-12 pull-right my-panel">
+    <div class="panel panel-default ">
+        <div class="panel-heading">
+            <span class="panel-title">Profile</span>
+        </div>
+
+        <div class="panel-body">
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-2 control-label"><p align="left">FirstName</p></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="firstName" placeholder="FirstName">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-2 control-label"><p align="left">LastName</p></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="lastName" placeholder="LastName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="userName" class="col-sm-2 control-label"><p align="left">UserName</p></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="userName" placeholder="FirstName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="profileImage" class="col-sm-2 control-label"><p align="left">Photo</p></label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" id="profileImage" placeholder="FirstName">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><p align="left"></p></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-info">Update</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid col-md-5 col-sm-12 col-xs-12 pull-left topics-panel my-panel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span class="panel-title">Topics</span>
+                </div>
+                <div class="col-sm-6">
+                    <form class="navbar-form">
+
+                        <div class="inner-addon left-addon" style="margin-top: -10px">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input type="text" class="form-control search-box" placeholder="search"/>
+                        </div>
+
+                        <!--            <button type="submit" class="btn btn-default">Submit</button>-->
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-body">
+            <!--FOr User Image,topic ,rating-->
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="user_img" src="img/user_img_default.png"/>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="topic" value="Topic">
+                                </div>
+                                <div class="col-sm-3">
+                                    <button type="submit" class="btn btn-info">Save</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h6>@user</h6>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5>Subscriptions</h5>
+                            <h5>50</h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5>Posts</h5>
+                            <h5>30</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Serious
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Not-So-Serious</a></li>
+                            <li><a href="#">Extremely-Serious</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Private
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Public</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                    <a href=""> <span class="glyphicon glyphicon-envelope"></span></a>
+                </div>
+
+                <div class="col-sm-1">
+                    <a href=""> <span class="glyphicon glyphicon-pencil"></span></a>
+                </div>
+                <div class="col-sm-1">
+                    <a href=""> <span class="glyphicon glyphicon-trash"></span></a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="container-fluid col-md-6 col-sm-12  col-xs-12 pull-right password-panel">
+    <div class="panel panel-default ">
+        <div class="panel-heading">
+            <span class="panel-title">Change Password</span>
+        </div>
+
+        <div class="panel-body">
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label"><p align="left">Password</p></label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword" class="col-sm-2 control-label"><p align="left">Password</p></label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm-Password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><p align="left"></p></label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-info">Update</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

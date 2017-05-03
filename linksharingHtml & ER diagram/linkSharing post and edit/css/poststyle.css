@@ -1,0 +1,62 @@
+.mynavbar
+{
+    background-color: #e8f7f4;
+
+}
+.mybrand
+{
+    font-size:x-large;
+}
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+.search-box{ border-radius: 50px }
+
+.my-panel{background-color: #e8f7f4;
+border-radius: 20px;
+}
+
+.user_img
+{
+    height: 100px;
+    width: 100px;
+}
+.post-text
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.post-option
+{
+    font-size: small;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.password-panel
+{
+    margin-top: 10px;
+}

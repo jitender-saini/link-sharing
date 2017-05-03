@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/poststyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<!--Upper Navbar -->
+<nav class="navbar navbar-default mynavbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand mybrand" href="#"><u>LinkSharing</u></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><form class="navbar-form">
+                    <div class="form-group">
+                        <div class="inner-addon left-addon">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input type="text" class="form-control search-box" placeholder="search"/>
+                        </div>
+                    </div>
+        <!--            <button type="submit" class="btn btn-default">Submit</button>-->
+                </form></li>
+                <li><a href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+
+                <li><a href="#"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Logout </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<!--Post-->
+
+<div class="container-fluid col-md-6 col-sm-12 pull-left my-panel">
+ <!--   <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Post</span>
+        </div>-->
+    <div class="panel-body">
+        <!--FOr User Image,topic ,rating-->
+        <div class="row">
+            <div class="col-sm-3">
+              <img class="user_img" src="img/user_img_default.png"/>
+            </div>
+            <div class="col-sm-6">
+               <h5>UserName</h5>
+                <h6>@User</h6>
+            </div>
+            <div class="col-sm-3">
+             <a href="">   <h5><u>Topic</u></h5></a>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star"></span>
+                <span class="glyphicon glyphicon-star-empty"></span>
+            </div>
+
+        </div>
+        <!--For full Post-->
+        <div class="row post-text">
+            <div class="col-sm-12">
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              </p>
+
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="container-fluid col-md-6 pull-left" >
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="http://vignette1.wikia.nocookie.net/logopedia/images/f/fb/Facebook_icon_2013.svg" height="30" width="30">
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Twitter_icon.png" height="30px" width="30px">
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Google_Plus_icon.svg" height="30px" width="30px">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid col-md-6 pull-right" >
+            <div class="row">
+            <div class="col-sm-3">
+                <a href="#"><p class="post-option">Download</p></a>
+            </div>
+            <div class="col-sm-2">
+                <a href="#"><p class="post-option">Edit</p></a>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"><p class="post-option">View-Site</p></a>
+            </div>
+                <div class="col-sm-3">
+                    <a href="#"><p class="post-option">Delete</p></a>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+    </div>
+
+<!--Trending Posts-->
+
+<div class="container-fluid col-md-5 col-sm-12 pull-right my-panel">
+       <div class="panel panel-default">
+           <div class="panel-heading">
+               <span class="panel-title">Trending Topics</span>
+           </div>
+    <div class="panel-body">
+
+
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="user_img" src="img/user_img_default.png"/>
+            </div>
+            <div class="col-sm-3">
+                <h5>UserName</h5>
+                <h6>@User</h6>
+                <a href="#"><p class="post-option">Subscribe</p></a>
+            </div>
+            <div class="col-sm-3">
+            <h1></h1>
+                <h1></h1>
+                <h5>Subscriptions</h5>
+                <h6>50</h6>
+
+            </div>
+
+            <div class="col-sm-3">
+                <a href=""><h5><u> Topic</u></h5></a>
+                <h5>Posts</h5>
+                <h6>30</h6>
+
+            </div>
+        </div>
+<hr />
+<!--Trending Post 2-->
+        <div class="row">
+            <div class="col-sm-3">
+                <img class="user_img" src="img/user_img_default.png"/>
+            </div>
+            <div class="col-sm-3">
+                <h5>UserName</h5>
+                <h6>@User</h6>
+                <a href="#"><p class="post-option">Subscribe</p></a>
+            </div>
+            <div class="col-sm-3">
+                <h1></h1>
+                <h1></h1>
+                <h5>Subscriptions</h5>
+                <h6>50</h6>
+
+            </div>
+
+            <div class="col-sm-3">
+                <a href=""><h5><u> Topic</u></h5></a>
+                <h5>Posts</h5>
+                <h6>30</h6>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+</div>
+</body>
+</html>
