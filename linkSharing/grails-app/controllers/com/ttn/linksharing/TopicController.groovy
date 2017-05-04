@@ -2,6 +2,7 @@ package com.ttn.linksharing
 
 import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
+import com.ttn.linkSharing.co.ResourceSearchCo
 import com.ttn.linkSharing.enums.Visibility
 
 class TopicController {
@@ -10,8 +11,8 @@ class TopicController {
         render "topic controller"
     }
 
-    def showTopic(Long id) {
-        Topic topic = Topic.read(id)
+    def showTopic(ResourceSearchCo searchCO) {
+        Topic topic = Topic.read(searchCO.topicId)
         if (topic) {
             if (topic.visibility == Visibility.PUBLIC)
                 render "render public topic success"
@@ -34,7 +35,11 @@ class TopicController {
             flash.error = "Topic is not saved!!"
             render "Topic is not Saved!!"
         }else {
-            render flash.success = "Topic saved success"
+            render "Topic saved success"
         }
+    }
+
+    def search(){
+
     }
 }

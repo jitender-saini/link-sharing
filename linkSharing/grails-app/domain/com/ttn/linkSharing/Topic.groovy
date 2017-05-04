@@ -2,6 +2,7 @@ package com.ttn.linkSharing
 
 import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
+import com.ttn.linkSharing.vo.TopicVO
 
 class Topic {
 
@@ -35,6 +36,17 @@ class Topic {
                 log.error "Subscription failed ${subscription.errors.allErrors}"
             else log.info "${createdBy.userName} has subscribed ${topicTitle}"
         }
+    }
+
+    static List<TopicVO> getTrendingTopics(){
+        List resource = Resource.createCriteria().list {
+            projections{
+                createAlias('topic','t')
+                groupProperty
+            }
+        }
+
+
     }
 
     String toString(){

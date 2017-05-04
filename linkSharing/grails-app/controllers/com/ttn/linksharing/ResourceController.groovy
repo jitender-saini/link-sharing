@@ -1,6 +1,7 @@
 package com.ttn.linksharing
 
 import com.ttn.linkSharing.Resource
+import com.ttn.linkSharing.co.ResourceSearchCo
 import org.springframework.dao.DataIntegrityViolationException
 
 class ResourceController {
@@ -19,5 +20,13 @@ class ResourceController {
         } catch (DataIntegrityViolationException e){
             render flash.error = "Resource Deletion failed!!"
         }
+    }
+
+    def resourceSearch(ResourceSearchCo searchCo){
+        if(searchCo.q){
+            searchCo.visibility = "PUBLIC"
+        }
+
+
     }
 }

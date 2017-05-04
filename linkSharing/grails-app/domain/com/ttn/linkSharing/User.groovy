@@ -20,14 +20,14 @@ class User {
         userName nullable: false, blank: false, unique: true, size: 3..20
         firstName nullable: false, blank: false
         lastName nullable: false, blank: false
-        password nullable: false, blank: false, size: 4..20
+        password nullable: false, blank: false, size: 4..20, validator: {val,user->
+            user.confirmPassword == val
+        }
         email nullable: false, blank: false, unique: true, email: true
         profilePic nullable: true, blank: true
         isAdmin nullable: true, blank: true
         isActive nullable: true, blank: true
-        confirmPassword nullable: true, blank:true, validator: {val,user->
-            user.password == val
-        }
+        confirmPassword nullable: true, blank:true
     }
 
     static mapping = {
