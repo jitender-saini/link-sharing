@@ -2,18 +2,13 @@ package com.ttn.linkSharing.enums
 
 enum Visibility {
 
-    PUBLIC('Public'),
-    PRIVATE('Private')
+    PUBLIC,
+    PRIVATE
 
-    String visibility
-
-    Visibility(String visibility) {
-        this.visibility = visibility
-
-    }
-
-    String toString() {
-        visibility
+    static Visibility toEnum(String visibility) {
+        if(visibility.equalsIgnoreCase("PUBLIC"))
+            PUBLIC
+        else PRIVATE
     }
 
 }

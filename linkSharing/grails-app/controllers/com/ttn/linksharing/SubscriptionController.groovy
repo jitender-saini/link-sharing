@@ -2,6 +2,7 @@ package com.ttn.linksharing
 
 import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
+import com.ttn.linkSharing.enums.Seriousness
 
 class SubscriptionController {
 
@@ -26,9 +27,9 @@ class SubscriptionController {
     }
 
     def updateSubscription(Long id, String seriousness) {
-        Subscription subscription = Subscription.findByIdAndSeriousness(id, seriousness)
+        Subscription subscription = Subscription.read(id)
         if (subscription) {
-            subscription.seriousness = "CASUAL"
+            subscription.seriousness = Seriousness.toEnum(seriousness)
             subscription.save(flush: true)
             if (subscription.hasErrors()) {
                 render "Subscription update failed"
