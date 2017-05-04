@@ -2,6 +2,7 @@ package com.ttn.linksharing
 
 import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
+import com.ttn.linkSharing.User
 import com.ttn.linkSharing.enums.Visibility
 
 class TopicController {
@@ -28,12 +29,13 @@ class TopicController {
     }
 
     def saveTopic(String topicTitle, String visibility) {
-        Topic topic = new Topic(topicTitle: topicTitle, createdBy: session['user'], visibility: visibility, description: "description")
+        User user = session.user
+        Topic topic = new Topic(topicTitle: topicTitle, createdBy: user, visibility: Visibility.toEnum(visibility), description: "description")
         topic.save(flush: true)
         if (topic.hasErrors()) {
             flash.error = "Topic is not saved!!"
             render "Topic is not Saved!!"
-        }else {
+        } else {
             render flash.success = "Topic saved success"
         }
     }
