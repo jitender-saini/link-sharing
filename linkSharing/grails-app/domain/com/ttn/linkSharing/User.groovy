@@ -32,6 +32,7 @@ class User {
 
     static mapping = {
         profilePic sqlType: 'longblob'
+        sort id: "desc"
     }
     static transients = ['fullName','confirmPassword']
 

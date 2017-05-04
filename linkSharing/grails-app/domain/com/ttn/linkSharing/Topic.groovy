@@ -16,6 +16,10 @@ class Topic {
 
     static hasMany = [subscription: Subscription, resorces: Resource]
 
+    static mapping = {
+        sort topictitle: "asc"
+    }
+
     static constraints = {
         topicTitle unique: 'createdBy', nullable: false, blank: false
         description nullable: false, blank: false

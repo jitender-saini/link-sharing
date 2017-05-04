@@ -15,13 +15,14 @@ class LoginController {
         User user = User.findByUserNameAndPassword(userName, password)
         if (user != null) {
             if (user.isActive) {
-                session.user = user;
+                session.user = user
                 redirect(controller: "login", action: "index")
             } else
                 render flash.error = "Your account is not active"
         }
         else if(user == null){
-            render flash.error = "User not found"
+            render "User not found"
+            flash.error = "User not found"
         }
     }
 

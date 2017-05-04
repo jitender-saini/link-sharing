@@ -6,18 +6,13 @@ enum Seriousness {
     VERY_SERIOUS('Very Serious'),
     CASUAL('Casual')
 
-    String displayName
+    String seriousness
 
-    Seriousness(String displayName) {
-        this.displayName = displayName
+    Seriousness(String seriousness) {
+        this.seriousness = seriousness
     }
 
     String toString() {
-        displayName
+        seriousness
     }
-
-    String getKey() {
-        name()
-    }
-
 }

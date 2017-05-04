@@ -247,3 +247,26 @@ Exercise Controller1
 24. Render validation errors using message tag No need to create UI for this just send the parameter through url.
 
 [************************************************************************************************************************************]
+
+Exercise Domain 2
+
+1. Add default sorting: - Topic domain should be default sorted by name asc
+2. User should be default sorted by the id desc so that latest created user comes first
+3. Use read() for /topic/show and load() for /resource/delete action.
+4. Exception of object not found should be handled in resource delete
+5. Add topic save action in TopicController
+6. Add save action in topic controller, which takes a topic and string seriousness as an argument
+7. Create a method in visibility enum to convert string into enum and write test case for the same
+8. Session user should be createdBy of the topic
+9. If a topic is saved without error flash message should be set and success should be rendered
+10. If a topic is not saved errors should be logged flash error should be set and error text should be rendered
+11. Write the test case for the Topic save.
+12. Write a test case for topic deletion.
+13. Subscription domain should have a default seriousness as Serious.
+14. Implement subscription save, update, delete
+15. Create subscription delete action which takes id as parameter, if it exist then delete and send success else render not found
+16. Create save action which takes id as parameter for topic id, user for subscription should be read from the session, if subscription save render success else errors -
+17. Create update action which takes an id and serious as a parameter if subscription and seriousness found, then save else render not found, if saved then render success else errors
+18. Create static method in seriuosness which take string as parameter and returns seriousness, it should be case insensitive
+19. Write the test cases for subscription save, update, delete functionality.
+20. Use eager fetching for topic and user in subscription

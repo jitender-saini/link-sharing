@@ -5,19 +5,15 @@ enum Visibility {
     PUBLIC('Public'),
     PRIVATE('Private')
 
-    String displayName
+    String visibility
 
-    Visibility(String displayName) {
-        this.displayName = displayName
+    Visibility(String visibility) {
+        this.visibility = visibility
 
     }
 
     String toString() {
-        displayName
-    }
-
-    String getKey() {
-        name()
+        visibility
     }
 
 }
