@@ -11,13 +11,13 @@ class ResourceController {
         Resource resource = Resource.read(id)
     }
 
-    def deleteTopic(Long id) {
+    def deleteResource(Long id) {
         Resource resource = Resource.load(id)
         try{
             resource.delete(flush: true)
-            flash.success = "Resource Deleted!!"
+            render flash.success = "Resource Deleted!!"
         } catch (DataIntegrityViolationException e){
-            flash.error = "Resource Deletion failed!!"
+            render flash.error = "Resource Deletion failed!!"
         }
     }
 }

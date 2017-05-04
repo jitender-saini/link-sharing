@@ -1,7 +1,5 @@
 package com.ttn.linkSharing
 
-import javassist.bytecode.ByteArray
-
 class User {
 
     String userName
@@ -27,7 +25,9 @@ class User {
         profilePic nullable: true, blank: true
         isAdmin nullable: true, blank: true
         isActive nullable: true, blank: true
-        confirmPassword nullable: true, blank:true
+        confirmPassword nullable: true, blank:true, validator: {val,user->
+            user.password == val
+        }
     }
 
     static mapping = {

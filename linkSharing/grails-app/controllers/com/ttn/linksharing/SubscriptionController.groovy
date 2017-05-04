@@ -5,11 +5,14 @@ import com.ttn.linkSharing.Topic
 
 class SubscriptionController {
 
-    def index() {}
+    def index() {
+        render "hello subscription"
+    }
 
     def saveSubscription(Long topicId) {
-        Subscription subscribe = new Subscription(topic: Topic.load(topicId), user: (session['user']))
-        if (subscribe) {
+        Topic topic = Topic.load(topicId)
+        if (topic) {
+            Subscription subscribe = new Subscription(topic: topic, user: (session['user']))
             subscribe.save(flush: true)
             if (subscribe.hasErrors()) {
                 flash.error = "Subscription failed!!"
@@ -19,17 +22,18 @@ class SubscriptionController {
                 render "Subscription Success!!"
             }
         }
-
+        else render "Invalid TopicId!!!"
     }
 
     def updateSubscription(Long id, String seriousness) {
         Subscription subscription = Subscription.findByIdAndSeriousness(id, seriousness)
         if (subscription) {
+            subscription.seriousness = "CASUAL"
             subscription.save(flush: true)
             if (subscription.hasErrors()) {
-                render "Subscription notFound"
-            } else {
                 render "Subscription update failed"
+            } else {
+                render "Subscription updated"
             }
         } else {
             render "Subscription notFound"

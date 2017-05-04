@@ -2,18 +2,23 @@ package com.ttn.linksharing
 
 
 class ApplicationInterceptor {
+    ApplicationInterceptor() {
+        matchAll().excludes(controller: 'login')
+    }
 
     boolean before() {
-        if(!(session['user'])){
-            redirect(controller:"login",action:"index")
-            false
+        if (!(session['user'])) {
+            redirect(controller: "login", action: "index")
+            response.status = 500
+            return false
         }
-        else true
+        else return true
     }
 
     boolean after() {
         log.info "action: ${actionName} param: ${params}"
-        true }
+        return true
+    }
 
     void afterView() {
         // no-op

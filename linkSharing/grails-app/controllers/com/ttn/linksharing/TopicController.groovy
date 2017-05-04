@@ -6,7 +6,9 @@ import com.ttn.linkSharing.enums.Visibility
 
 class TopicController {
 
-    def index() {}
+    def index() {
+        render "topic controller"
+    }
 
     def showTopic(Long id) {
         Topic topic = Topic.read(id)
@@ -32,7 +34,7 @@ class TopicController {
             flash.error = "Topic is not saved!!"
             render "Topic is not Saved!!"
         }else {
-            flash.success = "Topic saved success"
+            render flash.success = "Topic saved success"
         }
     }
 }

@@ -205,13 +205,16 @@ Exercise Controller1
         render flash.error = "Your account is not active"
 8. If user is not found then flash.error is set to 'User not found' and flash.error is rendered - UrlMapping is updated 
    for / action to controller login action index
-   
     [ in UrlMapping this line is added in static mapping->     "/"(controller: "login",action: "index")  ]
+    
 9. Delete existing index.gsp file Added test cases for login controller
+    [index.gsp file is deleted from views]
+    
 10. That should include testing of all conditions specified in above exercise
     
 11. Add Application Interceptor with logging params for all controller and actions
     [ created ApplicationInterceptor and in after block log added ->    log.info "action:$actionName -> $params"]
+    
 12. Add session check filter in application interceptor
     [in ApplicationInterceptor filter added]
         boolean before() {
@@ -222,7 +225,10 @@ Exercise Controller1
                 else true
             }
             
-13. [Create loginCheck interceptor which will work all the controller except login]
+13. Create loginCheck interceptor which will work all the controller except login
+     [ in the constructor of ApplicationInterceptor it is added
+      matchAll().excludes(controller: 'login')]
+      
 14. If session.user is not set then redirect user to login index, this should be done in interceptor - user index action 
     should render session user username
       [ in LoginController added interceptor before ]
@@ -233,24 +239,42 @@ Exercise Controller1
                 }
                 else true
             }
+            
 15. Update test case for userController index action Add show action for topic which will take id as a parameter
+
 16. If topic do not exist in database then user should redirected to login index action and flash error should be set
+    [ TopicController is created and showTopic() is added in it]
+    
 17. If topic found and its a public topic then it should render success
+    [ showTopic() in TopicController ]
+    
 18. If topic found is private then check the subscription of logged in user exist for the topic or not
+    [ showTopic() in TopicController ]
+    
 19. If subscription exist then render success otherwise redirect user to login index and set flash error
+    [ showTopic() in TopicController ]
+
 20. Write test case for the same Adde validator and transient field for confirmPassword -Confirm password will be nullable 
     true and blank true when user is updating but when its getting created it should match password and it cannot be null
-21. Update bootstrap for user creation Create register action in login controller to register user
+    
+21. Update bootstrap for user creation Create action in login controller to register user
+      [ in bootstrap userCreate() is updated for confirm password]
+
 22. Errors with proper message properties should be rendered if user is not set and flash message should be set.
+    [ flash message is set ]
+
 23. If user is set the success should be rendered - Validation message should be on email(null,blank,email,unique), 
-    username(null,blank,unique), firstName(null,blank), lastName (null,blank), password(null,blank,minsize), confirmPassword (null,blank,customvalidator)
+    username(null,blank,unique), firstName(null,blank), lastName (null,blank), password(null,blank,minsize), confirmPassword (null,blank,customValidator)
+    
+    
 24. Render validation errors using message tag No need to create UI for this just send the parameter through url.
 
 [************************************************************************************************************************************]
 
-Exercise Domain 2
+Exercise Domain 2 
 
 1. Add default sorting: - Topic domain should be default sorted by name asc
+    [In Topic domain sorting is added in static mapping block]
 2. User should be default sorted by the id desc so that latest created user comes first
 3. Use read() for /topic/show and load() for /resource/delete action.
 4. Exception of object not found should be handled in resource delete
@@ -267,6 +291,48 @@ Exercise Domain 2
 15. Create subscription delete action which takes id as parameter, if it exist then delete and send success else render not found
 16. Create save action which takes id as parameter for topic id, user for subscription should be read from the session, if subscription save render success else errors -
 17. Create update action which takes an id and serious as a parameter if subscription and seriousness found, then save else render not found, if saved then render success else errors
-18. Create static method in seriuosness which take string as parameter and returns seriousness, it should be case insensitive
+18. Create static method in seriousness which take string as parameter and returns seriousness, it should be case insensitive
 19. Write the test cases for subscription save, update, delete functionality.
 20. Use eager fetching for topic and user in subscription
+
+[************************************************************************************************************************************]
+Exercise GORM2
+
+1. Add search named query for resources.
+    - Add String q, Integer max,Integer offset,String order, String sort parameter in searchCO which will be used for text search
+    - Create ResourceSearchCo which extend searchCO and add topicId long field into it to get resource specific to topic
+    - Create named query 'search' which takes ResourceSearchCO as argument and find resources specific to topic id.
+    - Update topic show action which will take ResourceSearchCO as an argument other than long id
+2. Add resource/search action for resource search in public topics
+    - Update ResourceSearchCO and add visibility field in it
+    - Updated Resource search named query and add condition to search topic with specified visibility
+    - Add search action in a resource controller, which will search if q parameter is set and it will set visibility of resourcesearchco to public
+3. Create method in resource to get rating details like totalVotes, avgScore, totalScore of a resource
+    - Create transient in resource ratingInfo and create method which will return RatingInfoVO
+    - RatingInfoVO will have fields totalVotes, averageScore, totalScore
+    - Write criteria query to get the above information.
+    - Call this method from resource show action
+4. Add resource show action and get trending topics also
+    - Public Topic with maximum resources is considered as a trending topic
+    - Create static method getTrendingTopics in Topic domain which will return list of TopicVO
+    - TopicVO will have id,name,visibility,count,createdBy fields
+    - Use createAlias and groupProperty in criteria
+    - Use count for getting count of resources of a topic
+    - Use multiple order statement first one ordered by resource count and second one ordered by topic name
+    -Maximum 5 records should be shown
+    - Topic with maximum resource should come first
+5. Add top post when user is not logged in
+    - Resource with maximum number of votes will be top post
+    - Only 5 posts should be shown in order of maximum vote count
+    - Use groupProperty with id of resource otherwise lots of queries will be fired
+    - Collect Resource list with resource id using getAll rather then finder otherwise ordering will not be maintained
+6. Add Inbox feature on user/index when user is loggedIn
+    - Create method getUnReadResources in user domain which takes SearchCO argument and returns unreaditems of user from ReadingItem domain
+    - The search should also work using user/index page, q parameter of SearchCO. If searchco.q is found then getUnReadResources method will search the items based on ilike of resource.description.
+    - The pagination parameter should also be used in getUnReadResources criteria query. Create readingItem/changeIsRead action which takes Long id and Boolean isRead
+    - User executeUpdate to change the isRead of readingItem with given id
+    - If value returned by executeUpdate is 0 then render error else render success
+7. Write integration tests where criteria and hql queries are used
+    - Create linkSharing_test database for testing, which should be used in a testing environment.
+    
+[************************************************************************************************************************************]

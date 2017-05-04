@@ -19,6 +19,7 @@ abstract class Resource {
 
     static mapping = {
         description type: 'text'
+        tablePerHierarchy: false
     }
 
 

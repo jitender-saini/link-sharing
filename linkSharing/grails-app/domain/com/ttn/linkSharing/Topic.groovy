@@ -17,7 +17,7 @@ class Topic {
     static hasMany = [subscription: Subscription, resorces: Resource]
 
     static mapping = {
-        sort topictitle: "asc"
+        sort topicTitle: "asc"
     }
 
     static constraints = {
