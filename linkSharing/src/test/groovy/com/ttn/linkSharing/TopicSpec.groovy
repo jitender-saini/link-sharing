@@ -18,10 +18,10 @@ class TopicSpec extends Specification {
     @Unroll("#sno")
     void "Topic validation test"() {
         setup:
-        Topic topic = new Topic(topicTitle: topicTitle, description: desc, createdBy: user, visibility: visibility)
+        Topic topic = new Topic(name: topicTitle, description: desc, createdBy: user, visibility: visibility)
 
         when:
-        Boolean result = topic.validate(['topicTitle', 'description', 'createdBy', 'visibility'])
+        Boolean result = topic.validate(['name', 'description', 'createdBy', 'visibility'])
 
         then:
         result == valid
@@ -45,28 +45,28 @@ class TopicSpec extends Specification {
         String topicTitle = "Groovy"
         User user = new User(firstName: "fname", lastName: "lname", email: "email@ttn.com", password: "password", userName: "userName")
 
-        Topic topic = new Topic(topicTitle: topicTitle, description: "groovy lang", createdBy: user, visibility: Visibility.PRIVATE)
+        Topic topic = new Topic(name: topicTitle, description: "groovy lang", createdBy: user, visibility: Visibility.PRIVATE)
         when:
         topic.save()
 
         then:
-        Topic.countByTopicTitleAndCreatedBy(topicTitle, user) == 1
+        Topic.countByNameAndCreatedBy(topicTitle, user) == 1
 
         when:
-        Topic duplicateTopic = new Topic(topicTitle: topicTitle, description: "groovy lang", createdBy: user, visibility: Visibility.PRIVATE)
+        Topic duplicateTopic = new Topic(name: topicTitle, description: "groovy lang", createdBy: user, visibility: Visibility.PRIVATE)
         duplicateTopic.save()
 
         then:
-        Topic.countByTopicTitleAndCreatedBy(topicTitle, user) == 1
+        Topic.countByNameAndCreatedBy(topicTitle, user) == 1
         duplicateTopic.errors.allErrors.size() == 1
-        duplicateTopic.errors.getFieldErrorCount('topicTitle') == 1
+        duplicateTopic.errors.getFieldErrorCount('name') == 1
     }
 
     def "toString test"() {
 
         given:
         User user = new User(userName: 'jaysaini')
-        Topic topic = new Topic(topicTitle: topicTitle, createdBy: user)
+        Topic topic = new Topic(name: topicTitle, createdBy: user)
 
         when:
         String topicName = topic.toString()

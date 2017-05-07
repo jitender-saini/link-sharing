@@ -1,5 +1,9 @@
 package demo
 
+import grails.async.Promises
+import groovyx.gpars.dataflow.Promise
+import org.springframework.web.multipart.MultipartFile
+
 class UtilController {
     static defaultAction = "list"
 
@@ -65,7 +69,7 @@ class UtilController {
 
     }
 
-    def property = {
+    def property(){
         def dates = Author.createCriteria().list {
             projections {
                 property("title")
@@ -77,15 +81,15 @@ class UtilController {
         render "result -> ${dates}"
     }
 
-    def projections = {
-        Integer ageSum = Author.createCriteria().get() {
-            projections {
-                sum("age")
-            }
-            le("age", 20)
-        }
-        render "result -> age sum = ${ageSum}"
-    }
+//    def projections = {
+//        Integer ageSum = Author.createCriteria().get() {
+//            projections {
+//                sum("age")
+//            }
+//            le("age", 20)
+//        }
+//        render "result -> age sum = ${ageSum}"
+//    }
 
     def groupProperty = {
         List result = Book.createCriteria().list {
@@ -121,5 +125,57 @@ class UtilController {
         Integer age = 20
         def author = Author.adultAuthor(age).list()
         render "list of author -> ${author}"
+    }
+
+
+    //Controller 2
+
+    def personSet(){
+        Author author = new Author(name: params.name,age: params.age)
+        render author.properties
+    }
+
+    def personParam(String name,int age){
+        Author author = new Author(name: name,age: age)
+        render author.properties
+    }
+
+    def personBind(){
+        Author author = new Author()
+        bindData(author,params,[exclude:['age'],include:['name']])
+        render author.properties
+    }
+
+    def authorCo(AuthorCO authorCO){
+        if(authorCO.hasErrors())
+            render authorCO.errors.getFieldError()
+        else
+        render authorCO.firstName
+    }
+
+    def Upload(){
+        MultipartFile file =params.myfile
+        render file.dump()
+//        render file.inputSream.text
+    }
+
+    def download(){
+        byte[] bytes = new File("/home/jitender/Desktop/file.txt").bytes
+        response.setHeader("Content-Disposition", "attachment;filename=abc.txt")
+        response.setContentType("text/plain")
+        response.outputStream << bytes
+    }
+
+    def respond(){
+        AuthorCO authorCO = new AuthorCO(firstName: "jay",lastName: "saini",age: 22)
+        respond authorCO, [formats:['xml', 'json']]
+    }
+
+    def asyncReso(){
+        println "hello"
+        Promises.task {
+            render "Async"
+        }
+        println "hello2"
     }
 }

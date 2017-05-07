@@ -336,3 +336,110 @@ Exercise GORM2
     - Create linkSharing_test database for testing, which should be used in a testing environment.
     
 [************************************************************************************************************************************]
+
+Exercise -> Controller2
+
+1. Update interceptor and user should be able to access all the actions except those which require session user
+2. Few actions which requires session users are /linkResource/save, readingItem/save, resource/delete, resourceRating/save, subscription controller, topic/save, /user/index
+3. Update resource/_show template to show edit link only if user is logged in
+4. Update topic/_show template to show drop downs and links only if user is logged in
+5. Display user image on user/_show, resource/_show, topic/_show (all the places where user image are showing)
+6. Create tag userImage which will take userId as a parameter and creates img tag with src of /user/image/id and add all other parameters to img tag like width, height
+7. Update all the default user.png image with tag and add widht height to 64
+8. Create action user/image which will take long id and gets User from id, if user has uploaded photo then that photo will be rendered else dummy user image will show
+9. Use assetResourceLocator bean of asset pipeline plugin to get dummy image
+10. Create test case for new tag and action, need to know the mocking of service in controller
+11. Create register action in user controller to register user
+12. Errors with proper message properties should be rendered if user is not set and flash message should be set
+13. If user is set the success should be rendered -
+14. Validation message should be on email(null,blank,email,unique),username(null,blank,unique), firstName(null,blank), lastName (null,blank),password(null,blank,minsize), confirmPassword(null,blank,customvalidator) message tag should be explained by rendering validation errors using message tag
+15. If there are any errors, then registration form should be refilled with pervious values and errors on each field should be displayed
+16. If the user is registered successfully, then it needs to be set in the session and logged in to the system
+17. renderErrors, hasErrors, fieldError tag should be used Implement documentResource save and download document
+18. Create save action in LinkResourceController and update linkResource/_create template to save data through the new action
+19. Create config property linksharing.documents.folderPath = /var/www/linksharing to store files
+20. Create contentType as transient property in DocumentResource and add validator to validate that contenttype is present when object is creating and it should be application/pdf and while updating if contenttype is set then it should be application/pdf
+21. Create constant DOCUMENT_CONTENT_TYPE for application/pdf
+22. Create fileName transient to get name of the file
+23. Each file will have a uuid as file name and content type will be set in save action and if object is saved then file will be written to file system
+24. Mark save action as transactional
+25. Once the resource is created then it will be added to readingitem of all the user subscribed topic and isRead will be true for creator of the resource
+26. Extend LinkResourceController and DocumentResourceController with ResourceController add protected method addToReadingItems which take resource as parameter and creates ReadingItems for all subscribed user of resource topic, this method will be called in LinkResourceController save action and DocumentResourceController save action after save is successful
+27. addToReadingItems method will use async controller method to save readingitems asynchronously
+28. Update message properties for validation messages
+29. Create deleteFile method in Resource.groovy which will just logs message that this will be implemented in linkresource
+30. Override deleteFile method in DocumentResource.groovy to delete the file and call this method in ResourceController delete action after delete is called
+31. Create download action in DocumentResource to download the file, action takes id as parameter and shows resource not found if resource doesn't exist or resource is not accessible by logged in user else it download the file if its present
+32. Resource can be downloaded only if the resource is accessible by user i.e; either admin or created by user or topic of user subscribed by user or topic is public (ideally it should use topic canViewedBy method, same will be used in resource show action as well)
+33. Create test cases for new functionlities and update bootstrap as well
+34. Implement marking resource isRead with json response - [message: 'Status changed successfully'] should be rendered if status changed successfully - [error: 'Error while updating status'] should be rendered if status is not updated successfully
+35. Update the test cases and use response.json to validate response
+36. Update the test cases as well
+37. Implement 404 and 500 page of the application
+
+[************************************************************************************************************************************]
+
+Grails Views
+
+1. Add application layout
+2. Application layout should use bootstrap and font awesome
+3. All the previous unused files of css, images, js should be removed and only required files should be committed
+4. Single js and single js file should be included using asset tag other css and js sould be included in main js, as per the syntex of asset pipeline
+5. All the static resource should be in assets folder, no need to add jquery as this plugin is already added in grails BuildConfig by default
+6. Update layout main.gsp according to the document mentioned in intro to linksharing, add flash message and flash error in layout by using g:if tag
+7. Add templates topic/create topic/email linkResource/create documentResource/create and include them in layout which will be opened in modal window by clicking on header links. These links and templates are added only when user is logged in
+8. Implement topic/save and linkresource/save save action. Topic, linkresource save should set errors in flash and user should redirected to the dashboard, successful save should set flash.message.
+9. Login should work from login form on home page and show top posts and recent post on home page
+10. Create templates for resource/show topic/show user/login user/register
+11. Create static method in topic to get trending topic which will be used on user dashboard as well as resource show action
+12. Add createdBy in topicVO so that createdBy can be shown in trending topic list on UI
+13. Create transient method in user domain getSubscribedTopic to get only subscribed topics of user, this method will be used in user dashboard and dropdown of linkresource create and email invite of topic
+14. Add /user/forgotPassword template which will show up on click on forgotPassword link in login form
+15. Update test cases accordingly
+16. Tags which will be used for this are layouthead, layoutbody, layouttitle, select, if, else, render, message, asset:javascript,stylesheet, actionsubmit, form, filed, each, img, paginate, uploadform
+17. Implement Topic show page
+18. Create transient method getSubscribedUsers in topic domain to get all the subscribed users
+19. Create user/_show template from user index page which take user as model and use this template to show subscribed user list in topic show page and user index page
+20. Change links on subscriptions and posts in topic/_show template to topic show action
+21. Implement search on posts header of topic show pass topic id as hidden field in form and also pass it in pagination parameters
+22. Update test cases with new changes
+
+[************************************************************************************************************************************]
+
+Grails Taglib
+
+1. Add search page for resources and create linksharing taglib with ls namespace
+2. Create tag for showing mark as read link, it should be visible only to logged in user and if there is reading item added for the user  
+3. If the resource is read, then mark as unread should appear else mark as read should appear, this should only appear if user is logged in
+4. Create tag to show trending topics and top post which will take no argument and shows the whole template of trending topics and top post
+5. Replace trending topics and top posts on login index page and add them to search page as well
+6. Flash error should set in search action if the search criteria not given
+7. markasread tag should be used in resource/_show template which will take resource as argument and user from session
+8. Update changeIsRead action of readingitem controller, now it will take resourceId as argument and user from session update the query accordingly
+9. Create static methog getTopPosts in Resource domain and update the usages accordingly
+10. Create testcase for linksharingtaglib and update the existing failing test cases as well
+11. Add resource show page and implement its rating and delete actions
+12. Create method in resource domain to find resource is linkresource or document, use method to show download or view full site links
+13. If resource is link resoure then it should open the url in new window, download will be implemented later
+14. Create tag canDeleteResource to check session user can delete resource or not, create method in user canDeleteResource and use it in tag
+15. In delete action as well use user canDeleteResource method to validate on server side as well, only admin and creator of resource can delete resource
+16. Update resource delete action and redirect user on dashboard after delete and set flash messages
+17. Create isPublic method in Topic to check whether topic is public or not
+18. Create method in topic canViewedBy to verify whether user can view the topic or not, only public topic(use isPublic method) or the user subscribed to topic or admin can view the topic
+19. Create canViewBy method in resource as well which will call its topic canViewedBy method to validate whether resource can be view by logged in user
+20. Update show action in ResourceController and implement resource show page, use resource canViewedBy method to validate user access to resource
+21. In resource show page add drop down of 1 to 5 points and vote button which will store the user vote to resource using resourcerating controller save action
+22. Create getScore method in user which will return the score given by user to a resource, default value in resource show should be set to session user score (refer resource.png)
+23. Update test cases for all the updated code Implement topic subscribe and unsubscribe
+24. Create tag showSubscribe which will take topicId and shows the text with delete or save link only when topicId is given and user is logged in
+25. Create method in user isSubscribed which takes long topic id and returns boolean, write criteria query
+26. If user subscribed to topic then Un subscribe should be visible with subscrition delete action else Subscribe should be visible with save action link
+27. Update delete and save action of subscription controller set flash error if subscription not found or not saved and set flash message if subscription deleted or saved properly
+28. User is redirected to home page in delete and save actions
+29. Write test cases for the code as well Show subscription count and post count on topic/_show and user subscription count and topic created count on user/index
+30. Create tag subscriptionCount which will take user or topicid to show subscription count
+31. Create tag resourceCount which will take topicId and shows resource count of that topic
+32. Create tag topicCount which takes user and shows number of topics created by user
+33. Create test cases for the tags and use these tags on pages
+
+[************************************************************************************************************************************]

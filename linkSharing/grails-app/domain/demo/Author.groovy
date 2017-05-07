@@ -3,7 +3,7 @@ package demo
 class Author {
     String firstName
     String lastName
-    Integer age
+    int age
     Date dateCreated
     Date lastUpdated
 
