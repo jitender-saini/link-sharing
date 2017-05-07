@@ -14,6 +14,7 @@ class UrlMappings {
         "404"(view:'/notFound')
         "/test"(controller: "test",action: "noAction")
         "/"(controller: "login",action: "index")
+        "/file"(view: "/fileUplaod")
 
         "/redirectTest"(redirect: '/mytest')
     }

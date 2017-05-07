@@ -51,6 +51,6 @@ abstract class Resource {
 
 
     String toString() {
-        return "Resource for Topic : ${topic.topicTitle} created by ${createdBy.userName}"
+        return "Resource for Topic : ${topic.name} created by ${createdBy.userName}"
     }
 }

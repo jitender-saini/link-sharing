@@ -8,11 +8,11 @@ class ResourceController {
 
     def index() { }
 
-    def showResource(Long id){
+    def showResource(int id){
         Resource resource = Resource.read(id)
     }
 
-    def deleteResource(Long id) {
+    def deleteResource(int id) {
         Resource resource = Resource.load(id)
         try{
             resource.delete(flush: true)
@@ -26,7 +26,5 @@ class ResourceController {
         if(searchCo.q){
             searchCo.visibility = "PUBLIC"
         }
-
-
     }
 }

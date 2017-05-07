@@ -1,6 +1,8 @@
 package com.ttn.linkSharing.co
 
-class ResourceSearchCo extends searchCO {
+import grails.validation.Validateable
+
+class ResourceSearchCo extends SearchCO implements Validateable{
     long topicId
     String visibility
 }

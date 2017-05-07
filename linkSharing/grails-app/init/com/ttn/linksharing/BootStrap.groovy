@@ -23,7 +23,8 @@ class BootStrap {
         subscribeTopics()
         addReadItems()
         addRating()
-        addAuthor()
+        trendingTopics()
+//        addAuthor()
     }
 
     void createUser() {
@@ -54,19 +55,19 @@ class BootStrap {
         if (Topic.count() == 0) {
             def topicName = ['Groovy', 'Grails', 'Java', 'Spring', 'BootStrap']
             5.times {
-                Topic topic = new Topic(topicTitle: "${topicName[it]}", description: "programing language",
+                Topic topic = new Topic(name: "${topicName[it]}", description: "programing language",
                         visibility: Visibility.PUBLIC, createdBy: User.get(1))
                 topic.save(flush: true)
                 if (topic.hasErrors())
                     log.error topic.errors.allErrors
-                else log.info "Topic: ${topic.topicTitle} is created by ${User.get(1) userName}"
+                else log.info "Topic: ${topic.name} is created by ${User.get(1) userName}"
 
-                Topic topic2 = new Topic(topicTitle: "${topicName[it]}", description: "programing language",
+                Topic topic2 = new Topic(name: "${topicName[it]}", description: "programing language",
                         visibility: Visibility.PUBLIC, createdBy: User.get(2))
                 topic2.save(flush: true)
                 if (topic2.hasErrors())
                     log.error topic2.errors.allErrors
-                else log.info "Topic: ${topic2.topicTitle} is created by ${User.get(2) userName}"
+                else log.info "Topic: ${topic2.name} is created by ${User.get(2) userName}"
             }
         }
     }
@@ -88,7 +89,7 @@ class BootStrap {
                 log.error linkResource.errors.allErrors
             else if (documentResource.hasErrors())
                 log.error documentResource.errors.allErrors
-            else log.info "Resource created by ${user.userName} for topic ${topic.topicTitle} "
+            else log.info "Resource created by ${user.userName} for topic ${topic.name} "
         }
     }
 
@@ -112,7 +113,7 @@ class BootStrap {
                     subscribe.save(flush: true)
                     if (subscribe.hasErrors())
                         log.error(subscribe.errors.allErrors)
-                    else log.info "${User.get(i).userName} has subscribed ${Topic.get(it).topicTitle}"
+                    else log.info "${User.get(i).userName} has subscribed ${Topic.get(it).name}"
                 } else
                     log.info "Subscription already exist"
             }
@@ -155,6 +156,15 @@ class BootStrap {
             createRatings(it.user, it.resource, 3)
         }
     }
+
+    void trendingTopics() {
+        List trendingTopics = Topic.getTrendingTopics()
+        trendingTopics.each {
+            println( it.properties )
+        }
+    }
+
+
 
     void addAuthor() {
         20.times {

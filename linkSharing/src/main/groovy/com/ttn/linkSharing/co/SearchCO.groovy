@@ -1,6 +1,8 @@
 package com.ttn.linkSharing.co
 
-class searchCO {
+import grails.validation.Validateable
+
+class SearchCO implements Validateable{
     String q
     Integer max
     Integer offset
