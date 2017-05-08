@@ -85,7 +85,7 @@ class Topic {
         }
         return topicVOList
     }
-    
+
     static List<Resource> getTopPost() {
         List posts = ResourceRating.createCriteria().list(max: 5) {
             projections {
