@@ -23,8 +23,9 @@ class BootStrap {
         subscribeTopics()
         addReadItems()
         addRating()
-        trendingTopics()
+//        trendingTopics()
 //        addAuthor()
+        Topic.getTopPost()
     }
 
     void createUser() {
@@ -163,8 +164,6 @@ class BootStrap {
             println( it.properties )
         }
     }
-
-
 
     void addAuthor() {
         20.times {

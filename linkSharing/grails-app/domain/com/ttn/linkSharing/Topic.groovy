@@ -79,10 +79,26 @@ class Topic {
                 order('resourceCount', 'desc')
                 order('name')
             }
-        }.collect{
+        }.collect {
             new TopicVO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
         }
         return topicVOList
+    }
+
+    static List<Resource> getTopPost() {
+        List posts = ResourceRating.createCriteria().list(max: 5) {
+            projections {
+                groupProperty('resource.id')
+                count('id', 'rCount')
+            }
+            order('rCount', 'desc')
+        }
+
+        Resource.getAll(posts.collect { it }).each {
+            println "************************************"
+            println it.properties
+        }
+        return Resource.getAll(posts.collect { it[0] })
     }
 
 
