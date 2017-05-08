@@ -85,6 +85,22 @@ class Topic {
         }
         return topicVOList
     }
+    
+    static List<Resource> getTopPost() {
+        List posts = ResourceRating.createCriteria().list(max: 5) {
+            projections {
+                groupProperty('resource.id')
+                count('id', 'rCount')
+            }
+            order('rCount', 'desc')
+        }
+
+        Resource.getAll(posts.collect { it }).each {
+            println "************************************"
+            println it.properties
+        }
+        return Resource.getAll(posts.collect { it[0] })
+    }
 
     String toString() {
         return "Topic: ${name} is createdBy ${createdBy.userName}"

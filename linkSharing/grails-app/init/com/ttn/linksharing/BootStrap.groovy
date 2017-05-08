@@ -23,8 +23,9 @@ class BootStrap {
         subscribeTopics()
         addReadItems()
         addRating()
-        trendingTopics()
+//        trendingTopics()
 //        addAuthor()
+        Topic.getTopPost()
     }
 
     void createUser() {
