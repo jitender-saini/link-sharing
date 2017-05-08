@@ -69,7 +69,7 @@ class UtilController {
 
     }
 
-    def property(){
+    def property() {
         def dates = Author.createCriteria().list {
             projections {
                 property("title")
@@ -127,51 +127,50 @@ class UtilController {
         render "list of author -> ${author}"
     }
 
-
     //Controller 2
 
-    def personSet(){
-        Author author = new Author(name: params.name,age: params.age)
+    def personSet() {
+        Author author = new Author(name: params.name, age: params.age)
         render author.properties
     }
 
-    def personParam(String name,int age){
-        Author author = new Author(name: name,age: age)
+    def personParam(String name, int age) {
+        Author author = new Author(name: name, age: age)
         render author.properties
     }
 
-    def personBind(){
+    def personBind() {
         Author author = new Author()
-        bindData(author,params,[exclude:['age'],include:['name']])
+        bindData(author, params, [exclude: ['age'], include: ['name']])
         render author.properties
     }
 
-    def authorCo(AuthorCO authorCO){
-        if(authorCO.hasErrors())
+    def authorCo(AuthorCO authorCO) {
+        if (authorCO.hasErrors())
             render authorCO.errors.getFieldError()
         else
-        render authorCO.firstName
+            render authorCO.firstName
     }
 
-    def Upload(){
-        MultipartFile file =params.myfile
+    def Upload() {
+        MultipartFile file = params.myfile
         render file.dump()
 //        render file.inputSream.text
     }
 
-    def download(){
+    def download() {
         byte[] bytes = new File("/home/jitender/Desktop/file.txt").bytes
         response.setHeader("Content-Disposition", "attachment;filename=abc.txt")
         response.setContentType("text/plain")
         response.outputStream << bytes
     }
 
-    def respond(){
-        AuthorCO authorCO = new AuthorCO(firstName: "jay",lastName: "saini",age: 22)
-        respond authorCO, [formats:['xml', 'json']]
+    def respond() {
+        AuthorCO authorCO = new AuthorCO(firstName: "jay", lastName: "saini", age: 22)
+        respond authorCO, [formats: ['xml', 'json']]
     }
 
-    def asyncReso(){
+    def asyncReso() {
         println "hello"
         Promises.task {
             render "Async"

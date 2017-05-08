@@ -160,11 +160,9 @@ class BootStrap {
     void trendingTopics() {
         List trendingTopics = Topic.getTrendingTopics()
         trendingTopics.each {
-            println( it.properties )
+            println(it.properties)
         }
     }
-
-
 
     void addAuthor() {
         20.times {

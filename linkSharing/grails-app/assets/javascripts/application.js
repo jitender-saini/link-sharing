@@ -19,3 +19,6 @@ if (typeof jQuery !== 'undefined') {
         });
     })(jQuery);
 }
+function uday(){
+    alert('uday')
+}

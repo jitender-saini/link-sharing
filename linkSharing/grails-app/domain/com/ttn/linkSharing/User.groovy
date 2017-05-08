@@ -47,8 +47,7 @@ class User {
         return "User -> userName: ${userName} isAdmin: ${isAdmin}  email: ${email}"
     }
 
-    ReadingItem getUnReadResources(SearchCO searchCO){
-
+    ReadingItem getUnReadResources(SearchCO searchCO) {
 
     }
 }

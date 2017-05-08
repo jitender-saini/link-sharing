@@ -28,18 +28,19 @@ class Topic {
         createdBy nullable: false, blank: false
     }
 
-    def afterInsert() {
-        withNewSession {
-            Subscription subscription = new Subscription(topic: this, user: createdBy, seriousness: Seriousness.VERY_SERIOUS)
-            subscription.save()
-            if (subscription.hasErrors())
-                log.error "Subscription failed ${subscription.errors.allErrors}"
-            else log.info "${createdBy.userName} has subscribed ${name}"
-        }
-    }
+
+//    def afterInsert() {
+//        withNewSession {
+//            Subscription subscription = new Subscription(topic: this, user: createdBy, seriousness: Seriousness.VERY_SERIOUS)
+//            subscription.save()
+//            if (subscription.hasErrors())
+//                log.error "Subscription failed ${subscription.errors.allErrors}"
+//            else log.info "${createdBy.userName} has subscribed ${name}"
+//        }
+//    }
 
 //    static List<TopicVO> getTrendingTopics() {
-//        def resource = Resource.createCriteria().list {
+//        def resource = Resource.createCriteria().list(max:5) {
 //            projections {
 //                createAlias('topic', 't')
 //                groupProperty('t.id')
@@ -58,10 +59,10 @@ class Topic {
 //        resource.each {
 //            topicVOList << new TopicVO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
 //        }
-////        if (topicVOList.size() > 4)
+//        if (topicVOList.size() > 4)
 //        println topicVOList.properties
 //        return topicVOList
-////        else topicVOList
+//        else topicVOList
 //    }
 
     static List<TopicVO> getTrendingTopics() {
@@ -79,12 +80,11 @@ class Topic {
                 order('resourceCount', 'desc')
                 order('name')
             }
-        }.collect{
+        }.collect {
             new TopicVO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
         }
         return topicVOList
     }
-
 
     String toString() {
         return "Topic: ${name} is createdBy ${createdBy.userName}"
