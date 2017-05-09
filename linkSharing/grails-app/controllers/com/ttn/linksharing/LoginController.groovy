@@ -4,23 +4,26 @@ import com.ttn.linkSharing.User
 
 class LoginController {
 
+    def mailService
+
     def index() {
-        if (session["user"])
+        if (session.user)
             forward(controller: "user", action: "index")
-        else
-            render "Failure"
+        else {
+            flash.error = "User not found"
+            render view: '/notFound'
+        }
     }
 
     def loginHandler(String userName, String password) {
         User user = User.findByUserNameAndPassword(userName, password)
-        if (user != null) {
+        if (user) {
             if (user.isActive) {
-                session["user"] = user
+                session.user = user
                 redirect(controller: "login", action: "index")
             } else
                 render flash.error = "Your account is not active"
-        }
-        else if(user == null){
+        } else if (user) {
             render "User not found"
             flash.error = "User not found"
         }
@@ -32,20 +35,29 @@ class LoginController {
         forward(controller: "login", action: "index")
     }
 
-    def register(){
-        User user = new User(userName: params.userName, firstName: params.firstName, lastName: params.lastName,
-                password: params.password, email: params.email,confirmPassword: params.confirmPassword, isActive: true, isAdmin: false)
-        user.save(flush:true)
-        if(user.hasErrors())
+    def register() {
+        User user = new User()//(userName: params.userName, firstName: params.firstName, lastName: params.lastName,
+//                password: params.password, email: params.email, confirmPassword: params.confirmPassword, isActive: true, isAdmin: false)
+        bindData(user, params, [exclude: ['isAdmin,isActive']])
+        user.save(flush: true)
+        if (user.hasErrors())
             render flash.error = "User registration Failed"
         else render flash.success = "User Registration success"
     }
 
-    boolean before() {
-        if(!(session['user'])){
-            redirect(controller:"login",action:"index")
-            false
+    def emails = {
+        mailService.sendMail {
+            to "jitender.saini@tothenew.com"
+            subject "Grails plugin directory"
+            html view: "/email/mail"
         }
-        else true
+        render "email sent"
     }
+
+//    boolean before() {
+//        if (!session.user) {
+//            redirect(controller: "login", action: "index")
+//            false
+//        } else true
+//    }
 }

@@ -18,14 +18,14 @@ class BootStrap {
 
     def init = { servletContext ->
         createUser()
-        createTopics()
-        addResources()
-        subscribeTopics()
-        addReadItems()
-        addRating()
+//        createTopics()
+//        addResources()
+//        subscribeTopics()
+//        addReadItems()
+//        addRating()
 //        trendingTopics()
 //        addAuthor()
-        Topic.getTopPost()
+//        Topic.getTopPost()
     }
 
     void createUser() {
