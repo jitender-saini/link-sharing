@@ -11,7 +11,7 @@ class LoginController {
             forward(controller: "user", action: "index")
         else {
             flash.error = "User not found"
-            render view: '/notFound'
+            render view: 'index'
         }
     }
 

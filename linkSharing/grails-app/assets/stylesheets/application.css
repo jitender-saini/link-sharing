@@ -9,5 +9,6 @@
 *
 *= require bootstrap
 *= require font-awesome
+*= require login
 *= require_self
 */

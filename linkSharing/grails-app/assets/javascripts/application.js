@@ -7,6 +7,9 @@
 //
 //= require jquery-2.2.0.min
 //= require bootstrap
+//= require register
+//= require jquery
+//= require jquery.validate
 //= require_tree .
 //= require_self
 

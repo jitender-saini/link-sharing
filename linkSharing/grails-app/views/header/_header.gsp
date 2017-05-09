@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Linksharing</a>
+            <a class="navbar-brand" href="#"><g:img dir="images" file="logo.png" width="90" height="30"/></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
