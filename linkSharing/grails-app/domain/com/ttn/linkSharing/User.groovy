@@ -47,6 +47,17 @@ class User {
         return "User -> userName: ${userName} isAdmin: ${isAdmin}  email: ${email}"
     }
 
+    static List getSubscribedTopic(User user){
+        List list = createCriteria().list(){
+            projections{
+                createAlias('subscription','s')
+                property('s.topic')
+            }
+            eq('s.user',user)
+        }
+        return list
+    }
+
     ReadingItem getUnReadResources(SearchCO searchCO) {
 
     }

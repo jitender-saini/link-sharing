@@ -6,14 +6,12 @@ import com.ttn.linkSharing.User
 
 class LoginController {
 
-    def mailService
-
     def index() {
-        if (session.user)
+        User user = session.user
+        if (user)
             forward(controller: "user", action: "index")
         else {
-//            flash.error = "User not found"
-            render view: 'index', model: [topPost: Topic.getTopPost(),recentPost: Resource.getRecentPost()]
+            render view: 'index', model: [topPost: Topic.getTopPost(), recentPost: Resource.getRecentPost()]
         }
     }
 
@@ -45,10 +43,11 @@ class LoginController {
     }
 
     def emails = {
-        mailService.sendMail {
+        sendMail {
             to "jitender.saini@tothenew.com"
             subject "Grails plugin directory"
-            html view: "/email/mail"
+            body "hello"
+//            html view: "/email/mail"
         }
         render "email sent"
     }

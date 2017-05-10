@@ -2,12 +2,11 @@ package com.ttn.linkSharing
 
 import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
-import com.ttn.linkSharing.vo.TopicVO
+import com.ttn.linkSharing.co.TopicCO
 
 class Topic {
 
     String name
-    String description
     Visibility visibility
     User createdBy
     Date dateCreated
@@ -23,7 +22,6 @@ class Topic {
 
     static constraints = {
         name unique: 'createdBy', nullable: false, blank: false
-        description nullable: false, blank: false
         visibility nullable: false, blank: false
         createdBy nullable: false, blank: false
     }
@@ -39,7 +37,7 @@ class Topic {
         }
     }
 
-//    static List<TopicVO> getTrendingTopics() {
+//    static List<TopicCO> getTrendingTopics() {
 //        def resource = Resource.createCriteria().list(max:5) {
 //            projections {
 //                createAlias('topic', 't')
@@ -55,9 +53,9 @@ class Topic {
 //            }
 //        }
 //        println(resource.properties)
-//        List<TopicVO> topicVOList = []
+//        List<TopicCO> topicVOList = []
 //        resource.each {
-//            topicVOList << new TopicVO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
+//            topicVOList << new TopicCO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
 //        }
 //        if (topicVOList.size() > 4)
 //        println topicVOList.properties
@@ -65,8 +63,8 @@ class Topic {
 //        else topicVOList
 //    }
 
-    static List<TopicVO> getTrendingTopics() {
-        List<TopicVO> topicVOList = createCriteria().list(max: 5) {
+    static List<TopicCO> getTrendingTopics() {
+        List<TopicCO> topicVOList = createCriteria().list(max: 5) {
             projections {
                 groupProperty('id')
                 property('name')
@@ -81,7 +79,7 @@ class Topic {
                 order('name')
             }
         }.collect {
-            new TopicVO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
+            new TopicCO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
         }
         return topicVOList
     }
@@ -93,11 +91,6 @@ class Topic {
                 count('id', 'rCount')
             }
             order('rCount', 'desc')
-        }
-
-        Resource.getAll(posts.collect { it }).each {
-            println "************************************"
-            println it.properties
         }
         return Resource.getAll(posts.collect { it[0] })
     }

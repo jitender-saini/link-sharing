@@ -1,18 +1,19 @@
 package com.ttn.linkSharing
 
-import com.ttn.linkSharing.enums.Visibility
+import com.ttn.linkSharing.co.TopicCO
 import grails.transaction.Transactional
 
 @Transactional
 class TopicService {
 
-    def saveTopic(String topicTitle, String visibility, User createdBy) {
-        Topic topic = new Topic(name: topicTitle, createdBy: createdBy, visibility: Visibility.toEnum(visibility), description: "description")
-        topic.save()
-        if (topic.hasErrors()) {
-            log.info "Topic is not saved!!"
-        }else {
-            log.info "Topic saved success"
+    def saveTopic(TopicCO topicCO) {
+        Topic topic = new Topic(topicCO.properties)
+        if (topic.save(flush: true, failOnErron: true)) {
+            println "topic register called"
+            return true
+        } else {
+            println "topic register failed"
+            return false
         }
     }
 }

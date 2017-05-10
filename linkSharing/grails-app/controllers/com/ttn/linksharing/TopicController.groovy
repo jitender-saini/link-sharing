@@ -6,6 +6,7 @@ import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.TopicService
 import com.ttn.linkSharing.co.ResourceSearchCo
 import com.ttn.linkSharing.enums.Visibility
+import com.ttn.linkSharing.co.TopicCO
 
 class TopicController {
     TopicService topicService
@@ -44,21 +45,18 @@ class TopicController {
         }
     }
 
-    def saveTopic(String topicTitle, String visibility) {
-        topicService.saveTopic(topicTitle, visibility, session.user)
-        render "Topic saved success"
+    def findTopic(){
+        def topic = Topic.get(params.topic.id)
     }
 
-//    def saveTopic(String topicTitle, String visibility) {
-//        Topic topic = new Topic(name: topicTitle, createdBy: session['user'], visibility: Visibility.toEnum(visibility), description: "description")
-//        topic.save(flush: true)
-//        if (topic.hasErrors()) {
-//            flash.error = "Topic is not saved!!"
-//            render "Topic is not Saved!!"
-//        }else {
-//            render "Topic saved success"
-//        }
-//    }
+    def create(String name, String visibility) {
+        Topic topic = new Topic(name: name,visibility: Visibility.toEnum(visibility),createdBy: session.user)
+        topic.save(flush:true,failOnError:true)
+        redirect(controller: "login", action: "index")
+
+//        TopicCO topicCO = new TopicCO(name: name,visibility: Visibility.toEnum(visibility),createdBy: session.user)
+//        topicService.saveTopic(topicCO)
+    }
 
     def search() {
 

@@ -38,7 +38,7 @@
 
     <div class="col-xs-5">
         <g:render template="/login/template/login"/>
-        <g:render template="/user/template/register"/>
+        <g:render template="/user/register"/>
     </div>
 
 </div>

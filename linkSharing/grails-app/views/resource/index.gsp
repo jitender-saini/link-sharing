@@ -5,6 +5,6 @@
 </head>
 
 <body>
-<div class="alert alert-success"> Hello ${session.user.fullName}</div>
+<div class="alert alert-success"> Hello</div>
 </body>
 </html>

@@ -15,9 +15,9 @@
 </head>
 
 <body>
-<div class="well">
 <g:render template="/header/header"/>
-<g:render template="/topic/template/create" model="[topic:topic]"/>
+<div class="well">
+    <g:render template="/topic/template/create" model="[topic:topic]"/>
 <g:render template="/topic/template/invite" model="[topic:topic]"/>
 <g:render template="/resource/template/create-link" model="[resource:resource]"/>
 <g:render template="/resource/template/create-doc" model="[resource:resource]"/>
