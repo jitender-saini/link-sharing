@@ -49,6 +49,15 @@ abstract class Resource {
         return new RatingInfoVO(totalVotes: result[0], totalScore: result[1], averageScore: result[2])
     }
 
+    static List<Resource> getRecentPost(){
+        List<Resource> result = createCriteria().list(max:5){
+            order('dateCreated','desc')
+        }
+        return result
+    }
+
+
+
 
     String toString() {
         return "Resource for Topic : ${topic.name} created by ${createdBy.userName}"

@@ -29,15 +29,15 @@ class Topic {
     }
 
 
-//    def afterInsert() {
-//        withNewSession {
-//            Subscription subscription = new Subscription(topic: this, user: createdBy, seriousness: Seriousness.VERY_SERIOUS)
-//            subscription.save()
-//            if (subscription.hasErrors())
-//                log.error "Subscription failed ${subscription.errors.allErrors}"
-//            else log.info "${createdBy.userName} has subscribed ${name}"
-//        }
-//    }
+    def afterInsert() {
+        withNewSession {
+            Subscription subscription = new Subscription(topic: this, user: createdBy, seriousness: Seriousness.VERY_SERIOUS)
+            subscription.save()
+            if (subscription.hasErrors())
+                log.error "Subscription failed ${subscription.errors.allErrors}"
+            else log.info "${createdBy.userName} has subscribed ${name}"
+        }
+    }
 
 //    static List<TopicVO> getTrendingTopics() {
 //        def resource = Resource.createCriteria().list(max:5) {

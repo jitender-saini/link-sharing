@@ -7,10 +7,10 @@
 //
 //= require jquery-2.2.0.min
 //= require bootstrap
-//= require register
-//= require jquery
-//= require jquery.validate
-//= require_tree .
+//= require login
+// srequire jquery
+// srequire jquery.validate
+//  srequire_tree .
 //= require_self
 
 if (typeof jQuery !== 'undefined') {

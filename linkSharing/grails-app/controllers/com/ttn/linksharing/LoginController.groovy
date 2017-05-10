@@ -1,5 +1,7 @@
 package com.ttn.linksharing
 
+import com.ttn.linkSharing.Resource
+import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
 
 class LoginController {
@@ -10,13 +12,21 @@ class LoginController {
         if (session.user)
             forward(controller: "user", action: "index")
         else {
-            flash.error = "User not found"
-            render view: 'index'
+//            flash.error = "User not found"
+            render view: 'index', model: [topPost: Topic.getTopPost(),recentPost: Resource.getRecentPost()]
         }
     }
 
     def loginHandler(String userName, String password) {
-        User user = User.findByUserNameAndPassword(userName, password)
+        User user = User.createCriteria().get {
+            projections {
+                or {
+                    eq('userName', userName)
+                    eq('email', userName)
+                }
+                eq('password', password)
+            }
+        }
         if (user) {
             if (user.isActive) {
                 session.user = user
@@ -31,18 +41,7 @@ class LoginController {
 
     def logout() {
         session.invalidate()
-        render "Logout success"
         forward(controller: "login", action: "index")
-    }
-
-    def register() {
-        User user = new User()//(userName: params.userName, firstName: params.firstName, lastName: params.lastName,
-//                password: params.password, email: params.email, confirmPassword: params.confirmPassword, isActive: true, isAdmin: false)
-        bindData(user, params, [exclude: ['isAdmin,isActive']])
-        user.save(flush: true)
-        if (user.hasErrors())
-            render flash.error = "User registration Failed"
-        else render flash.success = "User Registration success"
     }
 
     def emails = {

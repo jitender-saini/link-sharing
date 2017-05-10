@@ -6,13 +6,15 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class ResourceController {
 
-    def index() { }
+    def index() {
 
-    def showResource(int id){
-        Resource resource = Resource.read(id)
     }
 
-    def deleteResource(int id) {
+    def show(int id){
+        render Resource.get(id).getRatingInfo()
+    }
+
+    def delete(int id) {
         Resource resource = Resource.load(id)
         try{
             resource.delete(flush: true)
@@ -22,9 +24,9 @@ class ResourceController {
         }
     }
 
-    def resourceSearch(ResourceSearchCo searchCo){
-        if(searchCo.q){
-            searchCo.visibility = "PUBLIC"
+    def search(ResourceSearchCo resourceSearchCo){
+        if(resourceSearchCo.q){
+            resourceSearchCo.visibility = "PUBLIC"
         }
     }
 }

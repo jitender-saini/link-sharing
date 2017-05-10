@@ -10,7 +10,7 @@ class User {
     String password
     String confirmPassword
     String email
-    File profilePic
+    byte[] profilePic
     Boolean isAdmin = false
     Boolean isActive = true
     Date dateCreated

@@ -17,13 +17,13 @@ import demo.Book
 class BootStrap {
 
     def init = { servletContext ->
-        createUser()
-        createTopics()
-        addResources()
-        subscribeTopics()
-        addReadItems()
-        addRating()
-        trendingTopics()
+//        createUser()
+//        createTopics()
+//        addResources()
+//        subscribeTopics()
+//        addReadItems()
+//        addRating()
+////        trendingTopics()
 //        addAuthor()
 //        Topic.getTopPost()
     }
@@ -109,7 +109,7 @@ class BootStrap {
     void subscribeTopics() {
         for (int i = 1; i <= User.count(); i++) {
             (1..Topic.count()).each {
-                if (Subscription.countByTopicAndUser(Topic.get(it), User.get(i)) == 0) {
+                if (!Subscription.countByTopicAndUser(Topic.get(it), User.get(i))) {
                     Subscription subscribe = new Subscription(user: User.get(i), topic: Topic.get(it), seriousness: Seriousness.CASUAL)
                     subscribe.save(flush: true)
                     if (subscribe.hasErrors())
