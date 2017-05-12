@@ -5,7 +5,7 @@ import com.ttn.linkSharing.enums.Visibility
 import grails.validation.Validateable
 
 class TopicCO implements Validateable{
-    Integer id
+    Long id
     String name
     Visibility visibility
     Integer count

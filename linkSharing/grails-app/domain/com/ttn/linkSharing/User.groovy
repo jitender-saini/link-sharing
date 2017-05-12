@@ -1,6 +1,5 @@
 package com.ttn.linkSharing
 
-import com.ttn.linkSharing.co.SearchCO
 
 class User {
 
@@ -16,7 +15,7 @@ class User {
     Date dateCreated
     Date lastUpdated
 
-    static hasMany = [topic: Topic, resource: Resource, subscription: Subscription, resourceRating: ResourceRating, readItem: ReadingItem]
+    static hasMany = [topic: Topic, resource: Resource, subscription: Subscription, resourceRating: ResourceRating, readingItem: ReadingItem]
 
     static constraints = {
         userName nullable: false, blank: false, unique: true, size: 3..20
@@ -37,7 +36,7 @@ class User {
         profilePic sqlType: 'longblob'
         sort id: "desc"
     }
-    static transients = ['fullName', 'confirmPassword']
+    static transients = ['fullName', 'confirmPassword', 'getSubscribedTopic']
 
     String getFullName() {
         return "${firstName}  ${lastName}"
@@ -47,18 +46,37 @@ class User {
         return "User -> userName: ${userName} isAdmin: ${isAdmin}  email: ${email}"
     }
 
-    static List getSubscribedTopic(User user){
-        List list = createCriteria().list(){
-            projections{
-                createAlias('subscription','s')
+    static List getSubscribedTopic(User user) {
+        List list = createCriteria().list() {
+            projections {
+                createAlias('subscription', 's')
                 property('s.topic')
             }
-            eq('s.user',user)
+            eq('s.user', user)
         }
         return list
     }
 
-    ReadingItem getUnReadResources(SearchCO searchCO) {
-
+    static boolean isSubscribed(User user, Long topicId) {
+        Subscription subscription = Subscription.findByUserAndTopic(user, Topic.read(topicId))
+        if (subscription) {
+            println "$subscription ++++++++++++++++++++++++++="
+            return true
+        }
+        return false
     }
+
+    static int getSubscriptionCount(User user) {
+        int count = Subscription.countByUser(user)
+        return count
+    }
+
+    static int getTopicCount(User user) {
+        int count = Topic.countByCreatedBy(user)
+        return count
+    }
+
+//    ReadingItem getUnReadResources(SearchCO searchCO) {
+//
+//    }
 }

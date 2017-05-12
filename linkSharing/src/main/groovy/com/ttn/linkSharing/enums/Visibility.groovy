@@ -6,9 +6,9 @@ enum Visibility {
     PRIVATE
 
     static Visibility toEnum(String visibility) {
-        if(visibility.equalsIgnoreCase("PUBLIC"))
+        if (visibility.equalsIgnoreCase("PUBLIC")) {
             PUBLIC
-        else PRIVATE
+        } else PRIVATE
     }
 
 }

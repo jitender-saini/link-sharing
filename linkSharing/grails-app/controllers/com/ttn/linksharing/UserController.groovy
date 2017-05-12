@@ -1,17 +1,38 @@
 package com.ttn.linksharing
 
+import com.ttn.linkSharing.ReadingItem
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
 import com.ttn.linkSharing.UserService
 import com.ttn.linkSharing.co.UserCO
+import org.apache.commons.lang.RandomStringUtils
 
 class UserController {
 
     UserService userService
+
     def index() {
-        render view: 'index', model: [subscribedTopic: User.getSubscribedTopic(session.user)]
+        User user = session.user
+        params.max = 5
+        params.offset = 0
+
+        println "hello"
+        def list = Topic.getTrendingTopics()
+        list.each {
+            println list.properties
+        }
+        render view: '/user/index', model: [subscribedTopic: User.getSubscribedTopic(user),
+                                            inboxList      : ReadingItem.getUnReadItems(user, params),
+                                            unReadCount    : ReadingItem.getUnReadItemCount(user),
+                                            trendingTopic  : Topic.getTrendingTopics()]
     }
 
+    def inbox() {
+        User user = session.user
+        render template: '/user/template/messages', model: [inboxList: ReadingItem.getUnReadItems(user, params)]
+    }
+
+    //todo
     def register() {
         log.info "controller"
         UserCO userCO = new UserCO()
@@ -32,6 +53,7 @@ class UserController {
 //        bindData(user, params, [exclude: ['isAdmin,isActive']])
     }
 
+    //todo
     def sendInvitation() {
         Topic topic = Topic.get(params.topicId)
         def list = ['user': session.user.fullName, 'topic': topic.name]
@@ -43,5 +65,20 @@ class UserController {
             body(view: "/email/mail", model: [data: list])
         }
         render "email sent ${topic.name}"
+    }
+
+    //todo
+    def forgetPassword(String recoveryEmail) {
+        User user = User.findByEmail(recoveryEmail)
+        String charset = (('A'..'Z') + ('0'..'9')).join()
+        if (user) {
+            String newPassword = RandomStringUtils.random(8, charset.toCharArray())
+            sendMail {
+                to recoveryEmail
+                subject "account recovery"
+                body "new password ${newPassword}"
+            }
+            user.password = newPassword
+        }
     }
 }

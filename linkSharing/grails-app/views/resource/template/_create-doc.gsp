@@ -9,7 +9,7 @@
             </div>
 
             <div class="modal-body" style="margin-left: 15px;margin-right:15px">
-                <g:form controller="resource" action="saveDoc" class="form-horizontal">
+                <g:form controller="resource" action="saveDoc" class="form-horizontal" enctype="multipart/form-data">
                     <div class="form-group well">
                         <div class="control-label col-sm-3">
                             <label for="document" class="pull-left">Document*</label>

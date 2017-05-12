@@ -24,9 +24,10 @@ class ReadingItemController {
             } else {
                 flash.error = readingItem.errors.allErrors.collect { message(error: it) }.join('<br/>')
             }
-            redirect(controller: 'topic', action: 'index', id: resource.topic.id)
+            redirect(controller: 'user', action: 'index', id: resource.topic.id)
         } else {
-            render(view: '')
+            redirect(controller: 'user', action: 'index', id: resource.topic.id)
+
         }
     }
 

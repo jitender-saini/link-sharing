@@ -13,3 +13,7 @@
 *= require post
 *= require_self
 */
+
+.custom-panel-body{
+    background-color: #bce8f1;
+}

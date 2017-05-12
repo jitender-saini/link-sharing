@@ -37,6 +37,17 @@ abstract class Resource {
         }
     }
 
+//    def afterInsert(){
+//        withNewSession {
+//            ReadingItem readingItem = new ReadingItem(user: topic.subscription.user, resource: this, isRead: false)
+//            readingItem.save(flush:true)
+//            if(readingItem.hasErrors()){
+//                log.error readingItem.errors.allErrors
+//            }
+//            else log.info "Reading item created"
+//        }
+//    }
+
     RatingInfoVO getRatingInfo() {
         List result = ResourceRating.createCriteria().get() {
             projections {
@@ -49,14 +60,25 @@ abstract class Resource {
         return new RatingInfoVO(totalVotes: result[0], totalScore: result[1], averageScore: result[2])
     }
 
-    static List<Resource> getRecentPost(){
-        List<Resource> result = createCriteria().list(max:5){
-            order('dateCreated','desc')
+    static List<Resource> getRecentPost() {
+        List<Resource> result = createCriteria().list(max: 5) {
+            order('dateCreated', 'desc')
         }
         return result
     }
 
-
+    static List<Resource> findResourceByQuery(String query) {
+        List<Resource> result = createCriteria().list() {
+            projectons {
+                createAlias('topic', 't')
+                or {
+                    like('description', query)
+                    like('t.name', query)
+                }
+            }
+        }
+        return result
+    }
 
 
     String toString() {

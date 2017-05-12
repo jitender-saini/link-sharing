@@ -17,4 +17,22 @@ class ReadingItem {
         resource nullable: false, blank: false, unique: 'user'
         isRead nullable: false, blank: false
     }
+
+    static List getUnReadItems(User user, Map params) {
+        List list = createCriteria().list(params) {
+            projections {
+                property('resource')
+            }
+            eq('user', user)
+            eq('isRead',false)
+            order("dateCreated", "desc")
+        }
+        return list
+    }
+    static int getUnReadItemCount(User user){
+        int count = countByUserAndIsRead(user,false)
+        return count
+    }
+
+
 }

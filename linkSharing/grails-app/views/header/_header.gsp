@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <g:form class="navbar-form navbar-left" controller="resource" action="resourceSearch" name="test">
+                    <g:form class="navbar-form navbar-left" controller="resource" action="searchByQuery" name="searchQuery">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search" name="q" value="${params.q}">
                         </div>
@@ -24,7 +24,7 @@
                 </li>
                 <ls:isLoggedIn>
                     <li>
-                        <a href="/topic/template/_create.gsp" data-toggle="modal" data-target="#topicCreate">
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#topicCreate">
                             <i class="fa fa-comment" aria-hidden="true"></i>
                         </a>
                     </li>

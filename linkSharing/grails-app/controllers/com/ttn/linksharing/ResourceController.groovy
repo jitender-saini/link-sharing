@@ -4,6 +4,7 @@ import com.ttn.linkSharing.DocumentResource
 import com.ttn.linkSharing.LinkResource
 import com.ttn.linkSharing.Resource
 import com.ttn.linkSharing.Topic
+import com.ttn.linkSharing.User
 import com.ttn.linkSharing.co.ResourceSearchCo
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.web.multipart.MultipartFile
@@ -11,10 +12,6 @@ import org.springframework.web.multipart.MultipartFile
 class ResourceController {
 
     def index() {
-
-    }
-
-    def create(){
 
     }
 
@@ -36,9 +33,10 @@ class ResourceController {
         try {
             MultipartFile file = params.file
             String extension = '.' + file.originalFilename.tokenize('.').last()
-            String folderPath = grailsApplication.config.linkSharing.documents.folderPath
+            String folderPath = grailsApplication.config.resource.document.folderPath
+            println "folder path: ${folderPath}"
             File directory = new File(folderPath)
-            String fullPath = folderPath + DocumentResource.generateUID() + extension
+            String fullPath = folderPath + UUID.randomUUID() + extension
             if (!directory.exists()) {
                 directory.mkdirs()
                 println "directory created"
@@ -59,13 +57,13 @@ class ResourceController {
             }
             redirect(controller: 'login', action: 'index')
         } catch (Exception e) {
-            println e
+            e.printStackTrace()
             redirect(controller: "user", action: "index")
         }
     }
 
-    def show(int id){
-        render Resource.get(id).getRatingInfo()
+    def show(){
+        render(view:"resourceShow",model: [resource:Resource.get(params.resourceId)])
     }
 
     def delete(int id) {
@@ -81,6 +79,14 @@ class ResourceController {
     def search(ResourceSearchCo resourceSearchCo){
         if(resourceSearchCo.q){
             resourceSearchCo.visibility = "PUBLIC"
+        }
+    }
+
+    def searchByQuery(String query){
+        User user = session.user
+        if(query ||user && user.isAdmin && !query){
+            log.info "1"
+            render(view:"/search", model: [searchresource:Resource.findResourceByQuery(query)])
         }
     }
 }

@@ -11,7 +11,8 @@ class LoginController {
         if (user)
             forward(controller: "user", action: "index")
         else {
-            render view: 'index', model: [topPost: Topic.getTopPost(), recentPost: Resource.getRecentPost()]
+            render view: 'index', model: [topPost: Topic.getTopPost(),
+                                          recentPost: Resource.getRecentPost()]
         }
     }
 

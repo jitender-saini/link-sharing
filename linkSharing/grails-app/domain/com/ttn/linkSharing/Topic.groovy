@@ -14,7 +14,7 @@ class Topic {
 
     static belongsTo = [createdBy: User]
 
-    static hasMany = [subscription: Subscription, resorces: Resource]
+    static hasMany = [subscription: Subscription, resources: Resource]
 
     static mapping = {
         sort name: "asc"
@@ -37,46 +37,19 @@ class Topic {
         }
     }
 
-//    static List<TopicCO> getTrendingTopics() {
-//        def resource = Resource.createCriteria().list(max:5) {
-//            projections {
-//                createAlias('topic', 't')
-//                groupProperty('t.id')
-//                property('t.visibility')
-//                property('t.name')
-//                property('t.createdBy')
-//                count('t.id', 'rCount')
-//            }
-//            and {
-//                order('rCount', 'desc')
-//                order('name')
-//            }
-//        }
-//        println(resource.properties)
-//        List<TopicCO> topicVOList = []
-//        resource.each {
-//            topicVOList << new TopicCO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
-//        }
-//        if (topicVOList.size() > 4)
-//        println topicVOList.properties
-//        return topicVOList
-//        else topicVOList
-//    }
-
     static List<TopicCO> getTrendingTopics() {
-        List<TopicCO> topicVOList = createCriteria().list(max: 5) {
+        def topicVOList = Resource.createCriteria().list(max: 5) {
             projections {
-                groupProperty('id')
-                property('name')
-                property('visibility')
-                property('createdBy')
-                resorces {
-                    count('id', 'resourceCount')
-                }
+                createAlias('topic', 't')
+                groupProperty('t.id')
+                property('t.name')
+                property('t.visibility')
+                property('t.createdBy')
+                count('t.id', 'rCount')
             }
             and {
-                order('resourceCount', 'desc')
-                order('name')
+                order('rCount', 'desc')
+                order('t.name')
             }
         }.collect {
             new TopicCO(id: it[0], name: it[1], visibility: it[2], createdBy: it[3], count: it[4])
@@ -93,6 +66,33 @@ class Topic {
             order('rCount', 'desc')
         }
         return Resource.getAll(posts.collect { it[0] })
+    }
+
+    static int getSubscriptionCount(Topic topic) {
+        int count = Subscription.countByTopic(topic)
+        return count
+    }
+
+    static int getResourceCount(Topic topic) {
+        int count = Resource.countByTopic(topic)
+        return count
+
+    }
+
+    static List<User> getSubscribers(Long id) {
+        Topic topic = Topic.load(id)
+        List<User> subscribers = Subscription.createCriteria().list() {
+            projections {
+                property('user')
+            }
+            eq('topic', topic)
+        }
+        return subscribers
+    }
+
+    static List<Resource> getResources(Long id) {
+        List<Resource> resources = Resource.findAllByTopic(Topic.load(id))
+        return resources
     }
 
     String toString() {

@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Share Document</h4>
+                <h4 class="modal-title">Share Link</h4>
             </div>
 
             <div class="modal-body" style="margin-left: 15px;margin-right:15px">

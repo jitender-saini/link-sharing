@@ -2,6 +2,7 @@ package com.ttn.linksharing
 
 import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
+import com.ttn.linkSharing.User
 import com.ttn.linkSharing.enums.Seriousness
 
 class SubscriptionController {
@@ -10,23 +11,22 @@ class SubscriptionController {
         render "hello subscription"
     }
 
-    def saveSubscription(Long topicId) {
-        Topic topic = Topic.load(topicId)
+    def save(Long topicId) {
+        Topic topic = Topic.read(topicId)
         if (topic) {
-            Subscription subscribe = new Subscription(topic: topic, user: (session['user']))
+            Subscription subscribe = new Subscription(topic: topic, user: session.user)
             subscribe.save(flush: true)
             if (subscribe.hasErrors()) {
                 flash.error = "Subscription failed!!"
-                render "Subscription failed!!"
+                redirect(controller: 'login', action: 'index')
             } else {
                 flash.success = "Subscription Success!!"
-                render "Subscription Success!!"
+                redirect(controller: 'login', action: 'index')
             }
-        }
-        else render "Invalid TopicId!!!"
+        } else flash.error = "Invalid TopicId!!!"
     }
 
-    def updateSubscription(Long id, String seriousness) {
+    def update(Long id, String seriousness) {
         Subscription subscription = Subscription.read(id)
         if (subscription) {
             subscription.seriousness = Seriousness.toEnum(seriousness)
@@ -40,17 +40,19 @@ class SubscriptionController {
             render "Subscription notFound"
         }
     }
-
-    def deleteSubscription(Long id) {
-        Subscription subscription = Subscription.load(id)
+//todo
+    def delete(Long topicId) {
+        println "delete $topicId"
+        Subscription subscription = Subscription.findByUserAndTopic(session.user,Topic.read(topicId))
         if (subscription) {
             subscription.delete(flush: true)
             if (subscription.hasErrors()) {
                 flash.error = "Subscription deletion failed"
-                render "Subscription deletion failed"
+                redirect(controller: 'login', action: 'index')
+
             } else {
                 flash.success = "Subscription Deleted!!"
-                render "Subscription Deleted!!"
+                redirect(controller: 'login', action: 'index')
             }
         }
     }

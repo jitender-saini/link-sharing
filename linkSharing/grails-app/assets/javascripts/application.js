@@ -25,3 +25,10 @@ if (typeof jQuery !== 'undefined') {
 function uday(){
     alert('uday')
 }
+
+// jQuery(function() {
+//     $("#refresh").click(function () {
+//         $("#myDiv").load()
+//     })
+//
+// )

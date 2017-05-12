@@ -20,6 +20,8 @@
                         id="login">Sign in</button>
             </fieldset>
         </g:form><br/>
-        <label>Forget Password <a href="#">Click Here</a></label>
+        %{--Forget Password <g:link controller=""> --}%
+        <a href="/login/template/_forgetPassword.gsp" data-toggle="model"
+                                  data-target="#forgotPassword">Click Here</a>
     </div>
 </div>
