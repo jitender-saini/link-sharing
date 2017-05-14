@@ -23,17 +23,7 @@ class Subscription {
     String toString() {
         return "User: ${user.userName} Subscribed Topic: ${topic.name}"
     }
+    def getUserSubscription(){
 
-//    def afterInsert() {
-//        withNewSession {
-//            topic.resource.each {
-//                ReadingItem readingItem = new ReadingItem(user: user, resource: it, isRead: false)
-//                readingItem.save(flush: true)
-//                if(readingItem.hasErrors()){
-//                    log.error readingItem.errors.allErrors
-//                }
-//                else log.info "Reading item created"
-//            }
-//        }
-//    }
+    }
 }

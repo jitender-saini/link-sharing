@@ -1,6 +1,6 @@
 package com.ttn.linkSharing
 
-import com.ttn.linkSharing.co.ResourceSearchCo
+import com.ttn.linkSharing.co.ResourceSearchCO
 import com.ttn.linkSharing.vo.RatingInfoVO
 
 abstract class Resource {
@@ -27,7 +27,7 @@ abstract class Resource {
     }
 
     static namedQueries = {
-        search { ResourceSearchCo searchCo ->
+        search { ResourceSearchCO searchCo ->
             if (searchCo.topicId) {
                 eq('topic_id', searchCo.topicId)
             }

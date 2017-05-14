@@ -34,12 +34,20 @@ class ApplicationTagLib {
 
     }
 
+    def subscribedTopicList = {
+        User user = session.user
+//        def params = [:]
+        params.max=5
+        params.offset=0
+        Topic subscribedTopics = User.getSubscribedTopic(user,params)
+        out<< g.render(template: "/topic/template/topicList", model: [subscribedTopics:subscribedTopics])
+    }
+
     def checkResourceType = { attrs ->
         if (session.user) {
             log.info(" $session.user")
             Resource resource = Resource.get(attrs.resourceId)
             if (resource instanceof LinkResource)
-
                 out << "<span><a href='${resource.url}' target='_blank'>View Full Site</a></span> "
             else out << "<span><a href='${resource.filePath}' target='_blank'>Download</a></span> "
         } else out << ""
@@ -95,43 +103,62 @@ class ApplicationTagLib {
 
     def topicCount = { attrs ->
         int count
-        User user = User.get(attrs.userId)
+        User user = attrs.user
         if (user) {
             count = User.getTopicCount(user)
             out << count
-//                   "<p>${createLink(controller: "topic", action: "show", params: [id: attrs.topicId])} $count</p>"
-//            result = g.link(controller: "topic", action: "show", params: [id: attrs.topicId],count)
         }
-//        out << result
     }
 
 
     def showEditTopic = { attrs ->
-        def topic = attrs.topic
+        Topic topic = Topic.read(attrs.topicId)
         out << g.render(template: "/topic/template/editTopic", model: [topic: topic])
+    }
+
+    def shoeEditResource = { attrs ->
+        Resource resource = attrs.resource
+        out << g.render(template: "/resource/template/edit-resource", model: [resource: resource])
     }
 
     def canUpdateTopic = { attrs ->
         User user = session.user
         if (user) {
-            Topic topic = attrs.topic
-            Subscription subscription = user.getSubscription(topic.id)
+            Subscription subscription = User.getSubscriptionOfTopic(user, attrs.topicId)
             if (subscription) {
                 if (topic.createdBy == user) {
                     out << g.render(template: "/topic/template/topicCreatePanel", model: [topic: topic])
-                } else {
-                    out << g.render(template: "/topic/template/subscribeTopicPanel", model: [topic: topic])
+//                } else {
+//                    out << g.render(template: "/topic/template/subscribeTopicPanel", model: [topic: topic])
                 }
             }
         }
     }
-    def showChnageSeriousneess = { attrs ->
+    def showChangeSeriousness = { attrs ->
         User user = session.user
         if (user) {
-            Subscription subscription = user.getSubscription(attrs.topic)
-            if(subscription){
-                out << g.render(template: "/topic/template/changeSeriousness.gsp", model: [subscription:subscription])
+            Subscription subscription = User.getSubscriptionOfTopic(user, attrs.topicId)
+            List seriousness = ['Serious', 'Very Serious', 'Casual']
+            if (subscription) {
+                out << g.render(template: "/topic/template/change-seriousness", model: [subscription: subscription, seriousness: seriousness])
             }
+        }
+    }
+
+    def showUserDetails = { attrs ->
+        User user = User.get(attrs.userId)
+        if (user) {
+            out << g.render(template: "/user/template/show", model: [user: user])
+        }
+    }
+    def showUserProfile = { attrs ->
+        User user = User.read(attrs.userId)
+        out << "<a href='${createLink(controller: 'user', action: 'profile', params: [userId: attrs.userId])}'>$user.userName</a>"
+    }
+
+    def userImage={attr->
+        if(attr.userId){
+            out << "<img src='${createLink(controller: "user", action: "image", id: "${attr.userId}")}' width=80 height=80 >"
         }
     }
 }

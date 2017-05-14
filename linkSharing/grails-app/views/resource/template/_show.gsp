@@ -3,7 +3,8 @@
     <div class="row container-fluid">
 
         <div class="col-sm-3">
-            %{--<g:img dir="images" file="user.png" height="80"></g:img>--}%
+            <ls:userImage userId="${resource.createdBy.id}"/>
+
         </div>
 
         <div class="col-sm-9">

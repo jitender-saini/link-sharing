@@ -26,7 +26,7 @@
                                       id="topic"
                                       optionKey="id" optionValue="name" from="${subscribedTopic}"/>
                         </div>
-                    </div>
+                    </div>  
 
                     <div class="form-group" style="padding-left:15px;padding-right:15px">
                         <button type="submit" class="btn btn-info ">Invite</button>

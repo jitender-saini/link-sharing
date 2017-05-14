@@ -9,20 +9,18 @@
                 <li class="list-group-item">
                     <div class="row" style="margin-bottom:5px">
                         <div class="col-sm-3">
-                            <g:img dir="images" file="user.png" height="80"/>
-
-                            %{--<ls:userImage userId="${trendingTopic.createdBy.id}"/>--}%
+                            <ls:userImage userId="${trendingTopic.createdBy.id}"/>
                         </div>
 
                         <div class="col-sm-9">
                             <div class="row">
                                 <div class="row">
-                                    <ls:showEditTopic topic="${trendingTopic}"/>
+                                    %{--<ls:showEditTopic topicId="${trendingTopic.id}"/>--}%
                                 </div>
 
                                 <div class="row">
-                                    <span class="col-sm-12 pull-left"><a data-id="topic-${trendingTopic.id}"
-                                                                         href="${g.createLink(controller: 'topic', action: 'show', id: trendingTopic.id)}">${trendingTopic.name}</a>
+                                    <span class="col-sm-12 pull-left">
+                                        <a href='${createLink(controller: 'topic', action: 'showTopic',params: [topicId:trendingTopic.id])}'>${trendingTopic.name}</a>
                                     </span>
                                 </div>
                             </div>
@@ -40,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    <ls:canUpdateTopic topic="${trendingTopic}"/>
+                    %{--<ls:canUpdateTopic topicId="${trendingTopic.id}"/>--}%
                 </li>
             </g:each>
         </ul>

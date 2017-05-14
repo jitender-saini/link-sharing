@@ -1,7 +1,7 @@
 <div class="row form-group">
     <div class="col-xs-8">
         <span class="col-sm-4 pull-right">
-            <g:select name="visibility" id="visibility-${topic?.id}"
+            <g:select name="visibility" id="visibility-${topic.id}"
                       from="${com.tothenew.linkshare.topic.Visibility.values()}"
                       data-url="${g.createLink(controller: 'topic', action: 'update')}" data-id="${topic?.id}"
                       value="${topic.visibility}" class="form-control visibility"/>

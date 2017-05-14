@@ -1,28 +1,60 @@
 package com.ttn.linkSharing
 
 import com.ttn.linkSharing.co.TopicCO
+import com.ttn.linkSharing.co.TopicSearchCO
+import com.ttn.linkSharing.enums.Visibility
+import com.ttn.linkSharing.vo.TopicVO
 import grails.transaction.Transactional
 
 //@Transactional
 class TopicService {
 
     def saveTopic(TopicCO topicCO) {
-        println "1"
         Topic topic = new Topic(topicCO.properties)
-        println "2"
         println topic
-        println "-------"
         if (topic.validate()) {
             topic.save()
-            println "3"
-            println "topic register called"
             return true
         } else {
-            println "4"
-            println "topic register failed :"
             topic.errors.allErrors.each { println it }
             return false
         }
-        println "5"
     }
+
+    List<TopicVO> search(TopicSearchCO topicSearchCO) {
+        List<TopicVO> createdTopicsList = []
+
+        if (topicSearchCO.id) {
+            User user = topicSearchCO.getUser()
+
+            List<Topic> topicList = Topic.createCriteria().list(offset: topicSearchCO.offset, max: topicSearchCO.max) {
+                eq('createdBy.id', topicSearchCO.id)
+
+                if (topicSearchCO.visibility)
+                    eq('visibility', topicSearchCO.visibility)
+                if (topicSearchCO?.q)
+                    eq('name', "%${topicSearchCO.q}%")
+            }
+
+            topicList.each {
+                topic -> createdTopicsList.add(new TopicVO(id: topic.id, name: topic.name, visibility: topic.visibility, createdBy: topic.createdBy))
+            }
+
+        } else {
+            List<Topic> topicList = Topic.createCriteria().list(offset: topicSearchCO.offset, max: topicSearchCO.max) {
+                eq('visibility', Visibility.PUBLIC)
+                if (topicSearchCO?.q)
+                    ilike('name', "%${topicSearchCO.q}%")
+            }
+
+            topicList.each {
+                topic -> createdTopicsList.add(new TopicVO(id: topic.id, name: topic.name, visibility: topic.visibility, createdBy: topic.createdBy))
+            }
+        }
+
+        return createdTopicsList
+    }
+
+
 }
+

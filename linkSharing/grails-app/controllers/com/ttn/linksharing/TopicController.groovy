@@ -1,10 +1,8 @@
 package com.ttn.linksharing
 
 import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.TopicService
-import com.ttn.linkSharing.co.ResourceSearchCo
 import com.ttn.linkSharing.enums.Visibility
 import com.ttn.linkSharing.co.TopicCO
 
@@ -37,7 +35,7 @@ class TopicController {
         }
     }
 
-//    def showTopic(ResourceSearchCo searchCO) {
+//    def showTopic(ResourceSearchCO searchCO) {
 //        Topic topic = Topic.read(searchCO.topicId)
 //        if (topic ) {
 //            if (topic.visibility == Visibility.PUBLIC)
@@ -65,7 +63,12 @@ class TopicController {
         TopicCO topicCO = new TopicCO(name: name,visibility: Visibility.toEnum(visibility),createdBy: session.user)
         topicService.saveTopic(topicCO)
         redirect(controller: "login", action: "index")
+    }
 
+    def updateTopicName(Long id, String name){
+        Topic topic = Topic.read(id)
+        topic.name = name
+        redirect(controller: "user", action: "index")
     }
 
     def search() {

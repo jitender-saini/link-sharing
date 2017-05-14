@@ -1,6 +1,6 @@
 <div class="row well">
     <div class="col-sm-4">
-        <g:img dir="images" file="user.png" height="80"/>
+        <ls:userImage userId="${topic.createdBy.id}"/>
     </div>
 
     <div class="col-sm-8">

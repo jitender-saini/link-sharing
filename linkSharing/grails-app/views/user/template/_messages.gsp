@@ -2,14 +2,15 @@
     <div class="well">
         <div class="row">
             <div class="col-sm-3">
-                <g:img dir="images" file="user.png" height="80"/>
-                %{--<ls:userImage userId="${posts.createdBy.id}"/>--}%
+                <ls:userImage userId="${post.createdBy.id}"/>
             </div>
 
             <div class="col-sm-9">
                 <div class="row">
-                    <span class="pull-left"><a href="#">${post.createdBy.fullName}</a></span>
-                    <span class="col-sm-3 text-muted">${post.createdBy.userName}</span>
+                    <span class="pull-left">${post.createdBy.fullName}</span>
+                    <span class="col-sm-3 text-muted">
+                        <a href='${createLink(controller: 'user', action: 'profile', params: [userId: post.createdBy.id])}'>@${post.createdBy.userName}</a>
+                    </span>
                     <span class="col-sm-3 pull-right"><a href='${createLink(controller: 'topic', action: 'showTopic',params: [topicId:post.topic.id])}'>${post.topic.name}</a></span>
                 </div>
 

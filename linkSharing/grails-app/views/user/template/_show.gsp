@@ -1,38 +1,26 @@
 <div class="well">
     <div class="row">
-        <div class="col-lg-3">
-            <g:img dir="images" file="user.png" height="80"/>
+        <div class="col-sm-3">
+            %{--<g:img dir="images" file="user.png" height="80"/>--}%
+            <ls:userImage userId="${user.id}"/>
         </div>
 
-        <div class="col-lg-9">
-            <div class="row col-lg-12 col-md-12">
-                <span>${user.fullName}</span>
-            </div>
-
-            <div class="col-lg-12 col-md-12">
-                <p>@${user.userName}</p>
-            </div>
-
+        <div class="col-sm-9">
             <div class="row">
-                <div class="col-md-6 col-lg-6">
-                    <p>Subscription</p>
-                </div>
-
-                <div class="col-md-6 col-lg-6">
-                    <p>Topics</p>
-                </div>
+                <h4> ${user.fullName}</h4>
+                <div class="text-muted">@${user.userName}</div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6 col-lg-6">
-                    <p><ls:getSubscriptionCount topicId="${user.topic.id}"/></p>
-                </div>
+            <div class="col-xs-6">
+                <h5>Subscriptions</h5>
+                <a href="#"><ls:getSubscriptionCount user='${user}'/></a>
+            </div>
 
-                <div class="col-md-6 col-lg-6">
-                    <p><ls:topicCount userId="${user.id}"/></p>
-                </div>
+            <div class="col-xs-6">
+                <h5>Topics</h5>
+                <a href="#"><ls:topicCount user="${user}"/> </a>
+
             </div>
         </div>
     </div>
-
 </div>

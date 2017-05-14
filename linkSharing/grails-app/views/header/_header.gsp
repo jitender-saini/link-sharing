@@ -16,7 +16,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <g:form class="navbar-form navbar-left" controller="resource" action="searchByQuery" name="searchQuery">
+                    <g:form class="navbar-form navbar-left" controller="resource" action="searchByQuery"
+                            name="searchQuery">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search" name="q" value="${params.q}">
                         </div>
@@ -29,17 +30,17 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/topic/template/_invite.gsp" data-toggle="modal" data-target="#send-invite">
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#send-invite">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="/resource/template/_create-link.gsp" data-toggle="modal" data-target="#link-create">
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#link-create">
                             <i class="fa fa-link" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="/resource/template/_create-doc.gsp" data-toggle="modal" data-target="#doc-create">
+                        <a href="javascript:void(0)" data-toggle="modal" data-target="#doc-create">
                             <i class="fa fa-file-o" aria-hidden="true"></i>
                         </a>
                     </li>
@@ -48,9 +49,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">${session.user.userName} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li>
+                                <a href='${createLink(controller: 'user', action: 'profile', params: [userId: session.user.id])}'>profile</a>
+                            </li>
+                            <li><a href="#">Profile</a></li>
                             <li role="separator" class="divider"></li>
                             <li><g:link controller="login" action="logout">Logout</g:link></li>
                         </ul>

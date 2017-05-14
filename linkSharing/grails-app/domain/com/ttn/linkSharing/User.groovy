@@ -46,8 +46,8 @@ class User {
         return "User -> userName: ${userName} isAdmin: ${isAdmin}  email: ${email}"
     }
 
-    static List getSubscribedTopic(User user) {
-        List list = createCriteria().list() {
+    static List getSubscribedTopic(User user, Map params) {
+        List list = createCriteria().list(params) {
             projections {
                 createAlias('subscription', 's')
                 property('s.topic')
@@ -75,6 +75,19 @@ class User {
         int count = Topic.countByCreatedBy(user)
         return count
     }
+
+    static Subscription getSubscriptionOfTopic(User user, Long id){
+        Topic topic = Topic.read(id)
+            Subscription subscription = Subscription.findByUserAndTopic(user,topic)
+        return subscription
+    }
+
+    static int getScore(Long resourceId){
+        ResourceRating resourceRating = ResourceRating.findByResource(Resource.read(resourceId))
+        return resourceRating.score
+    }
+
+
 
 //    ReadingItem getUnReadResources(SearchCO searchCO) {
 //

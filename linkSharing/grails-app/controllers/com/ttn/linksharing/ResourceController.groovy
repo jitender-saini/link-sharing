@@ -5,7 +5,7 @@ import com.ttn.linkSharing.LinkResource
 import com.ttn.linkSharing.Resource
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
-import com.ttn.linkSharing.co.ResourceSearchCo
+import com.ttn.linkSharing.co.ResourceSearchCO
 import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.web.multipart.MultipartFile
 
@@ -66,6 +66,19 @@ class ResourceController {
         render(view:"resourceShow",model: [resource:Resource.get(params.resourceId)])
     }
 
+    def editDescription(Long id, String description){
+        Resource resource = Resource.read(id)
+        if (resource){
+            resource.description = description
+            resource.save(flush:true)
+            if(resource.hasErrors()){
+                flash.error = "Resource edit failed!!"
+            }
+            else flash.message = "Resource updated"
+        }
+        redirect(controller: "user", action: "index")
+    }
+
     def delete(int id) {
         Resource resource = Resource.load(id)
         try{
@@ -76,7 +89,7 @@ class ResourceController {
         }
     }
 
-    def search(ResourceSearchCo resourceSearchCo){
+    def search(ResourceSearchCO resourceSearchCo){
         if(resourceSearchCo.q){
             resourceSearchCo.visibility = "PUBLIC"
         }

@@ -7,8 +7,7 @@
         <!--FOr User Image,topic ,rating-->
         <div class="row">
             <div class="col-sm-3">
-
-                <g:img dir="images" file="user.png" height="80"/>
+                <ls:userImage userId="${post.createdBy.id}"/>
             </div>
 
             <div class="col-sm-6">

@@ -7,17 +7,10 @@
 <body>
 <div class="col-xs-5">
     <ls:showUserDetails userId="${session.user.id}"/>
-    <div class="col-xs-12">
-        <g:render template="/subscription/template/subscriptions"/>
-    </div>
-
-    <div class="col-xs-12">
-        <ls:showTrendingTopic/>
-    </div>
 </div>
 
 <div class="col-sm-7">
-    <g:render template="template/inbox"/>
+    %{--<g:render template="template/inbox"/>--}%
 </div>
 </body>
 </html>
