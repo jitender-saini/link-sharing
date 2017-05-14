@@ -9,10 +9,11 @@ class ResourceService {
     def serviceMethod() {
 
     }
-    List<Resource> search(ResourceSearchCO resourceSearchCO){
 
-        List<Resource> resources = Resource.search(resourceSearchCO).list(offset:resourceSearchCO.offset,max:resourceSearchCO.max)
-
-        return resources
+    List<Resource> search(ResourceSearchCO resourceSearchCO) {
+        if (resourceSearchCO) {
+            List<Resource> resources = Resource.search(resourceSearchCO).list()
+            return resources
+        }
     }
 }

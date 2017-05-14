@@ -34,6 +34,12 @@ abstract class Resource {
             if (searchCo.visibility) {
                 eq('topic.visibility', searchCo.visibility)
             }
+            if(searchCo.id){
+                eq('createdBy.id',searchCo.id)
+            }
+            if(searchCo.q){
+                ilike('description',"%${searchCo.q}")
+            }
         }
     }
 
