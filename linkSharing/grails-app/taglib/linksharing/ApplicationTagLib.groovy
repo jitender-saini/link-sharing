@@ -111,18 +111,26 @@ class ApplicationTagLib {
         out << g.render(template: "/topic/template/editTopic", model: [topic: topic])
     }
 
-    def canUpdateTopic = {attrs->
-            User user = session.user
-        if(user){
+    def canUpdateTopic = { attrs ->
+        User user = session.user
+        if (user) {
             Topic topic = attrs.topic
-            Subscription subscription =user.getSubscription(topic.id)
+            Subscription subscription = user.getSubscription(topic.id)
+            if (subscription) {
+                if (topic.createdBy == user) {
+                    out << g.render(template: "/topic/template/topicCreatePanel", model: [topic: topic])
+                } else {
+                    out << g.render(template: "/topic/template/subscribeTopicPanel", model: [topic: topic])
+                }
+            }
+        }
+    }
+    def showChnageSeriousneess = { attrs ->
+        User user = session.user
+        if (user) {
+            Subscription subscription = user.getSubscription(attrs.topic)
             if(subscription){
-                if(topic.createdBy == user){
-                    out<<g.render(template: "/topic/templates/menuPanelForTopicCreator",model: [topic:topic])
-                }
-                else {
-                    out<<g.render(template: "/topic/templates/menuPanelForTopicSubscriber",model: [topic:topic])
-                }
+                out << g.render(template: "/topic/template/changeSeriousness.gsp", model: [subscription:subscription])
             }
         }
     }
