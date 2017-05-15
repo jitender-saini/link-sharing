@@ -31,9 +31,6 @@
                         <div class="control-label col-sm-3"><label class="pull-left">Topic*</label></div>
 
                         <div class="col-sm-9">
-                            %{--<g:select class="btn dropdown-toggle form-control" data-toggle="dropdown" name="topicId"--}%
-                                      %{--id="topic"--}%
-                                      %{--optionKey="id" optionValue="name" from="${subscribedTopic}"/>--}%
                             <ls:subscribedTopicList/>
                         </div>
                     </div>

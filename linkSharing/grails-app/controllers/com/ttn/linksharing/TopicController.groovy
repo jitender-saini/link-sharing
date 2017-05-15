@@ -26,12 +26,12 @@ class TopicController {
         render("<script>alert('Hi controller')</script>")
     }
 
-    def showTopic(Long topicId){
+    def showTopic(Long topicId) {
         Topic topic = Topic.get(topicId)
-        if(topic){
-            render view: '/topic/showTopic', model: [topic:topic,
-                                                     subscribers:Topic.getSubscribers(topicId),
-                                                     resources: Topic.getResources(topicId)]
+        if (topic) {
+            render view: '/topic/showTopic', model: [topic      : topic,
+                                                     subscribers: Topic.getSubscribers(topicId),
+                                                     resources  : Topic.getResources(topicId)]
         }
     }
 
@@ -52,7 +52,7 @@ class TopicController {
 //        }
 //    }
 
-    def findTopic(){
+    def findTopic() {
         def topic = Topic.get(params.topic.id)
     }
 
@@ -60,12 +60,12 @@ class TopicController {
 //        Topic topic = new Topic(name: name,visibility: Visibility.toEnum(visibility),createdBy: session.user)
 //        topic.save(flush:true,failOnError:true)
 
-        TopicCO topicCO = new TopicCO(name: name,visibility: Visibility.toEnum(visibility),createdBy: session.user)
+        TopicCO topicCO = new TopicCO(name: name, visibility: Visibility.toEnum(visibility), createdBy: session.user)
         topicService.saveTopic(topicCO)
         redirect(controller: "login", action: "index")
     }
 
-    def updateTopicName(Long id, String name){
+    def updateTopicName(Long id, String name) {
         Topic topic = Topic.read(id)
         topic.name = name
         redirect(controller: "user", action: "index")

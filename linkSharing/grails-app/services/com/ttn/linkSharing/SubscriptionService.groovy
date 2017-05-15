@@ -10,15 +10,14 @@ class SubscriptionService {
     def serviceMethod() {
 
     }
-    List<TopicVO> search(TopicSearchCO topicSearchCO){
 
-        if(topicSearchCO.id)
-        {
+    List<TopicVO> search(TopicSearchCO topicSearchCO) {
+        if (topicSearchCO.id) {
             User user = topicSearchCO.getUser()
-            def params = [:]
-            params.max=topicSearchCO.max
-            params.offset=topicSearchCO.offset
-            return User.getSubscribedTopic(user,params)
+            Map params = [:]
+            params.max = topicSearchCO.max
+            params.offset = topicSearchCO.offset
+            return User.getSubscribedTopic(user, params)
         }
     }
 }

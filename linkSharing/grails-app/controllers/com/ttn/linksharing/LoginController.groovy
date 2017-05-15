@@ -11,7 +11,7 @@ class LoginController {
         if (user)
             forward(controller: "user", action: "index")
         else {
-            render view: 'index', model: [topPost: Topic.getTopPost(),
+            render view: 'index', model: [topPost   : Topic.getTopPost(),
                                           recentPost: Resource.getRecentPost()]
         }
     }
@@ -30,11 +30,13 @@ class LoginController {
             if (user.isActive) {
                 session.user = user
                 redirect(controller: "login", action: "index")
-            } else
-                render flash.error = "Your account is not active"
-        } else if (user) {
-            render "User not found"
+            } else {
+                flash.error = "Your account is not active"
+                redirect(controller: "login", action: "index")
+            }
+        } else {
             flash.error = "User not found"
+            redirect(controller: "login", action: "index")
         }
     }
 

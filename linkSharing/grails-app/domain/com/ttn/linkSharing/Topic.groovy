@@ -80,7 +80,7 @@ class Topic {
     }
 
     static List<User> getSubscribers(Long id) {
-        Topic topic = Topic.load(id)
+        Topic topic = read(id)
         List<User> subscribers = Subscription.createCriteria().list() {
             projections {
                 property('user')
@@ -91,7 +91,7 @@ class Topic {
     }
 
     static List<Resource> getResources(Long id) {
-        List<Resource> resources = Resource.findAllByTopic(Topic.load(id))
+        List<Resource> resources = Resource.findAllByTopic(read(id))
         return resources
     }
 

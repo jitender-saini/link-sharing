@@ -135,5 +135,9 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2
-#server:
-#  address: 8080
+
+grails:
+  controllers:
+    upload:
+      maxFileSize: 2000000
+      maxRequestSize: 2000000

@@ -11,7 +11,9 @@ import com.ttn.linkSharing.User
 import com.ttn.linkSharing.UserService
 import com.ttn.linkSharing.co.ResourceSearchCO
 import com.ttn.linkSharing.co.TopicSearchCO
+import com.ttn.linkSharing.co.UpdateProfileCO
 import com.ttn.linkSharing.co.UserCO
+import com.ttn.linkSharing.co.UserSearchCO
 import com.ttn.linkSharing.enums.Visibility
 import com.ttn.linkSharing.vo.TopicVO
 import org.apache.commons.lang.RandomStringUtils
@@ -37,30 +39,6 @@ class UserController {
                                             inboxList        : ReadingItem.getUnReadItems(user, params),
                                             unReadCount      : ReadingItem.getUnReadItemCount(user),
                                             trendingTopic    : Topic.getTrendingTopics()]
-    }
-
-    def profile(ResourceSearchCO resourceSearchCO) {
-        if (resourceSearchCO) {
-            User user = User.get(resourceSearchCO.id)
-            if (session.user) {
-                if (!(session.user.isAdmin || session.user == user)) {
-                    resourceSearchCO.visibility = Visibility.PUBLIC
-                }
-            }
-            List<TopicVO> createdTopics = topicService.search(new TopicSearchCO(id: resourceSearchCO.id))
-            int totalCreatedTopicCount = Topic.findAllByCreatedBy(user).size()
-            List<TopicVO> subscribedTopics = subscriptionService.search(new TopicSearchCO(id: resourceSearchCO.id))
-            int totalSubscribedTopicCount = Subscription.count()
-            List<Resource> createdPosts = resourceService.search(resourceSearchCO)
-            int totalCreatedPostCount = Resource.findAllByCreatedBy(user).size()
-            [createdPosts             : createdPosts,
-             createdTopics            : createdTopics,
-             subscribedTopics         : subscribedTopics,
-             totalSubscribedTopicCount: totalSubscribedTopicCount,
-             totalCreatedTopicCount   : totalCreatedTopicCount,
-             totalCreatedPostCount    : totalCreatedPostCount,
-             user                     : user]
-        }
     }
 
     def image(Long id) {
@@ -90,8 +68,47 @@ class UserController {
     }
 
     //todo
+    def sendInvitation() {
+        Topic topic = Topic.get(params.topicId)
+        def list = ['user': session.user.fullName, 'topic': topic.name]
+        println topic.name
+        sendMail {
+            to params.email
+            subject "Subscribe ${topic.name}"
+            body(view: "/email/mail", model: [data: list])
+        }
+        render "email sent ${topic.name}"
+    }
+
+
+    def forgetPassword(String recoveryEmail) {
+        User user = User.findByEmail(recoveryEmail)
+        String charset = (('A'..'Z') + ('0'..'9')).join()
+        if (user) {
+            String newPassword = RandomStringUtils.random(8, charset.toCharArray())
+            sendMail {
+                to recoveryEmail
+                subject "account recovery"
+                body "new password ${newPassword}"
+            }
+            user.password = newPassword
+        } else flash.message = "Your email is not valid!!"
+        flash.message = "Password sent to your email check it!!"
+        forward(controller: "login", action: "index")
+    }
+
+    def profile() {
+        User user = session.user
+        List<Topic> createdTopics = Topic.findAllByCreatedBy(user)
+        [createdTopics    : createdTopics,
+         subscribedTopic  : User.getSubscribedTopic(user, params),
+         subscriptionCount: User.getSubscriptionCount(user),
+         createdPost      : Resource.userResources(user),
+         user             : user]
+    }
+
+
     def register() {
-        log.info "controller"
         UserCO userCO = new UserCO()
         bindData(userCO, params, [exclude: ['isAdmin,isActive']])
         boolean result = userService.registration(userCO)
@@ -105,31 +122,74 @@ class UserController {
         }
     }
 
-    //todo
-    def sendInvitation() {
-        Topic topic = Topic.get(params.topicId)
-        def list = ['user': session.user.fullName, 'topic': topic.name]
-        println topic.name
-        sendMail {
-            to params.email
-            subject "Subscribe ${topic.name}"
-            body(view: "/email/mail", model: [data: list])
+    def updateProfile() {
+        User user = session.user
+        if (User.findByUserName(params.userName)) {
+            flash.message = "UserName already exist please try different userName "
+            redirect(controller: "user", action: "editProfile")
+        } else {
+            UpdateProfileCO profileCO = new UpdateProfileCO()
+            bindData(profileCO, params)
+            profileCO.profilePic = params.profilePic.getBytes()
+            boolean result = userService.updateUser(user, profileCO)
+            if (result) {
+                flash.success = "User Update Success"
+                redirect(controller: "user", action: "index")
+
+            } else {
+                flash.error = "User Update Failed"
+                redirect(controller: "user", action: "index")
+            }
         }
-        render "email sent ${topic.name}"
     }
 
-    //todo
-    def forgetPassword(String recoveryEmail) {
-        User user = User.findByEmail(recoveryEmail)
-        String charset = (('A'..'Z') + ('0'..'9')).join()
-        if (user) {
-            String newPassword = RandomStringUtils.random(8, charset.toCharArray())
-            sendMail {
-                to recoveryEmail
-                subject "account recovery"
-                body "new password ${newPassword}"
+    def updatePassword() {
+        User user = session.user
+        if (user.password == params.oldPassword) {
+            UpdateProfileCO profileCO = new UpdateProfileCO()
+            bindData(profileCO, params)
+            boolean result = userService.updatePassword(user, profileCO)
+            if (result) {
+                user.password = params.password
+                session.user = user
+                flash.success = "Password Update Success"
+                redirect(controller: "user", action: "index")
+            } else {
+                flash.error = "Password Update Failed"
+                redirect(controller: "user", action: "index")
             }
-            user.password = newPassword
+        } else {
+            flash.message = "Old password is not valid!!"
+            redirect(controller: "user", action: "index")
         }
     }
+
+    def editProfile() {
+        User user = session.user
+        List<TopicVO> createdTopics = topicService.search(new TopicSearchCO(id: user.id))
+        int createdTopicsCount = Topic.countByCreatedBy(user)
+        render view: 'editProfile', model: [createdTopics     : createdTopics,
+                                            createdTopicsCount: createdTopicsCount,
+                                            user              : user]
+    }
+
+    def usersList(UserSearchCO userSearchCO) {
+        if (!userSearchCO) {
+            userSearchCO = new UserSearchCO(max: 5, offset: 0)
+        }
+        List<User> users = User.search(userSearchCO).list()
+        render(view: 'usersList', model: [users: users,
+                                     count: User.count()])
+    }
+
+    def toggleActive(Long userId) {
+        User user = User.get(userId)
+        if (user.isActive) {
+            User.executeUpdate("update User set isActive=:active where id=:id", [active: false, id: userId])
+        } else {
+            User.executeUpdate("update User set isActive=:active where id=:id", [active: true, id: userId])
+        }
+        redirect(action: 'usersList')
+    }
+
 }

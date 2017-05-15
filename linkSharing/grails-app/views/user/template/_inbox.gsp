@@ -12,7 +12,7 @@
             </div>
             <div>
                 <util:remotePaginate controller='user' action="inbox" total="${unReadCount}"
-                                     update="inboxMessages" max="5"/>
+                                     update="inboxMessages" max="5" />
             </div>
         </div>
     </div>

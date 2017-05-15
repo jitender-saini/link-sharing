@@ -1,5 +1,7 @@
 package com.ttn.linkSharing
 
+import com.ttn.linkSharing.co.UserSearchCO
+
 
 class User {
 
@@ -46,8 +48,45 @@ class User {
         return "User -> userName: ${userName} isAdmin: ${isAdmin}  email: ${email}"
     }
 
+    static namedQueries = {
+        search { UserSearchCO co ->
+            if (!co.q) {
+                co.q = ""
+            }
+            or {
+                ilike('firstName', "%${co.q}%")
+                ilike('lastName', "%${co.q}%")
+                ilike('userName', "%${co.q}%")
+                ilike('email', "%${co.q}%")
+            }
+            if (co.sort) {
+                order(co.sort, co.order)
+            }
+            if (co.isActive != null) {
+                if (co.isActive) {
+                    eq('isActive', true)
+                } else {
+                    eq('isActive', false)
+                }
+            }
+            maxResults(co.max)
+            firstResult(co.offset)
+        }
+    }
+
     static List getSubscribedTopic(User user, Map params) {
         List list = createCriteria().list(params) {
+            projections {
+                createAlias('subscription', 's')
+                property('s.topic')
+            }
+            eq('s.user', user)
+        }
+        return list
+    }
+
+    static List getSubscribedTopic(User user) {
+        List list = createCriteria().list() {
             projections {
                 createAlias('subscription', 's')
                 property('s.topic')
@@ -60,7 +99,6 @@ class User {
     static boolean isSubscribed(User user, Long topicId) {
         Subscription subscription = Subscription.findByUserAndTopic(user, Topic.read(topicId))
         if (subscription) {
-            println "$subscription ++++++++++++++++++++++++++="
             return true
         }
         return false
@@ -76,20 +114,14 @@ class User {
         return count
     }
 
-    static Subscription getSubscriptionOfTopic(User user, Long id){
+    static Subscription getSubscriptionOfTopic(User user, Long id) {
         Topic topic = Topic.read(id)
-            Subscription subscription = Subscription.findByUserAndTopic(user,topic)
+        Subscription subscription = Subscription.findByUserAndTopic(user, topic)
         return subscription
     }
 
-    static int getScore(Long resourceId){
+    static int getScore(Long resourceId) {
         ResourceRating resourceRating = ResourceRating.findByResource(Resource.read(resourceId))
         return resourceRating.score
     }
-
-
-
-//    ReadingItem getUnReadResources(SearchCO searchCO) {
-//
-//    }
 }

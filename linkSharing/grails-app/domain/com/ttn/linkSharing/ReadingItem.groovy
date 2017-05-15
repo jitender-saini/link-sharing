@@ -29,6 +29,7 @@ class ReadingItem {
         }
         return list
     }
+
     static int getUnReadItemCount(User user){
         int count = countByUserAndIsRead(user,false)
         return count

@@ -1,17 +1,19 @@
 package com.ttn.linksharing
 
+import com.ttn.linkSharing.User
+
 
 class ApplicationInterceptor {
     ApplicationInterceptor() {
-//        matchAll().excludes(controller: 'login')
+        match(controller: 'user', action: 'usersList')
+        match(controller: 'user', action: 'toggleActive')
     }
 
     boolean before() {
-        if (!(session.user)) {
-            redirect(controller: "login", action: "index")
-            return false
-        }
-        else return true
+        User user = session.user
+        if (!user.isAdmin)
+            redirect(controller: 'user')
+        true
     }
 
     boolean after() {

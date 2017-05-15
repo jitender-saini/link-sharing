@@ -22,13 +22,19 @@ if (typeof jQuery !== 'undefined') {
         });
     })(jQuery);
 }
-function uday(){
-    alert('uday')
-}
 
-// jQuery(function() {
-//     $("#refresh").click(function () {
-//         $("#myDiv").load()
-//     })
-//
-// )
+function updateSeriousness(topicId, seriousness) {
+    $.ajax({
+        url: "/subscription/update?topicId=" + topicId + "&seriousness=" + seriousness,
+        type: 'GET',
+        success: function (result) {
+// alert("resource deleted!")
+// location.reload();
+            var id = "#updateTextOfSeriousness" + topicId
+            $(id).html(result)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("error in updating status")
+        }
+    })
+}

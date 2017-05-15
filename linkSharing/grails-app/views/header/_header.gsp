@@ -9,17 +9,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><g:img dir="images" file="logo.png" width="110"/></a>
+            <a class="navbar-brand" href='${createLink(controller: 'login', action: 'index')}'><g:img dir="images"
+                                                                                                      file="logo.png"
+                                                                                                      width="110"/></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <g:form class="navbar-form navbar-left" controller="resource" action="searchByQuery"
-                            name="searchQuery">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="q" value="${params.q}">
+                    <g:form class="navbar-form navbar-left" controller="Search" action="show" role="search"
+                            name="search-form">
+                        <div class="input-group add-on">
+                            <g:textField name="q" type="text" class="form-control search-main" placeholder="Search"
+                                         id="search"/>
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i></button>
+                            </div>
                         </div>
                     </g:form>
                 </li>
@@ -50,9 +57,16 @@
                            aria-expanded="false">${session.user.userName} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href='${createLink(controller: 'user', action: 'profile', params: [userId: session.user.id])}'>profile</a>
+                                <a href='${createLink(controller: 'user', action: 'profile', params: [userId: session.user.id])}'>Profile</a>
                             </li>
-                            <li><a href="#">Profile</a></li>
+                            <li>
+                                <a href='${createLink(controller: 'user', action: 'editProfile')}'>Edit Profile</a>
+                            </li>
+                            <ls:isAdminLoggedIn>
+                            <li>
+                                <a href='${createLink(controller: 'user', action: 'usersList')}'>Users List</a>
+                            </li>
+                            </ls:isAdminLoggedIn>
                             <li role="separator" class="divider"></li>
                             <li><g:link controller="login" action="logout">Logout</g:link></li>
                         </ul>

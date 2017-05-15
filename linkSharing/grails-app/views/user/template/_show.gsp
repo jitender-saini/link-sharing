@@ -1,11 +1,10 @@
 <div class="well">
     <div class="row">
-        <div class="col-sm-3">
-            %{--<g:img dir="images" file="user.png" height="80"/>--}%
-            <ls:userImage userId="${user.id}"/>
+        <div class="col-sm-4">
+            <ls:userProfileImage userId="${user.id}"/>
         </div>
 
-        <div class="col-sm-9">
+        <div class="col-sm-8">
             <div class="row">
                 <h4> ${user.fullName}</h4>
                 <div class="text-muted">@${user.userName}</div>

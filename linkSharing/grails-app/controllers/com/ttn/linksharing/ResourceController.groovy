@@ -62,8 +62,8 @@ class ResourceController {
         }
     }
 
-    def show(){
-        render(view:"resourceShow",model: [resource:Resource.get(params.resourceId)])
+    def show(Long resourceId){
+        render(view:"resourceShow",model: [resource:Resource.get(resourceId)])
     }
 
     def editDescription(Long id, String description){

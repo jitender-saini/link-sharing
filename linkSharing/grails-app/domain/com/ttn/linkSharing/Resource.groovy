@@ -86,6 +86,11 @@ abstract class Resource {
         return result
     }
 
+    static List<Resource> userResources(User user){
+        List<Resource> post=findAllByCreatedBy(user)
+        return post
+    }
+
 
     String toString() {
         return "Resource for Topic : ${topic.name} created by ${createdBy.userName}"

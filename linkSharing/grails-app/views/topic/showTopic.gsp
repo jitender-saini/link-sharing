@@ -6,8 +6,7 @@
 
 <body>
 <div class="container-fluid">
-
-    <div class="col-xs-6">
+    <div class="col-xs-5">
 
         <div class="row">
             <div class="container-fluid">
@@ -17,7 +16,6 @@
                     </div>
 
                     <div class="panel-body">
-                        <!--FOr User Image,topic ,rating-->
                         <g:render template="template/topic-desc" collection="${topic}" var="topic"/>
                     </div>
                 </div>
@@ -39,9 +37,13 @@
             </div>
         </div>
 
+
+    </div>
+
+    <div class="col-xs-7">
         <div class="row">
 
-            <div class="col-xs-6">
+            <div class="col-xs-12">
 
                 <div class="row container-fluid">
                     <div class="my-panel">
@@ -78,5 +80,7 @@
             </div>
 
         </div>
+    </div>
+</div>
 </body>
 </html>

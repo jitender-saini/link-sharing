@@ -23,7 +23,5 @@ class Subscription {
     String toString() {
         return "User: ${user.userName} Subscribed Topic: ${topic.name}"
     }
-    def getUserSubscription(){
 
-    }
 }

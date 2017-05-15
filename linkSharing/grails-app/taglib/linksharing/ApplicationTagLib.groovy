@@ -34,19 +34,17 @@ class ApplicationTagLib {
 
     }
 
-    def subscribedTopicList = {
-        User user = session.user
-//        def params = [:]
-        params.max=5
-        params.offset=0
-        Topic subscribedTopics = User.getSubscribedTopic(user,params)
-        out<< g.render(template: "/topic/template/topicList", model: [subscribedTopics:subscribedTopics])
+    def isAdminLoggedIn = { attrs, body ->
+        if (session.user.isAdmin) {
+            out << body()
+        }
+
     }
 
     def checkResourceType = { attrs ->
         if (session.user) {
             log.info(" $session.user")
-            Resource resource = Resource.get(attrs.resourceId)
+            Resource resource = Resource.read(attrs.resourceId)
             if (resource instanceof LinkResource)
                 out << "<span><a href='${resource.url}' target='_blank'>View Full Site</a></span> "
             else out << "<span><a href='${resource.filePath}' target='_blank'>Download</a></span> "
@@ -71,7 +69,7 @@ class ApplicationTagLib {
         int count
         String result = ""
         if (attrs.topicId) {
-            count = Topic.getSubscriptionCount(Topic.load(attrs.topicId))
+            count = Topic.getSubscriptionCount(Topic.read(attrs.topicId))
 //            result = g.link(controller: "topic", action: "show", params: [id: attrs.topicId],count)
         } else if (attrs.user) {
             count = User.getSubscriptionCount(attrs.user)
@@ -84,7 +82,7 @@ class ApplicationTagLib {
         int count
         String result = ""
         if (attrs.topicId) {
-            count = Topic.getResourceCount(Topic.load(attrs.topicId))
+            count = Topic.getResourceCount(Topic.read(attrs.topicId))
 //            result = g.link(controller: "topic", action: "show", params: [id: attrs.topicId],count)
         }
         out << count
@@ -116,7 +114,7 @@ class ApplicationTagLib {
         out << g.render(template: "/topic/template/editTopic", model: [topic: topic])
     }
 
-    def shoeEditResource = { attrs ->
+    def showEditResource = { attrs ->
         Resource resource = attrs.resource
         out << g.render(template: "/resource/template/edit-resource", model: [resource: resource])
     }
@@ -151,24 +149,39 @@ class ApplicationTagLib {
             out << g.render(template: "/user/template/show", model: [user: user])
         }
     }
-    def showUserProfile = { attrs ->
-        User user = User.read(attrs.userId)
-        out << "<a href='${createLink(controller: 'user', action: 'profile', params: [userId: attrs.userId])}'>$user.userName</a>"
-    }
 
-    def userImage={attr->
-        if(attr.userId){
+    def userImage = { attr ->
+        if (attr.userId) {
             out << "<img src='${createLink(controller: "user", action: "image", id: "${attr.userId}")}' width=80 height=80 >"
         }
     }
-}
 
-//    def subscribedTopic = { attrs ->
-//        User user = session.user
-//        if(user){
-//            List list = User.getSubscribedTopic(user)
-//            out<<"<g:select class= ' btn dropdown-toggle form-control' data-toggle='dropdown' name='topicId'  optionKey='id' optionValue='name' from='${list}'/>"
-//        }
-//    }
+    def userProfileImage = { attr ->
+        if (attr.userId) {
+            out << "<img src='${createLink(controller: "user", action: "image", id: "${attr.userId}")}' width=130 height=130 >"
+        }
+    }
+
+    def subscribedTopicList = { attrs ->
+        User user = session.user
+// log.info(" in getsubstopic")
+        if (user) {
+            List<Topic> list = User.getSubscribedTopic(user)
+            log.info("list : $list")
+            out << "${select(from: list, name: "topicId", optionKey: "id", optionValue: "name")}"
+        }
+    }
+
+    def isSubscribedToTopic = {
+        attrs, body ->
+            Topic topic = Topic.get(attrs.topicId)
+            User user = session.user
+            if (Subscription.countByTopicAndUser(topic, user)) {
+                out << body()
+            } else {
+                out << ""
+            }
+    }
+}
 
 

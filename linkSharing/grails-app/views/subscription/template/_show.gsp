@@ -28,5 +28,3 @@
                 %{--<ls:canUpdateTopic topic="${topicVO}"/>--}%
             </li>
         </g:each>
-
-    </ul>
