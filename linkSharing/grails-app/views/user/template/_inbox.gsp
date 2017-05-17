@@ -1,12 +1,12 @@
 <div class="container-fluid col-md-12 pull-right">
     <div class="panel panel-default ">
-        <div class="panel-heading" >
+        <div class="panel-heading custom-heading " >
             <div class="panel-title row">
-                <div class="col-md-12">Inbox</div>
+                <div class="col-md-12 ">Inbox</div>
             </div>
         </div>
 
-        <div class="panel-body custom-panel-body">
+        <div class="panel-body custom-body">
             <div id="inboxMessages">
                 <g:render template="template/messages" model="[inboxList: inboxList, unReadCount:unReadCount]"/>
             </div>

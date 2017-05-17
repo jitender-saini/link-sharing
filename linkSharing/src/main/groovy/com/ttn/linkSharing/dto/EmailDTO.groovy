@@ -1,8 +1,6 @@
 package com.ttn.linkSharing.dto
 
-import grails.validation.Validateable
-
-class EmailDTO implements Validateable{
+class EmailDTO {
     String to
     String subject
     String view

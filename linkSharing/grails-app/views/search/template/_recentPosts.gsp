@@ -1,10 +1,10 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading custom-heading">
         <span class="panel-title">Recent Posts</span>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body custom-body scrollable scrollable-lg">
         <g:render template="/resource/template/post" collection="${posts}" var="post"/>
-        <g:paginate total="5" max="5"/>
+        %{--<g:paginate total="" max="5"/>--}%
     </div>
 </div>

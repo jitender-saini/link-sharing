@@ -9,10 +9,11 @@ import org.springframework.core.io.FileSystemResource
 import org.springframework.core.io.Resource
 import org.springframework.context.EnvironmentAware
 
-class Application extends GrailsAutoConfiguration implements EnvironmentAware{
+class Application extends GrailsAutoConfiguration implements EnvironmentAware {
     static void main(String[] args) {
         GrailsApp.run(Application, args)
     }
+
     @Override
     void setEnvironment(Environment environment) {
         String configPath = System.properties["local.config.location"]

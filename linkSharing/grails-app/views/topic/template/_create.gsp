@@ -11,15 +11,14 @@
             <div class="modal-body" style="margin-left: 15px;margin-right:15px;">
                 <g:form controller="topic" action="create" class="form-horizontal">
                     <div class="form-group">
-                        <div class="control-label col-sm-3"><label for="name" class="pull-left">Name*</label></div>
+                        <div class="control-label col-sm-3"><label for="topicName" class="pull-left">Name*</label></div>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control pull-right" name="name" id="name"
-                                   placeholder="Enter the topic name"/></div>
+                            <input type="text" class="form-control pull-right" name="name" id="topicName" required
+                                   placeholder="Enter the topic name" pattern=".{3,20}"/></div>
                     </div>
 
                     <div class="form-group">
-                        <div class="control-label col-sm-3"><label for="visibility"
-                                                                   class="pull-left">Visibility*</label>
+                        <div class="control-label col-sm-3"><label for="visibility" class="pull-left">Visibility*</label>
                         </div>
 
                         <div class="col-sm-9">

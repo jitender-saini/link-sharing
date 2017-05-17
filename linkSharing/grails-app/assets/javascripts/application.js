@@ -8,33 +8,9 @@
 //= require jquery-2.2.0.min
 //= require bootstrap
 //= require login
+//= require app
 // srequire jquery
 // srequire jquery.validate
 //  srequire_tree .
 //= require_self
 
-if (typeof jQuery !== 'undefined') {
-    (function($) {
-        $(document).ajaxStart(function() {
-            $('#spinner').fadeIn();
-        }).ajaxStop(function() {
-            $('#spinner').fadeOut();
-        });
-    })(jQuery);
-}
-
-function updateSeriousness(topicId, seriousness) {
-    $.ajax({
-        url: "/subscription/update?topicId=" + topicId + "&seriousness=" + seriousness,
-        type: 'GET',
-        success: function (result) {
-// alert("resource deleted!")
-// location.reload();
-            var id = "#updateTextOfSeriousness" + topicId
-            $(id).html(result)
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("error in updating status")
-        }
-    })
-}

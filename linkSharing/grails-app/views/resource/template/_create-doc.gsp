@@ -3,7 +3,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header custom-heading">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Share Document</h4>
             </div>
@@ -16,7 +16,7 @@
                         </div>
 
                         <div class="col-sm-9">
-                            <input type="file" name="file" id="document"/>
+                            <input type="file" name="file" id="document" required/>
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
                                                                    class="pull-left">Description*</label></div>
 
                         <div class="col-sm-9">
-                            <textarea rows="4" class="form-control pull-right" name="description" id="description"></textarea></div>
+                            <textarea rows="4" class="form-control pull-right" name="description" id="description" required></textarea></div>
                     </div>
 
                     <div class="form-group well">

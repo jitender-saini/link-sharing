@@ -2,10 +2,7 @@ package com.ttn.linksharing
 
 import com.ttn.linkSharing.ReadingItem
 import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.Subscription
-import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
-import com.ttn.linkSharing.enums.Seriousness
 
 class ReadingItemController {
 

@@ -11,8 +11,6 @@ import com.ttn.linkSharing.User
 import com.ttn.linkSharing.constant.Constant
 import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
-import demo.Author
-import demo.Book
 
 class BootStrap {
 
@@ -23,9 +21,6 @@ class BootStrap {
 //        subscribeTopics()
 //        addReadItems()
 //        addRating()
-////        trendingTopics()
-//        addAuthor()
-//        Topic.getTopPost()
     }
 
     void createUser() {
@@ -61,14 +56,18 @@ class BootStrap {
                 topic.save(flush: true)
                 if (topic.hasErrors())
                     log.error topic.errors.allErrors
-                else log.info "Topic: ${topic.name} is created by ${User.get(1) userName}"
+                else {
+                    log.info "Topic: ${topic.name} is created by ${User.get(1) userName}"
+                }
 
                 Topic topic2 = new Topic(name: "${topicName[it]}", description: "programing language",
                         visibility: Visibility.PUBLIC, createdBy: User.get(2))
                 topic2.save(flush: true)
-                if (topic2.hasErrors())
+                if (topic2.hasErrors()) {
                     log.error topic2.errors.allErrors
-                else log.info "Topic: ${topic2.name} is created by ${User.get(2) userName}"
+                } else {
+                    log.info "Topic: ${topic2.name} is created by ${User.get(2) userName}"
+                }
             }
         }
     }
@@ -86,11 +85,13 @@ class BootStrap {
             linkResource.save(flush: true)
             documentResource.save(flush: true)
 
-            if (linkResource.hasErrors())
+            if (linkResource.hasErrors()) {
                 log.error linkResource.errors.allErrors
-            else if (documentResource.hasErrors())
+            } else if (documentResource.hasErrors()) {
                 log.error documentResource.errors.allErrors
-            else log.info "Resource created by ${user.userName} for topic ${topic.name} "
+            } else {
+                log.info "Resource created by ${user.userName} for topic ${topic.name} "
+            }
         }
     }
 
@@ -114,9 +115,12 @@ class BootStrap {
                     subscribe.save(flush: true)
                     if (subscribe.hasErrors())
                         log.error(subscribe.errors.allErrors)
-                    else log.info "${User.get(i).userName} has subscribed ${Topic.get(it).name}"
-                } else
+                    else {
+                        log.info "${User.get(i).userName} has subscribed ${Topic.get(it).name}"
+                    }
+                } else {
                     log.info "Subscription already exist"
+                }
             }
         }
     }
@@ -145,10 +149,11 @@ class BootStrap {
     void createRatings(User user, Resource resource, int score) {
         ResourceRating rating = new ResourceRating(createdBy: user, resource: resource, score: score)
         rating.save(flush: true)
-        if (rating.hasErrors())
+        if (rating.hasErrors()) {
             log.error(rating.errors.allErrors)
-        else
+        } else {
             log.info "User ${user.userName} Added $score Rating to resource "
+        }
     }
 
     void addRating() {
@@ -158,23 +163,6 @@ class BootStrap {
         }
     }
 
-    void trendingTopics() {
-        List trendingTopics = Topic.getTrendingTopics()
-        trendingTopics.each {
-            println(it.properties)
-        }
-    }
-
-    void addAuthor() {
-        20.times {
-            Author author = new Author(firstName: "Jay" + it, lastName: "Saini" + it, age: (10 * it) / 2)
-            author.save(failOnError: true)
-            Book book = new Book(title: "bookTitle" + it, author: author)
-            book.save(failOnError: true)
-            Book book1 = new Book(title: "bookTitle", author: author)
-            book1.save(failOnError: true)
-        }
-    }
 
     def destroy = {
         log.info("Closing application")

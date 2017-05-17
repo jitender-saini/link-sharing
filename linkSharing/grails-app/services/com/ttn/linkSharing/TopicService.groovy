@@ -11,50 +11,39 @@ class TopicService {
 
     def saveTopic(TopicCO topicCO) {
         Topic topic = new Topic(topicCO.properties)
-        println topic
         if (topic.validate()) {
             topic.save()
             return true
         } else {
-            topic.errors.allErrors.each { println it }
             return false
         }
     }
 
-    List<TopicVO> search(TopicSearchCO topicSearchCO) {
-        List<TopicVO> createdTopicsList = []
+    List<TopicVO> search(User user, TopicSearchCO topicSearchCO) {
+        List<TopicVO> topicVOS = []
+        if (topicSearchCO.q) {
+            if (user) {
+                if (user.isAdmin || user == Topic.read(topicSearchCO.id).createdBy) {
+                    List<Topic> topicList = Topic.createCriteria().list(offset: topicSearchCO.offset, max: topicSearchCO.max) {
+                        ilike('name', "%${topicSearchCO.q}%")
 
-        if (topicSearchCO.id) {
-            User user = topicSearchCO.getUser()
-
-            List<Topic> topicList = Topic.createCriteria().list(offset: topicSearchCO.offset, max: topicSearchCO.max) {
-                eq('createdBy.id', topicSearchCO.id)
-
-                if (topicSearchCO.visibility)
-                    eq('visibility', topicSearchCO.visibility)
-                if (topicSearchCO?.q)
-                    eq('name', "%${topicSearchCO.q}%")
-            }
-
-            topicList.each {
-                topic -> createdTopicsList.add(new TopicVO(id: topic.id, name: topic.name, visibility: topic.visibility, createdBy: topic.createdBy))
-            }
-
-        } else {
-            List<Topic> topicList = Topic.createCriteria().list(offset: topicSearchCO.offset, max: topicSearchCO.max) {
-                eq('visibility', Visibility.PUBLIC)
-                if (topicSearchCO?.q)
+                    }
+                    topicList.each {
+                        topic -> topicVOS.add(new TopicVO(id: topic.id, name: topic.name, visibility: topic.visibility, createdBy: topic.createdBy))
+                    }
+                }
+            } else {
+                List<Topic> topicList = Topic.createCriteria().list(offset: topicSearchCO.offset, max: topicSearchCO.max) {
+                    eq('visibility', Visibility.PUBLIC)
                     ilike('name', "%${topicSearchCO.q}%")
+                }
+                topicList.each {
+                    topic -> topicVOS.add(new TopicVO(id: topic.id, name: topic.name, visibility: topic.visibility, createdBy: topic.createdBy))
+                }
             }
 
-            topicList.each {
-                topic -> createdTopicsList.add(new TopicVO(id: topic.id, name: topic.name, visibility: topic.visibility, createdBy: topic.createdBy))
-            }
         }
-
-        return createdTopicsList
+        return topicVOS
     }
-
-
 }
 

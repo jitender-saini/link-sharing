@@ -3,10 +3,9 @@ package com.ttn.linksharing
 import com.ttn.linkSharing.DocumentResource
 import com.ttn.linkSharing.LinkResource
 import com.ttn.linkSharing.Resource
+import com.ttn.linkSharing.ResourceRating
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
-import com.ttn.linkSharing.co.ResourceSearchCO
-import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.web.multipart.MultipartFile
 
 class ResourceController {
@@ -15,31 +14,29 @@ class ResourceController {
 
     }
 
-    def saveLink(){
+    def saveLink() {
         Resource linkResource = new LinkResource(url: params.link, description: params.description,
                 createdBy: session.user, topic: Topic.load(params.topicId))
-        linkResource.save(flush:true)
-        if(linkResource.hasErrors()) {
-            println linkResource.errors.allErrors
+        linkResource.save(flush: true)
+        if (linkResource.hasErrors()) {
+            log.info linkResource.errors.allErrors
             redirect(controller: "user", action: "index")
-        }
-        else {
-            println "save success link"
+        } else {
+            flash.message = "save success link"
             redirect(controller: "user", action: "index")
         }
 
     }
+
     def saveDoc() {
         try {
             MultipartFile file = params.file
             String extension = '.' + file.originalFilename.tokenize('.').last()
             String folderPath = grailsApplication.config.resource.document.folderPath
-            println "folder path: ${folderPath}"
             File directory = new File(folderPath)
             String fullPath = folderPath + UUID.randomUUID() + extension
             if (!directory.exists()) {
                 directory.mkdirs()
-                println "directory created"
             }
             if (file.empty) {
                 flash.message = "File can't be empty"
@@ -47,59 +44,77 @@ class ResourceController {
                 DocumentResource documentResource = new DocumentResource(filePath: fullPath, description: params.description,
                         topic: Topic.load(params.topicId), createdBy: session.user)
                 documentResource.save(flush: true)
-                if(documentResource.hasErrors()){
-                    println documentResource.errors.allErrors
-                }
-                else{
-                    println " saved success"
+                if (documentResource.hasErrors()) {
+                    log.info documentResource.errors.allErrors
+                } else {
+                    flash.message = " saved success"
                 }
                 file.transferTo(new File(fullPath))
             }
             redirect(controller: 'login', action: 'index')
         } catch (Exception e) {
-            e.printStackTrace()
+            redirect(controller: 'user', action: 'index')
+        }
+    }
+
+    def show(Long resourceId) {
+        Resource resource = Resource.get(resourceId)
+        if (resource) {
+            render(view: "resourceShow", model: [resource: resource])
+        }else{
+            flash.message = "Post not available"
+        }
+    }
+
+    def editResource(String description, Long resourceId) {
+        log.info(" $description $resourceId")
+        Resource resource = Resource.get(resourceId)
+        if (resource && description) {
+            resource.description = description
+            resource.save(flush: true, failOnError: true)
+            if (resource.hasErrors()) {
+                flash.error = "Error in updating Resource "
+            } else {
+                flash.message = "Resource Updated"
+            }
+        }
+        redirect(controller: 'user', action: 'index')
+    }
+
+    def delete(Long resourceId) {
+        Resource resource = Resource.read(resourceId)
+        if (resource) {
+            resource.delete(flush: true, failOnError: true)
+            flash.message = "Resource Deleted!!"
+            redirect(controller: "user", action: "index")
+        } else {
+            flash.error = "Resource Deletion failed!!"
             redirect(controller: "user", action: "index")
         }
     }
 
-    def show(Long resourceId){
-        render(view:"resourceShow",model: [resource:Resource.get(resourceId)])
-    }
-
-    def editDescription(Long id, String description){
-        Resource resource = Resource.read(id)
-        if (resource){
-            resource.description = description
-            resource.save(flush:true)
-            if(resource.hasErrors()){
-                flash.error = "Resource edit failed!!"
-            }
-            else flash.message = "Resource updated"
-        }
-        redirect(controller: "user", action: "index")
-    }
-
-    def delete(int id) {
-        Resource resource = Resource.load(id)
-        try{
-            resource.delete(flush: true)
-            render flash.success = "Resource Deleted!!"
-        } catch (DataIntegrityViolationException e){
-            render flash.error = "Resource Deletion failed!!"
-        }
-    }
-
-    def search(ResourceSearchCO resourceSearchCo){
-        if(resourceSearchCo.q){
-            resourceSearchCo.visibility = "PUBLIC"
-        }
-    }
-
-    def searchByQuery(String query){
+    def rating(String resourceId, Long rating) {
         User user = session.user
-        if(query ||user && user.isAdmin && !query){
-            log.info "1"
-            render(view:"/search", model: [searchresource:Resource.findResourceByQuery(query)])
+        Resource resource = Resource.read(resourceId)
+        ResourceRating resourceRating = ResourceRating.findByCreatedByAndResource(user, resource)
+        if (resourceRating) {
+            resourceRating.score = rating
+        } else {
+            resourceRating = new ResourceRating(createdBy: user, resource: resource, score: rating)
         }
+        resourceRating.save(flush: true, failOnError: true)
+        if (resourceRating.hasErrors()) {
+            flash.error = "error in updating ratings"
+        }
+        flash.message = "ratings updated"
+    }
+
+    def download(String filePath) {
+        byte[] bytes = new File(filePath).getBytes()
+        String fileName = filePath.substring(filePath.lastIndexOf("/") + 1)
+        response.setHeader("Content-disposition", "attachment; filename=$fileName")
+        response.contentLength = bytes.length
+        response.outputStream << bytes
+        flash.message = "Your download is started Downloaded"
     }
 }

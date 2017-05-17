@@ -7,7 +7,7 @@ import com.ttn.linkSharing.enums.Seriousness
 
 class SubscriptionController {
 
-      def save(Long topicId) {
+    def save(Long topicId) {
         Topic topic = Topic.read(topicId)
         if (topic) {
             Subscription subscribe = new Subscription(topic: topic, user: session.user)
@@ -28,18 +28,17 @@ class SubscriptionController {
             subscription.seriousness = Seriousness.toEnum(seriousness)
             subscription.save(flush: true)
             if (subscription.hasErrors()) {
-                flash.message="Subscription update failed"
+                flash.message = "Subscription update failed"
             } else {
-                flash.message= "Subscription updated"
+                flash.message = "Subscription updated"
             }
         } else {
-            flash.message= "Subscription notFound"
+            flash.message = "Subscription notFound"
         }
     }
 //todo
     def delete(Long topicId) {
-        println "delete $topicId"
-        Subscription subscription = Subscription.findByUserAndTopic(session.user,Topic.read(topicId))
+        Subscription subscription = Subscription.findByUserAndTopic(session.user, Topic.read(topicId))
         if (subscription) {
             subscription.delete(flush: true)
             if (subscription.hasErrors()) {

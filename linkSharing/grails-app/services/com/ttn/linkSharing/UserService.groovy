@@ -25,7 +25,7 @@ class UserService {
     }
 
     def updatePassword(User userObj, UpdateProfileCO profileCO) {
-        if (profileCO.password == profileCO.confirmPassword && profileCO.password.length()>5){
+        if (profileCO.password == profileCO.confirmPassword && profileCO.password.length() > 5) {
             userObj.executeUpdate("update User as U set U.password=:password where U.id=:id",
                     [password: profileCO.password, id: userObj.id])
         }

@@ -2,7 +2,9 @@
     <div class="well">
         <div class="row">
             <div class="col-sm-3">
-                <ls:userImage userId="${post.createdBy.id}"/>
+                <a href='${createLink(controller: 'user', action: 'profile', params: [userId: post.createdBy.id])}'>
+                    <ls:userImage userId="${post.createdBy.id}"/>
+                </a>
             </div>
 
             <div class="col-sm-9">
@@ -36,7 +38,7 @@
                         </span>
                         <span  style="margin-right:10px;">
                             <a href='${createLink(controller: 'resource', action: 'show',params: [resourceId: post.id])}' class='custom-inline'>
-                                viewPost
+                                View Post
                             </a>
                         </span>
                     </div>

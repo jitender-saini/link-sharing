@@ -7,12 +7,12 @@ enum Seriousness {
     CASUAL
 
     static Seriousness toEnum(String seriousness) {
-        if(seriousness.equalsIgnoreCase("SERIOUS")){
+        if (seriousness.equalsIgnoreCase("SERIOUS")) {
             SERIOUS
-        }
-        else if(seriousness.equalsIgnoreCase("VERY_SERIOUS")){
+        } else if (seriousness.equalsIgnoreCase("VERY_SERIOUS")) {
             VERY_SERIOUS
+        } else {
+            CASUAL
         }
-        else CASUAL
     }
 }

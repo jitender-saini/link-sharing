@@ -6,6 +6,7 @@ import com.ttn.linkSharing.Resource
 import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
+import com.ttn.linkSharing.vo.RatingInfoVO
 import com.ttn.linkSharing.vo.TopicVO
 
 class ApplicationTagLib {
@@ -43,12 +44,15 @@ class ApplicationTagLib {
 
     def checkResourceType = { attrs ->
         if (session.user) {
-            log.info(" $session.user")
-            Resource resource = Resource.read(attrs.resourceId)
+            Resource resource = Resource.get(attrs.resourceId)
             if (resource instanceof LinkResource)
                 out << "<span><a href='${resource.url}' target='_blank'>View Full Site</a></span> "
-            else out << "<span><a href='${resource.filePath}' target='_blank'>Download</a></span> "
-        } else out << ""
+            else {
+                out << "<span><a href='${createLink(controller: 'resource', action: 'download', params: [filePath: resource.filePath])}'>Download</a></span> "
+            }
+        } else {
+            out << ""
+        }
     }
 
     def showTrendingTopic = {
@@ -59,31 +63,26 @@ class ApplicationTagLib {
         }
     }
 
-    def showTopPost = {
-        User user = user.session
-        List<Resource> topPost = Topic.getTopPost()
-        out << g.render(template: "/resource/template/show", model: [topPost: topPost, user: user])
-    }
+//    def showTopPost = {
+//        User user = user.session
+//        List<Resource> topPost = Topic.getTopPost()
+//        out << g.render(template: "/resource/template/show", model: [topPost: topPost, user: user])
+//    }
 
     def getSubscriptionCount = { attrs ->
-        int count
-        String result = ""
+        int count = 0
         if (attrs.topicId) {
             count = Topic.getSubscriptionCount(Topic.read(attrs.topicId))
-//            result = g.link(controller: "topic", action: "show", params: [id: attrs.topicId],count)
         } else if (attrs.user) {
             count = User.getSubscriptionCount(attrs.user)
-//            result = g.link(controller: "user", action: "profile", params: ["resourceSearchCO.id": user.userId],count)
         }
         out << count
     }
 
     def getResourceCount = { attrs ->
-        int count
-        String result = ""
+        int count = 0
         if (attrs.topicId) {
             count = Topic.getResourceCount(Topic.read(attrs.topicId))
-//            result = g.link(controller: "topic", action: "show", params: [id: attrs.topicId],count)
         }
         out << count
     }
@@ -108,30 +107,28 @@ class ApplicationTagLib {
         }
     }
 
-
-    def showEditTopic = { attrs ->
-        Topic topic = Topic.read(attrs.topicId)
-        out << g.render(template: "/topic/template/editTopic", model: [topic: topic])
-    }
-
-    def showEditResource = { attrs ->
-        Resource resource = attrs.resource
-        out << g.render(template: "/resource/template/edit-resource", model: [resource: resource])
-    }
-
-    def canUpdateTopic = { attrs ->
+    def isAdminOrCreatorOfResource = { attrs, body ->
         User user = session.user
-        if (user) {
-            Subscription subscription = User.getSubscriptionOfTopic(user, attrs.topicId)
-            if (subscription) {
-                if (topic.createdBy == user) {
-                    out << g.render(template: "/topic/template/topicCreatePanel", model: [topic: topic])
-//                } else {
-//                    out << g.render(template: "/topic/template/subscribeTopicPanel", model: [topic: topic])
-                }
-            }
+        Resource resource = Resource.read(attrs.resourceId)
+        if (user.isAdmin || resource.createdBy == user) {
+            out << body()
+//            out << "<a href='javascript:void(0)'  onclick='deleteResource(${attrs.resourceId})'>Delete&nbsp&nbsp&nbsp</a>"
+//            out << "<a href='javascript:void(0)' onclick='editResource(${attrs.resourceId})' > Edit</a>"
+        } else {
+            out << ""
         }
     }
+
+    def isAdminOrCreatorOfTopic = { attrs, body ->
+        User user = session.user
+        if (user) {
+            Topic topic = Topic.findByCreatedByAndId(user, attrs.topicId)
+            if (user.isAdmin || topic) {
+                out << body()
+            }
+        } else out << ""
+    }
+
     def showChangeSeriousness = { attrs ->
         User user = session.user
         if (user) {
@@ -152,35 +149,61 @@ class ApplicationTagLib {
 
     def userImage = { attr ->
         if (attr.userId) {
-            out << "<img src='${createLink(controller: "user", action: "image", id: "${attr.userId}")}' width=80 height=80 >"
+            out << "<img src='${createLink(controller: "login", action: "image", id: "${attr.userId}")}' width=80 height=80 >"
         }
     }
 
     def userProfileImage = { attr ->
         if (attr.userId) {
-            out << "<img src='${createLink(controller: "user", action: "image", id: "${attr.userId}")}' width=130 height=130 >"
+            out << "<img src='${createLink(controller: "login", action: "image", id: "${attr.userId}")}' width=130 height=130 >"
+        }
+    }
+
+    def isSubscribed = { attrs, body ->
+        Resource resource = Resource.get(attrs.resourceId)
+        User user = session.user
+        boolean status = User.isSubscribed(user, resource.topicId)
+        if (status || (user && user.isAdmin)) {
+            out << body()
+        } else {
+            out << ""
         }
     }
 
     def subscribedTopicList = { attrs ->
         User user = session.user
-// log.info(" in getsubstopic")
         if (user) {
             List<Topic> list = User.getSubscribedTopic(user)
-            log.info("list : $list")
             out << "${select(from: list, name: "topicId", optionKey: "id", optionValue: "name")}"
         }
     }
 
-    def isSubscribedToTopic = {
-        attrs, body ->
-            Topic topic = Topic.get(attrs.topicId)
-            User user = session.user
-            if (Subscription.countByTopicAndUser(topic, user)) {
-                out << body()
+    def resourceRating = { attrs ->
+        Resource resource = Resource.read(attrs.resourceId)
+        RatingInfoVO ratingInfoVo = Resource.getRatingInfo(resource)
+
+        StringBuilder builder = new StringBuilder()
+        for (Integer i = 1; i <= 5; i++) {
+            if (ratingInfoVo.averageScore >= i) {
+                builder.append("<span class='fa fa-star'></span>")
+            } else if (ratingInfoVo.averageScore > i && ratingInfoVo.averageScore < i + 1) {
+                builder.append("<span class='fa fa-star-half-empty'></span>")
+
             } else {
-                out << ""
+                builder.append("<span class='fa fa-star-o'></span>")
             }
+        }
+        out << builder.toString()
+    }
+
+    def isSubscribedToTopic = { attrs, body ->
+        Topic topic = Topic.get(attrs.topicId)
+        User user = session.user
+        if (Subscription.countByTopicAndUser(topic, user)) {
+            out << body()
+        } else {
+            out << ""
+        }
     }
 }
 

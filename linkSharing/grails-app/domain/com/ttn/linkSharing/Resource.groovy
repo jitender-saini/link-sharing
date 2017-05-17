@@ -34,34 +34,27 @@ abstract class Resource {
             if (searchCo.visibility) {
                 eq('topic.visibility', searchCo.visibility)
             }
-            if(searchCo.id){
-                eq('createdBy.id',searchCo.id)
+            if (searchCo.id) {
+                eq('createdBy.id', searchCo.id)
             }
-            if(searchCo.q){
-                ilike('description',"%${searchCo.q}")
+            if (searchCo.q) {
+                ilike('description', "%${searchCo.q}%")
+            }
+
+            and {
+                order('lastUpdated', 'desc')
             }
         }
     }
 
-//    def afterInsert(){
-//        withNewSession {
-//            ReadingItem readingItem = new ReadingItem(user: topic.subscription.user, resource: this, isRead: false)
-//            readingItem.save(flush:true)
-//            if(readingItem.hasErrors()){
-//                log.error readingItem.errors.allErrors
-//            }
-//            else log.info "Reading item created"
-//        }
-//    }
-
-    RatingInfoVO getRatingInfo() {
+    static RatingInfoVO getRatingInfo(Resource resource) {
         List result = ResourceRating.createCriteria().get() {
             projections {
                 count('id', 'totalVotes')
                 sum('score')
                 avg('score')
             }
-            eq('resource', this)
+            eq('resource', resource)
         }
         return new RatingInfoVO(totalVotes: result[0], totalScore: result[1], averageScore: result[2])
     }
@@ -86,8 +79,8 @@ abstract class Resource {
         return result
     }
 
-    static List<Resource> userResources(User user){
-        List<Resource> post=findAllByCreatedBy(user)
+    static List<Resource> userResources(User user) {
+        List<Resource> post = findAllByCreatedBy(user)
         return post
     }
 

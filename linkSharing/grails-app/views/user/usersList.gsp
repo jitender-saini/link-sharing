@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="my-panel">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading custom-heading">
                 <div class="row">
 
                     <div class="col-sm-6">

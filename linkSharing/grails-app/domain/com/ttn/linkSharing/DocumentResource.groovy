@@ -1,6 +1,6 @@
 package com.ttn.linkSharing
 
-class DocumentResource extends Resource{
+class DocumentResource extends Resource {
 
     String filePath
 

@@ -7,7 +7,7 @@ class TopicSearchCO extends SearchCO {
     Long id
     Visibility visibility
 
-    User getUser(){
+    User getUser() {
         User user = User.get(id)
         return user
     }

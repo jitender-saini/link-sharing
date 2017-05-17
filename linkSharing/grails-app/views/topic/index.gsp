@@ -27,9 +27,9 @@
 
 <div class="col-md-8">
     <div class="panel">
-        <div class="panel-heading">Posts</div>
+        <div class="panel-heading custom-heading">Posts</div>
 
-        <div class="panel-body">
+        <div class="panel-body custom-body">
             <g:render template="/resource/list" model="[resources: resources]"/>
         </div>
 

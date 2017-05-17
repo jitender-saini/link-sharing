@@ -6,19 +6,22 @@ buildscript {
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.14.1"
-        classpath "org.grails.plugins:hibernate5:${gormVersion-".RELEASE"}"
+        classpath "org.grails.plugins:hibernate5:${gormVersion - ".RELEASE"}"
+        classpath "net.saliman:gradle-cobertura-plugin:2.3.2"
     }
 }
 
 version "0.1"
 group "linksharing"
 
-apply plugin:"eclipse"
-apply plugin:"idea"
-apply plugin:"war"
-apply plugin:"org.grails.grails-web"
-apply plugin:"org.grails.grails-gsp"
-apply plugin:"asset-pipeline"
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "war"
+apply plugin: "org.grails.grails-web"
+apply plugin: "org.grails.grails-gsp"
+apply plugin: "asset-pipeline"
+apply plugin: "net.saliman.cobertura"
+apply plugin: 'codenarc'
 
 repositories {
     mavenLocal()
@@ -64,4 +67,16 @@ bootRun {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+cobertura {
+    coverageFormats = ['html', 'xml']
+    coverageExcludes = ['.*com\\.egreement\\.accountapplication\\.enums\\.*.*',
+                        '.*com\\.egreement\\.accountapplication\\.Bootstrap',
+                        '.*com\\.egreement\\.accountapplication\\.Application',
+                        '.*com\\.egreement\\.accountapplication\\.LoggingInterceptor']
+}
+
+codenarcMain {
+    configFile = rootProject.file("grails-app/conf/CodeNarcRules.groovy")
 }

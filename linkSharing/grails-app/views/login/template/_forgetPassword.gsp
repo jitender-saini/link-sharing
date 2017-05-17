@@ -3,7 +3,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header custom-heading">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Forgot Password</h4>
             </div>
@@ -18,10 +18,11 @@
 
                     <div class="row" style="padding-bottom:10px;">
                         <div class="form-group">
-                            <label class="col-xs-1">Email:</label>
+                            <label for="recoveryEmail" class="col-xs-1">Email:</label>
 
                             <div class="col-xs-4">
-                                <g:field name="recoveryEmail" type="email" class="form-control"/>
+                                <input name="recoveryEmail" type="email" class="form-control"
+                                       id="recoveryEmail" required/>
                             </div>
                         </div>
                     </div>

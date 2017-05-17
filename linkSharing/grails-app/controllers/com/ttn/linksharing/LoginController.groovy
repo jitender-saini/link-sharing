@@ -5,12 +5,13 @@ import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
 
 class LoginController {
+    def assetResourceLocator
 
     def index() {
         User user = session.user
-        if (user)
-            forward(controller: "user", action: "index")
-        else {
+        if (user) {
+            redirect(controller: "user", action: "index")
+        } else {
             render view: 'index', model: [topPost   : Topic.getTopPost(),
                                           recentPost: Resource.getRecentPost()]
         }
@@ -29,7 +30,7 @@ class LoginController {
         if (user) {
             if (user.isActive) {
                 session.user = user
-                redirect(controller: "login", action: "index")
+                redirect(controller: "user", action: "index")
             } else {
                 flash.error = "Your account is not active"
                 redirect(controller: "login", action: "index")
@@ -45,20 +46,20 @@ class LoginController {
         forward(controller: "login", action: "index")
     }
 
-    def emails = {
-        sendMail {
-            to "jitender.saini@tothenew.com"
-            subject "Grails plugin directory"
-            body "hello"
-//            html view: "/email/mail"
-        }
-        render "email sent"
-    }
 
-//    boolean before() {
-//        if (!session.user) {
-//            redirect(controller: "login", action: "index")
-//            false
-//        } else true
-//    }
+    def image(Long id) {
+        User user = User.get(id)
+        byte[] photo
+
+        if (user.profilePic) {
+            photo = user.profilePic
+        } else {
+            photo = assetResourceLocator.findAssetForURI('user.png').byteArray
+        }
+        response.contentType = 'image/png'
+        OutputStream out = response.getOutputStream()
+        out.write(photo)
+        out.flush()
+        out.close()
+    }
 }

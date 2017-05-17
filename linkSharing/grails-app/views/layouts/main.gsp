@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -16,10 +16,12 @@
 
 <body>
 <g:render template="/header/header"/>
-<g:render template="/topic/template/create"/>
-<g:render template="/topic/template/invite"/>
-<g:render template="/resource/template/create-link"/>
-<g:render template="/resource/template/create-doc"/>
+<div class="main-page">
+    <g:render template="/topic/template/create"/>
+    <g:render template="/topic/template/invite"/>
+    <g:render template="/resource/template/create-link"/>
+    <g:render template="/resource/template/create-doc"/>
+</div>
 
 <g:if test="${flash.message}">
     <div class="alert alert-success">${flash.message}</div>
@@ -28,8 +30,9 @@
     <div class="alert alert-danger">${flash.error}</div>
 </g:if>
 
-<g:layoutBody/>
-
+<div class="main-page">
+    <g:layoutBody/>
+</div>
 <asset:javascript src="application.js"/>
 %{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}%
 %{--<asset:javascript src="jquery.validate.js"/>--}%

@@ -2,59 +2,34 @@ package com.ttn.linksharing
 
 import com.ttn.linkSharing.ReadingItem
 import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.ResourceService
-import com.ttn.linkSharing.Subscription
-import com.ttn.linkSharing.SubscriptionService
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.TopicService
 import com.ttn.linkSharing.User
 import com.ttn.linkSharing.UserService
-import com.ttn.linkSharing.co.ResourceSearchCO
 import com.ttn.linkSharing.co.TopicSearchCO
 import com.ttn.linkSharing.co.UpdateProfileCO
 import com.ttn.linkSharing.co.UserCO
 import com.ttn.linkSharing.co.UserSearchCO
-import com.ttn.linkSharing.enums.Visibility
+import com.ttn.linkSharing.dto.EmailDTO
 import com.ttn.linkSharing.vo.TopicVO
+import linksharing.EmailService
 import org.apache.commons.lang.RandomStringUtils
 
 class UserController {
 
     UserService userService
     TopicService topicService
-    ResourceService resourceService
-    SubscriptionService subscriptionService
-    def assetResourceLocator
+    EmailService emailService
 
     def index() {
         User user = session.user
         params.max = 5
         params.offset = 0
-        def list = Topic.getTrendingTopics()
-        list.each {
-            println list.properties
-        }
         render view: '/user/index', model: [subscribedTopic  : User.getSubscribedTopic(user, params),
                                             subscriptionCount: User.getSubscriptionCount(user),
                                             inboxList        : ReadingItem.getUnReadItems(user, params),
                                             unReadCount      : ReadingItem.getUnReadItemCount(user),
                                             trendingTopic    : Topic.getTrendingTopics()]
-    }
-
-    def image(Long id) {
-        User user = User.get(id)
-        byte[] photo
-
-        if (user.profilePic) {
-            photo = user.profilePic
-        } else {
-            photo = assetResourceLocator.findAssetForURI('user.png').byteArray
-        }
-        response.contentType = 'image/png'
-        OutputStream out = response.getOutputStream()
-        out.write(photo)
-        out.flush()
-        out.close()
     }
 
     def inbox() {
@@ -71,7 +46,7 @@ class UserController {
     def sendInvitation() {
         Topic topic = Topic.get(params.topicId)
         def list = ['user': session.user.fullName, 'topic': topic.name]
-        println topic.name
+
         sendMail {
             to params.email
             subject "Subscribe ${topic.name}"
@@ -86,19 +61,24 @@ class UserController {
         String charset = (('A'..'Z') + ('0'..'9')).join()
         if (user) {
             String newPassword = RandomStringUtils.random(8, charset.toCharArray())
+//            EmailDTO emailDTO = new EmailDTO(to: recoveryEmail, subject: "Account Recovery", view: "/email/template/_password.gsp", model: [userName: user.fullName, newPassword: newPassword, serverUrl: grailsApplication.config.grails.serverURL])
+//            emailService.sendMail(emailDTO)
+
             sendMail {
                 to recoveryEmail
-                subject "account recovery"
-                body "new password ${newPassword}"
+                subject "Account recovery"
+                body "Link Sharing New password ${newPassword}"
             }
             user.password = newPassword
-        } else flash.message = "Your email is not valid!!"
-        flash.message = "Password sent to your email check it!!"
+            flash.message = "Password sent to your email check it!!"
+        } else {
+            flash.message = "Your email is not valid!!"
+        }
         forward(controller: "login", action: "index")
     }
 
-    def profile() {
-        User user = session.user
+    def profile(Long userId) {
+        User user = User.get(userId)
         List<Topic> createdTopics = Topic.findAllByCreatedBy(user)
         [createdTopics    : createdTopics,
          subscribedTopic  : User.getSubscribedTopic(user, params),
@@ -110,15 +90,16 @@ class UserController {
 
     def register() {
         UserCO userCO = new UserCO()
-        bindData(userCO, params, [exclude: ['isAdmin,isActive']])
+        bindData(userCO, params)
         boolean result = userService.registration(userCO)
         if (result) {
             flash.success = "User Registration Success"
-            forward(controller: "login", action: "index")
-
+            User user = User.findByUserName( userCO.userName)
+            session.user=user
+            forward(controller: "user", action: "index")
         } else {
             flash.error = "User Registration Failed"
-            forward(controller: "login", action: "index")
+            redirect(controller: "login")
         }
     }
 
@@ -166,7 +147,8 @@ class UserController {
 
     def editProfile() {
         User user = session.user
-        List<TopicVO> createdTopics = topicService.search(new TopicSearchCO(id: user.id))
+        List<Topic> createdTopics = Topic.findAllByCreatedBy(user)
+//        List<TopicVO> createdTopics = topicService.search(new TopicSearchCO(id: user.id))
         int createdTopicsCount = Topic.countByCreatedBy(user)
         render view: 'editProfile', model: [createdTopics     : createdTopics,
                                             createdTopicsCount: createdTopicsCount,
@@ -179,7 +161,7 @@ class UserController {
         }
         List<User> users = User.search(userSearchCO).list()
         render(view: 'usersList', model: [users: users,
-                                     count: User.count()])
+                                          count: User.count()])
     }
 
     def toggleActive(Long userId) {

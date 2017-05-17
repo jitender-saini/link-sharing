@@ -33,22 +33,22 @@
                 <ls:isLoggedIn>
                     <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#topicCreate">
-                            <i class="fa fa-comment" aria-hidden="true"></i>
+                            <i class="fa fa-comment" aria-hidden="true" title="Create Topic"></i>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#send-invite">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <i class="fa fa-envelope" aria-hidden="true" title="Send Invitation"></i>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#link-create">
-                            <i class="fa fa-link" aria-hidden="true"></i>
+                            <i class="fa fa-link" aria-hidden="true" title="Share Link Resource"></i>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" data-toggle="modal" data-target="#doc-create">
-                            <i class="fa fa-file-o" aria-hidden="true"></i>
+                            <i class="fa fa-file-o" aria-hidden="true" title="Share Document Resource"></i>
                         </a>
                     </li>
 

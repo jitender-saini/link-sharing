@@ -1,5 +1,5 @@
 <div class="panel panel-default ">
-    <div class="panel-heading">
+    <div class="panel-heading custom-heading">
         <div class="row-fluid user-row">
             Login
         </div>
@@ -20,6 +20,6 @@
                         id="login">Sign in</button>
             </fieldset>
         </g:form><br/>
-        Forget Password<a href="javascript:void(0)" data-toggle="modal" data-target="#forgotPassword">Click Here</a>
+        <p>Forget Password <a href="javascript:void(0)" data-toggle="modal" data-target="#forgotPassword">Click Here</a></p>
     </div>
 </div>

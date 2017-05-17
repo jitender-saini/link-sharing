@@ -3,7 +3,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header custom-heading">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <label class="modal-title">Send Invitation</label>
             </div>
@@ -14,7 +14,7 @@
                         <div class="control-label col-sm-3"><label for="email" class="pull-left">Email*</label></div>
 
                         <div class="col-sm-9">
-                            <input type="email" id="email" class="form-control pull-right" name="email"
+                            <input type="email" id="email" class="form-control pull-right" name="email" required
                                    placeholder="enter the email"/></div>
                     </div>
 

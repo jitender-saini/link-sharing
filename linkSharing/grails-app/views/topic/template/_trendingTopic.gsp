@@ -1,9 +1,9 @@
 <div class="panel panel-default">
-    <div class="panel-heading">
+    <div class="panel-heading custom-heading">
         <span class="panel-title">Trending Topics</span>
     </div>
 
-    <div class="panel-body custom-panel-body">
+    <div class="panel-body custom-body">
         <ul class="list-group">
             <g:each in="${trendingTopics}" var="trendingTopic">
                 <li class="list-group-item">

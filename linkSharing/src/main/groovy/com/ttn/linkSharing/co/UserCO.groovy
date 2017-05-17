@@ -2,7 +2,7 @@ package com.ttn.linkSharing.co
 
 import grails.validation.Validateable
 
-class UserCO implements Validateable{
+class UserCO implements Validateable {
     String userName
     String firstName
     String lastName

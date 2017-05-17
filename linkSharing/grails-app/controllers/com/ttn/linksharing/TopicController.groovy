@@ -1,8 +1,11 @@
 package com.ttn.linksharing
 
 import com.ttn.linkSharing.Resource
+import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.TopicService
+import com.ttn.linkSharing.User
+import com.ttn.linkSharing.co.ResourceSearchCO
 import com.ttn.linkSharing.enums.Visibility
 import com.ttn.linkSharing.co.TopicCO
 
@@ -18,60 +21,71 @@ class TopicController {
             render view: 'index', model: [topic: topic, resources: resources, topic1: topic1]
         } else {
             flash.error = "Topic not found"
-            render view: '/notFound'
+            redirect(controller: "login", action: "index")
         }
     }
 
-    def renderJS() {
-        render("<script>alert('Hi controller')</script>")
-    }
-
-    def showTopic(Long topicId) {
-        Topic topic = Topic.get(topicId)
+    def showTopic(ResourceSearchCO searchCO) {
+        Topic topic = Topic.read(searchCO.topicId)
+        User user = session.user
         if (topic) {
-            render view: '/topic/showTopic', model: [topic      : topic,
-                                                     subscribers: Topic.getSubscribers(topicId),
-                                                     resources  : Topic.getResources(topicId)]
+            if (topic.visibility == Visibility.PUBLIC) {
+                render view: '/topic/showTopic', model: [topic      : topic,
+                                                         subscribers: Topic.getSubscribers(topic.id),
+                                                         resources  : Topic.getResources(topic.id)]
+            } else if (topic.visibility == Visibility.PRIVATE) {
+                if (topic.createdBy == user || user.isAdmin) {
+                    render view: '/topic/showTopic', model: [topic      : topic,
+                                                             subscribers: Topic.getSubscribers(topic.id),
+                                                             resources  : Topic.getResources(topic.id)]
+                }
+            } else if (topic.visibility == Visibility.PRIVATE) {
+                if (Subscription.findByUserAndTopic(session.user, topic)) {
+                    flash.error = "user not subscribed to this topicId"
+                    redirect(controller: "login", action: "index")
+                } else {
+                    flash.error = "Subscription not exist"
+                    redirect(controller: "login", action: "index")
+                }
+            }
         }
-    }
-
-//    def showTopic(ResourceSearchCO searchCO) {
-//        Topic topic = Topic.read(searchCO.topicId)
-//        if (topic ) {
-//            if (topic.visibility == Visibility.PUBLIC)
-//                render "render public topic success"
-//            else if (topic.visibility == Visibility.PRIVATE) {
-//                if (Subscription.findByUserAndTopic(session["user"], topic)) {
-//                    render "Subscription exist Success"
-//                } else {
-//                    render "Subscription not exist"
-//                    flash.error = "Subscription not exist"
-//                    redirect(controller: "login", action: "index")
-//                }
-//            }
-//        }
-//    }
-
-    def findTopic() {
-        def topic = Topic.get(params.topic.id)
     }
 
     def create(String name, String visibility) {
-//        Topic topic = new Topic(name: name,visibility: Visibility.toEnum(visibility),createdBy: session.user)
-//        topic.save(flush:true,failOnError:true)
-
-        TopicCO topicCO = new TopicCO(name: name, visibility: Visibility.toEnum(visibility), createdBy: session.user)
-        topicService.saveTopic(topicCO)
+        if (name && visibility) {
+            TopicCO topicCO = new TopicCO(name: name, visibility: Visibility.toEnum(visibility), createdBy: session.user)
+            topicService.saveTopic(topicCO)
+        }
+        flash.message = "Topic Create Successfully"
         redirect(controller: "login", action: "index")
     }
 
-    def updateTopicName(Long id, String name) {
-        Topic topic = Topic.read(id)
-        topic.name = name
-        redirect(controller: "user", action: "index")
+
+    def edit(String topicName, Long topicId) {
+        Topic topic = Topic.get(topicId)
+        if (topic) {
+            topic.name = topicName
+            topic.save(flush: true, failOnError: true)
+            if (topic.hasErrors()) {
+                flash.error = "error in updating topic"
+            } else {
+                flash.message = "topic name changed"
+            }
+        } else {
+            flash.error = "topic does not exist"
+        }
+        redirect(controller: 'user', action: 'index')
     }
 
-    def search() {
+    def delete(Long topicId) {
+        Topic topic = Topic.read(topicId)
+        if (topic) {
+            topic.delete(flush: true, failOnError: true)
+            flash.message = "Topic Deleted!!"
+        } else {
+            flash.error = "Topic Deletion failed!!"
+        }
+        redirect(controller: "user", action: "index")
 
     }
 }

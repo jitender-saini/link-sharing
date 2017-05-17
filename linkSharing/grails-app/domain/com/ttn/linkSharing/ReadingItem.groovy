@@ -24,14 +24,14 @@ class ReadingItem {
                 property('resource')
             }
             eq('user', user)
-            eq('isRead',false)
+            eq('isRead', false)
             order("dateCreated", "desc")
         }
         return list
     }
 
-    static int getUnReadItemCount(User user){
-        int count = countByUserAndIsRead(user,false)
+    static int getUnReadItemCount(User user) {
+        int count = countByUserAndIsRead(user, false)
         return count
     }
 

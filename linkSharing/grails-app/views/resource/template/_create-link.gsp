@@ -3,7 +3,7 @@
 
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header custom-heading">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Share Link</h4>
             </div>
@@ -14,8 +14,8 @@
                         <div class="control-label col-sm-3"><label for="link" class="pull-left">Link*</label></div>
 
                         <div class="col-sm-9">
-                            <input type="text" class="form-control pull-right" name="link" id="link"
-                                   placeholder="enter the link"/></div>
+                            <input type="url" class="form-control pull-right" name="link" id="link" required
+                                   placeholder="Enter The Link"/></div>
                     </div>
 
                     <div class="form-group well">
@@ -23,7 +23,7 @@
                                                                    class="pull-left">Description*</label></div>
 
                         <div class="col-sm-9">
-                            <textarea rows="4" class="form-control pull-right" name="description"
+                            <textarea rows="4" class="form-control pull-right" name="description" required
                                       id="description"></textarea></div>
                     </div>
 

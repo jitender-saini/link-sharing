@@ -24,8 +24,9 @@ class User {
         firstName nullable: false, blank: false
         lastName nullable: false, blank: false
         password nullable: false, blank: false, size: 4..20, validator: { val, user ->
-            if (!user.id)
+            if (!user.id) {
                 user.confirmPassword == val
+            }
         }
         email nullable: false, blank: false, unique: true, email: true
         profilePic nullable: true, blank: true
