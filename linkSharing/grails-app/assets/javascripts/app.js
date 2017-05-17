@@ -1,17 +1,7 @@
 /**
  * Created by jitender on 16/5/17.
  */
-function makeAjaxcall(url, data, element, callback) {
-    element.parent().prepend($("#ajaxSpinnerImage"));
-    $.ajax({
-        url: url,
-        data: data,
-        success: function (response) {
-            console.log(response);
-            callback(response)
-        }
-    });
-}
+
 
 if (typeof jQuery !== 'undefined') {
     (function ($) {
@@ -74,6 +64,7 @@ function insertRating(resourceId, rating) {
             var id = "#ratingUpdationMessage" + resourceId;
             $(id).html("Ratings Updated");
             $("#ratings").load();
+            // location.reload('#ratingsss')
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("error in updating status");

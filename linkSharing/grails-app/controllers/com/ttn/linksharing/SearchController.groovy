@@ -2,6 +2,7 @@ package com.ttn.linksharing
 
 import com.ttn.linkSharing.Resource
 import com.ttn.linkSharing.ResourceService
+import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.TopicService
 import com.ttn.linkSharing.User
 import com.ttn.linkSharing.co.ResourceSearchCO
@@ -19,6 +20,9 @@ class SearchController {
             bindData(topicSearchCO, params)
             ResourceSearchCO resourceSearchCO = new ResourceSearchCO()
             bindData(resourceSearchCO, params)
+
+            Topic topic = Topic.read(topicSearchCO.id)
+            println(topic)
             List<TopicVO> topics = topicService.search(user, topicSearchCO)
             List<Resource> posts = resourceService.search(user, resourceSearchCO)
             render view: "show", model: [topics: topics, posts: posts]

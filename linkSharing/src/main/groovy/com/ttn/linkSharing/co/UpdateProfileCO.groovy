@@ -11,7 +11,7 @@ class UpdateProfileCO implements Validateable {
     String confirmPassword
 
     static constraints = {
-        userName nullable: true, blank: true, size: 3..20
+        userName nullable: true, blank: true
         firstName nullable: true, blank: true
         lastName nullable: true, blank: true
         profilePic nullable: true, blank: true

@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="col-xs-9">
-                <input name="userName" placeholder="User Name" required id="uname" title="UserName length should be between 5-15"
-                       type="text" class="input-txt form-control" pattern=".{5,15}" value="${user.userName}"/>
+                <input name="userName" placeholder="User Name" id="uname" title="UserName length should be between 5-15"
+                       type="text" class="input-txt form-control" pattern=".{4,15}" value="${user.userName}"/>
                        </div>
             </div>
 

@@ -21,7 +21,7 @@
     <ul class="list-group">
         <g:each in="${createdTopics}" var="topicVO">
             <li class="list-group-item">
-                <div class="row scrollbar" style="margin-bottom:5px">
+                <div class="row" style="margin-bottom:5px">
                     <div class="col-sm-3">
                         <ls:userImage userId="${topicVO.createdBy.id}"/>
                     </div>
@@ -46,7 +46,9 @@
                         </div>
 
                         <div class="row">
-                            <span class="col-sm-4"><ls:showSubscribe topicId="${topicVO.id}"/></span>
+                            <ls:notCreatorOfTopic topicId="${topicVO.id}">
+                                <span class="col-sm-4"><ls:showSubscribe topicId="${topicVO.id}"/></span>
+                            </ls:notCreatorOfTopic>
                             <span class="col-sm-4"><ls:getSubscriptionCount topicId="${topicVO.id}"/></span>
                             <span class="col-sm-4"><ls:getResourceCount topicId="${topicVO.id}"/></span>
                         </div>

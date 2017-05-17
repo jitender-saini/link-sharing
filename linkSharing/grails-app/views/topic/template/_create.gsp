@@ -14,7 +14,7 @@
                         <div class="control-label col-sm-3"><label for="topicName" class="pull-left">Name*</label></div>
                         <div class="col-sm-9">
                             <input type="text" class="form-control pull-right" name="name" id="topicName" required
-                                   placeholder="Enter the topic name" pattern=".{3,20}"/></div>
+                                   placeholder="Enter the topic name" pattern=".{3,30}"/></div>
                     </div>
 
                     <div class="form-group">

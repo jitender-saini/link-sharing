@@ -2,6 +2,7 @@ package com.ttn.linkSharing
 
 import com.ttn.linkSharing.co.ResourceSearchCO
 import com.ttn.linkSharing.vo.RatingInfoVO
+import com.ttn.linkSharing.vo.ResourceVO
 
 abstract class Resource {
 
@@ -59,25 +60,29 @@ abstract class Resource {
         return new RatingInfoVO(totalVotes: result[0], totalScore: result[1], averageScore: result[2])
     }
 
-    static List<Resource> getRecentPost() {
-        List<Resource> result = createCriteria().list(max: 5) {
-            order('dateCreated', 'desc')
-        }
-        return result
+//    static List<Resource> getRecentPost() {
+//        List<Resource> result = createCriteria().list(max: 5) {
+//            order('dateCreated', 'desc')
+//        }
+//        return result
+//    }
+
+    static List<ResourceVO> getRecentPost(){
+        return list(max:5,sort: "dateCreated",order:"desc")
     }
 
-    static List<Resource> findResourceByQuery(String query) {
-        List<Resource> result = createCriteria().list() {
-            projectons {
-                createAlias('topic', 't')
-                or {
-                    like('description', query)
-                    like('t.name', query)
-                }
-            }
-        }
-        return result
-    }
+//    static List<Resource> findResourceByQuery(String query) {
+//        List<Resource> result = createCriteria().list() {
+//            projectons {
+//                createAlias('topic', 't')
+//                or {
+//                    like('description', query)
+//                    like('t.name', query)
+//                }
+//            }
+//        }
+//        return result
+//    }
 
     static List<Resource> userResources(User user) {
         List<Resource> post = findAllByCreatedBy(user)

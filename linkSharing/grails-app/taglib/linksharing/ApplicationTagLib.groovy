@@ -129,6 +129,18 @@ class ApplicationTagLib {
         } else out << ""
     }
 
+    def notCreatorOfTopic = { attrs, body ->
+        User user = session.user
+        if (user) {
+            Topic topic = Topic.read(attrs.topicId)
+            if (user.userName != topic.createdBy.userName) {
+                out << body()
+            } /*else {
+                out << ""
+            }*/
+        }
+    }
+
     def showChangeSeriousness = { attrs ->
         User user = session.user
         if (user) {
@@ -174,7 +186,7 @@ class ApplicationTagLib {
         User user = session.user
         if (user) {
             List<Topic> list = User.getSubscribedTopic(user)
-            out << "${select(from: list, name: "topicId", optionKey: "id", optionValue: "name")}"
+            out << "${select(from: list, name: "topicId", optionKey: "id", optionValue: "name", id:"topic")}"
         }
     }
 

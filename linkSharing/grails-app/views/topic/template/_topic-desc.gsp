@@ -8,15 +8,15 @@
 
         <div class="col-sm-8">
             <div class="row">
-                <p><g:link controller="topic" action="showTopic"
-                           params="[topic: topic.id]">${topic.name}</g:link>
-                ( ${topic.visibility} )</p>
+                <p><h4>${topic.name}</h4>( ${topic.visibility} )</p>
             </div>
 
             <div class="row">
                 <div class="col-sm-4">
                     <h5>@${topic.createdBy.userName}</h5>
-                    <ls:showSubscribe topicId="${topic.id}"/>
+                    <ls:notCreatorOfTopic topicId="${topic.id}">
+                        <ls:showSubscribe topicId="${topic.id}"/>
+                    </ls:notCreatorOfTopic>
                 </div>
 
                 <div class="col-sm-4">
@@ -77,6 +77,7 @@
                     </ls:isAdminOrCreatorOfTopic>
                 </div>
             </div>
+
             <div class="row">
                 <div hidden class="topicId${topic.id} container-fluid">
                     <g:form controller="topic" action="edit" class="form-inline">

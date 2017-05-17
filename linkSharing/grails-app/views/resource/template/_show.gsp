@@ -9,7 +9,7 @@
             <h4>@${resource.createdBy.userName}</h4>
         </div>
 
-        <div class="col-xs-3">
+        <div class="col-xs-3" id="rating">
             <ls:resourceRating resourceId="${resource.id}"/>
             <ls:isSubscribed resourceId="${resource.id}">
                 <div class="dropdown">
@@ -17,11 +17,11 @@
                             data-toggle="dropdown">Rate
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="insertRating(${resource.id}, 1)">1</a></li>
-                        <li><a href="#" onclick="insertRating(${resource.id}, 2)">2</a></li>
-                        <li><a href="#" onclick="insertRating(${resource.id}, 3)">3</a></li>
-                        <li><a href="#" onclick="insertRating(${resource.id}, 4)">4</a></li>
-                        <li><a href="#" onclick="insertRating(${resource.id}, 5)">5</a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 1)">1</a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 2)">2</a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 3)">3</a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 4)">4</a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 5)">5</a></li>
                     </ul>
                 </div>
             </ls:isSubscribed>

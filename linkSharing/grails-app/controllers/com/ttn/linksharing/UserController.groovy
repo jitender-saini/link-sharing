@@ -50,7 +50,7 @@ class UserController {
         sendMail {
             to params.email
             subject "Subscribe ${topic.name}"
-            body(view: "/email/mail", model: [data: list])
+            body(view: "/email/", model: [data: list])
         }
         render "email sent ${topic.name}"
     }
@@ -94,8 +94,8 @@ class UserController {
         boolean result = userService.registration(userCO)
         if (result) {
             flash.success = "User Registration Success"
-            User user = User.findByUserName( userCO.userName)
-            session.user=user
+            User user = User.findByUserName(userCO.userName)
+            session.user = user
             forward(controller: "user", action: "index")
         } else {
             flash.error = "User Registration Failed"
