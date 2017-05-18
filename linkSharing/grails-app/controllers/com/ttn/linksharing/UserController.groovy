@@ -1,24 +1,20 @@
 package com.ttn.linksharing
 
+import com.ttn.linkSharing.EmailService
 import com.ttn.linkSharing.ReadingItem
 import com.ttn.linkSharing.Resource
 import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.TopicService
 import com.ttn.linkSharing.User
 import com.ttn.linkSharing.UserService
-import com.ttn.linkSharing.co.TopicSearchCO
 import com.ttn.linkSharing.co.UpdateProfileCO
 import com.ttn.linkSharing.co.UserCO
 import com.ttn.linkSharing.co.UserSearchCO
 import com.ttn.linkSharing.dto.EmailDTO
-import com.ttn.linkSharing.vo.TopicVO
-import linksharing.EmailService
 import org.apache.commons.lang.RandomStringUtils
 
 class UserController {
 
     UserService userService
-    TopicService topicService
     EmailService emailService
 
     def index() {
@@ -42,35 +38,35 @@ class UserController {
         render(template: '/subscription/template/show', model: [subscribedTopic: User.getSubscribedTopic(user, params)])
     }
 
-    //todo
-    def sendInvitation() {
-        Topic topic = Topic.get(params.topicId)
-        def list = ['user': session.user.fullName, 'topic': topic.name]
-
-        sendMail {
-            to params.email
-            subject "Subscribe ${topic.name}"
-            body(view: "/email/", model: [data: list])
-        }
-        render "email sent ${topic.name}"
-    }
-
+//    //todo
+//    def sendInvitation() {
+//        Topic topic = Topic.get(params.topicId)
+//        def list = ['user': session.user.fullName, 'topic': topic.name]
+//
+//        sendMail {
+//            to params.email
+//            subject "Subscribe ${topic.name}"
+//            body(view: "/email/", model: [data: list])
+//        }
+//        render "email sent ${topic.name}"
+//    }
 
     def forgetPassword(String recoveryEmail) {
         User user = User.findByEmail(recoveryEmail)
         String charset = (('A'..'Z') + ('0'..'9')).join()
         if (user) {
             String newPassword = RandomStringUtils.random(8, charset.toCharArray())
-//            EmailDTO emailDTO = new EmailDTO(to: recoveryEmail, subject: "Account Recovery", view: "/email/template/_password.gsp", model: [userName: user.fullName, newPassword: newPassword, serverUrl: grailsApplication.config.grails.serverURL])
-//            emailService.sendMail(emailDTO)
-
-            sendMail {
-                to recoveryEmail
-                subject "Account recovery"
-                body "Link Sharing New password ${newPassword}"
-            }
+            String serverUrl = 'localhost:8080'
+            EmailDTO emailDTO = new EmailDTO(to: recoveryEmail,
+                    subject: "Account Recovery",
+                    view: "/email/template/password",
+                    model: [userName   : user.fullName,
+                            newPassword: newPassword,
+                            serverUrl  : serverUrl]) //grailsApplication.config.grails.serverURL
+            emailService.sendMail(emailDTO)
             user.password = newPassword
-            flash.message = "Password sent to your email check it!!"
+            user.save(flush: true)
+            flash.message = "Password sent to your email check Your email address!!"
         } else {
             flash.message = "Your email is not valid!!"
         }
@@ -99,7 +95,7 @@ class UserController {
             forward(controller: "user", action: "index")
         } else {
             flash.error = "User Registration Failed"
-            redirect(controller: "login")
+            forward(controller: "login", action: "index")
         }
     }
 

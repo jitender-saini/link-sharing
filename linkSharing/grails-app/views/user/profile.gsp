@@ -25,7 +25,7 @@
             %{--</span>--}%
         </div>
 
-        <div class="panel-body custom-body">
+        <div class="panel-body custom-body scrollable scrollable-lg">
             <g:render template="/resource/template/post" collection="${createdPost}" var="post"/>
 
         </div>

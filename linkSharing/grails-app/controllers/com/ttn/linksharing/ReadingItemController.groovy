@@ -8,7 +8,7 @@ class ReadingItemController {
 
     def toggleIsRead(Long id) {
         User user = session.user
-        Resource resource = Resource.get(id)
+        Resource resource = Resource.read(id)
         if (user && resource) {
             ReadingItem readingItem = ReadingItem.findByResourceAndUser(resource, user)
             if (readingItem) {
@@ -16,7 +16,7 @@ class ReadingItemController {
             } else {
                 readingItem = new ReadingItem(resource: resource, user: user, isRead: true)
             }
-            if (readingItem.save(flush:true)) {
+            if (readingItem.save(flush: true)) {
                 flash.message = "Status updated"
             } else {
                 flash.error = readingItem.errors.allErrors.collect { message(error: it) }.join('<br/>')
@@ -27,5 +27,14 @@ class ReadingItemController {
 
         }
     }
+
+//    def readItem(Long resourceId) {
+//        User user = session.user
+//        Resource resource = Resource.read(resourceId)
+//        ReadingItem readingItem = ReadingItem.findByUserAndResource(user: user, resource: resource)
+//        if(readingItem){
+//            readingItem.
+//        }
+//    }
 
 }

@@ -1,5 +1,4 @@
 <head>
-    <title></title>
     <meta name="layout" content="main"/>
 </head>
 
@@ -68,7 +67,11 @@
                             <tr style="background-color: #FF3C3C">
                         </g:else>
                         <td>${user.id}</td>
-                        <td>${user.userName}</td>
+                        <td>
+                            <a href='${createLink(controller: 'user', action: 'profile', params: [userId: user.id])}' style="color: black">
+                                ${user.userName}
+                            </a>
+                        </td>
                         <td>${user.email}</td>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>

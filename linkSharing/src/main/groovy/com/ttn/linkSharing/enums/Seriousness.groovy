@@ -2,9 +2,15 @@ package com.ttn.linkSharing.enums
 
 enum Seriousness {
 
-    SERIOUS,
-    VERY_SERIOUS,
-    CASUAL
+    SERIOUS('Serious'),
+    VERY_SERIOUS('Very Serious'),
+    CASUAL('Casual')
+
+    String displayName
+
+    Seriousness(String displayName) {
+        this.displayName = displayName
+    }
 
     static Seriousness toEnum(String seriousness) {
         if (seriousness.equalsIgnoreCase("SERIOUS")) {

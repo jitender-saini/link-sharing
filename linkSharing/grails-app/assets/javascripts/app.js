@@ -61,23 +61,92 @@ function insertRating(resourceId, rating) {
         url: "/resource/rating?resourceId=" + resourceId + "&rating=" + rating,
         type: 'GET',
         success: function (result) {
-            var id = "#ratingUpdationMessage" + resourceId;
-            $(id).html("Ratings Updated");
-            $("#ratings").load();
-            // location.reload('#ratingsss')
+            var builder = "";
+            for (var i = 1; i <= 5; i++) {
+                if (rating >= i) {
+                    builder += "<span class='fa fa-star'></span>";
+                } else if (rating > i && rating < i + 1) {
+                    builder += "<span class='fa fa-star-half-empty'></span>"
+
+                } else {
+                    builder += "<span class='fa fa-star-o'></span>"
+                }
+            }
+            $("#rating").html(builder);
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            alert("error in updating status");
+            alert("error in updating rating");
         }
     })
 }
 
+function deleteSubscribe(topicId) {
+    $.ajax({
+        url: "/subscription/delete?topicId=" + topicId,
+        success: function (result) {
+            console.log(result);
+            var builder = "<a onClick='subscribeTopic(" + topicId + ")'>Subscribe</a>";
+            $("#subscription").html(builder);
+            $("#changeSeriousness").hide();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("error in updating rating");
+        }
+    })
+}
+function subscribeTopic(topicId) {
+    $.ajax({
+        url: "/subscription/save?topicId=" + topicId,
+        success: function (result) {
+            console.log(result);
+            var builder = "<a onClick='deleteSubscribe(" + topicId + ")'>UnSubscribe</a>";
+            $("#subscription").html(builder);
+            $("#changeSeriousness").toggle();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert("error in updating rating");
+        }
+    })
+}
+
+
+// function readItem(resourceId) {
+//     $.ajax({
+//         url: "/readingItem/toggleIsRead?resourceId="+resourceId,
+//         success:function (result) {
+//             var builder = "<a onClick='Unread(resourceId)'>Mark as Unread</a>"
+//         }
+//     })
+// }
+
+
 function editResource(resourceId) {
-    var id = "#description" + resourceId
+    var id = "#description" + resourceId;
     $(id).show()
 }
 
 function editTopic(topicId) {
-    var id = ".topicId" + topicId
+    var id = ".topicId" + topicId;
     $(id).show()
 }
+
+// function globalSearch(q) {
+//     console.log(q);
+//     $.ajax({
+//         url:"search/show?q" +q,
+//         type: 'GET',
+//         success: function (result) {
+//             alert(result)
+//         }
+//     })
+// }
+
+
+// function myfunc() {
+//     var button = document.getElementById("searchButton"),
+//         value =  button.form.search.value;
+//     button.onclick = function() {
+//         globalSearch(value);
+//     }
+//
+// }

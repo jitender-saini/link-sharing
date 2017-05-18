@@ -20,9 +20,9 @@ class ApplicationTagLib {
             if (resource) {
                 Integer count = ReadingItem.countByResourceAndIsReadAndUser(resource, true, user)
                 if (count) {
-                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}'>Mark as Un Read</a> "
+                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}' id='unReadItem'>Mark as Un Read</a> "
                 } else {
-                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}'>Mark as Read</a> "
+                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}' id='readItem'>Mark as Read</a> "
                 }
             }
         }
@@ -91,12 +91,23 @@ class ApplicationTagLib {
         User user = session.user
         if (user && attrs.topicId) {
             if (User.isSubscribed(user, attrs.topicId)) {
-                out << "<a href='${createLink(controller: 'subscription', action: 'delete', params: [topicId: attrs.topicId])}'>Unsubscribe</a>"
+                out << "<a onClick='deleteSubscribe(${attrs.topicId})'>UnSubscribe</a>"
             } else {
-                out << "<a href='${createLink(controller: 'subscription', action: 'save', params: [topicId: attrs.topicId])}'>subscribe</a>"
+                out << "<a onClick='subscribeTopic(${attrs.topicId})'>Subscribe</a>"
             }
         }
     }
+
+//    def showSubscribe = { attrs ->
+//        User user = session.user
+//        if (user && attrs.topicId) {
+//            if (User.isSubscribed(user, attrs.topicId)) {
+//                out << "<a href='${createLink(controller: 'subscription', action: 'delete', params: [topicId: attrs.topicId])}'>Unsubscribe</a>"
+//            } else {
+//                out << "<a href='${createLink(controller: 'subscription', action: 'save', params: [topicId: attrs.topicId])}'>subscribe</a>"
+//            }
+//        }
+//    }
 
     def topicCount = { attrs ->
         int count
@@ -186,7 +197,7 @@ class ApplicationTagLib {
         User user = session.user
         if (user) {
             List<Topic> list = User.getSubscribedTopic(user)
-            out << "${select(from: list, name: "topicId", optionKey: "id", optionValue: "name", id:"topic")}"
+            out << "${select(from: list, name: "topicId", optionKey: "id", optionValue: "name", id: "topic")}"
         }
     }
 

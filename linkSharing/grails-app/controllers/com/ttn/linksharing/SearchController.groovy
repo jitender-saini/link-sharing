@@ -13,16 +13,15 @@ class SearchController {
     TopicService topicService
     ResourceService resourceService
 
-    def show() {
-        if (params.q) {
+    def show(String q) {
+        if (q) {
             User user = session.user
             TopicSearchCO topicSearchCO = new TopicSearchCO()
             bindData(topicSearchCO, params)
+
             ResourceSearchCO resourceSearchCO = new ResourceSearchCO()
             bindData(resourceSearchCO, params)
 
-            Topic topic = Topic.read(topicSearchCO.id)
-            println(topic)
             List<TopicVO> topics = topicService.search(user, topicSearchCO)
             List<Resource> posts = resourceService.search(user, resourceSearchCO)
             render view: "show", model: [topics: topics, posts: posts]

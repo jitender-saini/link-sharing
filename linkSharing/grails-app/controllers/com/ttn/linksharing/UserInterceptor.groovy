@@ -11,8 +11,10 @@ class UserInterceptor {
 
     boolean before() {
         User user = session.user
-        if (!user.isAdmin) {
-            redirect(controller: 'user')
+        if (user) {
+            if (!user.isAdmin) {
+                redirect(controller: 'user')
+            }
         }
         true
     }

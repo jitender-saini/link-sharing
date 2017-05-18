@@ -1,5 +1,6 @@
 package linksharing
 
+import com.ttn.linkSharing.EmailService
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

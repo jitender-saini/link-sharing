@@ -1,16 +1,21 @@
 package com.ttn.linksharing
 
+import com.ttn.linkSharing.EmailService
 import com.ttn.linkSharing.Resource
 import com.ttn.linkSharing.Subscription
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.TopicService
 import com.ttn.linkSharing.User
 import com.ttn.linkSharing.co.ResourceSearchCO
+import com.ttn.linkSharing.co.TopicSearchCO
+import com.ttn.linkSharing.dto.EmailDTO
+import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
 import com.ttn.linkSharing.co.TopicCO
 
 class TopicController {
     TopicService topicService
+    EmailService emailService
 
     def index(Long id) {
         Topic topic = Topic.get(id)
@@ -33,7 +38,7 @@ class TopicController {
                 render view: '/topic/showTopic', model: [topic      : topic,
                                                          subscribers: Topic.getSubscribers(topic.id),
                                                          resources  : Topic.getResources(topic.id)]
-            } else if (topic.visibility == Visibility.PRIVATE) {
+            } else if (topic.visibility == Visibility.PRIVATE && user) {
                 if (topic.createdBy == user || user.isAdmin) {
                     render view: '/topic/showTopic', model: [topic      : topic,
                                                              subscribers: Topic.getSubscribers(topic.id),
@@ -54,10 +59,11 @@ class TopicController {
     def create(String name, String visibility) {
         if (name && visibility) {
             TopicCO topicCO = new TopicCO(name: name, visibility: Visibility.toEnum(visibility), createdBy: session.user)
-            topicService.saveTopic(topicCO)
+            if (topicService.saveTopic(topicCO)) {
+                flash.message = "Topic Create Successfully"
+            } else flash.message = "Topic Create Failed"
         }
-        flash.message = "Topic Create Successfully"
-        redirect(controller: "login", action: "index")
+        redirect(controller: "user", action: "index")
     }
 
 
@@ -86,6 +92,45 @@ class TopicController {
             flash.error = "Topic Deletion failed!!"
         }
         redirect(controller: "user", action: "index")
+    }
 
+    def topicList(TopicSearchCO co) {
+        if (!co) {
+            co = new TopicSearchCO(max: 5, offset: 0)
+        }
+        List<Topic> topics = Topic.search(co).list()
+        render(view: 'topicsList', model: [topics: topics, count: Topic.count()])
+    }
+
+
+    def invite(String email, Long topicId) {
+        Topic topic = Topic.get(topicId)
+        String serverUrl = 'localhost:8080'
+        EmailDTO emailDTO = new EmailDTO(to: email,
+                subject: "Topic Invitation",
+                view: "/email/template/invite",
+                model: [topic    : topic,
+                        user     : session.user,
+                        serverUrl: serverUrl])
+        emailService.sendMail(emailDTO)
+        flash.message = "Invitation Sent to your friend"
+        redirect(controller: "user", action: "index")
+    }
+
+    def join(long id) {
+        User invitedUser = session.user
+        Topic invitedTopic = Topic.read(id)
+        if (!User.isSubscribed(invitedUser, invitedTopic.id)) {
+            Subscription subscription = new Subscription(topic: invitedTopic, user: invitedUser, seriousness: Seriousness.CASUAL)
+            subscription.save(flush: true)
+            if (subscription.hasErrors()) {
+                flash.error = "Subscription Failed"
+            } else {
+                flash.message = "Subscribed"
+            }
+        } else {
+            flash.message = "Already Subscribed"
+        }
+        redirect(controller: "user", action: "index")
     }
 }

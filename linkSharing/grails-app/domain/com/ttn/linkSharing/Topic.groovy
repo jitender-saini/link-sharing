@@ -1,5 +1,6 @@
 package com.ttn.linkSharing
 
+import com.ttn.linkSharing.co.TopicSearchCO
 import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
 import com.ttn.linkSharing.co.TopicCO
@@ -34,6 +35,29 @@ class Topic {
             if (subscription.hasErrors())
                 log.error "Subscription failed ${subscription.errors.allErrors}"
             else log.info "${createdBy.userName} has subscribed ${name}"
+        }
+    }
+
+    static namedQueries = {
+        search { TopicSearchCO co ->
+            if (!co.q) {
+                co.q = ""
+            }
+            or {
+                ilike('name', "%${co.q}%")
+            }
+            if (co.sort) {
+                order(co.sort, co.order)
+            }
+            if (co.visibility) {
+                if (co.visibility == Visibility.PUBLIC) {
+                    eq('visibility', Visibility.PUBLIC)
+                } else if (co.visibility == Visibility.PRIVATE) {
+                    eq('visibility', Visibility.PRIVATE)
+                }
+            }
+            maxResults(co.max)
+            firstResult(co.offset)
         }
     }
 

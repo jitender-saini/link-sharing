@@ -15,7 +15,9 @@
                 <div class="col-sm-4">
                     <h5>@${topic.createdBy.userName}</h5>
                     <ls:notCreatorOfTopic topicId="${topic.id}">
-                        <ls:showSubscribe topicId="${topic.id}"/>
+                        <div id="subscription">
+                            <ls:showSubscribe topicId="${topic.id}"/>
+                        </div>
                     </ls:notCreatorOfTopic>
                 </div>
 
@@ -33,12 +35,8 @@
 
             <div class="row form-group">
                 <ls:isSubscribedToTopic topicId="${topic.id}">
-                %{--<div class="col-xs-3 pull-right">--}%
-                %{--<p id="updateTextOfSeriousness${topic.id}"></p>--}%
-                %{--</div>--}%
-
                     <div class="col-xs-6">
-                        <div class="dropdown pull-right">
+                        <div class="dropdown pull-right" id="changeSeriousness">
                             <button class="btn btn-default dropdown-toggle" type="button"
                                     data-toggle="dropdown">Seriousness
                                 <span class="caret"></span></button>
@@ -56,26 +54,25 @@
                         </div>
                     </div>
                 </ls:isSubscribedToTopic>
-            %{--<div class="col-sm-3">--}%
-            %{--<a href=""><span class="fa fa-envelope"></span></a>--}%
-            %{--</div>--}%
-                <div class="container-fluid">
-                    <ls:isAdminOrCreatorOfTopic topicId="${topic.id}">
-                        <div class="col-xs-3">
-                            <a href="javascript:void(0)" class="topicEdit${topic.id}"
-                               onclick="editTopic(${topic.id})">
-                                <span class="fa fa-edit fa-2x"></span>
-                            </a>
-                        </div>
+                %{--<div class="col-sm-3">--}%
+                    %{--<a href=""><span class="fa fa-envelope"></span></a>--}%
+                %{--</div>--}%
 
-                        <div class="col-xs-3">
-                            <a href="javascript:void(0)" class="topicDelete${topic.id}"
-                               onclick="deleteTopic(${topic.id})">
-                                <span class="fa fa-trash fa-2x"></span>
-                            </a>
-                        </div>
-                    </ls:isAdminOrCreatorOfTopic>
-                </div>
+                <ls:isAdminOrCreatorOfTopic topicId="${topic.id}">
+                    <div class="col-xs-3">
+                        <a href="javascript:void(0)" class="topicEdit${topic.id}"
+                           onclick="editTopic(${topic.id})">
+                            <span class="fa fa-edit fa-2x"></span>
+                        </a>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <a href="javascript:void(0)" class="topicDelete${topic.id}"
+                           onclick="deleteTopic(${topic.id})">
+                            <span class="fa fa-trash fa-2x"></span>
+                        </a>
+                    </div>
+                </ls:isAdminOrCreatorOfTopic>
             </div>
 
             <div class="row">

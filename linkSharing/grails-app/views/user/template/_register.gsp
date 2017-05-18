@@ -11,7 +11,7 @@
     </div>
 
     <div class="panel-body regForm">
-        <g:form controller="user" action="register" id="registerForm"
+        <g:form controller="user" action="register"
                 enctype="multipart/form-data">
             <div class="form-element-container"><input id="firstName" name="firstName"
                                                        placeholder="First Name" required
@@ -21,7 +21,7 @@
                                                        placeholder="Last Name" required
                                                        type="text" class="input-txt form-control"/></div>
 
-            <div class="form-element-container"><input id="email" name="email" placeholder="Email Address"
+            <div class="form-element-container"><input id="email" name="email" placeholder="Email Address" required
                                                        type="email" class="input-txt form-control"/></div>
 
             <div class="form-element-container"><input id="userName" name="userName"

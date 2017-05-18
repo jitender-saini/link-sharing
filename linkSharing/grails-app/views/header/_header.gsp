@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href='${createLink(controller: 'login', action: 'index')}'><g:img dir="images"
+            <a class="navbar-brand" style="padding: 5px" href='${createLink(controller: 'login', action: 'index')}'><g:img dir="images"
                                                                                                       file="logo.png"
                                                                                                       width="110"/></a>
         </div>
@@ -18,7 +18,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <g:form class="navbar-form navbar-left" controller="Search" action="show" role="search"
+
+                     <g:form class="navbar-form navbar-left" controller="Search" action="show" role="search"
                             name="search-form">
                         <div class="input-group add-on">
                             <g:textField name="q" type="text" class="form-control search-main" placeholder="Search"
@@ -63,9 +64,12 @@
                                 <a href='${createLink(controller: 'user', action: 'editProfile')}'>Edit Profile</a>
                             </li>
                             <ls:isAdminLoggedIn>
-                            <li>
-                                <a href='${createLink(controller: 'user', action: 'usersList')}'>Users List</a>
-                            </li>
+                                <li>
+                                    <a href='${createLink(controller: 'user', action: 'usersList')}'>Users List</a>
+                                </li>
+                                <li>
+                                    <a href='${createLink(controller: 'topic', action: 'topicList')}'>Topics List</a>
+                                </li>
                             </ls:isAdminLoggedIn>
                             <li role="separator" class="divider"></li>
                             <li><g:link controller="login" action="logout">Logout</g:link></li>

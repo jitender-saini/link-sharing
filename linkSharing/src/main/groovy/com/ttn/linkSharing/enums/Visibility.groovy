@@ -11,6 +11,7 @@ enum Visibility {
         } else {
             PRIVATE
         }
+
     }
 
 }

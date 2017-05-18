@@ -19,7 +19,10 @@ $(function(){
         messages:{
             firstName: "Please enter your first name",
             lastName: "Please enter your first name",
-            email: "Please enter a valid email address",
+            email: {
+              required:"Please enter a valid email address",
+                email:"Please enter valid email ID"
+            },
             password:{
                 required: "Please provide a password",
                 minlength: "Your password must be at least 5 characters long"

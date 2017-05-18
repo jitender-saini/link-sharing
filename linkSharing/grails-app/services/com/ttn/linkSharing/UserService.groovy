@@ -6,6 +6,7 @@ import grails.transaction.Transactional
 
 //@Transactional
 class UserService {
+    EmailService emailService
 
     def registration(UserCO userCo) {
         User user = new User(userCo.properties)
@@ -30,5 +31,23 @@ class UserService {
                     [password: profileCO.password, id: userObj.id])
         }
         return !userObj.hasErrors()
+    }
+
+    def sendUnreadItemsEmail() {
+        List<User> users = User.getAll()
+        List<Resource> unreadResources = []
+        users.each { user ->
+            unreadResources = getUserWithUnreadItems(user)
+            emailService.sendUnreadResourcesEmail(user, unreadResources)
+        }
+    }
+
+    List<Resource> getUserWithUnreadItems(User user) {
+        List<Resource> unreadResources = []
+        List<ReadingItem> readingItemList = ReadingItem.findAllByUserAndIsRead(user, false)
+        if (readingItemList) {
+            unreadResources = readingItemList*.resource
+        }
+        return unreadResources
     }
 }

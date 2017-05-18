@@ -4,24 +4,27 @@
             <ls:userImage userId="${resource.createdBy.id}"/>
         </div>
 
-        <div class="col-xs-6">
+        <div class="col-xs-5">
             <h5>${resource.createdBy.fullName}</h5>
             <h4>@${resource.createdBy.userName}</h4>
         </div>
 
-        <div class="col-xs-3" id="rating">
+        <div class="col-xs-4">
+            <div class="icon-bar" id="rating">
             <ls:resourceRating resourceId="${resource.id}"/>
+            </div>
             <ls:isSubscribed resourceId="${resource.id}">
+
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button"
-                            data-toggle="dropdown">Rate
-                        <span class="caret"></span></button>
+                    <button class="btn btn-default dropdown-toggle " type="button"
+                            data-toggle="dropdown">Rating
+                    </button>
                     <ul class="dropdown-menu">
-                        <li><a  onclick="insertRating(${resource.id}, 1)">1</a></li>
-                        <li><a  onclick="insertRating(${resource.id}, 2)">2</a></li>
-                        <li><a  onclick="insertRating(${resource.id}, 3)">3</a></li>
-                        <li><a  onclick="insertRating(${resource.id}, 4)">4</a></li>
-                        <li><a  onclick="insertRating(${resource.id}, 5)">5</a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 1)"><span class='fa fa-star'></span></a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 2)"><span class='fa fa-star'></span><span class='fa fa-star'></span></a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 3)"><span class='fa fa-star'></span><span class='fa fa-star'></span><span class='fa fa-star'></span></a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 4)"><span class='fa fa-star'></span><span class='fa fa-star'></span><span class='fa fa-star'></span><span class='fa fa-star'></span></a></li>
+                        <li><a  onclick="insertRating(${resource.id}, 5)"><span class='fa fa-star'></span><span class='fa fa-star'></span><span class='fa fa-star'></span><span class='fa fa-star'></span><span class='fa fa-star'></span></a></li>
                     </ul>
                 </div>
             </ls:isSubscribed>

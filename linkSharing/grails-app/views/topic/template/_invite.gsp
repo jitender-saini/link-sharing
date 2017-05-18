@@ -9,7 +9,7 @@
             </div>
 
             <div class="modal-body" style="margin-left: 15px;margin-right:15px;">
-                <g:form controller="user" action="sendInvitation" class="form-horizontal">
+                <g:form controller="topic" action="invite" class="form-horizontal">
                     <div class="form-group">
                         <div class="control-label col-sm-3"><label for="email" class="pull-left">Email*</label></div>
 

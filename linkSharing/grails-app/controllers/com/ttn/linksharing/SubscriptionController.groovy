@@ -14,12 +14,9 @@ class SubscriptionController {
             subscribe.save(flush: true)
             if (subscribe.hasErrors()) {
                 flash.error = "Subscription failed!!"
-                redirect(controller: 'login', action: 'index')
-            } else {
-                flash.message = "Subscription Success!!"
-                redirect(controller: 'login', action: 'index')
             }
         } else flash.error = "Invalid TopicId!!!"
+        render topicId
     }
 
     def update(Long topicId, String seriousness) {
@@ -30,7 +27,7 @@ class SubscriptionController {
             if (subscription.hasErrors()) {
                 flash.message = "Subscription update failed"
             } else {
-                flash.message = "Subscription updated"
+//                flash.message = "Subscription updated"
             }
         } else {
             flash.message = "Subscription notFound"
@@ -43,12 +40,13 @@ class SubscriptionController {
             subscription.delete(flush: true)
             if (subscription.hasErrors()) {
                 flash.error = "Subscription deletion failed"
-                redirect(controller: 'login', action: 'index')
+//                redirect(controller: 'login', action: 'index')
 
             } else {
-                flash.message = "Subscription Deleted!!"
-                redirect(controller: 'login', action: 'index')
+//                flash.message = "Subscription Deleted!!"
+//                redirect(controller: 'login', action: 'index')
             }
         }
+        render topicId
     }
 }

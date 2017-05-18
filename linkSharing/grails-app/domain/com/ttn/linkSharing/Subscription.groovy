@@ -13,6 +13,8 @@ class Subscription {
     static constraints = {
         user unique: "topic", nullable: false, blank: false
     }
+
+    //todo
     static mapping = {
         user lazy: false
         topic lazy: false

@@ -1,8 +1,9 @@
 package linksharing
 
-class MailTriggerJob {
-    EmailService emailService
+import com.ttn.linkSharing.UserService
 
+class MailTriggerJob {
+    UserService userService
     static triggers = {
 //      simple name: 'mySimpleTrigger', startDelay: 60000,repeatInterval: 5000l // execute job once in 5 seconds
 
@@ -14,6 +15,6 @@ class MailTriggerJob {
     def description = "Example job with Simple Trigger"
 
     def execute() {
-        emailService.sendUnreadResourcesEmail()
+        userService.sendUnreadItemsEmail()
     }
 }
