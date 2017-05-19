@@ -91,9 +91,9 @@ class ApplicationTagLib {
         User user = session.user
         if (user && attrs.topicId) {
             if (User.isSubscribed(user, attrs.topicId)) {
-                out << "<a onClick='deleteSubscribe(${attrs.topicId})'>UnSubscribe</a>"
+                out << "<a onClick='deleteSubscribe(${attrs.topicId})' class='unsubscribe'>UnSubscribe</a>"
             } else {
-                out << "<a onClick='subscribeTopic(${attrs.topicId})'>Subscribe</a>"
+                out << "<a onClick='subscribeTopic(${attrs.topicId})' class='subscribe'>Subscribe</a>"
             }
         }
     }

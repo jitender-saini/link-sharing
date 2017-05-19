@@ -2,6 +2,18 @@
  * Created by jitender on 16/5/17.
  */
 
+function makeAjaxcall(url, data, element, callback) {
+    element.parent().prepend($("#ajaxSpinnerImage"));
+    $.ajax({
+        url: url,
+        data: data,
+        success: function (response) {
+            console.log(response);
+            callback(response)
+        }
+    });
+}
+
 
 if (typeof jQuery !== 'undefined') {
     (function ($) {
@@ -28,9 +40,10 @@ function updateSeriousness(topicId, seriousness) {
     })
 }
 
+
 function deleteResource(resourceId) {
     if (confirm("Are you sure you want to delete this resource ?") == true) {
-        $.ajax({
+        jQuery.ajax({
             url: "/resource/delete?resourceId=" + resourceId,
             type: 'GET',
             success: function (result) {
@@ -44,7 +57,7 @@ function deleteResource(resourceId) {
 
 function deleteTopic(topicId) {
     if (confirm("Are you sure, you want to delete this topic?") == true) {
-        $.ajax({
+        jQuery.ajax({
             url: "/topic/delete?topicId=" + topicId,
             type: 'GET',
             success: function (result) {
@@ -57,7 +70,7 @@ function deleteTopic(topicId) {
 }
 
 function insertRating(resourceId, rating) {
-    $.ajax({
+    jQuery.ajax({
         url: "/resource/rating?resourceId=" + resourceId + "&rating=" + rating,
         type: 'GET',
         success: function (result) {
@@ -81,7 +94,7 @@ function insertRating(resourceId, rating) {
 }
 
 function deleteSubscribe(topicId) {
-    $.ajax({
+    jQuery.ajax({
         url: "/subscription/delete?topicId=" + topicId,
         success: function (result) {
             console.log(result);
@@ -95,7 +108,7 @@ function deleteSubscribe(topicId) {
     })
 }
 function subscribeTopic(topicId) {
-    $.ajax({
+    jQuery.ajax({
         url: "/subscription/save?topicId=" + topicId,
         success: function (result) {
             console.log(result);
@@ -122,12 +135,12 @@ function subscribeTopic(topicId) {
 
 function editResource(resourceId) {
     var id = "#description" + resourceId;
-    $(id).show()
+    jQuery(id).show()
 }
 
 function editTopic(topicId) {
     var id = ".topicId" + topicId;
-    $(id).show()
+    jQuery  (id).show()
 }
 
 // function globalSearch(q) {
