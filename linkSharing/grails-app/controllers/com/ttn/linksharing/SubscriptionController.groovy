@@ -17,10 +17,10 @@ class SubscriptionController {
             if (subscribe.hasErrors()) {
                 json.error = "Subscription failed!!"
             } else {
-                json.message = "Subscription Success"
+                json.success = "Subscription Success"
             }
         } else json.error = "Invalid TopicId!!!"
-        response json as JSON
+        render json as JSON
     }
 
     def update(Long topicId, String seriousness) {
@@ -30,14 +30,14 @@ class SubscriptionController {
             subscription.seriousness = Seriousness.toEnum(seriousness)
             subscription.save(flush: true)
             if (subscription.hasErrors()) {
-                json.message = "Subscription update failed"
+                json.error = "Subscription update failed"
             } else {
-                json.message = "Subscription updated"
+                json.success = "Subscription updated"
             }
         } else {
-            json.message = "Subscription notFound"
+            json.error = "Subscription notFound"
         }
-        response json as JSON
+        render json as JSON
     }
 
 //todo
@@ -50,9 +50,9 @@ class SubscriptionController {
                 json.error = "Subscription deletion failed"
 
             } else {
-                json.message = "Subscription Deleted!!"
+                json.success = "Subscription Deleted!!"
             }
         }
-        response json as JSON
+        render json as JSON
     }
 }

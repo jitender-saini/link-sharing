@@ -97,29 +97,27 @@ function deleteSubscribe(topicId) {
     jQuery.ajax({
         url: "/subscription/delete?topicId=" + topicId,
         success: function (response) {
-            var parsedResponse =jQuery.parseJSON(response)
-            console.log(response);
             var builder = "<a onClick='subscribeTopic(" + topicId + ")'>Subscribe</a>";
             $("#subscription").html(builder);
             $("#changeSeriousness").hide();
-            $("#flash").html("<div class='alert alert-success'> + parsedResponse.success + </div>")
+            $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("error in updating rating");
+        error: function (response) {
+            $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
         }
     })
 }
 function subscribeTopic(topicId) {
     jQuery.ajax({
         url: "/subscription/save?topicId=" + topicId,
-        success: function (result) {
-            console.log(result);
+        success: function (response) {
             var builder = "<a onClick='deleteSubscribe(" + topicId + ")'>UnSubscribe</a>";
             $("#subscription").html(builder);
             $("#changeSeriousness").toggle();
+            $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("error in updating rating");
+        error: function (response) {
+            $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
         }
     })
 }
@@ -142,7 +140,7 @@ function editResource(resourceId) {
 
 function editTopic(topicId) {
     var id = ".topicId" + topicId;
-    jQuery  (id).show()
+    jQuery(id).show()
 }
 
 // function globalSearch(q) {
