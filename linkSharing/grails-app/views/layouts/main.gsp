@@ -30,6 +30,8 @@
     <div class="alert alert-danger">${flash.error}</div>
 </g:if>
 
+<div id="flash"></div>
+
 <div class="main-page">
     <g:layoutBody/>
 </div>

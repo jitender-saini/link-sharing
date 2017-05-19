@@ -83,11 +83,13 @@ function insertRating(resourceId, rating) {
 function deleteSubscribe(topicId) {
     $.ajax({
         url: "/subscription/delete?topicId=" + topicId,
-        success: function (result) {
-            console.log(result);
+        success: function (response) {
+            var parsedResponse =jQuery.parseJSON(response)
+            console.log(response);
             var builder = "<a onClick='subscribeTopic(" + topicId + ")'>Subscribe</a>";
             $("#subscription").html(builder);
             $("#changeSeriousness").hide();
+            $("#flash").html("<div class='alert alert-success'> + parsedResponse.success + </div>")
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("error in updating rating");
