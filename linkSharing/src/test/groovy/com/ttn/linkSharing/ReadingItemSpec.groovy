@@ -1,6 +1,10 @@
 package com.ttn.linkSharing
 
-import com.ttn.linkSharing.enums.Visibility
+import com.ttn.linksharing.DocumentResource
+import com.ttn.linksharing.LinkResource
+import com.ttn.linksharing.ReadingItem
+import com.ttn.linksharing.Resource
+import com.ttn.linksharing.User
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 import spock.lang.Unroll

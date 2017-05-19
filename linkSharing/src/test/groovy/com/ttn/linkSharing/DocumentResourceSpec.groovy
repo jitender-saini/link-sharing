@@ -1,5 +1,7 @@
 package com.ttn.linkSharing
 
+import com.ttn.linksharing.DocumentResource
+import com.ttn.linksharing.Resource
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 import spock.lang.Unroll

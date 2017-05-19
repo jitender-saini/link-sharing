@@ -1,6 +1,9 @@
 package com.ttn.linkSharing
 
-import com.ttn.linkSharing.enums.Seriousness
+import com.ttn.linksharing.enums.Seriousness
+import com.ttn.linksharing.Subscription
+import com.ttn.linksharing.Topic
+import com.ttn.linksharing.User
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 

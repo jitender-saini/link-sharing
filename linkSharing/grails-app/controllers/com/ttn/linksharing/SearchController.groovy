@@ -1,13 +1,8 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.ResourceService
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.TopicService
-import com.ttn.linkSharing.User
-import com.ttn.linkSharing.co.ResourceSearchCO
-import com.ttn.linkSharing.co.TopicSearchCO
-import com.ttn.linkSharing.vo.TopicVO
+import com.ttn.linksharing.co.ResourceSearchCO
+import com.ttn.linksharing.co.TopicSearchCO
+import com.ttn.linksharing.vo.TopicVO
 
 class SearchController {
     TopicService topicService

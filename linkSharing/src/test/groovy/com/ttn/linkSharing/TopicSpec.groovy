@@ -1,6 +1,8 @@
 package com.ttn.linkSharing
 
-import com.ttn.linkSharing.enums.Visibility
+import com.ttn.linksharing.enums.Visibility
+import com.ttn.linksharing.Topic
+import com.ttn.linksharing.User
 import grails.test.mixin.Mock
 import grails.test.mixin.TestMixin
 import grails.test.mixin.domain.DomainClassUnitTestMixin

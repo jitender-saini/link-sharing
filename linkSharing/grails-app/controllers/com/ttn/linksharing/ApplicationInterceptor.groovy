@@ -21,7 +21,7 @@ class ApplicationInterceptor {
         return true
     }
 
-    void afterView() {
-        // no-op
-    }
+//    void afterView() {
+//        // no-op
+//    }
 }

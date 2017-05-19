@@ -1,15 +1,9 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.EmailService
-import com.ttn.linkSharing.ReadingItem
-import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.User
-import com.ttn.linkSharing.UserService
-import com.ttn.linkSharing.co.UpdateProfileCO
-import com.ttn.linkSharing.co.UserCO
-import com.ttn.linkSharing.co.UserSearchCO
-import com.ttn.linkSharing.dto.EmailDTO
+import com.ttn.linksharing.co.UpdateProfileCO
+import com.ttn.linksharing.co.UserCO
+import com.ttn.linksharing.co.UserSearchCO
+import com.ttn.linksharing.dto.EmailDTO
 import org.apache.commons.lang.RandomStringUtils
 
 class UserController {
@@ -152,9 +146,7 @@ class UserController {
     }
 
     def usersList(UserSearchCO userSearchCO) {
-        if (!userSearchCO) {
-            userSearchCO = new UserSearchCO(max: 5, offset: 0)
-        }
+        userSearchCO = userSearchCO ?: new UserSearchCO([max:5, offset:0])
         List<User> users = User.search(userSearchCO).list()
         render(view: 'usersList', model: [users: users,
                                           count: User.count()])

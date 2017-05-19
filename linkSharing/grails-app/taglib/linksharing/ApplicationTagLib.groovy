@@ -1,18 +1,33 @@
 package linksharing
 
-import com.ttn.linkSharing.LinkResource
-import com.ttn.linkSharing.ReadingItem
-import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.Subscription
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.User
-import com.ttn.linkSharing.vo.RatingInfoVO
-import com.ttn.linkSharing.vo.TopicVO
+import com.ttn.linksharing.LinkResource
+import com.ttn.linksharing.ReadingItem
+import com.ttn.linksharing.Resource
+import com.ttn.linksharing.Subscription
+import com.ttn.linksharing.Topic
+import com.ttn.linksharing.User
+import com.ttn.linksharing.vo.RatingInfoVO
+import com.ttn.linksharing.vo.TopicVO
 
 class ApplicationTagLib {
     static defaultEncodeAs = "raw"
 
     static namespace = "ls"
+//    def isRead = { attrs, body ->
+//        User user = session.user
+//        if (user) {
+//            Resource resource = attrs.resource
+//            if (resource) {
+//                Integer count = ReadingItem.countByResourceAndIsReadAndUser(resource, true, user)
+//                if (count) {
+//                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}' id='unReadItem'>Mark as Un Read</a> "
+//                } else {
+//                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}' id='readItem'>Mark as Read</a> "
+//                }
+//            }
+//        }
+//    }
+
     def isRead = { attrs, body ->
         User user = session.user
         if (user) {
@@ -20,9 +35,9 @@ class ApplicationTagLib {
             if (resource) {
                 Integer count = ReadingItem.countByResourceAndIsReadAndUser(resource, true, user)
                 if (count) {
-                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}' id='unReadItem'>Mark as Un Read</a> "
+                    out << "<a onClick='unReadItem(${resource.id})' id= 'unReadItem' >Mark as Un Read</a>"
                 } else {
-                    out << "<a href='${createLink(controller: 'readingItem', action: 'toggleIsRead', id: resource.id)}' id='readItem'>Mark as Read</a> "
+                    out << "<a onClick='readItem(${resource.id})' id= 'readItem' >Mark as Read</a>"
                 }
             }
         }
@@ -45,9 +60,9 @@ class ApplicationTagLib {
     def checkResourceType = { attrs ->
         if (session.user) {
             Resource resource = Resource.get(attrs.resourceId)
-            if (resource instanceof LinkResource)
+            if (resource instanceof LinkResource) {
                 out << "<span><a href='${resource.url}' target='_blank'>View Full Site</a></span> "
-            else {
+            } else {
                 out << "<span><a href='${createLink(controller: 'resource', action: 'download', params: [filePath: resource.filePath])}'>Download</a></span> "
             }
         } else {
@@ -137,7 +152,9 @@ class ApplicationTagLib {
             if (user.isAdmin || topic) {
                 out << body()
             }
-        } else out << ""
+        } else {
+            out << ""
+        }
     }
 
     def notCreatorOfTopic = { attrs, body ->

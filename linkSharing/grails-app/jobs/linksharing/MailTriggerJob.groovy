@@ -1,6 +1,6 @@
 package linksharing
 
-import com.ttn.linkSharing.UserService
+import com.ttn.linksharing.UserService
 
 class MailTriggerJob {
     UserService userService

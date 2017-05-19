@@ -1,17 +1,10 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.EmailService
-import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.Subscription
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.TopicService
-import com.ttn.linkSharing.User
-import com.ttn.linkSharing.co.ResourceSearchCO
-import com.ttn.linkSharing.co.TopicSearchCO
-import com.ttn.linkSharing.dto.EmailDTO
-import com.ttn.linkSharing.enums.Seriousness
-import com.ttn.linkSharing.enums.Visibility
-import com.ttn.linkSharing.co.TopicCO
+import com.ttn.linksharing.co.ResourceSearchCO
+import com.ttn.linksharing.co.TopicSearchCO
+import com.ttn.linksharing.dto.EmailDTO
+import com.ttn.linksharing.enums.Visibility
+import com.ttn.linksharing.co.TopicCO
 import grails.converters.JSON
 
 class TopicController {
@@ -62,7 +55,9 @@ class TopicController {
             TopicCO topicCO = new TopicCO(name: name, visibility: Visibility.toEnum(visibility), createdBy: session.user)
             if (topicService.saveTopic(topicCO)) {
                 flash.message = "Topic Create Successfully"
-            } else flash.message = "Topic Create Failed"
+            } else {
+                flash.message = "Topic Create Failed"
+            }
         }
         redirect(controller: "user", action: "index")
     }
@@ -98,9 +93,7 @@ class TopicController {
     }
 
     def topicList(TopicSearchCO co) {
-        if (!co) {
-            co = new TopicSearchCO(max: 5, offset: 0)
-        }
+        co = co ?: new TopicSearchCO([max: 5, offset: 0])
         List<Topic> topics = Topic.search(co).list()
         render(view: 'topicsList', model: [topics: topics, count: Topic.count()])
     }

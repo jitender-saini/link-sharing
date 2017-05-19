@@ -1,8 +1,5 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.User
-
-
 class UserInterceptor {
     UserInterceptor() {
         match(controller: 'user', action: 'usersList')
@@ -21,7 +18,7 @@ class UserInterceptor {
 
     boolean after() { true }
 
-    void afterView() {
-        // no-op
-    }
+//    void afterView() {
+//        // no-op
+//    }
 }

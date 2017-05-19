@@ -1,11 +1,5 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.DocumentResource
-import com.ttn.linkSharing.LinkResource
-import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.ResourceRating
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.User
 import grails.converters.JSON
 import org.springframework.web.multipart.MultipartFile
 

@@ -1,9 +1,5 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.User
-
 class LoginController {
     def assetResourceLocator
 

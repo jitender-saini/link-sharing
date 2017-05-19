@@ -1,9 +1,6 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.Subscription
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.User
-import com.ttn.linkSharing.enums.Seriousness
+import com.ttn.linksharing.enums.Seriousness
 import grails.converters.JSON
 
 class SubscriptionController {
@@ -19,7 +16,9 @@ class SubscriptionController {
             } else {
                 json.success = "Subscription Success"
             }
-        } else json.error = "Invalid TopicId!!!"
+        } else {
+            json.error = "Invalid TopicId!!!"
+        }
         render json as JSON
     }
 

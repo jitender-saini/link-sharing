@@ -1,5 +1,5 @@
 <g:each in="${inboxList}" var="post">
-    <div class="well">
+    <div class="well" id="readItem${post.id}">
         <div class="row">
             <div class="col-sm-3">
                 <a href='${createLink(controller: 'user', action: 'profile', params: [userId: post.createdBy.id])}'>

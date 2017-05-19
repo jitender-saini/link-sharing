@@ -1,17 +1,5 @@
 package com.ttn.linksharing
 
-import com.ttn.linkSharing.DocumentResource
-import com.ttn.linkSharing.LinkResource
-import com.ttn.linkSharing.ReadingItem
-import com.ttn.linkSharing.Resource
-import com.ttn.linkSharing.ResourceRating
-import com.ttn.linkSharing.Subscription
-import com.ttn.linkSharing.Topic
-import com.ttn.linkSharing.User
-import com.ttn.linkSharing.constant.Constant
-import com.ttn.linkSharing.enums.Seriousness
-import com.ttn.linkSharing.enums.Visibility
-
 class BootStrap {
 
     def init = { servletContext ->
@@ -21,8 +9,10 @@ class BootStrap {
 //        subscribeTopics()
 //        addReadItems()
 //        addRating()
+        log.info("Application Started")
     }
 
+/*
     void createUser() {
         if (User.count() == 0) {
             User adminUser = new User(userName: "jaysaini", firstName: "Jay", lastName: "Saini", password: Constant.password, email: "jitender.saini@ttn.com",
@@ -162,6 +152,7 @@ class BootStrap {
             createRatings(it.user, it.resource, 3)
         }
     }
+*/
 
 
     def destroy = {

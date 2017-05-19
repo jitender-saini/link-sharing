@@ -123,15 +123,35 @@ function subscribeTopic(topicId) {
     })
 }
 
+function readItem(resourceId) {
+    console.log("read")
+    $.ajax({
+        url: "/readingItem/readItem?resourceId=" + resourceId,
+        success: function (response) {
+            // var builder = "<a onClick='Unread(resourceId)'>Mark as Unread</a>"
+            $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
+            $("#readItem"+resourceId).hide();
+        },
+        error: function (response) {
+            $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
+        }
+    })
+}
 
-// function readItem(resourceId) {
-//     $.ajax({
-//         url: "/readingItem/toggleIsRead?resourceId="+resourceId,
-//         success:function (result) {
-//             var builder = "<a onClick='Unread(resourceId)'>Mark as Unread</a>"
-//         }
-//     })
-// }
+function unReadItem(resourceId) {
+    console.log("unread")
+
+    $.ajax({
+        url: "/readingItem/unReadItem?resourceId=" + resourceId,
+        success: function (response) {
+            // var builder = "<a onClick='Unread(resourceId)'>Mark as Unread</a>"
+            $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
+        },
+        error: function (response) {
+            $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
+        }
+    })
+}
 
 
 function editResource(resourceId) {
