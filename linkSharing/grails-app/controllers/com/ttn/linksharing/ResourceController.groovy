@@ -6,6 +6,7 @@ import com.ttn.linkSharing.Resource
 import com.ttn.linkSharing.ResourceRating
 import com.ttn.linkSharing.Topic
 import com.ttn.linkSharing.User
+import grails.converters.JSON
 import org.springframework.web.multipart.MultipartFile
 
 class ResourceController {
@@ -25,7 +26,6 @@ class ResourceController {
             flash.message = "save success link"
             redirect(controller: "user", action: "index")
         }
-
     }
 
     def saveDoc() {
@@ -51,7 +51,7 @@ class ResourceController {
                 }
                 file.transferTo(new File(fullPath))
             }
-            redirect(controller: 'login', action: 'index')
+            redirect(controller: 'user', action: 'index')
         } catch (Exception e) {
             redirect(controller: 'user', action: 'index')
         }
@@ -61,7 +61,7 @@ class ResourceController {
         Resource resource = Resource.get(resourceId)
         if (resource) {
             render(view: "resourceShow", model: [resource: resource])
-        }else{
+        } else {
             flash.message = "Post not available"
         }
     }
@@ -82,15 +82,17 @@ class ResourceController {
     }
 
     def delete(Long resourceId) {
+        Map json = [:]
         Resource resource = Resource.read(resourceId)
         if (resource) {
             resource.delete(flush: true, failOnError: true)
-            flash.message = "Resource Deleted!!"
-            redirect(controller: "user", action: "index")
+            json.success = "Resource Deleted!!"
+//            redirect(controller: "user", action: "index")
         } else {
-            flash.error = "Resource Deletion failed!!"
-            redirect(controller: "user", action: "index")
+            json.error = "Resource Deletion failed!!"
+//            redirect(controller: "user", action: "index")
         }
+        render json as JSON
     }
 
     def rating(String resourceId, Long rating) {
@@ -110,11 +112,12 @@ class ResourceController {
     }
 
     def download(String filePath) {
+        Map json = [:]
         byte[] bytes = new File(filePath).getBytes()
         String fileName = filePath.substring(filePath.lastIndexOf("/") + 1)
         response.setHeader("Content-disposition", "attachment; filename=$fileName")
         response.contentLength = bytes.length
         response.outputStream << bytes
-        flash.message = "Your download is started Downloaded"
+        json.message = "Your download is started Downloaded"
     }
 }

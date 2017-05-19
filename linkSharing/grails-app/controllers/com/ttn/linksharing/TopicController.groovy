@@ -12,6 +12,7 @@ import com.ttn.linkSharing.dto.EmailDTO
 import com.ttn.linkSharing.enums.Seriousness
 import com.ttn.linkSharing.enums.Visibility
 import com.ttn.linkSharing.co.TopicCO
+import grails.converters.JSON
 
 class TopicController {
     TopicService topicService
@@ -84,14 +85,16 @@ class TopicController {
     }
 
     def delete(Long topicId) {
+        Map json = [:]
         Topic topic = Topic.read(topicId)
         if (topic) {
             topic.delete(flush: true, failOnError: true)
-            flash.message = "Topic Deleted!!"
+            json.success = "Topic Deleted!!"
         } else {
-            flash.error = "Topic Deletion failed!!"
+            json.error = "Topic Deletion failed!!"
         }
-        redirect(controller: "user", action: "index")
+        render json as JSON
+//        redirect(controller: "user", action: "index")
     }
 
     def topicList(TopicSearchCO co) {

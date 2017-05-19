@@ -2,17 +2,17 @@
  * Created by jitender on 16/5/17.
  */
 
-function makeAjaxcall(url, data, element, callback) {
-    element.parent().prepend($("#ajaxSpinnerImage"));
-    $.ajax({
-        url: url,
-        data: data,
-        success: function (response) {
-            console.log(response);
-            callback(response)
-        }
-    });
-}
+// function makeAjaxcall(url, data, element, callback) {
+//     element.parent().prepend($("#ajaxSpinnerImage"));
+//     $.ajax({
+//         url: url,
+//         data: data,
+//         success: function (response) {
+//             console.log(response);
+//             callback(response)
+//         }
+//     });
+// }
 
 
 if (typeof jQuery !== 'undefined') {
@@ -29,13 +29,12 @@ function updateSeriousness(topicId, seriousness) {
     $.ajax({
         url: "/subscription/update?topicId=" + topicId + "&seriousness=" + seriousness,
         type: 'GET',
-        success: function (result) {
+        success: function (response) {
+            $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
             location.reload();
-            var id = "#updateTextOfSeriousness" + topicId
-            $(id).html(result)
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("error in updating status")
+        error: function (response) {
+            $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
         }
     })
 }
@@ -46,10 +45,11 @@ function deleteResource(resourceId) {
         jQuery.ajax({
             url: "/resource/delete?resourceId=" + resourceId,
             type: 'GET',
-            success: function (result) {
+            success: function (response) {
+                $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
             },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("resource deletion failed!!!")
+            error: function (response) {
+                $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
             }
         })
     }
@@ -60,10 +60,11 @@ function deleteTopic(topicId) {
         jQuery.ajax({
             url: "/topic/delete?topicId=" + topicId,
             type: 'GET',
-            success: function (result) {
+            success: function (response) {
+                $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
             },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert("Topic deletion failed!!!")
+            error: function (response) {
+                $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
             }
         })
     }
@@ -87,8 +88,8 @@ function insertRating(resourceId, rating) {
             }
             $("#rating").html(builder);
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            alert("error in updating rating");
+        error: function (response) {
+            $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
         }
     })
 }
