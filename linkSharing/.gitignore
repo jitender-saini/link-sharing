@@ -9,4 +9,4 @@ build/
 .project
 .settings
 .classpath
-app-config.yml
+*.yml

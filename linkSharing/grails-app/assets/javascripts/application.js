@@ -6,11 +6,12 @@
 // to create separate JavaScript files as needed.
 //
 //= require jquery-2.2.0.min
+//= require jquery.validate
+//= require register
 //= require bootstrap
-//= require login
+// srequire login
 //= require app
 // srequire jquery
-// srequire jquery.validate
 //  srequire_tree .
 //= require_self
 

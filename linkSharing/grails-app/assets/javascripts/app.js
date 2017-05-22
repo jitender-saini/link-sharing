@@ -124,13 +124,13 @@ function subscribeTopic(topicId) {
 }
 
 function readItem(resourceId) {
-    console.log("read")
     $.ajax({
         url: "/readingItem/readItem?resourceId=" + resourceId,
         success: function (response) {
-            // var builder = "<a onClick='Unread(resourceId)'>Mark as Unread</a>"
+            var builder = "<a onClick='unReadItem(" + resourceId + ")'>Mark as Unread</a>";
             $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
-            $("#readItem"+resourceId).hide();
+            $("#ReadingItems").html(builder);
+            $("#readItemInbox" + resourceId).hide();
         },
         error: function (response) {
             $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");
@@ -139,13 +139,12 @@ function readItem(resourceId) {
 }
 
 function unReadItem(resourceId) {
-    console.log("unread")
-
     $.ajax({
         url: "/readingItem/unReadItem?resourceId=" + resourceId,
         success: function (response) {
-            // var builder = "<a onClick='Unread(resourceId)'>Mark as Unread</a>"
+            var builder = "<a onClick='readItem(" + resourceId + ")'>Mark as Read</a>"
             $("#flash").html("<div class='alert alert-success'>" + response.success + "</div>");
+            $("#ReadingItems").html(builder);
         },
         error: function (response) {
             $("#flash").html("<div class='alert alert-danger'>" + response.error + "</div>");

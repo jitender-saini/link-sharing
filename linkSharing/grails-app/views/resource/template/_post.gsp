@@ -34,7 +34,7 @@
                         <span style="margin-right:10px;">
                             <ls:checkResourceType resourceId="${post.id}"/>
                         </span>
-                        <span style="margin-right:10px;">
+                        <span style="margin-right:10px;" id= 'ReadingItems'>
                             <ls:isRead resource="${post}"/>
                         </span>
                     </ls:isLoggedIn>

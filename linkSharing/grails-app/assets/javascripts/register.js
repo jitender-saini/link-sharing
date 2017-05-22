@@ -2,8 +2,8 @@
  * Created by jitender on 9/5/17.
  */
 
-$(function(){
-    $("form[name='registerForm']").validate({
+jQuery(document).ready(function(){
+    $("#userRegistrationForm").validate({
         rules:{
             firstName: "required",
             lastName: "required",
@@ -29,7 +29,15 @@ $(function(){
             }
         },
         submitHandler: function(form){
-            form.submit();
+            alert("submit called");
+            //form.submit();
+            return false;
         }
     });
+
+
 });
+function validateUserRegistrationForm() {
+    alert("c   alled");
+    jQuery("#userRegistrationForm").valid()
+}

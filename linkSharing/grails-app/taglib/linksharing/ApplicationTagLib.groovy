@@ -35,9 +35,9 @@ class ApplicationTagLib {
             if (resource) {
                 Integer count = ReadingItem.countByResourceAndIsReadAndUser(resource, true, user)
                 if (count) {
-                    out << "<a onClick='unReadItem(${resource.id})' id= 'unReadItem' >Mark as Un Read</a>"
+                    out << "<a onClick='unReadItem(${resource.id})' >Mark as Un Read</a>"
                 } else {
-                    out << "<a onClick='readItem(${resource.id})' id= 'readItem' >Mark as Read</a>"
+                    out << "<a onClick='readItem(${resource.id})' >Mark as Read</a>"
                 }
             }
         }

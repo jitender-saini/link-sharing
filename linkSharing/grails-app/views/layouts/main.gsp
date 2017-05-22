@@ -37,6 +37,7 @@
 </div>
 <asset:javascript src="application.js"/>
 %{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}%
+%{--<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>--}%
 %{--<asset:javascript src="jquery.validate.js"/>--}%
 %{--<asset:javascript src="jquery.js"/>--}%
 <asset:deferredScripts/>
